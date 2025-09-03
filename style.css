@@ -9,14 +9,18 @@
   margin: 0;
   padding: 0;
 }
+
 html,
 body {
   overflow-x: hidden;
 }
+
 main {
   padding-top: 80px;
 }
+
 .sec1 {
+  overflow: hidden;
   display: flex;
   align-items: center;
   height: 100vh;
@@ -27,21 +31,25 @@ main {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 #im {
   margin-top: -40px;
   margin-left: 360px;
 }
+
 #texto_sec {
   margin-top: -100px;
   margin-left: 220px;
   color: aliceblue;
 }
+
 .sec2 {
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
   gap: 20px;
 }
+
 #re {
   margin-top: 50px;
   font-size: 70px;
@@ -62,10 +70,11 @@ main {
   font-family: "Geologica", sans-serif;
 }
 
- .sec2 h1{
-  color: linear-gradient(to right, #0245a8, #16283d );
+.sec2 h1 {
+  color: linear-gradient(to right, #0245a8, #16283d);
   font-family: "Montserrat", sans-serif;
 }
+
 .num {
   color: #56d4ff;
   display: block;
@@ -110,12 +119,14 @@ main {
 .sec1 h1 {
   font-size: 80px;
 }
+
 .sec1 a {
   font-family: "Geologica" sans-serif;
   margin-left: 0px;
   font-size: 19px;
   color: aliceblue;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -132,10 +143,12 @@ footer {
   border-radius: 15px;
   background-color: #081f38;
 }
+
 footer section {
   margin-top: 50px;
   margin-left: 95px;
 }
+
 .direitos {
   grid-area: direitos;
   margin-right: 100px;
@@ -143,31 +156,40 @@ footer section {
   text-align: center;
   font-size: 19px;
 }
+
 footer .col1 {
   grid-area: col1;
 }
+
 footer p {
   margin-top: 15px;
 }
+
 footer .col2 {
   grid-area: col2;
 }
+
 footer .col3 {
   grid-area: col3;
 }
+
 footer p {
   font-size: 18px;
 }
+
 footer h3 {
   font-size: 26px;
 }
+
 footer p,
 h3 {
   color: aliceblue;
 }
+
 p {
   font-family: "Geologica" sans-serif;
 }
+
 header {
   background-image: url("./imgs/Fundo\ \ Header.png");
   position: fixed;
@@ -179,18 +201,93 @@ header {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 9px;
   padding: 7px 40px;
 }
+
 a {
   font-family: "Lexend Giga", sans-serif;
   text-decoration: none;
   color: black;
 }
+
 header a:hover {
   text-decoration: underline;
 }
+
 button {
   background-color: #004cc5;
   border: none;
   color: aliceblue;
   border-radius: 12px;
   padding: 16px;
+}
+
+#sec3 {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  margin-top: 80px;
+}
+
+#sec3 h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 42px;
+  color: #2f7ae5;
+  margin-left: 55%;
+  margin-bottom: 10px;
+}
+
+.sec3Slide {
+  display: none;
+  position: relative;
+  z-index: 1;
+  padding: 40px 60px 70px 60px;
+}
+
+.sec3Slide.active {
+  display: block;
+}
+
+.sec3Slide .sec3PhoneImage {
+  position: absolute;
+  left: 140px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+}
+
+.sec3Slide h2 {
+  margin-left: 55%;
+  color: #0a2f7a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.sec3Slide p {
+  margin-left: 55%;
+  color: #6b7c93;
+  max-width: 520px;
+}
+
+.sec3NavButtons {
+  position: absolute;
+  right: 120px;
+  bottom: 26px;
+  display: flex;
+  gap: 18px;
+  z-index: 2;
+}
+
+.sec3NavButton {
+  width: 48px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: #c9d3e6;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.sec3NavButton.active {
+  background: #1d5fe5;
+  transform: translateY(-1px);
 }

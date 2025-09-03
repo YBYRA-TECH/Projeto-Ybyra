@@ -9,6 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="./JS/script.js"></script>
     <title>ybyratech</title>
   </head>
   <body>
@@ -81,21 +82,40 @@
           <a class="cadli" href="#">Conheça já →</a>
         </div>
       </section>
-      <sectio id="sec3">
-        <div id="sei1">
-            <h1>Conheça o App</h1>
-            <h2>
-              1 - Escaneie a informação 
-              desejada
-              </h2>
-              <p>A tecnologia ICR dispensa a nescessidade de ter uma letra bonita, <br>
-                ou de ser um documento já impresso anteriormente.</p>
-            
+      <section id="sec3">
+        <h1>Conheça o App</h1>
+        <div class="sec3Slide active">
+          <img class="sec3PhoneImage" src="./imgs/Escane.png" alt="" width="420px">
+          <h2>1 - Escaneie a informação desejada</h2>
+          <p>A tecnologia ICR dispensa a necessidade de ter uma letra bonita, ou de ser um documento já impresso anteriormente.</p>
         </div>
-        <div id="sei2"></div>
-        <div id="sei3"></div>
-        <div id="sei4"></div>
-      </sectio>
+        
+        <div class="sec3Slide">
+          <img class="sec3PhoneImage" src="./imgs/Ana.png" alt="" width="420px">
+          <h2>2 - Uma lista com todos os índices analisados</h2>
+          <p>Deixa fácil a organização e visualização dos dados analisados anteriormente.</p>
+        </div>
+        
+        <div class="sec3Slide">
+          <img class="sec3PhoneImage" src="./imgs/Planilha.png" alt="" width="420px">
+          <h2>3 - Resuma a planilha em gráficos, e mais</h2>
+          <p>Veja a mesma planilha de outra forma, visualize o desempenho em tempo real, e as causas dos problemas.</p>
+        </div>
+        
+        <div class="sec3Slide">
+          <img class="sec3PhoneImage" src="./imgs/MelhoraAi.png" alt="" width="420px">
+          <h2>4 - Converse com a nossa IA!</h2>
+          <p>Adicione mais um integrante ao seu brainstorm com a MelhoraAI, uma IA que te dá possíveis soluções aos seus problemas.</p>
+        </div>
+        
+        <div class="sec3NavButtons">
+          <button class="sec3NavButton active" onclick="showSlide(0)"></button>
+          <button class="sec3NavButton" onclick="showSlide(1)"></button>
+          <button class="sec3NavButton" onclick="showSlide(2)"></button>
+          <button class="sec3NavButton" onclick="showSlide(3)"></button>
+        </div>
+      </section>
+        
     </main>
 
     <footer>
