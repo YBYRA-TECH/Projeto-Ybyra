@@ -1,83 +1,196 @@
-/*Montserrat*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 /* Lexend Giga */
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@400;700&display=swap");
 /* Geologica */
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-html,body{
-    overflow-x: hidden;
+html,
+body {
+  overflow-x: hidden;
 }
+main {
+  padding-top: 80px;
+}
+.sec1 {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin-top: 5px;
+  margin-left: 10px;
+  background-image: url("./imgs/Primeiro Elemento.png");
+  background-size: 92% 89%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#im {
+  margin-top: -40px;
+  margin-left: 360px;
+}
+#texto_sec {
+  margin-top: -100px;
+  margin-left: 220px;
+  color: aliceblue;
+}
+.sec2 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  gap: 20px;
+}
+#re {
+  margin-top: 50px;
+  font-size: 70px;
+  margin-left: 100px;
+  text-align: left;
+}
+
+.card {
+  margin-top: 10px;
+  width: 280px;
+  min-height: 100px;
+  font-size: 20px;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(to right, #0245a8, #16283d);
+  transition: all 2.7s ease-in-out;
+  color: white;
+  font-family: "Geologica", sans-serif;
+}
+
+ .sec2 h1{
+  color: linear-gradient(to right, #0245a8, #16283d );
+  font-family: "Montserrat", sans-serif;
+}
+.num {
+  color: #56d4ff;
+  display: block;
+  transition: color 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #2f9fff, #5cdffb);
+  color: black;
+}
+
+.card:hover .num {
+  color: #002b5b;
+}
+
+.texfim,
+.cadli {
+  display: none;
+}
+
+.card:hover .texfim {
+  display: block;
+  color: white;
+  margin-top: 20px;
+}
+
+.card:hover .cadli {
+  display: block;
+  margin-top: 20px;
+}
+
+.cadli {
+  color: #0a2f7a;
+  text-decoration: none;
+}
+
+.cadli:hover {
+  text-decoration: underline;
+}
+
+.sec1 h1 {
+  font-size: 80px;
+}
+.sec1 a {
+  font-family: "Geologica" sans-serif;
+  margin-left: 0px;
+  font-size: 19px;
+  color: aliceblue;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 footer {
-    display: grid;
-    grid-template-areas: 
-        "col1 col2 col3"
-        "direitos direitos direitos";
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 100px;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #081F38;
+  margin-top: 50px;
+  display: grid;
+  grid-template-areas:
+    "col1 col2 col3"
+    "direitos direitos direitos";
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 100px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #081f38;
 }
-footer section{
-    margin-top: 50px;
-    margin-left: 95px;
+footer section {
+  margin-top: 50px;
+  margin-left: 95px;
 }
-.direitos{
-    grid-area: direitos;
-    margin-right: 100px;
-    margin-top: -30px;
-    text-align: center;
-    font-size: 19px;
+.direitos {
+  grid-area: direitos;
+  margin-right: 100px;
+  margin-top: -30px;
+  text-align: center;
+  font-size: 19px;
 }
 footer .col1 {
-    grid-area: col1;
+  grid-area: col1;
 }
-footer p{
-    margin-top: 15px;
+footer p {
+  margin-top: 15px;
 }
 footer .col2 {
-    grid-area: col2;
+  grid-area: col2;
 }
-
 footer .col3 {
-    grid-area: col3;
+  grid-area: col3;
 }
-footer p{
-    font-size: 18px;
+footer p {
+  font-size: 18px;
 }
-footer h3{
-    font-size: 22px;
+footer h3 {
+  font-size: 26px;
 }
-footer p,h3{
-    color: aliceblue;
+footer p,
+h3 {
+  color: aliceblue;
 }
-p{
-    font-family: 'Geologica' sans-serif;
+p {
+  font-family: "Geologica" sans-serif;
 }
-header{
-    position: sticky;
-    top: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 9px;
-    padding: 7px 40px;
+header {
+  background-image: url("./imgs/Fundo\ \ Header.png");
+  position: fixed;
+  width: 95%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 9px;
+  padding: 7px 40px;
 }
-a{
-    font-family:'Lexend Giga', sans-serif;
-    text-decoration: none;
-    color: black;
+a {
+  font-family: "Lexend Giga", sans-serif;
+  text-decoration: none;
+  color: black;
 }
-button{
-    background-color: #004CC5;
-    border: none;
-    color: aliceblue;
-    border-radius: 12px;
-    padding: 16px;
+header a:hover {
+  text-decoration: underline;
+}
+button {
+  background-color: #004cc5;
+  border: none;
+  color: aliceblue;
+  border-radius: 12px;
+  padding: 16px;
 }
