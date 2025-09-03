@@ -1,11 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let slides = document.querySelectorAll(".sec3Slide");
-  let mudar = document.querySelectorAll(".sec3NavButton");
+let slides = document.querySelectorAll(".slide");
+let mudar = document.querySelectorAll(".mudar");
 
-  window.showSlide = function (index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-      if (mudar[i]) mudar[i].classList.toggle("active", i === index);
-    });
-  };
-});
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+    mudar[i].classList.toggle("active", i === index);
+  });
+}
