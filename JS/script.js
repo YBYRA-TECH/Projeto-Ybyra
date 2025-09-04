@@ -1,9 +1,11 @@
-let slides = document.querySelectorAll(".slide");
-let mudar = document.querySelectorAll(".mudar");
+// JS/script.js
+const slides = [...document.querySelectorAll('.slide')];
+const dots = [...document.querySelectorAll('.dot')];
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
-    mudar[i].classList.toggle("active", i === index);
-  });
+function go(i) {
+  slides.forEach((el, idx) => el.classList.toggle('on', idx === i));
+  dots.forEach((el, idx) => el.classList.toggle('on', idx === i));
 }
+
+dots.forEach(d => d.addEventListener('click', e => go(+e.currentTarget.dataset.i)));
+go(0);

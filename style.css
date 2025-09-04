@@ -1,4 +1,4 @@
-/* Montserrat */
+/* "Montserrat" */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 /* Lexend Giga */
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@400;700&display=swap");
@@ -17,13 +17,13 @@ main {
   padding-top: 80px;
 }
 .sec1 {
-  overflow: hidden;
   display: flex;
   align-items: center;
   height: 100vh;
   margin-top: 5px;
   margin-left: 10px;
-  background-image: url("./imgs/Primeiro Elemento.png");
+  background-image:
+  url("./imgs/Primeiro Elemento.png");
   background-size: 92% 89%;
   background-position: center;
   background-repeat: no-repeat;
@@ -44,14 +44,88 @@ main {
   gap: 20px;
 }
 #re {
-  margin-top: 50px;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to right,#13BFFE,#0040a6 );
+  background-clip:text ;
+  -webkit-text-fill-color: transparent;
+  margin-top: 100px;
   font-size: 70px;
   margin-left: 100px;
   text-align: left;
 }
 
+#sec4 {
+  display: flex;
+  justify-content: space-between;
+  margin-top:200px;
+
+}
+hr{
+  width: 600px;
+  margin-top: 25px;
+}
+#sec4 .texto{
+  margin-left: 90px;
+  margin-top: 200px;
+}
+#sec4 h1 {
+  background: linear-gradient(to right,#0246A6, #1F89EF, #13BFFE );
+  background-clip:text ;
+  color: transparent;
+  font-size: 100px;
+  margin-top: -240px;
+}
+.textoP{
+  margin-left: 20px;
+  margin-top: 120px;
+}
+#sec4 p {
+  font-size: 24px;
+  font-family: "Geologica", sans-serif;
+}
+
+#sec4 img{
+  margin-top: -100px;
+}
+
+#sec5{
+  margin-left: 15px;
+  height: 150vh;
+  width: 210vh;
+  background-image: url("./imgs/Sobre\ NósA.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#in {
+  margin-top: 200px;
+  margin-left: 100px;
+  text-align: left;
+  color: transparent;
+  font-size: 90px;
+}
+#sec5 p{  
+  color:#365576;
+  text-align:center;
+  font-family:"Geologica", sans-serif;
+}
+
+#prin{
+  margin-top: 330px;
+  display: flex;
+  justify-content: space-around;
+}
+.ceT{
+  margin-top: -20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 52px;
+  background: linear-gradient(to right, #6EDCFB,#3C78DA);
+  background-clip:text ;
+  color: transparent;
+}
+
 .card {
-  margin-top: 10px;
+  margin-top: 80px;
   width: 280px;
   min-height: 100px;
   font-size: 20px;
@@ -63,8 +137,8 @@ main {
   font-family: "Geologica", sans-serif;
 }
 
- .sec2 h1{
-  color: linear-gradient(to right, #0245a8, #16283d );
+.sec2 h1 {
+  color: linear-gradient(to right, #0245a8, #16283d);
   font-family: "Montserrat", sans-serif;
 }
 .num {
