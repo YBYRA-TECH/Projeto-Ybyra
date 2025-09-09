@@ -1,11 +1,12 @@
-// JS/script.js
-const slides = [...document.querySelectorAll('.slide')];
-const dots = [...document.querySelectorAll('.dot')];
+let ultimoScroll = 0;                // guarda a posição anterior
+const header = document.querySelector('header');
 
-function go(i) {
-  slides.forEach((el, idx) => el.classList.toggle('on', idx === i));
-  dots.forEach((el, idx) => el.classList.toggle('on', idx === i));
-}
-
-dots.forEach(d => d.addEventListener('click', e => go(+e.currentTarget.dataset.i)));
-go(0);
+window.addEventListener('scroll', () => {
+  const scrollAtual = window.scrollY;          // pega a posição atual doz scroll
+  if(scrollAtual > ultimoScroll) {             // se rolou pra baixo
+    header.style.top = '-60px';               // esconde o header
+  } else {                                     // se rolou pra cima
+    header.style.top = '0';                   // mostra o header
+  }
+  ultimoScroll = scrollAtual;                 // atualiza a posição anterior
+});

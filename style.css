@@ -14,260 +14,7 @@
 
 html,
 body {
-  overflow-x: hidden; 
-}
-
-/* ===== ÁREA PRINCIPAL ===== */
-main {
-  padding-top: 80px; /* espaço por causa do header fixo */
-}
-
-/* ===== SEÇÃO INTRODUÇÃO ===== */
-.sec_intro {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  margin-top: 5px;
-  margin-left: 10px;
-  background-image: url("./imgs/Primeiro Elemento.png");
-  background-size: 92% 89%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.sec_intro h1{
-  font-family: "Montserrat", sans-serif; /* título usa Montserrat */
-} 
-#imagem_intro {
-  margin-top: -40px;
-  margin-left: 360px;
-}
-#texto_intro {
-  margin-top: -100px;
-  margin-left: 220px;
-  color: aliceblue;
-}
-
-/* ===== SEÇÃO CARTÕES ===== */
-.sec_cartoes {
-  height: 50vh;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
-  gap: 20px;
-}
-#es p{
-  color: blanchedalmond;
-}
-#es{
-  height: 20vh;
-  width: 100vh;
-  position: absolute;
-}
-#titulo_resultados {
-  font-family: "Montserrat", sans-serif; /* título usa Montserrat */
-  background: linear-gradient(to right,#13BFFE,#0040a6 );
-  background-clip:text ;
-  color: transparent;
-  margin-top: 100px;
-  font-size: 70px;
-  margin-left: 100px;
-  text-align: left;
-}
-
-/* ===== SEÇÃO 3 ===== */
-#sec3{
-  margin-top: 90px;
-}
-
-/* ===== SEÇÃO 4 ===== */
-#sec4 {
-  display: flex;
-  justify-content: space-between;
-  margin-top:200px;
-}
-hr{
-  width: 600px;
-  margin-top: 25px;
-}
-#sec4 .texto{
-  margin-left: 90px;
-  margin-top: 200px;
-}
-#sec4 h1 {
-  background: linear-gradient(to right,#0246A6, #1F89EF, #13BFFE );
-  background-clip:text ;
-  color: transparent;
-  font-size: 100px;
-  margin-top: -240px;
-}
-.textoP{
-  margin-left: 20px;
-  margin-top: 120px;
-}
-#sec4 p {
-  font-size: 24px;
-  font-family: "Geologica", sans-serif; /* parágrafos usam Geologica */
-}
-#sec4 img{
-  margin-top: -100px;
-}
-
-/* ===== SEÇÃO DECORATIVA ===== */
-#imagem_decorativa{
-  height: 50vh;
-  background-image: url("./imgs/Polygon\ 25.png");
-  background-position: left ;
-  background-repeat: no-repeat;
-}
-
-/* ===== SEÇÃO SOBRE ===== */
-#sec_sobre{
-  margin-top: -350px;
-  margin-left: 15px;
-  height: 150vh;
-  width: 210vh;
-  background-image: url("./imgs/Sobre\ NósA.png");
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-#titulo_sobre {
-  margin-top: 200px;
-  margin-left: 100px;
-  text-align: left;
-  color: transparent;
-  font-size: 90px;
-}
-#sec_sobre p{  
-  color:#365576;
-  text-align:center;
-  font-family:"Geologica", sans-serif; /* textos usam Geologica */
-}
-#cartoes_sobre{
-  margin-top: 330px;
-  display: flex;
-  justify-content: space-around;
-}
-
-/* título dentro dos cards */
-.titulo_card{
-  margin-top: -20px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 52px;
-  background: linear-gradient(to right, #6EDCFB,#3C78DA);
-  background-clip:text ;
-  color: transparent;
-}
-
-/* ===== ESTILO DOS CARDS ===== */
-.card {
-  margin-top: 40px;
-  width: 280px;
-  min-height: 100px;
-  font-size: 20px;
-  padding: 30px;
-  border-radius: 15px;
-  background: linear-gradient(to right, #0245a8, #16283d);
-  transition: all 2.7s ease-in-out;
-  color: white;
-  font-family: "Geologica", sans-serif; /* textos do card usam Geologica */
-}
-.num_cartao {
-  color: #56d4ff;
-  display: block;
-  transition: color 0.4s ease;
-}
-.card:hover {
-  transform: scale(1.05);
-  background: linear-gradient(to right, #2f9fff, #5cdffb);
-  color: black;
-}
-.card:hover .num_cartao {
-  color: #002b5b;
-}
-.texto_fim,
-.link_cartao {
-  display: none;
-}
-.card:hover .texto_fim {
-  display: block;
-  color: white;
-  margin-top: 20px;
-}
-.card:hover .link_cartao {
-  display: block;
-  margin-top: 20px;
-}
-.link_cartao {
-  color: #0a2f7a;
-  text-decoration: none;
-}
-.link_cartao:hover {
-  text-decoration: underline;
-}
-
-/* ===== AJUSTES GERAIS ===== */
-.sec_intro h1 {
-  font-size: 80px;
-}
-.sec_intro a {
-  font-family: "Geologica" sans-serif;
-  margin-left: 0px;
-  font-size: 19px;
-  color: aliceblue;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-/* ===== RODAPÉ ===== */
-footer {
-  margin-top: 50px;
-  display: grid;
-  grid-template-areas:
-    "col1 col2 col3"
-    "direitos direitos direitos";
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 100px;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: #081f38;
-}
-footer section {
-  margin-top: 50px;
-  margin-left: 95px;
-}
-.direitos {
-  grid-area: direitos;
-  margin-right: 100px;
-  margin-top: -30px;
-  text-align: center;
-  font-size: 19px;
-}
-footer .col1 {
-  grid-area: col1;
-}
-footer p {
-  margin-top: 15px;
-}
-footer .col2 {
-  grid-area: col2;
-}
-footer .col3 {
-  grid-area: col3;
-}
-footer p {
-  font-size: 18px;
-}
-footer h3 {
-  font-size: 26px;
-}
-footer p,
-h3 {
-  color: aliceblue;
-}
-p {
-  font-family: "Geologica" sans-serif;
+  overflow-x: hidden;
 }
 
 /* ===== CABEÇALHO ===== */
@@ -278,23 +25,315 @@ header {
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 9px;
-  padding: 7px 40px;
+  justify-content: flex-start;
+  gap: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0.3125rem 0.5625rem;
+  padding: 0.4rem 2.5rem;
 }
+
 a {
   font-family: "Montserrat", sans-serif;
-  font-size: 19px;
+  font-size: 1.2rem;
   text-decoration: none;
   color: black;
 }
+
 header a:hover {
   text-decoration: underline;
 }
+
+/* empurra o grupo de links + botão para a direita */
+header a:first-of-type {
+  margin-left: auto;
+}
+
 button {
   background-color: #004cc5;
   border: none;
   color: aliceblue;
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 0.7rem;
+  padding: 1rem;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+main {
+  padding-top: 5rem;
+  /* espaço por causa do header fixo */
+}
+
+/* ===== SEÇÃO INTRODUÇÃO ===== */
+.sec_intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding-left: 12vw;
+  padding-right: 3vw;
+  gap: 4vw;
+  background-image: url("./imgs/Primeiro Elemento.png");
+  background-size: 92% 89%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sec_intro h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 5rem;
+  /* título usa Montserrat */
+}
+
+#texto_intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  color: aliceblue;
+}
+
+.sec_intro a {
+  font-family: "Geologica" sans-serif;
+  font-size: 1.1rem;
+  color: aliceblue;
+}
+
+/* ===== TÍTULO RESULTADOS ===== */
+#titulo_resultados {
+  font-family: "Montserrat", sans-serif;
+  /* título usa Montserrat */
+  background: linear-gradient(to right, #13BFFE, #0040a6);
+  background-clip: text;
+  color: transparent;
+  font-size: 4.3rem;
+  text-align: left;
+  padding-left: 1.2rem;
+  padding-top: 2rem;
+}
+
+/* ===== SEÇÃO CARTÕES ===== */
+.sec_cartoes {
+  height: 50vh;
+  display: flex;
+  justify-content: space-around;
+  gap: 1.2rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+#es p {
+  color: blanchedalmond;
+}
+
+#es {
+  height: 20vh;
+  width: 100vh;
+  position: absolute;
+}
+
+/* ===== ESTILO DOS CARDS ===== */
+.card {
+  width: 17.5rem;
+  min-height: 6.2rem;
+  font-size: 1.2rem;
+  padding: 1.8rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(to right, #0245a8, #16283d);
+  transition: all 2.7s ease-in-out;
+  color: white;
+  font-family: "Geologica", sans-serif;
+  /* textos do card usam Geologica */
+}
+
+.num_cartao {
+  color: #56d4ff;
+  display: block;
+  transition: color 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #2f9fff, #5cdffb);
+  color: black;
+}
+
+.card:hover .num_cartao {
+  color: #002b5b;
+}
+
+.texto_fim,
+.link_cartao {
+  display: none;
+}
+
+.card:hover .texto_fim {
+  display: block;
+  color: white;
+}
+
+.card:hover .link_cartao {
+  display: block;
+}
+
+.link_cartao {
+  color: #0a2f7a;
+  text-decoration: none;
+}
+
+.link_cartao:hover {
+  text-decoration: underline;
+}
+
+/* ===== SEÇÃO 3 ===== */
+#sec3 {
+  /* Seção 3 - Conheça o App */
+}
+
+/* ===== SEÇÃO 4 ===== */
+#sec4 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+
+#sec4 img {
+  margin-left: 15rem;
+}
+
+#sec4 h1 {
+  background: linear-gradient(to right, #0246A6, #1F89EF, #13BFFE);
+  background-clip: text;
+  color: transparent;
+  font-size: 6.2rem;
+  margin-bottom: 7rem;
+}
+
+#sec4 p {
+  font-size: 1.4rem;
+  font-family: "Geologica", sans-serif;
+  margin-bottom: 1.2rem;
+  /* parágrafos usam Geologica */
+}
+
+hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 3px solid #ccc;
+}
+
+/* ===== SEÇÃO DECORATIVA ===== */
+#imagem_decorativa {
+  height: 50vh;
+  background-image: url("./imgs/Polygon\ 25.png");
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+/* ===== SEÇÃO SOBRE ===== */
+#sec_sobre {
+  height: 150vh;
+  width: 210vh;
+  background-image: url("./imgs/Sobre\ Nós.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2vh;
+}
+
+#titulo_sobre {
+  margin-left: 4rem;
+  margin-top: -6%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 5.6rem;
+  text-align: left;
+  color: white;
+  order: 1;
+}
+
+#cartoes_sobre {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  margin-top: 15vh;
+  order: 2;
+}
+
+.titulo_card {
+  margin-top: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.2rem;
+  text-align: left;
+  background: linear-gradient(to right, #6EDCFB, #3C78DA);
+  background-clip: text;
+  color: transparent;
+}
+
+.sobreNos_textoDiv {
+  margin-top: -27%;
+}
+
+#sec_sobre p {
+  margin-top: 5%;
+  font-size: 1.15rem;
+  color: #365576;
+  text-align: center;
+  font-family: "Geologica", sans-serif;
+  line-height: 1.6;
+  max-width: 20rem;
+}
+
+/* ===== AJUSTES GERAIS ===== */
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  font-family: "Geologica" sans-serif;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  display: grid;
+  grid-template-areas:
+    "col1 col2 col3"
+    "direitos direitos direitos";
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6.25rem;
+  padding: 1.25rem;
+  border-radius: 0.9rem;
+  background-color: #081f38;
+}
+
+.direitos {
+  grid-area: direitos;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+footer .col1 {
+  grid-area: col1;
+}
+
+footer .col2 {
+  grid-area: col2;
+}
+
+footer .col3 {
+  grid-area: col3;
+}
+
+footer p {
+  font-size: 1.1rem;
+}
+
+footer h3 {
+  font-size: 1.6rem;
+}
+
+footer p,
+h3 {
+  color: aliceblue;
 }
