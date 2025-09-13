@@ -88,56 +88,67 @@
         </div>
       </section>
       <section id="sec3">
-        <h1>Conheça o App</h1>
-        <img src="./imgs/Fundo Sec3.png" alt="" style="width: 37.5rem; max-width: 95vw; height: auto;" />
-        <div class="slide">
-          <img src="./imgs/Escane.png" alt="" style="width: 26.25rem; max-width: 85vw; height: auto;" id="fundo" />
-          <h2>1 - Escaneie a informação desejada</h2>
-          <p>
-            A tecnologia ICR dispensa a nescessidade de ter uma letra bonita,
-            <br />
-            ou de ser um documento já impresso anteriormente.
-          </p>
-        </div>
-        <div class="slide">
-          <img src="./imgs/Ana.png" alt="" style="width: 26.25rem; max-width: 85vw; height: auto;" class="cele" />
-          <h2>
-            2 - Uma lista com todos os <br />
-            indices analisados
-          </h2>
-          <p>
-            Deixa fácil a organização e visualização dos dados analisados
-            anteriormente.
-          </p>
-        </div>
-        <div class="slide">
-          <img src="./imgs/Planilha.png" alt="" style="width: 26.25rem; max-width: 85vw; height: auto;" class="cele" />
-          <h2>
-            3 - Resuma a planilha em <br />
-            gráficos, e mais
-          </h2>
-          <p>
-            Veja a mesma planilha de outra forma, visualize o desempenho em
-            tempo real, e as causas dos problemas.
-          </p>
-        </div>
-        <div class="slide">
-          <img src="./imgs/MelhoraAi.png" alt="" style="width: 26.25rem; max-width: 85vw; height: auto;" class="cele" />
-          <h2>4 - Converse com a nossa IA!</h2>
-          <p>
-            Adicione mais um integrante ao seu brainstorm com a MelhoraAI, uma
-            IA que te da possiveis soluções aos seus problemas.
-          </p>
-        </div>
-        <div class="buttons">
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
+        <h1 style="text-align: right;margin-right: 12rem;margin-top: 0;">Conheça o App</h1>
+        <div class="sec3_content">
+          <img class="sec3_image" src="./imgs/Fundo Sec3.png" alt="" />
+
+          <div class="sec3_slider">
+            <input type="radio" name="steps" id="step1" checked />
+            <input type="radio" name="steps" id="step2" />
+            <input type="radio" name="steps" id="step3" />  
+            <input type="radio" name="steps" id="step4" />
+            <div class="slides">
+              <div class="slide" data-step="1">
+                <img src="./imgs/Escaneia.png" alt="">
+                <h2>1 -  <span style="background: linear-gradient(to right, #5CDFFB, #3389EE, #164DE5);background-clip: text; color: transparent;">Escaneie</span> a informação <br> desejada</h2>
+                <p>
+                  A tecnologia ICR dispensa a nescessidade de ter uma letra bonita, <br>
+                  ou de ser um documento já impresso anteriormente.
+                </p>
+              </div>
+              <div class="slide" data-step="2">
+                <img src="./imgs/Relatorios.png" alt="">
+                <h2>
+                  2 - Uma lista com todos os <br>
+                  <span style="background: linear-gradient(to right, #174EE5, #5CDFFB);background-clip: text;color:transparent">indices analisados </span></h2>
+                <p>
+                  Deixa fácil a organização e visualização dos dados analisados anteriormente, <br>
+                  Facilitando o seu dia.
+                  
+                </p>
+              </div>
+              <div class="slide" data-step="3">
+                <img src="./imgs/planilhia.png" alt="">
+                <h2>
+                  3 - <span style="background: linear-gradient(to right, #1F89EF,#0346A7);background-clip: text;color: transparent;">Resuma a planilha </span> em <br> 
+                  gráficos, e mais</h2>
+                <p>
+                  Veja a mesma planilha de outra forma, visualize o desempenho em <br>
+                  tempo real, e as causas dos problemas.
+                </p>
+              </div>
+              <div class="slide" data-step="4">
+                <img src="./imgs/Melhora ai.png" alt="">
+                <h2>4 - Converse com a <span style="background: linear-gradient(to right, #0246A7,#5CDFFB); background-clip: text; color: transparent;">nossa <br>
+                  IA!</span></h2>
+                <p>
+                  Adicione mais um integrante ao seu brainstorm com a MelhoraAI, <br>
+                  uma IA que te da possiveis soluções aos seus problemas.
+                </p>
+              </div>
+            </div>
+
+            <div class="sec3_controls">
+              <label for="step1" class="dot" aria-label="Passo 1"></label>
+              <label for="step2" class="dot" aria-label="Passo 2"></label>
+              <label for="step3" class="dot" aria-label="Passo 3"></label>
+              <label for="step4" class="dot" aria-label="Passo 4"></label>
+            </div>
+          </div>
         </div>
       </section>
       <section id="sec4">
-        <div class="texto">
+        <div class="texto"> 
           <h1>Perguntas</h1>
           <div class="textoP"> 
             <p>Por que usar Ybyra Tech?</p>
@@ -157,9 +168,9 @@
       <section id="sec_sobre">
         <h1 id="titulo_sobre">Sobre Nós</h1>
         <div id="cartoes_sobre">
-          <div class="sobreNos_textoDiv">
-            <h1 class="titulo_card" style="margin-left: 4rem;">Nossa Missão</h1>
-            <p style="margin-left: 6rem;">
+          <div class="card_sobre  ">
+            <h1 class="titulo_card">Nossa Missão</h1>
+            <p>
               Queremos impulsionar o processo produtivo industrial através de
               <strong>análises avançadas de dados</strong> de uma forma mais
               simples e objetiva, ajudando a
@@ -168,10 +179,10 @@
               trabalho.
             </p>
           </div>
-          
-          <div class="sobreNos_textoDiv">
-            <h1 class="titulo_card" style="margin-left: 1.5rem;">Quem Somos</h1>
-            <p style="margin-left: 3rem;">
+      
+          <div class="card_sobre">
+            <h1 class="titulo_card" >Quem Somos</h1>
+            <p>
               Nossa Equipe é formada por 7 pessoas, alunos do curso de
               programação do Instituto J&F. Este projeto foi fundamentado a
               partir de dores reais que as indústrias enfrentam hoje em dia em
@@ -181,20 +192,19 @@
               manipulação deles.
             </p>
           </div>
-          
-          <div class="sobreNos_textoDiv">
-            <h1 class="titulo_card" style="margin-right: 6rem ;">Nossos Valores</h1>
-            <p style="margin-left: 1rem;">
-              Prezamos pela simplicidade, um valor importantissimo para uma
-              comunicação assertiva e entendivel.<br />
+      
+          <div class="card_sobre">
+            <h1 class="titulo_card">Nossos Valores</h1>
+            <p>
+              Prezamos pela simplicidade, um valor importantíssimo para uma
+              comunicação assertiva e entendível.<br />
               Disponibilidade é outro valor que prezamos, a vontade de fazer e o
               gosto pelo trabalho é de suma importância para uma qualidade de
               trabalho boa.
             </p>
           </div>
-          
         </div>
-      </section>
+      </section>      
     </main>
 
     <footer>
@@ -207,7 +217,7 @@
       <section class="col2">
         <h3>Contato</h3>
         <p>ybyratech@gmail.com</p>
-        <p>+55 (11) 97710-6126</p>
+        <p>+55 (11) 97710-6126</p>  
       </section>
 
       <section class="col3">
