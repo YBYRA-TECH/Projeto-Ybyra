@@ -48,7 +48,7 @@ header a:first-of-type {
 
 /* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
 main {
-  margin-top: 4.9rem;
+  margin-top: 4.85rem;
   background-image: url("./imgs/Login.png");
   background-size: 100% 120%;
   background-position: center;
@@ -90,6 +90,7 @@ main {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   width: 90%;
   padding: 1rem;
+  outline: none;
   margin-bottom: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
@@ -100,7 +101,9 @@ main {
 #inputs input::placeholder {
   color: #767676;
 }
-
+#inputs input:focus{
+    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+}
 #inputs p {
     
   font-size: 0.9rem;
