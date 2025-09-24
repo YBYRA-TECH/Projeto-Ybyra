@@ -1,8 +1,6 @@
 /* ===== IMPORTAÇÃO DE FONTES ===== */
 /* "Montserrat" */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-/* "Lexend Giga" */
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@400;700&display=swap");
 /* "Geologica" */
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
 
@@ -135,7 +133,7 @@ main {
   padding: 1.8rem;
   border-radius: 0.9rem;
   background: linear-gradient(to right, #0245a8, #16283d);
-  transition: all 2.7s ease-in-out;
+  transition: all 0.8s ease-in-out;
   color: white;
   font-family: "Geologica", sans-serif;
 
@@ -171,7 +169,10 @@ main {
 .card:hover .link_cartao {
   display: block;
 }
-
+.texto_inicio{
+  margin-top: 0.1rem;
+  font-size: 1.4rem;
+}
 .link_cartao {
   margin-top: 2rem;
   color: #0a2f7a;

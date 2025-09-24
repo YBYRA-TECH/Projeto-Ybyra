@@ -1,0 +1,151 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    font-size: 16px; /* Definindo a base de 1rem = 16px */
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Estilos da Barra Lateral (Aside) --- */
+.barra-lateral {
+    width: 15.6rem;
+    padding: 1.2rem 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-site {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 0;
+    margin-bottom: 2.5rem;
+}
+
+.logo-site img {
+    width: 12rem;
+}
+
+.menu-principal {
+    width: 100%;
+}
+
+.item-menu a {
+    font-family: "Geologica", sans-serif;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 0;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.item-menu a:hover {
+    color:#0e14bf;
+    background-color: rgba(12, 142, 255, 0.1);
+}
+
+/* Estilo para o item de menu ativo */
+.item-menu.ativo a {
+    margin: 1;
+    background-color:#192083;
+    border-radius: 0 1.2rem 1.2rem 0;
+    margin-right: 15rem;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.item-menu a .box-icone {
+    margin-right: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-menu a img {
+    width: 3.5rem;
+    margin-left: 1.5rem;
+}
+
+/* --- Estilos da Área de Conteúdo --- */
+.area-conteudo {
+    flex-grow: 1;
+    padding: 1.875rem;
+    background-color: #f8fcff;
+    border-radius: 1.25rem;
+    margin: 1.2rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-principal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding-right: 1.2rem;
+}
+
+.area-conteudo h2 {
+    font-size: 1.8rem;
+    color: #4469a4;
+    margin-bottom: 0;
+}
+
+.header-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 1.2rem;
+    padding: 0.3125rem 0.9rem;
+    background-color: #fff;
+}
+
+.header-input input {
+    border: none;
+    outline: none;
+    padding: 0.3rem;
+    font-size: 1rem;
+    width: 18.7rem;
+}
+
+.header-input img {
+    width: 5rem;
+    margin-top: -0.7rem;
+    margin-left: 0.7rem;
+}
+
+.header-imagem {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.header-imagem img {
+    margin-left: 1.8rem;
+    width: 9rem;
+    height: 5rem;
+}
