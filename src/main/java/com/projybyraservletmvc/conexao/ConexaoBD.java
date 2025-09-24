@@ -28,10 +28,10 @@ public class ConexaoBD {
     }
 
     // DESCONECTAR
-    public void desconectar() {
+    public void desconectar(Connection conn) {
         try {
-            if (this.conn != null && !this.conn.isClosed()) {
-                this.conn.close();
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
                 System.out.println("Conexão com o banco foi encerrada.");
             }
 
