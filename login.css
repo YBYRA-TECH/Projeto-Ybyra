@@ -63,7 +63,8 @@ main {
 #inputs {
   width: 23%; 
   background-color: white;
-  padding: 1.5rem 4rem;
+  padding: 4rem 4rem;
+  padding-bottom: 2.2rem;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -132,24 +133,23 @@ form{
 #buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
   font-family: "Geologica", sans-serif;
   width: 100%;
   justify-content: flex-end; 
 }
 
 #buttons button {
-
   border-radius: 0.1rem;
   padding: 0.8rem 2rem;
   border: none;
   font-size: 1rem;
-  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 #buttons a{
     text-decoration: none;
     color: #eeeeee;
+    cursor: pointer;
 }
 #buttons a:hover{
     text-decoration: none;

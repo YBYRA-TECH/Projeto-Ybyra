@@ -100,7 +100,6 @@ main {
 #inputs a {
   font-family: "Geologica", sans-serif;
   color: #004cc5;
-
 }
 
 #input_veri {
@@ -137,7 +136,10 @@ main {
   font-family: "Geologica", sans-serif;
   width: 100%;
 }
-
+#buttons a{
+  text-decoration: none;
+  
+}
 #buttons button {
   border-radius: 0.1rem;
   padding: 0.8rem 2.5rem;
