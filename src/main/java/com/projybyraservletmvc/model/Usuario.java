@@ -98,16 +98,16 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "idUsuario=" + idUsuario +
-                ", email='" + email + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", nome='" + nome + '\'' +
-                ", dataCadastro=" + dataCadastro +
-                ", dataNascimento=" + dataNascimento +
-                ", dataValidade=" + dataValidade +
-                ", idIndustria=" + idIndustria +
-                ", tempoTrabalho=" + tempoTrabalho +
-                '}';
+                "\tidUsuario=" + idUsuario +
+                ",\temail='" + email + '\'' +
+                ",\tcpf='" + cpf + '\'' +
+                ",\tnome='" + nome + '\'' +
+                ",\tdataCadastro=" + dataCadastro +
+                ",\tdataNascimento=" + dataNascimento +
+                ",\tdataValidade=" + dataValidade +
+                ",\tidIndustria=" + idIndustria +
+                ",\ttempoTrabalho=" + tempoTrabalho +
+                "}\n";
     }
 }
 

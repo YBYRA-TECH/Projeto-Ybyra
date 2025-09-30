@@ -1,24 +1,23 @@
 package com.projybyraservletmvc.dao;
 
-import java.sql.*;
-
 import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.*;
+import com.projybyraservletmvc.model.Relatorios;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RelatoriosDAO{
 
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
-
-
+    Relatorios relatorios = new Relatorios();
 
     //INSERT
-    public boolean inserirDados(Date data_criacao, String pdf_documento, int id_Usuario){
+    public boolean inserirDados(Relatorios relatorios){
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
+        Connection conn = conexao.conectar();
         try {
-            conn = conexao.conectar();
             if (conn == null){
                 System.out.println("Conexão ainda não estabelecida, use o método 'conectar' primeiro.");
                return false;
@@ -26,9 +25,9 @@ public class RelatoriosDAO{
             String sql = ("INSERT INTO relatorios (data_criacao, pdf_documento, id_usuario) VALUES (?, ?, ?)");
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setDate(1, data_criacao);
-            pstmt.setString(2, pdf_documento);
-            pstmt.setInt(3, id_Usuario);
+            pstmt.setDate(1, relatorios.getDataCriacao());
+            pstmt.setString(2, relatorios.getPdfDocumento());
+            pstmt.setInt(3, relatorios.getIdUsuario());
 
             if(pstmt.executeUpdate()>0) {
                 return true;
@@ -44,66 +43,76 @@ public class RelatoriosDAO{
     }
 
     //UPDATE
-    public boolean atualizar(Relatorios relatorios){
+    public boolean atualizar(Relatorios relatorios) {
         String sql = "UPDATE relatorios SET data_criacao = ?, pdf_documento = ?, id_usuario = ?";
         ConexaoBD conexao = new ConexaoBD();
-        try (Connection conn = conexao.conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)){
-            stmt.setDate(1, relatorios.getDataCriacao());
-            stmt.setString(2, relatorios.getPdfDocumento());
-            stmt.setInt(3, relatorios.getIdUsuario());
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setDate(1, relatorios.getDataCriacao());
+            pstmt.setString(2, relatorios.getPdfDocumento());
+            pstmt.setInt(3, relatorios.getIdUsuario());
 
-            if (stmt.executeUpdate() > 0) return true;
-            return false;
-        } catch (SQLException sqle){
+            if (pstmt.executeUpdate() > 0){
+                return true;
+            }else return false;
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;
+        } finally {
+            conexao.desconectar(conn);
         }
+
     }
 
     //READ
-    public void lerDados() {
+    public List<Relatorios> lerDados() {
+        List<Relatorios> lista = new ArrayList<>();
+        String sql = "SELECT * FROM relatorios ORDER BY id_usuario ASC";
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
         try {
-            ConexaoBD conexao = new ConexaoBD();
-            Connection conn = conexao.conectar();
-
-            if (conn == null) {
-                System.out.println("Conexão não iniciada, use o método 'conectar' primeiro.");
-                return;
-            }
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM relatorios ORDER BY id_relatorios ASC");
-            ResultSetMetaData metaData = rs.getMetaData();
-            int colunas = metaData.getColumnCount();
+            ResultSet rs = stmt.executeQuery(sql);
 
-            System.out.println("Conteúdo:");
             while (rs.next()) {
-                for (int i = 1; i <= colunas; i++) {
-                    String nomeColuna = metaData.getColumnName(i);
-                    String valor = rs.getString(i);
-                    System.out.print(nomeColuna + ": " + valor + " | ");
-                }
-                System.out.println();
+                int idRelatorios = rs.getInt("id_relatorios");
+                Date dataCriacao = rs.getDate("data_criacao");
+                String pdf = rs.getString("pdf_documento");
+                int idUser = rs.getInt("id_usuario");
+
+                Relatorios rel = new Relatorios(
+                        idRelatorios, dataCriacao, pdf, idUser
+                );
+                lista.add(rel);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
         }
+        return lista;
     }
 
+
     // DELETE
-    public void deletar(int idRelatorio) {
+    public void deletar(int idRelatorios) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
         try {
-            String sql = "DELETE FROM id_relatorio WHERE id_relatorio = ?";
+            String sql = "DELETE FROM relatorios WHERE id_relatorios = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, idRelatorio);
+            pstmt.setInt(1, idRelatorios);
 
             int linhasAfetadas = pstmt.executeUpdate();
             System.out.println("Linhas deletadas: " + linhasAfetadas);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
         }
     }
-
-
 }

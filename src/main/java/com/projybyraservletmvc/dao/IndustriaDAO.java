@@ -2,7 +2,10 @@ package com.projybyraservletmvc.dao;
 
 //import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.*;
-import com.projybyraservletmvc.conexao.ConexaoBD;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.projybyraservletmvc.conexao.*;
 import com.projybyraservletmvc.model.*;
 
 public class IndustriaDAO{
@@ -12,7 +15,7 @@ public class IndustriaDAO{
 
 
     //INSERT
-    public boolean inserirDados(String nome, String endereco, String cnpj, int numeroUsuarios){
+    public boolean inserirDados(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = conexao.conectar();
         try{
@@ -23,10 +26,10 @@ public class IndustriaDAO{
         //Statement stmt = conn.createStatement();
         String sql = ("INSERT INTO industria(nome, endereco, cnpj, numero_usuarios) VALUES (?, ?, ?, ?)");
         PreparedStatement pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, nome);
-        pstmt.setString(2, endereco);
-        pstmt.setString(3, cnpj);
-        pstmt.setInt(4, numeroUsuarios);
+        pstmt.setString(1, industria.getNome());
+        pstmt.setString(2, industria.getEndereco());
+        pstmt.setString(3, industria.getCnpj());
+        pstmt.setInt(4, industria.getNumeroUsuarios());
 
             if(pstmt.executeUpdate()>0){
                 return true;
@@ -42,9 +45,10 @@ public class IndustriaDAO{
     //UPDATE
     public static boolean atualizarIndustria(Industria industria) {
         String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, numero_usuarios = ? WHERE id_industria = ?";
-        ConexaoBD conexaoDAO = new ConexaoBD();
-        try (Connection conn = conexaoDAO.conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, industria.getNome());
             stmt.setString(2, industria.getEndereco());
             stmt.setString(3, industria.getCnpj());
@@ -56,42 +60,52 @@ public class IndustriaDAO{
         } catch (SQLException sqle){
             sqle.printStackTrace();
             return false;
+        }finally {
+            conexao.desconectar(conn);
         }
     }
 
     //READ
-    public void lerDados(){
+    public List<Industria> lerDados(){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
+        List<Industria> lista = new ArrayList<>();
+        String sql = ("SELECT * FROM industria ORDER BY id_industria ASC");
         try {
-            ConexaoBD conexao = new ConexaoBD();
-            Connection conn = conexao.conectar();
-            if (conn == null) {
-                System.out.println("Conexão não iniciada, use o método 'conectar' primeiro.");
-                return;
-            }
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM industria ORDER BY id_industria ASC");
-            ResultSetMetaData metaData = rs.getMetaData();
-            int colunas = metaData.getColumnCount();
 
-            System.out.println("Conteúdo:");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            System.out.println("Conteúdo da tabela indústria:");
             while (rs.next()) {
-                for (int i = 1; i <= colunas; i++) {
-                    String nomeColuna = metaData.getColumnName(i);
-                    String valor = rs.getString(i);
-                    System.out.print(nomeColuna + ": " + valor + " | ");
-                }
-                System.out.println();
+                int id = rs.getInt("id_industria");
+                String nome = rs.getString("nome");
+                String endereco = rs.getString("endereco");
+                String cnpj = rs.getString("cnpj");
+                int nUsuarios = rs.getInt("numero_usuarios");
+
+                Industria industria = new Industria(
+                        id,
+                        nome,
+                        endereco,
+                        cnpj,
+                        nUsuarios
+                );
+                lista.add(industria);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
         }
+        return lista;
     }
 
     // DELETE
     public void deletar(int idIndustria){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
         try {
-            ConexaoBD conexao = new ConexaoBD();
-            Connection conn = conexao.conectar();
             String sql = "DELETE FROM industria WHERE id_industria = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -101,6 +115,8 @@ public class IndustriaDAO{
             System.out.println("Linhas deletadas: " + linhasAfetadas);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
         }
     }
 

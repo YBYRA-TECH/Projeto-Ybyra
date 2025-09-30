@@ -12,6 +12,7 @@ public class Relatorios {
 
 
     //CONSTRUTOR
+    public Relatorios(){};
 
     public Relatorios(int idRelatorios, Date dataCriacao, String pdfDocumento, int idUsuario) {
         this.idRelatorios = idRelatorios;
@@ -53,10 +54,10 @@ public class Relatorios {
     @Override
     public String toString() {
         return "Relatorios{" +
-                "idRelatorios=" + idRelatorios +
-                ", dataCriacao=" + dataCriacao +
-                ", pdfDocumento='" + pdfDocumento + '\'' +
-                ", idUsuario=" + idUsuario +
-                '}';
+                "\tidRelatorios=" + idRelatorios +
+                ",\t, dataCriacao=" + dataCriacao +
+                ",\t, pdfDocumento='" + pdfDocumento + '\'' +
+                ",\t idUsuario=" + idUsuario +
+                "}\n";
     }
 }

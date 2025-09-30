@@ -10,6 +10,8 @@ public class Industria {
 
         //CONSTRUTOR
 
+        public Industria(){}
+
         public Industria(int idIndustria, String nome, String endereco, String cnpj, int numeroUsuarios) {
             this.idIndustria = idIndustria;
             this.nome = nome;

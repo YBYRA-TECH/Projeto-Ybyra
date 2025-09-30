@@ -2,6 +2,8 @@ package com.projybyraservletmvc.dao;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.projybyraservletmvc.model.*;
 import com.projybyraservletmvc.conexao.ConexaoBD;
@@ -13,47 +15,46 @@ public class UsuarioDAO{
 
 
     //INSERT
-    public boolean inserirDados(String email, String cpf, String nome, Date data_cadastro, Date data_nascimento, Date data_validade, int id_industria, int tempo_trabalho){
+    public boolean inserirDados(Usuario usuario) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = conexao.conectar();
-        try{
-            if (conn == null){
-            System.out.println("Conexão ainda não estabelecida, use o método 'conectar' primeiro.");
-            return false;
-        }
-        String sql = ("INSERT INTO usuario(email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        try {
+            if (conn == null) {
+                System.out.println("Conexão ainda não estabelecida, use o método 'conectar' primeiro.");
+                return false;
+            }
+
+            String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, cpf);
-            ps.setString(3, nome);
-            ps.setDate(4, data_cadastro);
-            ps.setDate(5, data_nascimento);
-            ps.setDate(6, data_validade);
-            ps.setInt(7, id_industria);
-            ps.setInt(8, tempo_trabalho);
-            ResultSet resultSet = ps.getResultSet();
+            ps.setString(1, usuario.getEmail());
+            ps.setString(2, usuario.getCpf());
+            ps.setString(3, usuario.getNome());
+            ps.setDate(4, usuario.getDataCadastro());
+            ps.setDate(5, usuario.getDataNascimento());
+            ps.setDate(6, usuario.getDataValidade());
+            ps.setInt(7, usuario.getIdIndustria());
+            ps.setInt(8, usuario.getTempoTrabalho());
 
-            if (ps.executeUpdate()>0){
-                return true;
-            }return false;
+            return ps.executeUpdate() > 0;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             conexao.desconectar(conn);
         }
     }
+
 
     //UPDATE
     public static boolean atualizar(Usuario usuario) {
         String sql = "UPDATE usuario SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? WHERE id_usuario = ?";
         ConexaoBD conexao = new ConexaoBD();
-
-        try (Connection conn = conexao.conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)){
+        Connection conn = conexao.conectar();
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario.getEmail());
             stmt.setString(2, usuario.getCpf());
             stmt.setString(3, usuario.getNome());
@@ -63,57 +64,74 @@ public class UsuarioDAO{
             stmt.setInt(7, usuario.getIdIndustria());
             stmt.setInt(8, usuario.getTempoTrabalho());
             stmt.setInt(9, usuario.getIdUsuario());
-            if (stmt.executeUpdate() > 0) return true;
+            if (stmt.executeUpdate() > 0) {return true;}
+            else return false;
+        } catch (SQLException e){
+            e.printStackTrace();
             return false;
-        } catch (SQLException sqle){
-            sqle.printStackTrace();
-            return false;
+        }finally {
+            conexao.desconectar(conn);
         }
 
     }
+
 
     //READ
-    public void lerDados() {
+    public List<Usuario> lerDados() {
+        List<Usuario> lista = new ArrayList<>();
+        String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC";
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
         try {
-            ConexaoBD conexao = new ConexaoBD();
-            try (Connection conn = conexao.conectar();
-                 Statement st = conn.createStatement();
-                 ResultSet rs = st.executeQuery("SELECT * FROM usuario ORDER BY id_usuario ASC")) {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
 
-                ResultSetMetaData metaData = rs.getMetaData();
-                int colunas = metaData.getColumnCount();
+            System.out.println("Conteúdo da tabela usuário:");
+            while (rs.next()) {
+                int id = rs.getInt("id_usuario");
+                String email = rs.getString("email");
+                String cpf = rs.getString("cpf");
+                String nome = rs.getString("nome");
+                Date dtCadastro = rs.getDate("data_cadastro");
+                Date dtNascimento = rs.getDate("data_nascimento");
+                Date dtValidade = rs.getDate("data_validade");
+                int idIndustria = rs.getInt("id_industria");
+                int tempTrabalho = rs.getInt("tempo_trabalho");
 
-                System.out.println("Conteúdo:");
-                while (rs.next()) {
-                    for (int i = 1; i <= colunas; i++) {
-                        String nomeColuna = metaData.getColumnName(i);
-                        String valor = rs.getString(i);
-                        System.out.print(nomeColuna + ": " + valor + " | ");
-                    }
-                    System.out.println();
-                }
-
+                Usuario user = new Usuario(
+                        id, email, cpf, nome,
+                        dtCadastro, dtNascimento, dtValidade,
+                        idIndustria, tempTrabalho
+                );
+                lista.add(user);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
         }
+        return lista;
     }
+
 
 
     // DELETE
-    public void deletar(int idUsuario) throws SQLException {
+    public void deletar(int idUsuario){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = conexao.conectar();
         try {
-            ConexaoBD conexao = new ConexaoBD();
-            Connection conn = conexao.conectar();
             String sql = "DELETE FROM Usuario WHERE id_usuario= ?";
 
-        PreparedStatement pstmt = conn.prepareStatement(sql);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, idUsuario);
 
             int linhasAfetadas = pstmt.executeUpdate();
             System.out.println("Linhas deletadas: " + linhasAfetadas);
         }catch (SQLException e){
             e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
         }
     }
 

@@ -1,15 +1,14 @@
 package com.projybyraservletmvc.model;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.conexao.*;
 import com.projybyraservletmvc.dao.*;
-
-import java.util.Date;
+import java.sql.Date;
+import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
         //TESTANDO OS METODOS
         ConexaoBD conn = new ConexaoBD();
-        RelatoriosDAO rel = new RelatoriosDAO();
         TelefoneDAO tel = new TelefoneDAO();
 
 
@@ -36,10 +35,10 @@ public class Main {
 
 
         //USUARIO
-        try{
-        UsuarioDAO user = new UsuarioDAO();
-//        Date date = new Date();
-//        Date dataCadastro = Date.valueOf("2025-09-20");
+        //try{
+       // UsuarioDAO user = new UsuarioDAO();
+
+//       Date dataCadastro = Date.valueOf("2025-09-20");
 //        Date dataNascimento = Date.valueOf("2010-04-11");
 //        Date dataValidade = Date.valueOf("2028-09-21");
 //
@@ -58,12 +57,42 @@ public class Main {
 //            }else {
 //                System.out.println("Erro na atualização! Consulte o terminal");
 //            }
-            user.lerDados();
+            //System.out.println(user.lerDados());
             //user.deletar(10);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+       // } catch (Exception e) {
+         //   e.printStackTrace();
+        //}
+
+        //RELATORIOS
+        RelatoriosDAO rel = new RelatoriosDAO();
+//        try {
+//
+//
+//        Date dataCriacao = Date.valueOf("2025-09-26");
+//        Date novaData = Date.valueOf("2025-09-28");
+//        Relatorios relatorio = new Relatorios(1, novaData, "pdf123", 1);
+////        if(rel.inserirDados(dataCriacao, "pdf1230mifow903", 1)){
+////            System.out.println("Relatório inserido com sucesso");
+////        }else System.out.println("Falha na inserção do relatório");
+//        //rel.deletar(1);
+////        rel.atualizar(relatorio);
+//        System.out.println(rel.lerDados());
+//    }catch (Exception e){
+//        e.printStackTrace();
+//    }
+
+
+
+
+   switch (rel.atualizarId(10)){
+       case 1:
+           System.out.println("Atualização feita");
+       case 0:
+           System.out.println("Incapaz de realizar a atualizacao");
+       case -1:
+           System.out.println("Erro na hora de atualizar");
+   }
 
 
         //Até agora tudo funcionando
