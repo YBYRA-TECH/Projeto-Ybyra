@@ -17,10 +17,12 @@ public class TelefoneDAO {
     //INSERT
     public boolean inserirTelefone(Telefone telefone){
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            conn = conexao.conectar();
             String sql = "INSERT INTO telefone (numero, tipo, id_usuario) VALUES (?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
+
             pstmt.setString(1, telefone.getNumero());
             pstmt.setString(2, telefone.getTipo());
             pstmt.setInt(3, telefone.getIdUsuario());
@@ -41,13 +43,15 @@ public class TelefoneDAO {
     public List<Telefone> lerDados() {
         List<Telefone> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
-        String sql = "SELECT * FROM telefone ORDER BY id_telefone ASC";
+        Connection conn = null;
         try {
+            String sql = "SELECT * FROM telefone ORDER BY id_telefone ASC";
+            conn = conexao.conectar();
+
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-
             System.out.println("Conteúdo da tabela telefone:");
+
             while (rs.next()) {
                 int id = rs.getInt("id_telefone");
                 String numero = rs.getString("numero");
@@ -72,11 +76,13 @@ public class TelefoneDAO {
 
     // UPDATE
     public boolean atualizarNumero(Telefone telefone) {
-        String sql = "UPDATE telefone SET numero = ?, tipo = ?, id_usuario = ?";
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try{
+            String sql = "UPDATE telefone SET numero = ?, tipo = ?, id_usuario = ?";
+            conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
+
             stmt.setString(1, telefone.getNumero());
             stmt.setString(2, telefone.getTipo());
             stmt.setInt(3, telefone.getIdUsuario());
@@ -95,8 +101,9 @@ public class TelefoneDAO {
     // DELETE
     public void deletar(int idTelefone) {
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            conn = conexao.conectar();
             String sql = "DELETE FROM telefone WHERE id_telefone = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);

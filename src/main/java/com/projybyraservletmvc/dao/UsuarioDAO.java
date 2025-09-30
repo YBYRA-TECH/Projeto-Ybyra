@@ -17,17 +17,13 @@ public class UsuarioDAO{
     //INSERT
     public boolean inserirDados(Usuario usuario) {
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
-            if (conn == null) {
-                System.out.println("Conexão ainda não estabelecida, use o método 'conectar' primeiro.");
-                return false;
-            }
-
+            conn = conexao.conectar();
             String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
             PreparedStatement ps = conn.prepareStatement(sql);
+
             ps.setString(1, usuario.getEmail());
             ps.setString(2, usuario.getCpf());
             ps.setString(3, usuario.getNome());
@@ -50,11 +46,13 @@ public class UsuarioDAO{
 
     //UPDATE
     public static boolean atualizar(Usuario usuario) {
-        String sql = "UPDATE usuario SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? WHERE id_usuario = ?";
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            String sql = "UPDATE usuario SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? WHERE id_usuario = ?";
+            conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
+
             stmt.setString(1, usuario.getEmail());
             stmt.setString(2, usuario.getCpf());
             stmt.setString(3, usuario.getNome());
@@ -79,14 +77,16 @@ public class UsuarioDAO{
     //READ
     public List<Usuario> lerDados() {
         List<Usuario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC";
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            conn = conexao.conectar();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC";
 
+            ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Conteúdo da tabela usuário:");
+
             while (rs.next()) {
                 int id = rs.getInt("id_usuario");
                 String email = rs.getString("email");
@@ -119,13 +119,14 @@ public class UsuarioDAO{
     // DELETE
     public void deletar(int idUsuario){
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            conn = conexao.conectar();
             String sql = "DELETE FROM Usuario WHERE id_usuario= ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, idUsuario);
 
+            pstmt.setInt(1, idUsuario);
             int linhasAfetadas = pstmt.executeUpdate();
             System.out.println("Linhas deletadas: " + linhasAfetadas);
         }catch (SQLException e){

@@ -82,18 +82,10 @@ public class Main {
 //        e.printStackTrace();
 //    }
 
+        Date dataCriacao = Date.valueOf("2025-09-26");
+        Date novaData = Date.valueOf("2025-09-28");
 
-
-
-   switch (rel.atualizarId(10)){
-       case 1:
-           System.out.println("Atualização feita");
-       case 0:
-           System.out.println("Incapaz de realizar a atualizacao");
-       case -1:
-           System.out.println("Erro na hora de atualizar");
-   }
-
+//    rel.inserirDados(1, dataCriacao, "pdf12904ndiqwdo/com.pdf", 1);
 
         //Até agora tudo funcionando
     }

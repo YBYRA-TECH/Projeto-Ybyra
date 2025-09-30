@@ -17,15 +17,16 @@ public class IndustriaDAO{
     //INSERT
     public boolean inserirDados(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try{
+            conn = conexao.conectar();
             if (conn == null) {
                 System.out.println("Conexão ainda não estabelecida, use o método 'conectar' primeiro.");
                 return false;
             }
-        //Statement stmt = conn.createStatement();
         String sql = ("INSERT INTO industria(nome, endereco, cnpj, numero_usuarios) VALUES (?, ?, ?, ?)");
         PreparedStatement pstmt = conn.prepareStatement(sql);
+
         pstmt.setString(1, industria.getNome());
         pstmt.setString(2, industria.getEndereco());
         pstmt.setString(3, industria.getCnpj());
@@ -44,11 +45,13 @@ public class IndustriaDAO{
 
     //UPDATE
     public static boolean atualizarIndustria(Industria industria) {
-        String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, numero_usuarios = ? WHERE id_industria = ?";
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, numero_usuarios = ? WHERE id_industria = ?";
+            conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
+
             stmt.setString(1, industria.getNome());
             stmt.setString(2, industria.getEndereco());
             stmt.setString(3, industria.getCnpj());
@@ -68,15 +71,16 @@ public class IndustriaDAO{
     //READ
     public List<Industria> lerDados(){
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         List<Industria> lista = new ArrayList<>();
-        String sql = ("SELECT * FROM industria ORDER BY id_industria ASC");
         try {
-
+            String sql = ("SELECT * FROM industria ORDER BY id_industria ASC");
+            conn = conexao.conectar();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             System.out.println("Conteúdo da tabela indústria:");
+
             while (rs.next()) {
                 int id = rs.getInt("id_industria");
                 String nome = rs.getString("nome");
@@ -104,8 +108,9 @@ public class IndustriaDAO{
     // DELETE
     public void deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = conexao.conectar();
+        Connection conn = null;
         try {
+            conn = conexao.conectar();
             String sql = "DELETE FROM industria WHERE id_industria = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
