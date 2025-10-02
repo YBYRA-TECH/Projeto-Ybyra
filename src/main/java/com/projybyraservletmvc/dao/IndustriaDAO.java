@@ -69,7 +69,7 @@ public class IndustriaDAO{
     }
 
     //READ
-    public List<Industria> lerDados(){
+    public List<Industria> buscar(){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         List<Industria> lista = new ArrayList<>();
@@ -106,7 +106,7 @@ public class IndustriaDAO{
     }
 
     // DELETE
-    public void deletar(int idIndustria){
+    public int deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -116,10 +116,12 @@ public class IndustriaDAO{
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, idIndustria);
 
-            int linhasAfetadas = pstmt.executeUpdate();
-            System.out.println("Linhas deletadas: " + linhasAfetadas);
+            if(pstmt.executeUpdate() > 0){
+                return 1;
+            }else{return 0;}
         } catch (SQLException e) {
             e.printStackTrace();
+            return -1;
         }finally {
             conexao.desconectar(conn);
         }

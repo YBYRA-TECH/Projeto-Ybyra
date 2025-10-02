@@ -1,7 +1,6 @@
 package com.projybyraservletmvc.dao;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class UsuarioDAO{
 
 
     //READ
-    public List<Usuario> lerDados() {
+    public List<Usuario> buscar() {
         List<Usuario> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -117,7 +116,7 @@ public class UsuarioDAO{
 
 
     // DELETE
-    public void deletar(int idUsuario){
+    public int deletar(int idUsuario){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -127,10 +126,12 @@ public class UsuarioDAO{
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setInt(1, idUsuario);
-            int linhasAfetadas = pstmt.executeUpdate();
-            System.out.println("Linhas deletadas: " + linhasAfetadas);
+            if(pstmt.executeUpdate()>0){
+                return 1;
+            }else{return 0;}
         }catch (SQLException e){
             e.printStackTrace();
+            return -1;
         }finally {
             conexao.desconectar(conn);
         }

@@ -40,7 +40,7 @@ public class TelefoneDAO {
     }
 
     // READ
-    public List<Telefone> lerDados() {
+    public List<Telefone> buscar() {
         List<Telefone> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -99,7 +99,7 @@ public class TelefoneDAO {
 
 
     // DELETE
-    public void deletar(int idTelefone) {
+    public int deletar(int idTelefone) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -109,10 +109,12 @@ public class TelefoneDAO {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, idTelefone);
 
-            int linhasAfetadas = pstmt.executeUpdate();
-            System.out.println("Linhas deletadas: " + linhasAfetadas);
+            if(pstmt.executeUpdate()>0){
+                return 1;
+            }else{return 0;}
         }catch (SQLException e) {
             e.printStackTrace();
+            return -1;
         }finally {
             conexao.desconectar(conn);
         }

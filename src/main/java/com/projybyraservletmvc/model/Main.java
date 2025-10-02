@@ -3,7 +3,6 @@ package com.projybyraservletmvc.model;
 import com.projybyraservletmvc.conexao.*;
 import com.projybyraservletmvc.dao.*;
 import java.sql.Date;
-import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +25,7 @@ public class Main {
 //            }else {
 //                System.out.println("Erro na atualização! Consulte o terminal");
 //            }
-//            idta.lerDados();
+//            idta.buscar();
 //            //idta.deletar(7);
 //
 //        } catch (Exception e) {
@@ -36,7 +35,7 @@ public class Main {
 
         //USUARIO
         //try{
-       // UsuarioDAO user = new UsuarioDAO();
+        UsuarioDAO user = new UsuarioDAO();
 
 //       Date dataCadastro = Date.valueOf("2025-09-20");
 //        Date dataNascimento = Date.valueOf("2010-04-11");
@@ -57,7 +56,7 @@ public class Main {
 //            }else {
 //                System.out.println("Erro na atualização! Consulte o terminal");
 //            }
-            //System.out.println(user.lerDados());
+            System.out.println(user.buscar());
             //user.deletar(10);
 
        // } catch (Exception e) {
@@ -77,7 +76,7 @@ public class Main {
 ////        }else System.out.println("Falha na inserção do relatório");
 //        //rel.deletar(1);
 ////        rel.atualizar(relatorio);
-//        System.out.println(rel.lerDados());
+//        System.out.println(rel.buscar());
 //    }catch (Exception e){
 //        e.printStackTrace();
 //    }
