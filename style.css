@@ -114,15 +114,13 @@ main {
   background-position-y: 2rem;
   background-repeat: no-repeat; */
   height: 25vh;
+  flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
   gap: 1.2rem;
   padding-top: 4rem;
   padding-bottom: 2rem;
 }
-
-
-
 
 /* ===== ESTILO DOS CARDS ===== */
 .card {
@@ -135,7 +133,6 @@ main {
   transition: all 1.4s ease;
   color: white;
   font-family: "Geologica", sans-serif;
-
 }
 
 .num_cartao {
@@ -144,7 +141,7 @@ main {
 }
 
 .card:hover {
-  transform:  translateY(-0.8rem);
+  transform: translateY(-0.8rem);
   background: linear-gradient(to right, #2f9fff, #5cdffb);
   color: black;
 }
@@ -158,7 +155,6 @@ main {
   opacity: 0;
   max-height: 0;
   transition: all 0.9s ease;
-
 }
 .texto_inicio {
   font-size: 1.4rem;
@@ -183,12 +179,11 @@ main {
 .link_cartao:hover {
   text-decoration: underline;
 }
-.card:hover .link_cartao{
+.card:hover .link_cartao {
   opacity: 1;
-  transition: all 1.2s ease;
+  transition: all 1.9s ease;
   max-height: 1rem;
 }
-
 
 /* ===== SEÇÃO 3 ===== */
 
@@ -207,7 +202,6 @@ main {
   font-size: 5rem;
   text-align: right;
   margin-right: 12rem;
-  
 }
 
 .sec3_content {
@@ -215,25 +209,20 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-
 }
-
 
 .sec3_slider input[type="radio"] {
   display: none;
 }
 
-
-
 .slide {
   display: none;
   align-items: center;
-
 }
 
 .slide img {
-margin-top: 15%;
-width: 40rem;
+  margin-top: 15%;
+  width: 40rem;
 }
 
 .slide-text {
@@ -253,7 +242,7 @@ width: 40rem;
 .slide p {
   font-weight: lighter;
   color: #5980b0;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   font-family: "Geologica", sans-serif;
 }
@@ -267,12 +256,12 @@ width: 40rem;
 
 .dot {
   margin-right: 5rem;
-  width: 7rem; 
-  height: 1rem; 
-  border-radius: 0.6rem; 
-  background: #c8d7ee; 
-  cursor: pointer; 
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; 
+  width: 7rem;
+  height: 1rem;
+  border-radius: 0.6rem;
+  background: #c8d7ee;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Exibe apenas o slide correspondente ao input:checked */
@@ -290,8 +279,6 @@ width: 40rem;
 #step4:checked ~ .sec3_controls label[for="step4"] {
   background: #0a4ec7;
 }
-
-
 
 /* ===== SEÇÃO 4 ===== */
 #sec4 {
@@ -338,7 +325,7 @@ hr {
 #sec_sobre {
   background-image: url("./imgs/Fundo\ \ Sobre.png");
   background-size: cover;
-  background-position: center;  
+  background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   display: flex;
@@ -352,7 +339,7 @@ hr {
   font-family: "Montserrat", sans-serif;
   font-size: 5.6rem;
   color: white;
-  text-align: left ;
+  text-align: left;
   /* Espaço abaixo do titulo */
   margin-bottom: 8vh;
 }
@@ -409,8 +396,12 @@ footer {
   border-radius: 0.1rem;
   background-color: #081f38;
 }
-footer div{
+footer section {
+  flex-wrap: wrap;
+}
+footer div {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
@@ -418,6 +409,7 @@ footer div{
   margin-top: 5rem;
   text-align: center;
   font-size: 1.1rem;
+  padding-bottom: 2rem;
 }
 
 footer .col1 {
@@ -445,4 +437,332 @@ footer p,
 h3 {
   margin-top: 5rem;
   color: aliceblue;
+}
+
+/* ======================================= */
+/* ===== AJUSTES PARA TELAS MENORES ===== */
+/* ======================================= */
+
+/* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
+@media (max-width: 1024px) {
+  /* ===== CABEÇALHO ===== */
+  header {
+    gap: 2rem;
+    padding: 0.4rem 1.5rem;
+    width: 95%;
+  }
+
+  header a {
+    font-size: 1rem;
+  }
+
+  header a:first-of-type {
+    margin-left: auto;
+  }
+
+  /* ===== SEÇÃO INTRODUÇÃO (MANTÉM ORDEM ORIGINAL - TEXTO/IMAGEM) ===== */
+  .sec_intro {
+    flex-direction: column;
+    height: auto;
+    padding: 5rem 5vw 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  #texto_intro {
+    align-items: center;
+    padding-top: 5rem;
+  }
+
+  .sec_intro h1 {
+    font-size: 3.5rem;
+  }
+
+  #imagem_intro img {
+    width: 25rem;
+    margin-top: 3rem;
+  }
+
+  /* ===== TÍTULO RESULTADOS ===== */
+  #titulo_resultados {
+    font-size: 3.5rem;
+    padding-left: 2rem;
+    text-align: center;
+    padding-top: 5rem;
+  }
+
+  /* ===== SEÇÃO CARTÕES (EMPILHAMENTO) ===== */
+  .sec_cartoes {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  .card {
+    width: 80vw;
+    max-width: 30rem;
+  }
+
+  /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
+  #sec3 {
+    align-items: center;
+    padding-top: 5rem;
+  }
+
+  .sec3_content {
+    /* Define a direção da coluna no container principal */
+    flex-direction:column;
+  }
+
+  .slide {
+    /* **CHAVE para Imagem acima do Texto:** Inverte a ordem dos itens dentro do slide. */
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    
+    /* Garante que o texto fique compacto em telas menores */
+    justify-content: center; 
+  }
+
+  .slide img {
+    width: 30rem;
+    margin-top: 5%;
+    margin-bottom: 2rem;
+  }
+
+  .slide-text {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .slide-text h1 {
+    font-size: 3rem;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .slide h2 {
+    font-size: 2.2rem;
+    margin-top: 5%;
+  }
+
+  /* **CHAVE para Controles Próximos ao Texto:** Ajusta a posição e espaçamento dos dots */
+  .sec3_controls {
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 5rem; /* Adiciona espaço abaixo dos controles */
+  }
+
+  .dot {
+    width: 5rem;
+    margin-right: 1rem; /* Reduz o espaçamento entre os dots */
+  }
+
+  /* ===== SEÇÃO 4 - PERGUNTAS (IMAGEM ACIMA DO TEXTO) ===== */
+  #sec4 {
+    /* **CHAVE para Imagem acima do Texto:** Inverte a ordem da imagem e do texto */
+    flex-direction: column-reverse; 
+    margin-top: 5rem;
+    text-align: center;
+    padding: 2rem;
+    gap: 5rem;
+  }
+
+  #sec4 img {
+    width: 80vw;
+    margin-left: 0;
+  }
+
+  #sec4 h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .textoP {
+    max-width: 80vw;
+  }
+
+  /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
+  #sec_sobre {
+    height: auto;
+    padding: 5vh 2vw;
+  }
+
+  #titulo_sobre {
+    margin-right: 0;
+    margin-top: 3rem;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 5vh;
+  }
+
+  #cartoes_sobre {
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .card_sobre {
+    max-width: 85vw;
+    height: auto;
+    padding: 2rem;
+    margin-right: 0 !important;
+    background-position: center bottom;
+    background-size: 80%;
+  }
+
+  .card_sobre:nth-child(1) {
+    background-position: 50% 95%;
+  }
+  .card_sobre:nth-child(3) {
+    background-position: 50% 95%;
+  }
+  
+  /* ===== RODAPÉ (EMPILHAMENTO) ===== */
+  footer {
+    margin-top: 10rem;
+    padding: 2rem 0;
+  }
+
+  footer div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer section {
+    text-align: center;
+  }
+
+  footer p,
+  footer h3 {
+    margin-top: 2rem;
+  }
+}
+
+/* --- TELA DE SMARTPHONE (MAX-WIDTH: 600PX) --- */
+@media (max-width: 780px) {
+  /* ===== CABEÇALHO (Compacto) ===== */
+  header {
+    justify-content: space-between;
+    gap: 0;
+    padding: 0.8rem 1rem;
+    width: 92%;
+  }
+
+  header a,
+  header a:first-of-type {
+    display: none;
+    margin-left: 0;
+  }
+
+  header button {
+    padding: 0.5rem 1rem;
+  }
+  header button p a {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  /* ===== SEÇÃO INTRODUÇÃO (Compacto) ===== */
+  .sec_intro {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2rem;
+    gap: 2rem;
+  }
+
+  .sec_intro h1 {
+    font-size: 3rem;
+  }
+
+  #imagem_intro img {
+    width: 90vw;
+  }
+
+  .sec_intro a {
+    font-size: 1.2rem;
+  }
+
+  /* ===== TÍTULO RESULTADOS (Compacto) ===== */
+  #titulo_resultados {
+    font-size: 2.5rem;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  /* ===== SEÇÃO 3 - CONHEÇA O APP (Slider Compacto) ===== */
+  .slide img {
+    width: 70vw;
+    margin-right: 7.5rem;
+  }
+
+  .slide-text {
+    padding: 0 5vw;
+  }
+
+  .slide-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .slide h2 {
+    font-size: 1.5rem;
+  }
+
+  .slide p {
+    font-size: 1.2rem;
+  }
+
+  .sec3_controls {
+    margin-top: 10%;
+  }
+  
+  .dot {
+    width: 3rem;
+    height: 0.6rem;
+    margin-right: 0.3rem; /* Reduz mais o espaçamento entre os dots */
+  }
+
+  /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
+  #sec4 h1 {
+    font-size: 3rem;
+  }
+  #sec4 img {
+    width: 120vw;
+    margin-left: 1.5rem;
+  }
+
+  #sec4 p {
+    font-size: 1.1rem;
+  }
+
+   /* ===== IMAGEM DECORATIVA ===== */
+  #imagem_decorativa {
+    background-size: 40% 80%;
+  }
+  /* ===== SEÇÃO SOBRE (Compacto) ===== */
+  #sec_sobre{
+    margin-top: -2rem;
+    background-size: 400%  200%;
+  }
+  #titulo_sobre {
+    font-size: 3rem;
+    margin-top: 4vh;
+  }
+
+  .titulo_card {
+    font-size: 2rem;
+    
+  }
+
+  /* Remove as imagens de fundo nos cartões da seção "Sobre Nós" para telas muito pequenas */
+  .card_sobre {
+    background-image: none !important;
+  }
+
+  #sec_sobre p {
+    font-size: 1rem;
+  }
 }

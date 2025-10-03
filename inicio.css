@@ -40,11 +40,11 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1.2rem 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .logo-site img {
-    width: 12rem;
+    width: 11rem;
 }
 
 .menu-principal {
@@ -100,52 +100,11 @@ body {
     box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
 }
 
-.conteudo-principal-header {
+#header-imagem {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1.5rem;
-    padding-right: 1.2rem;
+    justify-content: right;
+    margin-bottom: 2rem;
 }
-
-.area-conteudo h2 {
-    font-size: 1.8rem;
-    color: #4469a4;
-    margin-bottom: 0;
-}
-
-.header-input {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 1.2rem;
-    padding: 0.3125rem 0.9rem;
-    background-color: #fff;
-}
-
-.header-input input {
-    border: none;
-    outline: none;
-    padding: 0.3rem;
-    font-size: 1rem;
-    width: 18.7rem;
-}
-
-.header-input img {
-    width: 5rem;
-    margin-top: -0.7rem;
-    margin-left: 0.7rem;
-}
-
-.header-imagem {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-
-.header-imagem img {
-    margin-left: 1.8rem;
-    width: 9rem;
-    height: 5rem;
+#header-imagem img {
+    width: 10rem;
 }
