@@ -24,6 +24,7 @@ public class RelatoriosDAO{
             pstmt.setDate(1, relatorios.getDataCriacao());
             pstmt.setString(2, relatorios.getPdfDocumento());
             pstmt.setInt(3, relatorios.getIdUsuario());
+
             if(pstmt.executeUpdate()>0) {
                 return true;
             }

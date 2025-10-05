@@ -15,19 +15,21 @@ public class TelefoneDAO {
 
 
     //INSERT
-    public boolean inserirTelefone(Telefone telefone){
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
+    public boolean inserirTelefone(Telefone telefone){ //
+        ConexaoBD conexao = new ConexaoBD(); //Instanciando objeto da classe conexao
+        Connection conn = null; //Inicializando atributo conn
         try {
-            conn = conexao.conectar();
-            String sql = "INSERT INTO telefone (numero, tipo, id_usuario) VALUES (?, ?, ?)";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            conn = conexao.conectar();//Atribuindo o metodo conectar ao atributo 'conn'
+            String sql = "INSERT INTO telefone (numero, tipo, id_usuario) VALUES (?, ?, ?)"; //String sql
 
+            PreparedStatement pstmt = conn.prepareStatement(sql); //Transformando a String sql em um preparedStatement
+
+            //Efetuando a insercao no banco
             pstmt.setString(1, telefone.getNumero());
             pstmt.setString(2, telefone.getTipo());
             pstmt.setInt(3, telefone.getIdUsuario());
 
-            if(pstmt.executeUpdate()>0){
+            if(pstmt.executeUpdate()>0){ //Retornando o preparedStatement
                 return true;
             }return false;
 
@@ -40,24 +42,25 @@ public class TelefoneDAO {
     }
 
     // READ
-    public List<Telefone> buscar() {
-        List<Telefone> lista = new ArrayList<>();
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
+    public List<Telefone> buscar() { //O metodo retorna uma lista de objetos com todos os valores da tabela
+        List<Telefone> lista = new ArrayList<>(); //Inicializando a lista
+        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
+        Connection conn = null;//Inicializando uma variavel da classe Connection
         try {
-            String sql = "SELECT * FROM telefone ORDER BY id_telefone ASC";
-            conn = conexao.conectar();
+            String sql = "SELECT * FROM telefone ORDER BY id_telefone ASC"; //String sql
+            conn = conexao.conectar(); //Inicializando um Statement
 
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            Statement stmt = conn.createStatement(); //Inicializando um Statement
+            ResultSet rs = stmt.executeQuery(sql);//Transformando a String sql em ResultSet
             System.out.println("Conteúdo da tabela telefone:");
 
+            //Exibindo os dados da tabela
             while (rs.next()) {
                 int id = rs.getInt("id_telefone");
                 String numero = rs.getString("numero");
                 String tipo = rs.getString("tipo");
                 int idUsuario = rs.getInt("id_usuario");
-
+                //Cria um objeto da classe model Usuario e adiciona na lista conforme os valores na tabela
                 Telefone tel = new Telefone(
                         id,
                         numero,
@@ -75,19 +78,20 @@ public class TelefoneDAO {
 }
 
     // UPDATE
-    public boolean atualizarNumero(Telefone telefone) {
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
+    public boolean atualizarNumero(Telefone telefone) { //O metodo recebe um objeto da classe Telefone
+        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe conexao
+        Connection conn = null; //inicializando uma variavel da classe Connection
         try{
-            String sql = "UPDATE telefone SET numero = ?, tipo = ?, id_usuario = ?";
-            conn = conexao.conectar();
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
+            String sql = "UPDATE telefone SET numero = ?, tipo = ?, id_usuario = ?"; //String sql
+            PreparedStatement stmt = conn.prepareStatement(sql); //Transformando a string sql em comando com PreparedStatement
 
+            //Atualizando os dados no banco
             stmt.setString(1, telefone.getNumero());
             stmt.setString(2, telefone.getTipo());
             stmt.setInt(3, telefone.getIdUsuario());
 
-            if (stmt.executeUpdate() > 0) return true;
+            if (stmt.executeUpdate() > 0) return true; //Retornado os valores conforme o pstmt
             return false;
         } catch (SQLException sqle){
             sqle.printStackTrace();
@@ -99,20 +103,21 @@ public class TelefoneDAO {
 
 
     // DELETE
-    public int deletar(int idTelefone) {
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
+    public int deletar(String numero) { //Deleta de acordo com o nome passado no parametro
+        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
+        Connection conn = null; //Inicializando uma variavel da classe Connection
         try {
-            conn = conexao.conectar();
-            String sql = "DELETE FROM telefone WHERE id_telefone = ?";
+            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
+            String sql = "DELETE FROM telefone WHERE numero = ?"; //String sql
 
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, idTelefone);
+            PreparedStatement pstmt = conn.prepareStatement(sql); //Preparando a String sql com PreparedStatement
+            //Deletando no banco
+            pstmt.setString(1, numero); //Retornando valores conforme o pstmt.executeUpdate()
 
-            if(pstmt.executeUpdate()>0){
+            if(pstmt.executeUpdate()>0){ //Retornando valores conforme o pstmt.executeUpdate()
                 return 1;
             }else{return 0;}
-        }catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
             return -1;
         }finally {

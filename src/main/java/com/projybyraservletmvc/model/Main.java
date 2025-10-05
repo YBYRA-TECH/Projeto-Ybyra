@@ -56,7 +56,7 @@ public class Main {
 //            }else {
 //                System.out.println("Erro na atualização! Consulte o terminal");
 //            }
-            System.out.println(user.buscar());
+           // System.out.println(user.buscar());
             //user.deletar(10);
 
        // } catch (Exception e) {
@@ -85,6 +85,14 @@ public class Main {
         Date novaData = Date.valueOf("2025-09-28");
 
 //    rel.inserirDados(1, dataCriacao, "pdf12904ndiqwdo/com.pdf", 1);
+
+
+        //ENDERECO
+        EnderecoDAO end = new EnderecoDAO();
+
+        System.out.println(end.buscar());
+
+
 
         //Até agora tudo funcionando
     }

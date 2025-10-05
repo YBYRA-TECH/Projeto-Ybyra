@@ -6,18 +6,19 @@ public class Industria {
         private String nome;
         private String endereco;
         private String cnpj;
-        private int numeroUsuarios;
+        private String senha;
 
         //CONSTRUTOR
 
         public Industria(){}
 
-        public Industria(int idIndustria, String nome, String endereco, String cnpj, int numeroUsuarios) {
+        public Industria(int idIndustria, String nome, String endereco, String cnpj, String senha) {
             this.idIndustria = idIndustria;
             this.nome = nome;
             this.endereco = endereco;
             this.cnpj = cnpj;
-            this.numeroUsuarios = numeroUsuarios;
+            this.senha = senha;
+
         }
 
         // GETTERS E SETTERS
@@ -49,22 +50,20 @@ public class Industria {
             this.cnpj = cnpj;
         }
 
-        public int getNumeroUsuarios() {
-            return numeroUsuarios;
-        }
-        public void setNumeroUsuarios(int numeroUsuarios) {
-            this.numeroUsuarios = numeroUsuarios;
-        }
+        public String getSenha() {return senha;}
+            public void setSenha(String senha) {this.senha = senha;}
 
         //TOSTRING
         @Override
         public String toString() {
             return "Industria{" +
-                    "idIndustria=" + idIndustria +
-                    ", nome='" + nome + '\'' +
-                    ", endereco='" + endereco + '\'' +
-                    ", cnpj='" + cnpj + '\'' +
-                    ", numeroUsuarios=" + numeroUsuarios +
-                    '}';
+                    "\t idIndustria=" + idIndustria +
+                    ",\t nome='" + nome + '\'' +
+                    ",\t endereco='" + endereco + '\'' +
+                    ",\t cnpj='" + cnpj + '\'' +
+                    ",\t senha='" + senha + '\'' +
+                    "}\n";
         }
+
+
 }

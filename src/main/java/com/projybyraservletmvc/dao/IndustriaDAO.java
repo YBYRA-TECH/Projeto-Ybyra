@@ -20,17 +20,15 @@ public class IndustriaDAO{
         Connection conn = null;
         try{
             conn = conexao.conectar();
-            if (conn == null) {
-                System.out.println("Conexão ainda não estabelecida, use o método 'conectar' primeiro.");
-                return false;
-            }
-        String sql = ("INSERT INTO industria(nome, endereco, cnpj, numero_usuarios) VALUES (?, ?, ?, ?)");
-        PreparedStatement pstmt = conn.prepareStatement(sql);
 
-        pstmt.setString(1, industria.getNome());
-        pstmt.setString(2, industria.getEndereco());
-        pstmt.setString(3, industria.getCnpj());
-        pstmt.setInt(4, industria.getNumeroUsuarios());
+            String sql = "INSERT INTO industria(nome, endereco, cnpj, senha) VALUES (?, ?, ?, ?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, industria.getNome());
+            pstmt.setString(2, industria.getEndereco());
+            pstmt.setString(3, industria.getCnpj());
+            pstmt.setString(4, industria.getSenha());
+
 
             if(pstmt.executeUpdate()>0){
                 return true;
@@ -48,15 +46,15 @@ public class IndustriaDAO{
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, numero_usuarios = ? WHERE id_industria = ?";
+            String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
             conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, industria.getNome());
             stmt.setString(2, industria.getEndereco());
             stmt.setString(3, industria.getCnpj());
-            stmt.setInt(4, industria.getNumeroUsuarios());
-            stmt.setInt(5, industria.getIdIndustria());
+            stmt.setInt(4, industria.getIdIndustria());
+            stmt.setString(5, industria.getSenha());
 
             if (stmt.executeUpdate() > 0) return true;
             return false;
@@ -86,14 +84,14 @@ public class IndustriaDAO{
                 String nome = rs.getString("nome");
                 String endereco = rs.getString("endereco");
                 String cnpj = rs.getString("cnpj");
-                int nUsuarios = rs.getInt("numero_usuarios");
+                String senha = rs.getString("senha");
 
                 Industria industria = new Industria(
                         id,
                         nome,
                         endereco,
                         cnpj,
-                        nUsuarios
+                        senha
                 );
                 lista.add(industria);
             }
