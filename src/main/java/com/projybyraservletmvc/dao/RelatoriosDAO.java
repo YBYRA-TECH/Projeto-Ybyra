@@ -43,12 +43,14 @@ public class RelatoriosDAO{
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "UPDATE relatorios SET data_criacao = ?, pdf_documento = ?, id_usuario = ?";
+            String sql = "UPDATE relatorios SET data_criacao = ?, pdf_documento = ?, id_usuario = ? WHERE id_relatorio = ?";
             conn = conexao.conectar();
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setDate(1, relatorios.getDataCriacao());
             pstmt.setString(2, relatorios.getPdfDocumento());
             pstmt.setInt(3, relatorios.getIdUsuario());
+            pstmt.setInt(4, relatorios.getIdRelatorios());
+
             if (pstmt.executeUpdate() > 0){
                 return true;
             }else return false;

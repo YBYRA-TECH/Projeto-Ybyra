@@ -78,4 +78,59 @@ public class EnderecoDAO {
     }
 
 
+    //UPDATE
+    public boolean atualizar(Endereco endereco){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+
+            String sql = "UPDATE endereco SET id_endereco = ?, id_industria = ?, estado = ?, cidade = ?," +
+                    "cep = ?, bairro = ?, rua = ? WHERE id_endereco = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setInt(1, endereco.getIdEndereco());
+            pstmt.setInt(2, endereco.getIdIndustria());
+            pstmt.setString(3, endereco.getEstado());
+            pstmt.setString(4, endereco.getCidade());
+            pstmt.setString(5, endereco.getCep());
+            pstmt.setString(6, endereco.getBairro());
+            pstmt.setString(7, endereco.getRua());
+            pstmt.setInt(8, endereco.getIdEndereco());
+
+            if (pstmt.executeUpdate() > 0){
+                return true;
+            }else return false;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
+
+    //DELETE
+    public int deletar(int idEndereco){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+
+        try {
+            conn = conexao.conectar();
+            String sql = "DELETE FROM endereco WHERE id_endereco = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, idEndereco);
+
+            if(pstmt.executeUpdate()>0){
+                return 1;
+            }else{return 0;}
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }finally {
+            conexao.desconectar(conn);
+        }
+    }
+
 }
