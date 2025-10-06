@@ -285,12 +285,12 @@ main {
 }
 
 #sec4 img {
-  margin-left: clamp(0rem, 15vw, 15rem);
+  margin-left: clamp(0rem, 9vw, 15rem);
 }
 
 #sec4 h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: 600  ;
   background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
   background-clip: text;
   color: transparent;
