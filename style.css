@@ -289,6 +289,8 @@ main {
 }
 
 #sec4 h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
   background-clip: text;
   color: transparent;
@@ -326,11 +328,12 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5vh;
+  padding: 23vh;
 }
 
 #titulo_sobre {
-  margin-right: clamp(0rem, 50vw, 50rem);
+  margin-top: -2%;
+  margin-right: clamp(0rem, 46vw, 50rem);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(3rem, 7vw, 5.6rem);
   color: white;
@@ -350,6 +353,7 @@ hr {
   align-items: center;
   text-align: center;
   max-width: 130rem;
+  width: 23rem;
   height: 100vh;
   padding: 2rem;
   gap: 2rem;
@@ -360,7 +364,7 @@ hr {
 .titulo_card {
   margin-top: 1rem;
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-size: clamp(2rem, 3.05vw, 3.2rem);
   background: linear-gradient(to right, #6edcfb, #3c78da);
   background-clip: text;
   color: transparent;
@@ -669,7 +673,7 @@ h3 {
     margin-top: 5%;
     margin-bottom: 2rem;
     width: clamp(20rem, 60vw, 30rem); /* Ajuste de tamanho para mobile */
-    margin-right: 4.5rem;
+    margin-right: 4rem;
 }
 
 .slide-text {
