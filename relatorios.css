@@ -39,12 +39,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.2rem 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .logo-site img {
-    width: 12rem;
+    width: 10rem;
 }
 
 .menu-principal {
@@ -52,14 +51,15 @@ body {
 }
 
 .item-menu a {
-    font-family: "Geologica", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight:600;
+    margin-top: 1rem;
     display: flex;
+    color: #3474cd;
     align-items: center;
-    margin-bottom: 2rem;
+    padding: 0.7rem 0;
     text-decoration: none;
-    color: #000000;
-    font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -70,11 +70,11 @@ body {
 
 /* Estilo para o item de menu ativo */
 .item-menu.ativo a {
-    background-color: #192083;
+    margin: 1;
+    background-color:#192083;
     border-radius: 0 1.2rem 1.2rem 0;
     margin-right: 15rem;
     box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
-
 }
 
 .item-menu a .box-icone {
@@ -85,67 +85,330 @@ body {
 }
 
 .item-menu a img {
-    margin-right: 1.5rem;
-    width: 2.5rem;
+    width: 3rem;
     margin-left: 1.5rem;
 }
 
 /* --- Estilos da Área de Conteúdo --- */
+
+
 .area-conteudo {
     flex-grow: 1;
-    padding: 1.875rem;
+    padding: 1.3rem 0.4rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
     box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
 }
 
-.conteudo-principal-header {
+/*Imagem header dentro do area-conteudo*/
+#header-imagem {
     display: flex;
+    justify-content: flex-end; /* Alinha os ícones/logos à direita */
+    align-items: center;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+#header-imagem img {
+    width: 7rem; /* Mantendo seu estilo original para as imagens */
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* --- ESTILOS CORRIGIDOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO (CONFORME IMAGEM) --- */
+/* -------------------------------------------------------------------------- */
+
+/* Estilos para o Painel de Ferramentas (Barra de Busca, Botões, Filtros) */
+.painel-ferramentas {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1.5rem;
-    padding-right: 1.2rem;
+    padding: 0 1.5rem 1.5rem 1.5rem; 
+    margin-bottom: 1.2rem;
+    gap: 1rem;
 }
 
-.area-conteudo h2 {
-    font-size: 1.8rem;
-    color: #4469a4;
-    margin-bottom: 0;
-}
-
-.header-input {
+/* 1. Busca de Relatórios */
+.busca-relatorios {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 1.2rem;
-    padding: 0.3125rem 0.9rem;
-    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 20rem;
+    height: 2.5rem;
 }
 
-.header-input input {
+.busca-relatorios input {
     border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
     outline: none;
-    padding: 0.3rem;
-    font-size: 1rem;
-    width: 18.7rem;
+    border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.header-input img {
-    width: 5rem;
-    margin-top: -0.3rem;
-    margin-left: 0.7rem;
+.busca-relatorios .icone-busca {
+    background: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    height: 100%;
 }
 
-.header-imagem {
+.busca-relatorios .icone-busca img {
+    width: 1.1rem;
+}
+
+/* 2. Botões de Ação (Exportar e Adicionar) */
+.botoes-acao {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.btn-acao {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+    transition: opacity 0.3s;
 }
 
-.header-imagem img {
-    margin-left: 1.8rem;
-    width: 9rem;
-    height: 5rem;
+.btn-acao img {
+    width: 1.1rem;
+    margin-right: 0.4rem;
+}
+
+/* Botão Exportar (Branco com borda azul) */
+.btn-exportar {
+    background-color: white;
+    transition: all 0.3s;
+    color: #3474cd;
+    border: 1px solid #3474cd;
+}
+.btn-exportar img {
+    margin-right: 0.8rem;
+}
+.btn-adicionar img{
+    margin-right: 0.8rem;
+}
+.btn-exportar:hover {
+   background-color: #3474cd;
+   color: white;
+   transform: translateY(-3px);
+}
+
+.btn-adicionar {
+     margin-left: 1.3rem;
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #3474cd, #192083);
+    color: white;
+}
+.btn-adicionar:hover {
+    transform: translateY(-3px);
+}
+/* 3. Filtros de Data e Filtro Genérico */
+.filtros {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.filtro-data {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    color: #475569;
+}
+.filtro-data:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.filtro-data input{
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+
+/* .icone-filtro {
+    width: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+/* --- Tabela --- */
+.container-tabela {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 0 1.5rem; /* Adicionado margem lateral para alinhamento */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(to right, #3474cd, #192083);
+}
+
+th {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Ajuste nas larguras das colunas da tabela */
+thead th:nth-child(2) { width: 20%; } /* Indice */
+thead th:nth-child(3) { width: 25%; } /* Responsável */
+thead th:nth-child(4) { width: 15%; } /* Desempenho */
+thead th:last-child { width: 5%; text-align: center; } /* Ações */
+
+td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+tbody tr {
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Estilo para a barra de desempenho (simulação do visual da imagem) */
+.barra-desempenho {
+    height: 1.2rem;
+    border-radius: 0.6rem;
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    padding-right: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* Ajustes para remover o status-badge antigo */
+    width: auto !important; 
+    padding: 0.5rem !important; 
+}
+
+/* Cores e Larguras específicas conforme a imagem */
+.barra-verde { /* 97% */
+    background-color: #4caf50; 
+    width: 97%;
+}
+.barra-verde-med { /* 85% */
+    background-color: #66bb6a; 
+    width: 85%;
+}
+.barra-verde-claro { /* 76% */
+    background-color: #81c784; 
+    width: 76%;
+}
+.barra-vermelha { /* 37% */
+    background-color: #f44336; 
+    width: 37%;
+}
+.barra-amarela { /* 50% */
+    background-color: #ffc107;
+    width: 50%;
+    color: #333; /* Texto escuro no amarelo */
+}
+
+/* Botão de Ações (Três Pontos) */
+td:last-child {
+    text-align: center;
+}
+
+.tres-pontos {
+    background: transparent;
+    border: none;
+    color: #3474cd;
+    cursor: pointer;
+    font-size: 1.5rem; 
+    line-height: 0.5;
+    font-weight: 900;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: background 0.3s;
+}
+
+.tres-pontos:hover {
+    background: #f1f5f9;
+}
+
+/* --- PAGINAÇÃO --- */
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.paginacao button {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+.paginacao button:hover {
+    background: #3474cd;
+    color: white;
+    border-color: #3474cd;
+}
+
+.paginacao button.ativo {
+    background: #3474cd;
+    color: white;
+    border-color: #3474cd;
+}
+
+/* Estilo dos ícones de seta na paginação */
+.icone-paginacao {
+    background: transparent !important;
+    border: none !important;
+    color: #64748b !important;
+    font-size: 1rem;
+}
+
+/* Estilo para as setas << e >> */
+.seta-dupla {
+    color: #a8b0bf !important; /* Mais claro */
+}
+
+/* Estilos removidos/substituídos */
+.status-badge, .status-ativo, .status-inativo, .status-manutencao {
+    display: none !important; /* Garantindo que os antigos estilos de status não apareçam */
 }

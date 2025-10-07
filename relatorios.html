@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        rel="shortcut icon"
-        href="./imgs/Nova logo Sem tech.png"
-        type="image/x-icon"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
     <link rel="stylesheet" href="relatorios.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
-
     <div class="painel-principal">
-        
         <aside class="barra-lateral">
             <div class="logo-site">
-                <img src="./imgs/Nova logo.png">
+                <img src="./imgs/Nova logo.png" alt="Logo YBYRA TECH" />
             </div>
+
             <nav class="menu-principal">
                 <ul>
                     <li class="item-menu">
-                        <a href="#">
+                        <a href="inicio.html">
                             <div class="box-icone">
-                                <img src="./imgs/Nova logo Sem tech.pn" alt="">
+                                <img src="./imgs/Nova logo Sem tech.png" alt="Ícone Início" />
                             </div>
                             <span>Início</span>
                         </a>
@@ -32,47 +27,52 @@
                     <li class="item-menu ativo">
                         <a href="#">
                             <div class="box-icone">
-                                <img src="./imgs/Nova logo Sem tech.png " alt="">
+                                <img src="relatorios.html" alt="Ícone relatorios" />
                             </div>
                             <span>Relatórios</span>
                         </a>
                     </li>
+
                     <li class="item-menu">
                         <a href="#">
                             <div class="box-icone">
-                                <img src="tarefas" alt="">
+                                <img src="tarefas" alt="Ícone Tarefas" />
                             </div>
                             <span>Tarefas</span>
                         </a>
                     </li>
+
                     <li class="item-menu">
                         <a href="#">
                             <div class="box-icone">
-                                <img src="inserir dados " alt="">
+                                <img src="inserir dados" alt="Ícone Inserir Dados" />
                             </div>
                             <span>Inserir Dados</span>
                         </a>
                     </li>
+
                     <li class="item-menu">
                         <a href="#">
                             <div class="box-icone">
-                                <img src="melhoraAI" alt="">
+                                <img src="" alt="Ícone IA" />
                             </div>
-                            <span>MelhorarAI</span>
+                            <span>ChatBot</span>
                         </a>
                     </li>
-                    <li class="item-menu" style="margin-top: 2.5rem;">
+
+                    <li class="item-menu" style="margin-top: 6.5rem;">
                         <a href="#">
                             <div class="box-icone">
-                                <img src="ajuda" alt="">
+                                <img src="ajuda" alt="Ícone Ajuda" />
                             </div>
                             <span>Ajuda</span>
                         </a>
                     </li>
+
                     <li class="item-menu">
                         <a href="#">
                             <div class="box-icone">
-                                <img src="conficuraçao" alt="">
+                                <img src="configuracao" alt="Ícone Configurações" />
                             </div>
                             <span>Configurações</span>
                         </a>
@@ -83,23 +83,116 @@
 
         <main class="area-conteudo">
             <div class="conteudo-principal-header">
-                <h2>Produção Geral (Semana)</h2>
-                
-                <div class="header-input">
-                    <input type="text" placeholder="Buscar">
-            <button style="border: none; background-color: transparent;" type="submit"><img src="./imgs/fundo arumado.png" alt=""> </button>
-                </div>
-
-                <div class="header-imagem"> 
-                    <img src="./imgs/Nova logo.png" alt=""> 
-                    <img src="./imgs/Nova logo.png" alt=""> 
-                </div>
+                <header id="header-imagem">
+                    <img src="./imgs/Nova logo.png" alt="Logo Header 1" />
+                    <img src="./imgs/Nova logo.png" alt="Logo Header 2" />
+                </header>
             </div>
 
             <section class="painel">
+                <div class="painel-ferramentas">
+                    
+                    <div class="busca-relatorios">
+                        <input type="text" placeholder="Buscar Relatórios" />
+                        <button class="icone-busca"><img src="icone-lupa.png" alt="Ícone Lupa"></button>
+                    </div>
+
+                    <div class="botoes-acao">
+                        <button class="btn-acao btn-exportar">
+                            <img src="icone-exportar.png" alt="Ícone Exportar" />
+                            <span>Exportar</span>
+                        </button>
+                        <button class="btn-acao btn-adicionar">
+                            <img src="  " alt="Ícone Adicionar" />
+                            <span>Adicionar</span>
+                        </button>
+                    </div>
+
+                    <div class="filtros">
+                        <div class="filtro-data">
+                           
+                            <input type="date" placeholder="Filtrar por Data">
+                        </div>
+                        <!-- <button class="icone-filtro"><img src="icone-filtro.png" alt="Ícone Filtro"></button> -->
+                    </div>
+                </div>
+                <div class="container-tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Indice</th>
+                                <th>Responsável</th>
+                                <th>Desempenho</th>
+                                <th></th> </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>23456789DGH</td>
+                                <td>Cond_Cortes</td>
+                                <td>Juliana Antunes</td>
+                                <td><div class="barra-desempenho barra-verde-med">85%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                            <tr>
+                                <td>09875438ORT</td>
+                                <td>Ctrl_Embalagens</td>
+                                <td>Tiago Araújo</td>
+                                <td><div class="barra-desempenho barra-vermelha">37%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                            <tr>
+                                <td>84972749ENI</td>
+                                <td>Gord_Picanha</td>
+                                <td>Roberto Ferreira</td>
+                                <td><div class="barra-desempenho barra-amarela">50%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                            <tr>
+                                <td>2804375COW</td>
+                                <td>Escald</td>
+                                <td>Liliana Mendes</td>
+                                <td><div class="barra-desempenho barra-verde">97%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                            <tr>
+                                <td>5260279EDF</td>
+                                <td>Emb_Pri</td>
+                                <td>Jorge Silva</td>
+                                <td><div class="barra-desempenho barra-verde-claro">76%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                            <tr>
+                                <td>447910ZTLPK</td>
+                                <td>Monitoramento_RH</td>
+                                <td>Felipe Castro</td>
+                                <td><div class="barra-desempenho barra-verde-med">89%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                            <tr>
+                                <td>112233QWERZ</td>
+                                <td>Logistica_Sul</td>
+                                <td>Ana Costa</td>
+                                <td><div class="barra-desempenho barra-verde">95%</div></td>
+                                <td><button class="tres-pontos">...</button></td>
+                            </tr>
+                          
+                           
+                        </tbody>
+                    </table>
+
+                    <div class="paginacao">
+                        <button>«</button>
+                        <button>‹</button>
+                        <button class="ativo">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>›</button>
+                        <button>»</button>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
-
 </body>
 </html>
