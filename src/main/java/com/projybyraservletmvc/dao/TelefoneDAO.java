@@ -1,20 +1,25 @@
 package com.projybyraservletmvc.dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.model.*;
-import com.projybyraservletmvc.conexao.*;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Telefone;
 
 public class TelefoneDAO {
 
+    // VARIAVEIS
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
 
 
-    //INSERT
+    //INSERE NOVO TELEFONE NO BANCO DE DADOS
     public boolean inserirTelefone(Telefone telefone){ //
         ConexaoBD conexao = new ConexaoBD(); //Instanciando objeto da classe conexao
         Connection conn = null; //Inicializando atributo conn
@@ -41,7 +46,7 @@ public class TelefoneDAO {
         }
     }
 
-    // READ
+    // BUSCA TODOS OS TELEFONES CADASTRADOS NO BANCO DE DADOS
     public List<Telefone> buscar() { //O metodo retorna uma lista de objetos com todos os valores da tabela
         List<Telefone> lista = new ArrayList<>(); //Inicializando a lista
         ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
@@ -77,7 +82,7 @@ public class TelefoneDAO {
     return lista;
 }
 
-    // UPDATE
+    // ATUALIZA UM NÚMERO DE TELEFONE CADASTRADO NO BANCO DE DADOS COM BASE NO ID DO USUÁRIO
     public boolean atualizarNumero(Telefone telefone) { //O metodo recebe um objeto da classe Telefone
         ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe conexao
         Connection conn = null; //inicializando uma variavel da classe Connection
@@ -102,7 +107,7 @@ public class TelefoneDAO {
     }
 
 
-    // DELETE
+    // DELETA UM TELEFONE DO BANCO DE DADOS COM BASE NO NÚMERO 
     public int deletar(String numero) { //Deleta de acordo com o nome passado no parametro
         ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
         Connection conn = null; //Inicializando uma variavel da classe Connection

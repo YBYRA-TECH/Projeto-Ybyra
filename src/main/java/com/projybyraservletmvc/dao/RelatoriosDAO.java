@@ -1,19 +1,26 @@
 package com.projybyraservletmvc.dao;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.Relatorios;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Relatorios;
+
 public class RelatoriosDAO{
 
+    // VARIAVEIS
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
     Relatorios relatorios = new Relatorios();
 
-    //INSERT
+    //INSERE NOVO RELATÓRIO NO BANCO DE DADOS
     public boolean inserirDados(Relatorios relatorios){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -38,7 +45,7 @@ public class RelatoriosDAO{
         }
     }
 
-    //UPDATE
+    //ATUALIZA UM RELATÓRIO EXISTENTE NO BANCO DE DADOS
     public boolean atualizar(Relatorios relatorios) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -61,7 +68,7 @@ public class RelatoriosDAO{
 
     }
 
-    //READ
+    //BUSCA TODOS OS RELATÓRIOS CADASTRADOS NO BANCO DE DADOS
     public List<Relatorios> buscar() {
         List<Relatorios> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -93,7 +100,7 @@ public class RelatoriosDAO{
     }
 
 
-    // DELETE
+    // DELETA UM RELATÓRIO DO BANCO DE DADOS COM BASE NO ID
     public int deletar(int idRelatorios) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;

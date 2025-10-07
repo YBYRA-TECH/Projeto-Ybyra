@@ -1,20 +1,26 @@
 package com.projybyraservletmvc.dao;
 
 //import io.github.cdimascio.dotenv.Dotenv;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.*;
-import com.projybyraservletmvc.model.*;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Industria;
 
 public class IndustriaDAO{
+    
+    // VARIAVEIS
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
 
 
-    //INSERT
+    //INSERE UMA NOVA INDÚSTRIA NO BANCO DE DADOS
     public boolean inserirDados(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -41,7 +47,7 @@ public class IndustriaDAO{
         }
     }
 
-    //UPDATE
+    //ATUALIZA UMA INDÚSTRIA NO BANCO DE DADOS
     public static boolean atualizarIndustria(Industria industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -66,7 +72,7 @@ public class IndustriaDAO{
         }
     }
 
-    //READ
+    //BUSCA TODAS AS INDÚSTRIAS CADASTRADAS NO BANCO DE DADOS
     public List<Industria> buscar(){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -103,7 +109,7 @@ public class IndustriaDAO{
         return lista;
     }
 
-    // DELETE
+    // DELETA UMA INDÚSTRIA DO BANCO DE DADOS COM BASE NO ID
     public int deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;

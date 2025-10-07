@@ -1,19 +1,20 @@
 package com.projybyraservletmvc.dao;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.Endereco;
-import com.projybyraservletmvc.model.Relatorios;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Endereco;
 
 public class EnderecoDAO {
 
 
-
-    //INSERT
+    // INSERE UM NOVO ENDERÇO ASSOCIADO A UMA INDÚSTRIA NO BANCO DE DADOS
     public boolean inserirDados(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -42,7 +43,7 @@ public class EnderecoDAO {
         }
     }
 
-    //READ
+    //BUSCA TODOS OS ENDEREÇOS CADASTRADOS NO BANCO DE DADOS
     public List<Endereco> buscar() {
         List<Endereco> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
