@@ -1,19 +1,26 @@
 package com.projybyraservletmvc.dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.model.*;
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Usuario;
 
 public class UsuarioDAO{
+
+    // VARIAVEIS
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
 
 
-    //INSERT
+    //INSERE UM NOVO USUÁRIO NO BANCO DE DADOS
     public boolean inserirDados(Usuario usuario) {
         ConexaoBD conexao = new ConexaoBD(); //Instanciando objeto da classe conexao
         Connection conn = null; //Inicializando atributo conn
@@ -45,7 +52,7 @@ public class UsuarioDAO{
     }
 
 
-    //UPDATE
+    //ATUALIZA UM USUÁRIO QUE EXISTE NO BANCO DE DADOS
     public static boolean atualizar(Usuario usuario) { //O metodo recebe um objeto da classe Usuario
         ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe conexao
         Connection conn = null; //inicializando uma variavel da classe Connection
@@ -80,7 +87,7 @@ public class UsuarioDAO{
     }
 
 
-    //READ
+    //BUSCA TODOS OS USUÁRIOS CADASTRADOS NO BANCO DE DADOS 
     public List<Usuario> buscar() { //O metodo retorna uma lista de objetos com todos os valores da tabela
         List<Usuario> lista = new ArrayList<>(); //Inicializando a lista
         ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
@@ -123,7 +130,7 @@ public class UsuarioDAO{
 
 
 
-    // DELETE
+    // DELETA UM USUÁRIO DO BANCO DE DADOS COM BASE NO ID
     public int deletar(int id){ //Deleta de acordo com o nome passado no parametro
         ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
         Connection conn = null; //Inicializando uma variavel da classe Connection

@@ -10,7 +10,7 @@ public class ConexaoBD {
     private Connection conn;
     private static final Dotenv dotenv = Dotenv.load();
 
-    // CONECTAR
+    // CONECTANDO COM O BANCO DE DADOS
     public Connection conectar() {
         try {
             Class.forName("org.postgresql.Driver");
@@ -27,7 +27,7 @@ public class ConexaoBD {
         return this.conn;
     }
 
-    // DESCONECTAR
+    // DESCONECTANDO DO BANCO DE DADOS
     public void desconectar(Connection conn) {
         try {
             if (conn != null && !conn.isClosed()) {
