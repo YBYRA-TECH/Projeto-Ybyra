@@ -110,16 +110,33 @@ main {
     margin-bottom: 2rem;
   }
 
-  /*Link de voltar*/
-    #voltar{
-        font-family: 'Geologica', sans-serif;
-        font-size: 1rem;
+/*Butons*/
+
+    #buttons {
         display: flex;
-        justify-content: center;
-        color: #004cc5;
-        text-decoration: none;
-        margin-top: auto;
-    }
-    #voltar:hover {
-        text-decoration: underline;
-    }
+        gap: 1rem;
+        margin-top: 3rem;
+        font-family: "Geologica", sans-serif;
+        width: 100%;
+        justify-content: flex-end; 
+      }
+      
+      #buttons button {
+        border-radius: 0.1rem;
+        padding: 0.8rem 2rem;
+        border: none;
+        font-size: 1rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      #buttons a{
+          cursor: pointer;
+          text-decoration: none;
+          color: #eeeeee;
+      }
+      #buttons a:hover{
+          text-decoration: none;
+      }
+      #buttons button:hover {
+        transform: translateY(-2px);
+      }
+      
