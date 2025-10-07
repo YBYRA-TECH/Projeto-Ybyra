@@ -147,7 +147,11 @@ body {
     outline: none;
     border-radius: 0.5rem 0 0 0.5rem;
 }
-
+.busca-relatorios input::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
 .busca-relatorios .icone-busca {
     background: transparent;
     border: none;
@@ -192,6 +196,7 @@ body {
     color: #3474cd;
     border: 1px solid #3474cd;
 }
+
 .btn-exportar img {
     margin-right: 0.8rem;
 }
@@ -272,6 +277,7 @@ thead {
 }
 
 th {
+    font-family: "Montserrat", sans-serif;
     padding: 1.2rem 1.5rem;
     text-align: left;
     color: white;
@@ -286,6 +292,7 @@ thead th:nth-child(4) { width: 15%; } /* Desempenho */
 thead th:last-child { width: 5%; text-align: center; } /* Ações */
 
 td {
+    font-family: "Geologica", sans-serif;
     padding: 1.2rem 1.5rem;
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.9rem;
