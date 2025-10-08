@@ -22,14 +22,14 @@ public class UsuarioDAO{
 
     //INSERE UM NOVO USUÁRIO NO BANCO DE DADOS
     public boolean inserirDados(Usuario usuario) {
-        ConexaoBD conexao = new ConexaoBD(); //Instanciando objeto da classe conexao
-        Connection conn = null; //Inicializando atributo conn
+        ConexaoBD conexao = new ConexaoBD(); 
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); //Atribuindo o metodo conectar ao atributo 'conn'
+            conn = conexao.conectar();
             String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; //STRING SQL
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
 
-            PreparedStatement ps = conn.prepareStatement(sql); //transformando a String sql em um preparedStatement
+            PreparedStatement ps = conn.prepareStatement(sql);
 
             //efetuando a insercao no banco
             ps.setString(1, usuario.getEmail());
@@ -41,7 +41,7 @@ public class UsuarioDAO{
             ps.setInt(7, usuario.getIdIndustria());
             ps.setInt(8, usuario.getTempoTrabalho());
 
-            return ps.executeUpdate() > 0; //retornando o preparedStatement
+            return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,16 +53,16 @@ public class UsuarioDAO{
 
 
     //ATUALIZA UM USUÁRIO QUE EXISTE NO BANCO DE DADOS
-    public static boolean atualizar(Usuario usuario) { //O metodo recebe um objeto da classe Usuario
-        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe conexao
-        Connection conn = null; //inicializando uma variavel da classe Connection
+    public static boolean atualizar(Usuario usuario) { 
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null; 
         try {
-            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
+            conn = conexao.conectar(); 
             String sql = "UPDATE usuario " +
                     "SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? " +
-                    "WHERE id_usuario = ?"; //String sql
+                    "WHERE id_usuario = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql); //Transformando a string sql em comando com PreparedStatement
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
 
             //Atualizando os dados no banco
@@ -75,7 +75,7 @@ public class UsuarioDAO{
             pstmt.setInt(7, usuario.getIdIndustria());
             pstmt.setInt(8, usuario.getTempoTrabalho());
             pstmt.setInt(9, usuario.getIdUsuario());
-            if (pstmt.executeUpdate() > 0) {return true;}//Retornado os valores conforme o pstmt
+            if (pstmt.executeUpdate() > 0) {return true;}
             else return false;
         } catch (SQLException e){
             e.printStackTrace();
@@ -88,16 +88,16 @@ public class UsuarioDAO{
 
 
     //BUSCA TODOS OS USUÁRIOS CADASTRADOS NO BANCO DE DADOS 
-    public List<Usuario> buscar() { //O metodo retorna uma lista de objetos com todos os valores da tabela
-        List<Usuario> lista = new ArrayList<>(); //Inicializando a lista
-        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
-        Connection conn = null; //Inicializando uma variavel da classe Connection
+    public List<Usuario> buscar() { 
+        List<Usuario> lista = new ArrayList<>(); 
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null; 
         try {
-            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
-            Statement stmt = conn.createStatement(); //Inicializando um Statement
-            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC"; //String sql
+            conn = conexao.conectar(); 
+            Statement stmt = conn.createStatement(); 
+            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC"; 
 
-            ResultSet rs = stmt.executeQuery(sql); //Transformando a String sql em ResultSet
+            ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Conteúdo da tabela usuário:");
 
             //Exibindo os dados da tabela
@@ -111,7 +111,9 @@ public class UsuarioDAO{
                 Date dtValidade = rs.getDate("data_validade");
                 int idIndustria = rs.getInt("id_industria");
                 int tempTrabalho = rs.getInt("tempo_trabalho");
-                //Cria um objeto da classe model Usuario e adiciona na lista conforme os valores na tabela
+
+
+                //Cria um objeto da classe usuarioDao no pacote model e adiciona na lista conforme os valores na tabela
                 Usuario user = new Usuario(
                         id, email, cpf, nome,
                         dtCadastro, dtNascimento, dtValidade,
@@ -131,18 +133,18 @@ public class UsuarioDAO{
 
 
     // DELETA UM USUÁRIO DO BANCO DE DADOS COM BASE NO ID
-    public int deletar(int id){ //Deleta de acordo com o nome passado no parametro
-        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
-        Connection conn = null; //Inicializando uma variavel da classe Connection
+    public int deletar(int id){ 
+        ConexaoBD conexao = new ConexaoBD(); 
+        Connection conn = null; 
         try {
-            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
-            String sql = "DELETE FROM Usuario WHERE id_usuario = ?"; //String sql
+            conn = conexao.conectar();
+            String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql); //Preparando a String sql com PreparedStatement
+            PreparedStatement pstmt = conn.prepareStatement(sql); 
 
             //Deletando no banco
             pstmt.setInt(1, id);
-            if(pstmt.executeUpdate()>0){ //Retornando valores conforme o pstmt.executeUpdate()
+            if(pstmt.executeUpdate()>0){
                 return 1;
             }else{return 0;}
         }catch (SQLException e){
