@@ -27,6 +27,7 @@ header {
   gap: clamp(1.5rem, 4vw, 5rem);
   box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
   padding: 0.4rem 2.5rem;
+  z-index: 1;
 }
 
 a {
@@ -280,12 +281,16 @@ main {
   margin-top: 10rem;
   display: flex;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 2rem 0rem;
   gap: 2rem;
 }
-
+.texto{
+  margin-left: 1rem;
+}
 #sec4 img {
-  margin-left: clamp(0rem, 9vw, 15rem);
+  width: 50rem;
+  margin-left: clamp(0rem, 10vw, 15rem);
+  margin-right:clamp(0rem, 100vw, 15rem) ;
 }
 
 #sec4 h1 {
@@ -299,15 +304,18 @@ main {
 }
 
 #sec4 p {
+  margin-left: 2.5rem;
   font-size: clamp(1.1rem, 1.5vw, 1.4rem);
   font-family: "Geologica", sans-serif;
-  margin-bottom: 1.2rem;
+
+  margin-bottom: 1rem;
 }
 
 hr {
-  margin: 1rem;
+  margin-left: 2rem;
   border: none;
   border-top: 3px solid #ccc;
+  margin-bottom: 0.5rem;
 }
 
 /* ===== SEÇÃO DECORATIVA ===== */
@@ -535,20 +543,21 @@ h3 {
 }
   /* ===== SEÇÃO 4 - PERGUNTAS (IMAGEM ACIMA DO TEXTO) ===== */
   #sec4 {
-    flex-direction: column-reverse;
     margin-top: 5rem;
     text-align: center;
-    padding: 2rem;
-    gap: 5rem;
+    padding: 1rem;
+
+    /* gap: 3rem; */
   }
 
   #sec4 img {
-    width: 80vw;
-    margin-left: 0;
+    width:  70vw;
+    margin-left: 2rem;    
   }
 
   #sec4 h1 {
     margin-bottom: 1rem;
+    font-size: 3rem;
   }
 
   .textoP {
