@@ -14,7 +14,6 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px; /* Definindo a base de 1rem = 16px */
 }
 
 body {
@@ -52,7 +51,7 @@ body {
 
 .item-menu a {
     font-family: "Montserrat", sans-serif;
-    font-weight:600;
+    font-weight: 600;
     margin-top: 1rem;
     display: flex;
     color: #3474cd;
@@ -64,14 +63,14 @@ body {
 }
 
 .item-menu a:hover {
-    color:#0e14bf;
+    color: #0e14bf;
     background-color: rgba(12, 142, 255, 0.1);
 }
 
 /* Estilo para o item de menu ativo */
 .item-menu.ativo a {
     margin: 1;
-    background-color:#192083;
+    background-color: #192083;
     border-radius: 0 1.2rem 1.2rem 0;
     margin-right: 15rem;
     box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
@@ -90,8 +89,6 @@ body {
 }
 
 /* --- Estilos da Área de Conteúdo --- */
-
-
 .area-conteudo {
     flex-grow: 1;
     padding: 1.3rem 0.4rem;
@@ -109,13 +106,14 @@ body {
     padding: 0 1.5rem;
     margin-bottom: 2rem;
 }
+
 #header-imagem img {
     width: 7rem; /* Mantendo seu estilo original para as imagens */
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* --- ESTILOS CORRIGIDOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO (CONFORME IMAGEM) --- */
+/* --- ESTILOS CORRIGIDOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
 /* -------------------------------------------------------------------------- */
 
 /* Estilos para o Painel de Ferramentas (Barra de Busca, Botões, Filtros) */
@@ -147,11 +145,13 @@ body {
     outline: none;
     border-radius: 0.5rem 0 0 0.5rem;
 }
+
 .busca-relatorios input::placeholder {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     color: #94a3b8;
 }
+
 .busca-relatorios .icone-busca {
     background: transparent;
     border: none;
@@ -200,9 +200,11 @@ body {
 .btn-exportar img {
     margin-right: 0.8rem;
 }
-.btn-adicionar img{
+
+.btn-adicionar img {
     margin-right: 0.8rem;
 }
+
 .btn-exportar:hover {
    background-color: #3474cd;
    color: white;
@@ -210,14 +212,16 @@ body {
 }
 
 .btn-adicionar {
-     margin-left: 1.3rem;
+    margin-left: 1.3rem;
     transition: all 0.3s;
     background: linear-gradient(to right, #3474cd, #192083);
     color: white;
 }
+
 .btn-adicionar:hover {
     transform: translateY(-3px);
 }
+
 /* 3. Filtros de Data e Filtro Genérico */
 .filtros {
     display: flex;
@@ -235,27 +239,18 @@ body {
     font-size: 0.8rem;
     color: #475569;
 }
+
 .filtro-data:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.filtro-data input{
+
+.filtro-data input {
     border: none;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     outline: none;
     border-radius: 0.5rem 0 0 0.5rem;
 }
-
-
-/* .icone-filtro {
-    width: 2.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
 
 
 /* --- Tabela --- */
@@ -297,6 +292,8 @@ td {
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.9rem;
     color: #475569;
+    /* Adicionado posicionamento para o link esticado */
+    position: relative;
 }
 
 tbody tr {
@@ -306,6 +303,43 @@ tbody tr {
 tbody tr:hover {
     background: #f8fafc;
 }
+
+/* --- Estilos para Linhas Clicáveis (Sem JS) --- */
+
+/* 1. Torna a linha o ponto de ancoragem para o link */
+.row-link {
+    position: relative; /* Essencial para o posicionamento absoluto do link */
+    cursor: pointer; /* Indica que a linha é clicável */
+}
+
+/* 2. Estica o link para cobrir toda a área da linha */
+.table-link {
+    color: #475569;
+}
+
+/* Garante que o texto do ID, que está DENTRO do <a>, seja visível */
+.row-link td:first-child a.table-link {
+    text-indent: 0;
+    color: #475569; /* Cor original do texto */
+    padding: 1.2rem 1.5rem; /* Reaplicar o padding da célula */
+    display: block; /* Ocupa o espaço visível do texto */
+    position: relative; /* Para não ser afetado pelo esticamento absoluto */
+    z-index: 2; /* Fica acima do link esticado */
+    background: transparent;
+}
+
+/* O verdadeiro link que cobre tudo deve estar na primeira célula */
+.row-link td:first-child {
+    position: relative; /* Permite que o link esticado funcione */
+}
+
+
+/* 3. Garante que o botão de ações (...) seja clicável */
+.tres-pontos {
+    position: relative; /* Essencial para usar z-index */
+    z-index: 3; /* Deve ficar acima do link esticado e do texto do ID */
+}
+
 
 /* Estilo para a barra de desempenho (simulação do visual da imagem) */
 .barra-desempenho {
@@ -329,18 +363,22 @@ tbody tr:hover {
     background-color: #4caf50; 
     width: 97%;
 }
+
 .barra-verde-med { /* 85% */
     background-color: #66bb6a; 
     width: 85%;
 }
+
 .barra-verde-claro { /* 76% */
     background-color: #81c784; 
     width: 76%;
 }
+
 .barra-vermelha { /* 37% */
     background-color: #f44336; 
     width: 37%;
 }
+
 .barra-amarela { /* 50% */
     background-color: #ffc107;
     width: 50%;
@@ -390,6 +428,7 @@ td:last-child {
     transition: all 0.3s;
     font-family: 'Montserrat', sans-serif;
 }
+
 .paginacao button:hover {
     background: #3474cd;
     color: white;
@@ -402,20 +441,12 @@ td:last-child {
     border-color: #3474cd;
 }
 
-/* Estilo dos ícones de seta na paginação */
-.icone-paginacao {
-    background: transparent !important;
-    border: none !important;
-    color: #64748b !important;
-    font-size: 1rem;
-}
-
-/* Estilo para as setas << e >> */
-.seta-dupla {
-    color: #a8b0bf !important; /* Mais claro */
-}
-
 /* Estilos removidos/substituídos */
 .status-badge, .status-ativo, .status-inativo, .status-manutencao {
     display: none !important; /* Garantindo que os antigos estilos de status não apareçam */
+}
+
+
+a {
+    text-decoration: none;
 }
