@@ -13,24 +13,25 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ===== CABEÇALHO ===== */
 header {
   background-image: url("./imgs/Fundo\ \ Header.png");
   position: fixed;
-  width: 95%;
+  width: 100%;
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 5rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
   padding: 0.4rem 2.5rem;
 }
 
 header a {
+  padding: 1rem;
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   text-decoration: none;
@@ -41,19 +42,28 @@ header a:hover {
   text-decoration: underline;
 }
 
+/* empurra o grupo de links + botão para a direita */
 header a:first-of-type {
   margin-left: auto;
 }
-
-header button {
-  background-color: #004cc5;
-  border: none;
-  color: aliceblue;
-  border-radius: 0.7rem;
-  padding: 1rem;
+.menu-icon{
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #004cc5;
+  margin-left: auto;
+  user-select: none;
+}
+#menu {
+  display: none;
+}
+.menu-links {
+  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 5rem);
 }
 
-/* ===== CONTEÚDO PRINCIPAL ===== */
+/* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
 main {
   margin-top: 4.85rem;
   background-image: url("./imgs/Login.png");
@@ -68,37 +78,39 @@ main {
 }
 
 #inputs {
-  width: 24%;
+  width: 32vw;
+  height: 60vh; 
   background-color: white;
-  padding: 2.5rem 4rem;
+  padding: 1.5rem 4rem;
+  padding-bottom: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: -6rem;
-  gap: 1.5rem;
-  text-align: center;
 }
 
 #inputs h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
 }
 
 #inputs p {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-family: "Geologica", sans-serif;
   width: 100%;
+  text-align: center;
 }
 
 #inputs a {
   font-family: "Geologica", sans-serif;
+  text-decoration: none;
   color: #004cc5;
 }
 
@@ -111,13 +123,14 @@ main {
 }
 
 #input_veri input {
-  width: 4rem; 
-  height: 4rem;
+  margin-top: 2rem;
+  width: 5rem; 
+  height: 5rem;
   text-align: center;
   font-size: 1.5rem;
   background-color: #EEEEEE;
   border: none;
- border-radius: 0.4rem;
+  border-radius: 0.4rem;
   outline: none;
   font-family: "Geologica", sans-serif;
   color: #333;
@@ -136,19 +149,185 @@ main {
   font-family: "Geologica", sans-serif;
   width: 100%;
 }
+
 #buttons a{
   text-decoration: none;
-  
 }
+
 #buttons button {
   border-radius: 0.1rem;
-  padding: 0.8rem 2.5rem;
+  padding: 1.8rem 2rem;
   border: none;
-  font-size: 1rem;
-  cursor: pointer;
+  font-size: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #buttons button:hover {
   transform: translateY(-2px);
+}
+
+#botao-login {
+  background-color: #004cc5;
+  border: none;
+  color: aliceblue;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  margin-right: 3rem;
+}
+
+@media (max-width: 1024px){
+  #inputs{
+    width: 40rem;
+    margin-left: 0;
+    gap: 1.5rem;
+
+  }
+
+#inputs h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 6rem;
+  margin-bottom: 2rem;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+}
+
+#inputs p {
+  font-size: 2rem;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+#input_veri {
+  display: flex;
+  justify-content: center;
+  gap: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+#input_veri input {
+  margin-top: 2rem;
+  width: 7rem; 
+  height: 8rem;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: #EEEEEE;
+  border: none;
+  border-radius: 0.4rem;
+  outline: none;
+  font-family: "Geologica", sans-serif;
+  color: #333;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+}
+
+#buttons button {
+  border-radius: 0.1rem;
+  padding: 6% 11%;
+  border: none;
+  font-size: 2.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+}
+
+@media (max-width: 780px) {
+
+  /* ===== CABEÇALHO (Compacto) ===== */
+  header {
+    gap: 0;
+    padding: 0.8rem 1rem;
+    width: 96vw;
+  }
+    
+  header button {
+    padding: 0.5rem 1rem;
+  }
+
+  .menu-icon{
+    display: block;
+    padding-right: 1.5rem;
+  }
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    position: inherit;
+    top: 4.5rem;
+    right: 1rem;
+    width: 12rem;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 1rem; 
+    border-radius: 0.8rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    z-index: 9999;
+    transition: all 1s ease;
+  }
+  .menu-links a{
+    margin-left: 0;
+    width: 10rem;
+  }
+  /* Quando o checkbox está marcado, mostra o menu */
+  #menu:checked ~ .menu-links {
+    display: flex;
+  }
+  main{
+    background-image: none !important;
+  }
+  #inputs{
+    width: 14rem;
+    margin-left: 0; 
+  }
+
+#inputs h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 3rem;
+  margin-bottom: 0;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+}
+
+#inputs p {
+  font-size: 0.9rem;
+  width: 25rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#input_veri {
+  gap: 1.8rem;
+  margin-top: 0;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+#input_veri input {
+  margin-top: 2rem;
+  width: 3.7rem; 
+  height: 4rem;
+}
+
+#buttons {
+  margin-top: 2rem;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+}
+
+#buttons button{
+  padding: 1rem 1rem 1rem 1rem;
+  margin-top:0 ;
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+
 }

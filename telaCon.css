@@ -13,24 +13,25 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ===== CABEÇALHO ===== */
 header {
   background-image: url("./imgs/Fundo\ \ Header.png");
   position: fixed;
-  width: 95%;
+  width: 100%;
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 5rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
   padding: 0.4rem 2.5rem;
 }
 
 header a {
+  padding: 1rem;
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   text-decoration: none;
@@ -46,14 +47,33 @@ header a:first-of-type {
   margin-left: auto;
 }
 
-header button {
-    background-color: #004cc5;
-    border: none;
-    color: aliceblue;
-    border-radius: 0.7rem;
-    padding: 1rem;
-  }
-  
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #004cc5;
+  margin-left: auto;
+  user-select: none;
+}
+
+#menu {
+  display: none;
+}
+
+.menu-links {
+  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 5rem);
+}
+
+#botao-login {
+  background-color: #004cc5;
+  border: none;
+  color: aliceblue;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  margin-right: 3rem;
+}
 
 /* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
 main {
@@ -68,75 +88,225 @@ main {
   justify-content: center;
   padding-top: 1rem;
 }
+
 #container {
-    width: 30%;
-    height: 60vh; 
-    background-color: white;
-    padding: 1.5rem 4rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    margin-top: -6rem;
-  }
+  width: 36vw;
+  height: 60vh; 
+  background-color: white;
+  padding: 1.5rem 4rem;
+  padding-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -6rem;  
+}
+
+/*icone sucesso*/
+#icon-success {
+  margin-top: 0;
+  font-size: 8rem;
+  color: #004cc5;
+  display: flex;
+  justify-content: center;
+}
 
 
+/*título*/
+#titulo-conclusao {
+  font-family: 'Montserrat', sans-serif;
+  color: #007bff;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
-  /*icone sucesso*/
-  #icon-success {
-    margin-top: 2rem;
-    font-size: 8rem;
-    color: #004cc5;
-    display: flex;
-    justify-content: center;
-  }
-
-
-  /*título*/
-  #titulo-conclusao{
-    font-family: 'Montserrat', sans-serif;
-    color: #007bff;
-    font-size: 2.2rem;
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  /*Mensagem conclusão*/
-  #mensagem-conclusao{
-    font-family: 'Geologica', sans-serif;
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
+/*Mensagem conclusão*/
+#mensagem-conclusao {
+  font-family: 'Geologica', sans-serif;
+  font-size: 1.61rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
 
 /*Butons*/
 
-    #buttons {
-        display: flex;
-        gap: 1rem;
-        margin-top: 3rem;
-        font-family: "Geologica", sans-serif;
-        width: 100%;
-        justify-content: flex-end; 
-      }
-      
-      #buttons button {
-        border-radius: 0.1rem;
-        padding: 0.8rem 2rem;
-        border: none;
-        font-size: 1rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      #buttons a{
-          cursor: pointer;
-          text-decoration: none;
-          color: #eeeeee;
-      }
-      #buttons a:hover{
-          text-decoration: none;
-      }
-      #buttons button:hover {
-        transform: translateY(-2px);
-      }
-      
+#buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+  justify-content: center;
+}
+
+#buttons button {
+  border-radius: 0.1rem;
+  padding: 1.7rem 2.8rem;
+  border: none;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#buttons a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+#buttons a:hover {
+  text-decoration: none;
+}
+
+#buttons button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+
+  /*icone sucesso*/
+  #icon-success {
+    font-size: 17rem;
+  }
+
+  /*título*/
+  #titulo-conclusao {
+    font-size: 3.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 41rem;
+  }
+
+  /*Mensagem conclusão*/
+  #mensagem-conclusao {
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+  }
+
+  /*Butons*/
+  #buttons button {
+    border-radius: 0.1rem;
+    padding: 1.7rem 2.8rem;
+    border: none;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  #container {
+    width: 40rem;
+    margin-left: 0;
+    gap: 1.5rem;
+
+  }
+
+  #buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0;
+    font-family: "Geologica", sans-serif;
+    width: 100%;
+  }
+
+  #buttons button {
+    border-radius: 0.1rem;
+    padding: 6% 11%;
+    border: none;
+    font-size: 2.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+@media (max-width: 780px) {
+
+  /* ===== CABEÇALHO (Compacto) ===== */
+  header {
+    gap: 0;
+    padding: 0.8rem 1rem;
+    width: 96vw;
+  }
+
+  header button {
+    padding: 0.5rem 1rem;
+  }
+
+  .menu-icon {
+    display: block;
+    padding-right: 1.5rem;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    position: inherit;
+    top: 4.5rem;
+    right: 1rem;
+    width: 12rem;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    transition: all 1s ease;
+  }
+
+  .menu-links a {
+    margin-left: 0;
+    width: 10rem;
+  }
+
+  /* Quando o checkbox está marcado, mostra o menu */
+  #menu:checked~.menu-links {
+    display: flex;
+  }
+
+  main {
+    background-image: none !important;
+  }
+
+  /*icone sucesso*/
+  #icon-success {
+    font-size: 8rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /*título*/
+  #titulo-conclusao {
+    font-size: 1.43rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 24rem;
+  }
+
+  /*Mensagem conclusão*/
+  #mensagem-conclusao {
+    font-size: 1rem;
+    width: 19rem;
+    margin-bottom: 0;
+  }
+
+  /*Butons*/
+  #buttons{
+    margin-top: 0;
+  }
+  #buttons button {
+    border-radius: 0.1rem;
+    padding: 1rem 2.1rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+
+  #container {
+    width: 47vw;
+    padding-top: 0;
+    padding: 17vw;
+    height: 17rem;
+    margin-left: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+}

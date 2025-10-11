@@ -13,24 +13,25 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ===== CABEÇALHO ===== */
 header {
   background-image: url("./imgs/Fundo\ \ Header.png");
   position: fixed;
-  width: 95%;
+  width: 100%;
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 5rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
   padding: 0.4rem 2.5rem;
 }
 
 header a {
+  padding: 1rem;
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   text-decoration: none;
@@ -44,6 +45,22 @@ header a:hover {
 /* empurra o grupo de links + botão para a direita */
 header a:first-of-type {
   margin-left: auto;
+}
+.menu-icon{
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #004cc5;
+  margin-left: auto;
+  user-select: none;
+}
+#menu {
+  display: none;
+}
+.menu-links {
+  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 5rem);
 }
 
 /* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
@@ -61,7 +78,7 @@ main {
 }
 
 #inputs {
-  width: 21%;
+  width: 32vw;
   height: 60vh; 
   background-color: white;
   padding: 1.5rem 4rem;
@@ -76,7 +93,6 @@ main {
 
 #inputs h1 {
   margin-top: 1rem;
-  align-self: start;
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
   font-size: 2.5rem;
@@ -88,6 +104,8 @@ main {
 
 
 #inputs input {
+  display: flex;
+  justify-self: center;
   background-color: #eeeeee;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   width: 90%;
@@ -107,27 +125,27 @@ main {
     box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
 }
 #inputs p {
+  display: flex;
+  justify-self: center;
   margin-left: 0.5rem;  
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   font-family: "Geologica", sans-serif;
 
 }
 form{
-    width: 20rem;
-    
+    width: 25rem;    
 }
 #inputs a {
   font-family: "Geologica", sans-serif;
   color: #004cc5;
 }
 
-
 #buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: "Geologica", sans-serif;
-  width: 100%;
+  width: 85%;
   justify-content: flex-end; 
 }
 
@@ -135,7 +153,7 @@ form{
   border-radius: 0.1rem;
   padding: 0.8rem 2rem;
   border: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 #buttons a{
@@ -150,55 +168,131 @@ form{
   transform: translateY(-2px);
 }
 
-header button {
+#botao-login {
   background-color: #004cc5;
   border: none;
   color: aliceblue;
   border-radius: 0.7rem;
   padding: 1rem;
+  margin-right: 3rem;
 }
 
-/* ===== RODAPÉ ===== */
-footer {
-  margin-top: 3rem;
-  border-radius: 0.1rem;
-  background-color: #081f38;
+@media (max-width: 1024px){
+  #inputs{
+    width: 40rem;
+    margin-left: 0;
+  }
+  #inputs h1{
+    font-size: 7rem;
+    padding-left: 3rem  ;
+  }
+  #inputs input{
+    width: 29rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  #inputs p{
+    font-size: 2rem;
+    width: 24rem;
+  }
+  #inputs a{
+    text-decoration: none;
+  }
+  #buttons{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+
+  }
+ 
+  #buttons button{
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    margin-top: 4rem;
+    margin-left: 1rem;
+  }
+  #buttons button a{
+    font-size: 2.5rem;
+    
+  }
+
 }
 
-footer div {
-  display: flex;
-  justify-content: space-around;
-}
+@media (max-width: 780px) {
 
-.direitos {
-  margin-top: 5rem;
-  text-align: center;
-  font-size: 1.1rem;
-}
+  /* ===== CABEÇALHO (Compacto) ===== */
+  header {
+    gap: 0;
+    padding: 0.8rem 1rem;
+    width: 96vw;
+  }
+    
+  header button {
+    padding: 0.5rem 1rem;
+  }
+  main{
+    background-image: none !important;
+  }
+  .menu-icon{
+    display: block;
+    padding-right: 1.5rem;
+  }
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    position: inherit;
+    top: 4.5rem;
+    right: 1rem;
+    width: 12rem;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 1rem; 
+    border-radius: 0.8rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    z-index: 9999;
+    transition: all 1s ease;
+  }
+  .menu-links a{
+    margin-left: 0;
+    width: 10rem;
+  }
+  /* Quando o checkbox está marcado, mostra o menu */
+  #menu:checked ~ .menu-links {
+    display: flex;
+  }
+  #inputs{
+    width: 12rem;
+    margin-left: 0;
+  }
+  #inputs h1{
+    font-size: 3rem;
+    padding-left: 0;
+  
+  }
+  #inputs input{
+    width: 13rem;
+    height: 0.5rem;
+    font-size: 0.8rem;
+  }
+  #inputs p{
+    font-size: 1rem;
+    width: 13rem;
+  }
+  #buttons{
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+  }
+ 
+  #buttons button{
+    padding: 1.3rem;
+    margin-top:0 ;
+    margin-left: 0;
+    margin-bottom: 0.2rem;
+  }
+  
+  #buttons button a{
+    font-size: 5vw;
+    
+  }
 
-footer .col1 {
-  grid-area: col1;
-}
 
-footer .col2 {
-  grid-area: col2;
-}
-
-footer .col3 {
-  grid-area: col3;
-}
-
-footer p {
-  font-size: 1.1rem;
-}
-
-footer h3 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.8rem;
-}
-
-footer p,
-h3 {
-  margin-top: 5rem;
-  color: aliceblue;
 }
