@@ -1,0 +1,204 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+    background-image: url("../imgs/Fundo_Header.png");
+    position: fixed;
+    width: 95%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
+    padding: 0.4rem 2.5rem;
+}
+
+header a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* empurra o grupo de links + botão para a direita */
+header a:first-of-type {
+    margin-left: auto;
+}
+
+/* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
+main {
+    margin-top: 4.85rem;
+    background-image: url("./imgs/Login.png");
+    background-size: 100% 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+#inputs {
+    width: 21%;
+    height: 60vh;
+    background-color: white;
+    padding: 1.5rem 4rem;
+    padding-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -6rem;
+}
+
+#inputs h1 {
+    margin-top: 1rem;
+    align-self: start;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+}
+
+
+#inputs input {
+    background-color: #eeeeee;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #cccc;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: "Geologica", sans-serif;
+}
+
+#inputs input::placeholder {
+    color: #767676;
+}
+#inputs input:focus{
+    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+}
+#inputs p {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    font-family: "Geologica", sans-serif;
+
+}
+form{
+    width: 20rem;
+
+}
+#inputs a {
+    font-family: "Geologica", sans-serif;
+    color: #004cc5;
+}
+
+
+#buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    font-family: "Geologica", sans-serif;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+#buttons button {
+    border-radius: 0.1rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#buttons a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #eeeeee;
+}
+#buttons a:hover{
+    text-decoration: none;
+}
+#buttons button:hover {
+    transform: translateY(-2px);
+}
+
+header button {
+    background-color: #004cc5;
+    border: none;
+    color: aliceblue;
+    border-radius: 0.7rem;
+    padding: 1rem;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    margin-top: 3rem;
+    border-radius: 0.1rem;
+    background-color: #081f38;
+}
+
+footer div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.direitos {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+footer .col1 {
+    grid-area: col1;
+}
+
+footer .col2 {
+    grid-area: col2;
+}
+
+footer .col3 {
+    grid-area: col3;
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+footer h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+}
+
+footer p,
+h3 {
+    margin-top: 5rem;
+    color: aliceblue;
+}
