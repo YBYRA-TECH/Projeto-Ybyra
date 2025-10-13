@@ -131,7 +131,7 @@ main {
   margin-left: 0.5rem;  
   font-size: 1.4rem;
   font-family: "Geologica", sans-serif;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 form{
     width: 20rem;
@@ -199,13 +199,11 @@ form{
   #inputs p{
     font-size: 2.4rem;
     width: 28rem;
-    margin-top: 7rem;
+    margin-top: 4rem;
   }
   #buttons{
     display: flex;
     justify-content: center;
-    /* gap: 3rem; */
-
   }
  
   #buttons button{
