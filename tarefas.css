@@ -9,7 +9,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -32,15 +33,25 @@ body {
     flex-direction: column;
 }
 
-.logo-site {
+#logo {
+    width: 10rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    margin-left: 10%;
     margin-bottom: 1.5rem;
 }
 
-.logo-site img {
-    width: 10rem;
+#menu {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #004cc5;
+    margin-left: auto;
+    user-select: none;
 }
 
 .menu-principal {
@@ -53,7 +64,7 @@ body {
 
 .item-menu a {
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 1rem;
     display: flex;
     color: #3474cd;
@@ -154,7 +165,7 @@ body {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position: right 0.5rem top 50%;   
+    background-position: right 0.5rem top 50%;
     background-size: 0.65rem auto;
 }
 
@@ -193,14 +204,14 @@ body {
 .area-icones-usuario {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .area-icones-usuario img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 3.2s;
 }
 
 /* ===== SECTION BOARD (Tarefas + ASIDE) ===== */
@@ -347,7 +358,7 @@ body {
     display: none;
 }
 
-.checkbox-expandir:checked ~ .detalhes-tarefa {
+.checkbox-expandir:checked~.detalhes-tarefa {
     max-height: 13rem;
     padding-bottom: 1rem;
     border-top-color: #f1f5f9;

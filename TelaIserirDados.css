@@ -34,15 +34,25 @@ body {
     flex-direction: column;
 }
 
-.logo-site {
+#logo {
+    width: 10rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    margin-left: 10%;
     margin-bottom: 1.5rem;
 }
 
-.logo-site img {
-    width: 10rem;
+#menu {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #004cc5;
+    margin-left: auto;
+    user-select: none;
 }
 
 .menu-principal {
@@ -51,7 +61,7 @@ body {
 
 .item-menu a {
     font-family: "Montserrat", sans-serif;
-    font-weight:600;
+    font-weight:700;
     margin-top: 1rem;
     display: flex;
     color: #3474cd;
@@ -187,7 +197,10 @@ body {
 .icones-header-direita {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+}
+.icones-header-direita img {
+    width: 2.5rem;
 }
 
 /* Estilo para os ícones de Sino e Usuário */

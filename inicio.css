@@ -14,7 +14,8 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px; /* Definindo a base de 1rem = 16px */
+    font-size: 16px;
+    /* Definindo a base de 1rem = 16px */
 }
 
 body {
@@ -35,15 +36,25 @@ body {
     flex-direction: column;
 }
 
-.logo-site {
+#logo {
+    width: 10rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    margin-left: 10%;
     margin-bottom: 1.5rem;
 }
 
-.logo-site img {
-    width: 10rem;
+#menu {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #004cc5;
+    margin-left: auto;
+    user-select: none;
 }
 
 .menu-principal {
@@ -52,7 +63,7 @@ body {
 
 .item-menu a {
     font-family: "Montserrat", sans-serif;
-    font-weight:600;
+    font-weight: 600;
     margin-top: 1rem;
     display: flex;
     color: #3474cd;
@@ -64,14 +75,14 @@ body {
 }
 
 .item-menu a:hover {
-    color:#0e14bf;
+    color: #0e14bf;
     background-color: rgba(12, 142, 255, 0.1);
 }
 
 /* Estilo para o item de menu ativo */
 .item-menu.ativo a {
     margin: 1;
-    background-color:#192083;
+    background-color: #192083;
     border-radius: 0 1.2rem 1.2rem 0;
     margin-right: 15rem;
     box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
@@ -101,21 +112,25 @@ body {
     margin: 1.2rem;
     box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
 }
+
 #conteudo {
     margin-top: -3rem;
 }
-#conteudo img{
+
+#conteudo img {
     margin-left: 6rem;
     width: 17rem;
     margin-bottom: 4rem;
 }
-#conteudo h1{
+
+#conteudo h1 {
     font-family: 'Montserrat', sans-serif;
     color: #1F89EF;
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
-#button button{
+
+#button button {
     margin-left: 10rem;
     background-color: #FAFCFF;
     border-color: #CAE3FF;
@@ -123,4 +138,292 @@ body {
     color: #1F89EF;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+}
+
+@media(max-width:1024px) {
+
+    .painel-principal {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* --- Estilos da Barra Lateral (Aside) --- */
+    .barra-lateral {
+        width: 15.6rem;
+        padding: 1.2rem 0;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #logo {
+        width: 10rem;
+        position: relative;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #004cc5;
+        margin-left: auto;
+        user-select: none;
+    }
+
+    .menu-principal {
+        width: 100%;
+    }
+
+    .item-menu a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        margin-top: 1rem;
+        display: flex;
+        color: #3474cd;
+        align-items: center;
+        padding: 0.7rem 0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .item-menu a:hover {
+        color: #0e14bf;
+        background-color: rgba(12, 142, 255, 0.1);
+    }
+
+    /* Estilo para o item de menu ativo */
+    .item-menu.ativo a {
+        margin: 1;
+        background-color: #192083;
+        border-radius: 0 1.2rem 1.2rem 0;
+        margin-right: 15rem;
+        box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+    }
+
+    .item-menu a .box-icone {
+        margin-right: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item-menu a img {
+        width: 3rem;
+        margin-left: 1.5rem;
+    }
+
+    /* --- Estilos da Área de Conteúdo --- */
+    .area-conteudo {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.3rem 0.4rem;
+        background-color: #f8fcff;
+        border-radius: 1.25rem;
+        margin: 1.2rem;
+        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+    }
+
+    #conteudo {
+        margin-top: -3rem;
+    }
+
+    #conteudo img {
+        margin-left: 6rem;
+        width: 17rem;
+        margin-bottom: 4rem;
+    }
+
+    #conteudo h1 {
+        font-family: 'Montserrat', sans-serif;
+        color: #1F89EF;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    #button button {
+        margin-left: 10rem;
+        background-color: #FAFCFF;
+        border-color: #CAE3FF;
+        font-family: 'Geologica', sans-serif;
+        color: #1F89EF;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+    }
+}
+
+@media(max-width:780px) {
+
+    .painel-principal {
+        display: block;
+    }
+
+    /* --- Estilos da Barra Lateral (Aside) --- */
+    /* .barra-lateral {
+    width: 15.6rem;
+    padding: 1.2rem 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+} */
+
+    #logo {
+        width: 8rem;
+        margin-left: 4rem;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    .menu-icon {
+        position: fixed;
+        top: 3%;
+        left: 3%;
+        width: 2rem;
+        height: 1.2rem;
+        z-index: 1003;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 0.3s;
+    }
+
+    .menu-icon span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #192083;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+    .menu-principal ul {
+        position: fixed;
+        top: 0;
+        /*colocar o -10 no left*/
+        left: -10rem;
+        width: 10rem;
+        height: 100%;
+        background-color: #192083;
+        transition: left 0.3s ease;
+        padding-top: 2rem;
+        z-index: 1001;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+    }
+
+    #menu:checked~.menu-principal ul {
+        left: 0;
+    }
+
+    #menu:checked~.overlay {
+        opacity: 0;
+        pointer-events: auto;
+    }
+
+    #menu:checked+.menu-icon span :nth-child(1) {
+        transform: rotate(45deg) translateY(13);
+        background: white;
+    }
+
+    #menu:checked+.menu-icon:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu:checked+.menu-icon:nth-child(3) {
+        transform: rotate(-45deg) translateY(-13);
+        background: #fff;
+    }
+
+    .item-menu a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        margin-top: 1rem;
+        display: flex;
+        color: #3474cd;
+        align-items: none;
+        padding: 0.7rem 0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Estilo para o item de menu ativo */
+    .item-menu.ativo a {
+        margin: 1;
+        background-color: none;
+        border-radius: none;
+        margin-right: none;
+        box-shadow: none;
+    }
+
+    .item-menu a .box-icone {
+        margin-right: 0rem;
+        display: flex;
+        align-items: none;
+        justify-content: center;
+    }
+
+    .item-menu a img {
+        width: 3rem;
+        margin-left: 1.5rem;
+    }
+
+    /* --- Estilos da Área de Conteúdo --- */
+    .area-conteudo {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.3rem 0.4rem;
+        background-color: #f8fcff;
+        border-radius: 1.25rem;
+        margin: 1.2rem;
+        margin-top: 1rem;
+        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+    }
+
+    #conteudo {
+        margin-top: -3rem;
+        margin-bottom: 1rem;
+    }
+
+    #conteudo img {
+        margin-left: 2rem;
+        width: 64%;
+        margin: 3rem;
+    }
+
+    #conteudo h1 {
+        font-family: 'Montserrat', sans-serif;
+        color: #1F89EF;
+        font-size: 1.6rem;
+        width: 20.3rem;
+        margin-bottom: 2rem;
+    }
+
+    #button button {
+        margin-left: 5rem;
+        background-color: #FAFCFF;
+        border-color: #CAE3FF;
+        font-family: 'Geologica', sans-serif;
+        color: #1F89EF;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+    }
 }

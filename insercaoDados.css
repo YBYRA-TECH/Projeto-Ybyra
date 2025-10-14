@@ -35,16 +35,27 @@ body {
     flex-direction: column;
 }
 
-.logo-site {
+#logo {
+    width: 10rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    margin-left: 10%;
     margin-bottom: 1.5rem;
 }
 
-.logo-site img {
-    width: 10rem;
+#menu {
+    display: none;
 }
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #004cc5;
+    margin-left: auto;
+    user-select: none;
+}
+
 
 .menu-principal {
     width: 100%;
@@ -90,8 +101,6 @@ body {
 }
 
 /* --- Estilos da Área de Conteúdo --- */
-
-
 
 .area-conteudo {
     flex-grow: 1;
@@ -149,7 +158,6 @@ body {
     font-size: 0.9rem;
 }
 
-
 /* Estilo dos Dropdowns (selects) */
 .busca-filtros select {
     padding: 0.6rem 1rem;
@@ -191,7 +199,13 @@ body {
 .icones-header-direita {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+}
+.icones-header-direita img{
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: all 3.2s;
 }
 
 /* Estilo para os ícones de Sino e Usuário */
