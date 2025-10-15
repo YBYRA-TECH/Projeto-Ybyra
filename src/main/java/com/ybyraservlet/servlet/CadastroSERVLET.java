@@ -1,14 +1,15 @@
 package com.example.ybyraservlet.servlet;
 
+import java.io.IOException;
+
 import com.example.ybyraservlet.dao.IndustriaDAO;
 import com.example.ybyraservlet.model.Industria;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
 
 @WebServlet(name = "CadastroSERVLET", urlPatterns = {"/cadastro"})
 public class CadastroSERVLET extends HttpServlet {
