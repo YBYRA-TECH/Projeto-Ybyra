@@ -1,9 +1,13 @@
-package com.example.ybyraservlet.model;
+package com.ybyraservlet.model;
 
 
-import com.example.ybyraservlet.conexao.*;
-import com.example.ybyraservlet.dao.*;
 import java.sql.Date;
+
+import com.ybyraservlet.conexao.ConexaoBD;
+import com.ybyraservlet.dao.EnderecoDAO;
+import com.ybyraservlet.dao.RelatoriosDAO;
+import com.ybyraservlet.dao.TelefoneDAO;
+import com.ybyraservlet.dao.UsuarioDAO;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,9 +1,9 @@
-package com.example.ybyraservlet.servlet;
+package com.ybyraservlet.servlet;
 
 import java.io.IOException;
 
-import com.example.ybyraservlet.dao.IndustriaDAO;
-import com.example.ybyraservlet.model.Industria;
+import com.ybyraservlet.dao.IndustriaDAO;
+import com.ybyraservlet.model.Industria;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

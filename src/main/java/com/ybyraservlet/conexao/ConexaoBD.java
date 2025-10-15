@@ -1,8 +1,9 @@
-package com.example.ybyraservlet.conexao;
+package com.ybyraservlet.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class ConexaoBD {

@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.model;
+package com.ybyraservlet.model;
 
 
 public class Industria {
