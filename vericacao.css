@@ -1,333 +1,314 @@
 /* ===== IMPORTAÇÃO DE FONTES ===== */
-/* "Montserrat" */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
-/* "Geologica" */
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
 
 /* ===== RESET GERAL ===== */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-/* ===== CABEÇALHO ===== */
-header {
-  background-image: url("./imgs/Fundo\ \ Header.png");
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
-  padding: 0.4rem 2.5rem;
-}
-
-header a {
-  padding: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: black;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-/* empurra o grupo de links + botão para a direita */
-header a:first-of-type {
-  margin-left: auto;
-}
-.menu-icon{
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #004cc5;
-  margin-left: auto;
-  user-select: none;
-}
-#menu {
-  display: none;
-}
-.menu-links {
-  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 5rem);
-}
-
-/* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
+/* ===== CONTEÚDO PRINCIPAL ===== */
 main {
   margin-top: 4.85rem;
   background-image: url("./imgs/Login.png");
-  background-size: 100% 120%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.85rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
+  padding: 2rem 1rem;
 }
 
 #inputs {
-  width: 34vw;
-  height: 60vh; 
+  width: min(90%, 30rem);
   background-color: white;
-  padding: 1.5rem 4rem;
-  padding-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: -6rem;
+  gap: 1.5rem;
+  position: relative;
+  min-height: 450px;
 }
 
 #inputs h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+  text-align: center;
+  width: 100%;
+  margin: 0;
 }
 
 #inputs p {
-  font-size: 1.3rem;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   font-family: "Geologica", sans-serif;
   width: 100%;
+  line-height: 1.5;
+  color: #555;
   text-align: center;
+  margin: 0.5rem 0;
 }
 
 #inputs a {
   font-family: "Geologica", sans-serif;
-  text-decoration: none;
   color: #004cc5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: inherit;
+}
+
+#inputs a:hover {
+  color: #002d75;
 }
 
 #input_veri {
   display: flex;
   justify-content: center;
   gap: 0.8rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0 2rem 0;
+  width: 100%;
 }
 
 #input_veri input {
-  margin-top: 1rem;
-  width: 5rem; 
-  height: 5rem;
+  width: clamp(3.5rem, 8vw, 4.5rem);
+  height: clamp(3.5rem, 8vw, 4.5rem);
   text-align: center;
-  font-size: 1.5rem;
-  background-color: #EEEEEE;
-  border: none;
-  border-radius: 0.4rem;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 0.6rem;
   outline: none;
   font-family: "Geologica", sans-serif;
   color: #333;
+  transition: all 0.3s ease;
 }
 
 #input_veri input:focus {
   border-color: #1e88ee;
-  box-shadow: 0 0 5px rgba(30, 136, 238, 0.5);
+  box-shadow: 0 0 8px rgba(30, 136, 238, 0.4);
+  transform: scale(1.05);
 }
 
 #buttons {
   display: flex;
-  justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
   font-family: "Geologica", sans-serif;
   width: 100%;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
-#buttons a{
+#buttons a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#buttons a:hover {
   text-decoration: none;
 }
 
 #buttons button {
-  border-radius: 0.1rem;
-  padding: 1.8rem 2rem;
+  border-radius: 0.7rem;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
   border: none;
-  font-size: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 8rem;
 }
 
 #buttons button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-#botao-login {
-  background-color: #004cc5;
-  border: none;
-  color: aliceblue;
-  border-radius: 0.7rem;
-  padding: 1rem;
-  margin-right: 3rem;
+#buttons button:first-child {
+  background-color: #f8f9fa;
+  color: #767676;
 }
 
-@media (max-width: 1024px){
-  #inputs{
-    width: 40rem;
-    margin-left: 0;
+#buttons button:last-child {
+  background: linear-gradient(135deg, #004cc5, #0066ff);
+  color: white;
+}
+
+#buttons button:last-child:hover {
+  background: linear-gradient(135deg, #003a9a, #0055dd);
+}
+
+/* ===== MEDIA QUERIES OTIMIZADAS ===== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  
+  #inputs {
+    width: min(85%, 35rem);
+    padding: 3rem;
+    gap: 2rem;
+  }
+  
+  #inputs h1 {
+    font-size: clamp(2.5rem, 6vw, 3rem);
+  }
+  
+  #input_veri {
+    gap: 1rem;
+    margin: 2rem 0 3rem 0;
+  }
+  
+  #input_veri input {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.8rem;
+  }
+  
+  #inputs p, #inputs a {
+    font-size: 1.1rem;
+  }
+  
+  #buttons {
+    margin-top: auto;
     gap: 1.5rem;
-
+    justify-content: flex-end;
   }
-
-#inputs h1 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  font-size: 6rem;
-  margin-bottom: 2rem;
-  background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
-}
-
-#inputs p {
-  font-size: 2rem;
-  font-family: "Geologica", sans-serif;
-  width: 100%;
-  text-align: center;
-}
-
-#input_veri {
-  display: flex;
-  justify-content: center;
-  gap: 1.3rem;
-  margin-top: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-#input_veri input {
-  margin-top: 2rem;
-  width: 7rem; 
-  height: 8rem;
-  text-align: center;
-  font-size: 1.5rem;
-  background-color: #EEEEEE;
-  border: none;
-  border-radius: 0.4rem;
-  outline: none;
-  font-family: "Geologica", sans-serif;
-  color: #333;
-}
-
-#buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  font-family: "Geologica", sans-serif;
-  width: 100%;
-}
-
-#buttons button {
-  border-radius: 0.1rem;
-  padding: 6% 11%;
-  border: none;
-  font-size: 2.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-}
-
-@media (max-width: 780px) {
-
-  /* ===== CABEÇALHO (Compacto) ===== */
-  header {
-    gap: 0;
-    padding: 0.8rem 1rem;
-    width: 96vw;
+  
+  #buttons button {
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
   }
-    
-  header button {
-    padding: 0.5rem 1rem;
-  }
+}
 
-  .menu-icon{
-    display: block;
-    padding-right: 1.5rem;
+/* Tablets pequenos e mobile landscape (481px - 767px) */
+@media (max-width: 767px) {
+  
+  main {
+    background-image: none;
+    background-color: #f8f9fa;
+    padding: 1rem;
   }
-  .menu-links {
-    display: none;
-    flex-direction: column;
-    position: inherit;
-    top: 4.5rem;
-    right: 1rem;
-    width: 12rem;
-    background: rgba(255, 255, 255, 0.97);
-    padding: 1rem; 
-    border-radius: 0.8rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-    z-index: 9999;
-    transition: all 1s ease;
+  
+  #inputs {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
+    margin-top: 0;
+    min-height: 400px;
   }
-  .menu-links a{
-    margin-left: 0;
-    width: 10rem;
+  
+  #inputs h1 {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
   }
-  /* Quando o checkbox está marcado, mostra o menu */
-  #menu:checked ~ .menu-links {
+  
+  #input_veri {
+    gap: 0.6rem;
+    margin: 1.5rem 0 2rem 0;
+  }
+  
+  #input_veri input {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.4rem;
+  }
+  
+  #inputs p, #inputs a {
+    font-size: 0.9rem;
+  }
+  
+  #buttons {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
   }
-  main{
-    background-image: none !important;
+  
+  #buttons button {
+    width: 40%;
+    max-width: 40%;
+    min-width: auto;
+    padding: 1rem;
+    font-size: 1rem;
   }
-  #inputs{
-    width: 14rem;
-    margin-left: 0; 
+}
+
+/* Mobile (480px e abaixo) */
+@media (max-width: 480px) {
+  
+  #inputs {
+    padding: 1.5rem 1.2rem;
+    width: 98%;
+    min-height: 380px;
   }
-
-#inputs h1 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  font-size: 3rem;
-  margin-bottom: 0;
-  background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+  
+  #inputs h1 {
+    font-size: 1.8rem;
+  }
+  
+  #input_veri {
+    gap: 0.5rem;
+  }
+  
+  #input_veri input {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+  
+  #buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  
+  #buttons button {
+    width: 40%;
+    max-width: 40%;
+    min-width: auto;
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }
 
-#inputs p {
-  font-size: 0.9rem;
-  width: 25rem;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
+/* Mobile muito pequeno (360px e abaixo) */
+@media (max-width: 360px) {
 
-#input_veri {
-  gap: 1.8rem;
-  margin-top: 0;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-#input_veri input {
-  margin-top: 2rem;
-  width: 3.7rem; 
-  height: 4rem;
-}
-
-#buttons {
-  margin-top: 2rem;
-  font-family: "Geologica", sans-serif;
-  width: 100%;
-}
-
-#buttons button{
-  padding: 1rem 1rem 1rem 1rem;
-  margin-top:0 ;
-  font-size: 1.6rem;
-  margin-bottom: 0.2rem;
-}
-
+  #inputs {
+    padding: 1.2rem 1rem;
+  }
+  
+  #input_veri input {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.1rem;
+  }
+  
+  #buttons button {
+    padding: 0.8rem;
+    min-width: 6rem;
+  }
 }

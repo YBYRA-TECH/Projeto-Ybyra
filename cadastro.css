@@ -1,14 +1,12 @@
 /* ===== IMPORTAÇÃO DE FONTES ===== */
-/* "Montserrat" */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
-/* "Geologica" */
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
 
 /* ===== RESET GERAL ===== */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -16,128 +14,115 @@ body {
   overflow: hidden;
 }
 
-/* ===== CABEÇALHO ===== */
-header {
-  background-image: url("./imgs/Fundo\ \ Header.png");
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
-  padding: 0.4rem 2.5rem;
-}
 
-header a {
-  padding: 1rem;
+
+#botao-login {
+  background: linear-gradient(135deg, #004cc5, #0066ff);
+  border: none;
+  color: aliceblue !important;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1.5rem;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: black;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-/* empurra o grupo de links + botão para a direita */
-header a:first-of-type {
-  margin-left: auto;
-}
-.menu-icon{
-  display: none;
-  font-size: 2rem;
   cursor: pointer;
-  color: #004cc5;
-  margin-left: auto;
-  user-select: none;
-}
-#menu {
-  display: none;
-}
-.menu-links {
-  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 5rem);
+  transition: all 0.3s ease;
+  font-size: 1rem !important;
 }
 
-/* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
+#botao-login:hover {
+  background: linear-gradient(135deg, #003a9a, #0055dd);
+  transform: translateY(-2px);
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
 main {
   margin-top: 4.85rem;
   background-image: url("./imgs/Login.png");
-  background-size: 100% 120%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.85rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
+  padding: 2rem 1rem;
 }
 
 #inputs {
-  width: 32vw;
-  height: 60vh; 
+  width: min(90%, 28rem);
   background-color: white;
-  padding: 1.5rem 4rem;
-  padding-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -6rem;
+  gap: 1.2rem;
 }
 
 #inputs h1 {
-  margin-top: 1rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+  line-height: 1.2;
+  width: 100%;
+  text-align: left;
 }
 
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
 #inputs input {
-  display: flex;
-  justify-self: center;
-  background-color: #eeeeee;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  width: 90%;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid #cccc;
+  border: 1px solid #ddd;
   outline: none;
   border-radius: 0.5rem;
   font-size: 1rem;
   font-family: "Geologica", sans-serif;
+  transition: all 0.3s ease;
 }
 
 #inputs input::placeholder {
   color: #767676;
 }
-#inputs input:focus{
-    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
-}
-#inputs p {
-  display: flex;
-  justify-self: center;
-  margin-left: 0.5rem;  
-  font-size: 1.4rem;
-  font-family: "Geologica", sans-serif;
 
+#inputs input:focus {
+  box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+  border-color: #1e88ee;
+  transform: scale(1.02);
 }
-form{
-    width: 25rem;    
+
+#inputs p {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+  line-height: 1.5;
+  color: #555;
+  text-align: center;
+  margin: 0.5rem 0;
 }
+
 #inputs a {
   font-family: "Geologica", sans-serif;
   color: #004cc5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#inputs a:hover {
+  text-decoration: underline;
+  color: white;
 }
 
 #buttons {
@@ -145,154 +130,179 @@ form{
   gap: 1rem;
   margin-top: 1rem;
   font-family: "Geologica", sans-serif;
-  width: 85%;
-  justify-content: flex-end; 
+  width: 100%;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+#buttons a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#buttons a:hover {
+  text-decoration: none;
 }
 
 #buttons button {
-  border-radius: 0.1rem;
-  padding: 0.8rem 2rem;
-  border: none;
-  font-size: 1.3rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-#buttons a{
-    cursor: pointer;
-    text-decoration: none;
-    color: #eeeeee;
-}
-#buttons a:hover{
-    text-decoration: none;
-}
-#buttons button:hover {
-  transform: translateY(-2px);
-}
-
-#botao-login {
-  background-color: #004cc5;
-  border: none;
-  color: aliceblue;
   border-radius: 0.7rem;
-  padding: 1rem;
-  margin-right: 3rem;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border: none;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 8rem;
 }
 
-@media (max-width: 1024px){
-  #inputs{
-    width: 40rem;
-    margin-left: 0;
+#buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#buttons button:first-child {
+  background-color: #f8f9fa;
+  color: #767676;
+}
+
+#buttons button:last-child {
+  background: linear-gradient(135deg, #004cc5, #0066ff);
+  color: white;
+}
+
+#buttons button:last-child:hover {
+  background: linear-gradient(135deg, #003a9a, #0055dd);
+}
+
+/* ===== MEDIA QUERIES OTIMIZADAS ===== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  
+  #inputs {
+    width: min(85%, 35rem);
+    padding: 2rem 2.5rem;
   }
-  #inputs h1{
-    font-size: 7rem;
-    padding-left: 3rem  ;
+  
+  #inputs h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
   }
-  #inputs input{
-    width: 29rem;
-    height: 3rem;
-    font-size: 1.5rem;
+  
+  #inputs input {
+    padding: 1.2rem;
+    font-size: 1.1rem;
   }
-  #inputs p{
-    font-size: 2rem;
-    width: 24rem;
-  }
-  #inputs a{
-    text-decoration: none;
-  }
-  #buttons{
-    display: flex;
+  
+  #buttons {
     justify-content: center;
-    gap: 3rem;
-
+    margin-top: 2rem;
   }
- 
-  #buttons button{
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-    margin-top: 4rem;
-    margin-left: 1rem;
+  
+  #buttons button {
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
   }
-  #buttons button a{
-    font-size: 2.5rem;
-    
-  }
-
 }
 
-@media (max-width: 780px) {
-
-  /* ===== CABEÇALHO (Compacto) ===== */
-  header {
-    gap: 0;
-    padding: 0.8rem 1rem;
-    width: 96vw;
+/* Tablets pequenos e mobile landscape (481px - 767px) */
+@media (max-width: 767px) {
+  
+  main {
+    background-image: none;
+    background-color: #f8f9fa;
+    padding: 1rem;
   }
-    
-  header button {
-    padding: 0.5rem 1rem;
+  
+  #inputs {
+    width: 95%;
+    padding: 1.8rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
   }
-  main{
-    background-image: none !important;
+  
+  #inputs h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
   }
-  .menu-icon{
-    display: block;
-    padding-right: 1.5rem;
-  }
-  .menu-links {
-    display: none;
-    flex-direction: column;
-    position: inherit;
-    top: 4.5rem;
-    right: 1rem;
-    width: 12rem;
-    background: rgba(255, 255, 255, 0.97);
-    padding: 1rem; 
-    border-radius: 0.8rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-    z-index: 9999;
-    transition: all 1s ease;
-  }
-  .menu-links a{
-    margin-left: 0;
-    width: 10rem;
-  }
-  /* Quando o checkbox está marcado, mostra o menu */
-  #menu:checked ~ .menu-links {
+  
+  #buttons {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
   }
-  #inputs{
-    width: 12rem;
-    margin-left: 0;
-  }
-  #inputs h1{
-    font-size: 3rem;
-    padding-left: 0;
   
-  }
-  #inputs input{
-    width: 13rem;
-    height: 0.5rem;
-    font-size: 0.8rem;
-  }
-  #inputs p{
+  #buttons button {
+    width: 40%;
+    max-width: 40%;
+    min-width: auto;
+    padding: 1rem;
     font-size: 1rem;
-    width: 13rem;
   }
-  #buttons{
-    gap: 1.5rem;
-    margin-top: 1rem;
-    margin-left: 2rem;
-  }
- 
-  #buttons button{
-    padding: 1.3rem;
-    margin-top:0 ;
-    margin-left: 0;
-    margin-bottom: 0.2rem;
+}
+
+/* Mobile (480px e abaixo) */
+@media (max-width: 480px) {
+
+  
+  #inputs {
+    padding: 1.5rem 1.2rem;
+    width: 98%;
   }
   
-  #buttons button a{
-    font-size: 5vw;
-    
+  #inputs h1 {
+    font-size: 1.8rem;
   }
+  
+  #inputs input {
+    padding: 0.9rem;
+  }
+  
+  #buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  
+  #buttons button {
+    width: 40%;
+    max-width: 40%;
+    min-width: auto;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
 
-
+/* Mobile muito pequeno (360px e abaixo) */
+@media (max-width: 360px) {  
+  #inputs {
+    padding: 1.2rem 1rem;
+  }
+  
+  #buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  
+  #buttons button {
+    width: 40%;
+    max-width: 40%;
+    min-width: auto;
+    padding: 1rem;
+    font-size: 1rem;
+  }
 }

@@ -8,6 +8,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Adicionado para facilitar o controle de padding e width */
 }
 
 html,
@@ -15,65 +16,14 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== CABEÇALHO ===== */
-header {
-  background-image: url("./imgs/Fundo\ \ Header.png");
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(1.5rem, 4vw, 5rem);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
-  padding: 0.4rem ;
-  z-index: 1;
-}
-
-a {
-  padding: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
-  text-decoration: none;
-  color: black;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-header a:first-of-type {
-  margin-left: auto;
-}
-
-#botao-login {
-  margin-right: 1rem;
-  background-color: #004cc5;
-  border: none;
-  color: aliceblue;
-  border-radius: 0.7rem;
-  padding: 1rem;
-}
-.menu-icon{
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #004cc5;
-  margin-left: auto;
-  user-select: none;
-}
-#menu {
-  display: none;
-}
-.menu-links {
-  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 5rem);
-}
 
 /* ===== ÁREA PRINCIPAL ===== */
 main {
   padding-top: 5rem;
+}
+
+#botao-login {
+  margin-right: 5rem;
 }
 
 /* ===== SEÇÃO INTRODUÇÃO ===== */
@@ -105,9 +55,13 @@ main {
 }
 
 .sec_intro a {
-  font-family: "Geologic" sans-serif;
+  font-family: "Geologica", sans-serif; /* Corrigido o erro de digitação de "Geologic" para "Geologica" */
+  text-decoration: none;
   font-size: 1.2rem;
   color: aliceblue;
+}
+.sec_intro a:hover{
+  text-decoration: underline;
 }
 
 /* ===== TÍTULO RESULTADOS ===== */
@@ -280,17 +234,17 @@ main {
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#step1:checked ~ .slides .slide[data-step="1"],
-#step2:checked ~ .slides .slide[data-step="2"],
-#step3:checked ~ .slides .slide[data-step="3"],
-#step4:checked ~ .slides .slide[data-step="4"] {
+#step1:checked~.slides .slide[data-step="1"],
+#step2:checked~.slides .slide[data-step="2"],
+#step3:checked~.slides .slide[data-step="3"],
+#step4:checked~.slides .slide[data-step="4"] {
   display: flex;
 }
 
-#step1:checked ~ .sec3_controls label[for="step1"],
-#step2:checked ~ .sec3_controls label[for="step2"],
-#step3:checked ~ .sec3_controls label[for="step3"],
-#step4:checked ~ .sec3_controls label[for="step4"] {
+#step1:checked~.sec3_controls label[for="step1"],
+#step2:checked~.sec3_controls label[for="step2"],
+#step3:checked~.sec3_controls label[for="step3"],
+#step4:checked~.sec3_controls label[for="step4"] {
   background: #0a4ec7;
 }
 
@@ -302,18 +256,20 @@ main {
   padding: 2rem 0rem;
   gap: 2rem;
 }
-.texto{
+
+.texto {
   margin-left: 1rem;
 }
+
 #sec4 img {
   width: 50rem;
   margin-left: clamp(0rem, 10vw, 15rem);
-  margin-right:clamp(0rem, 100vw, 15rem) ;
+  margin-right: clamp(0rem, 10vw, 15rem); /* Ajustado para não ter 100vw */
 }
 
 #sec4 h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600  ;
+  font-weight: 600;
   background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
   background-clip: text;
   color: transparent;
@@ -325,7 +281,6 @@ main {
   margin-left: 2.5rem;
   font-size: clamp(1.1rem, 1.5vw, 1.4rem);
   font-family: "Geologica", sans-serif;
-
   margin-bottom: 1rem;
 }
 
@@ -365,7 +320,7 @@ hr {
   color: white;
   text-align: left;
   margin-bottom: clamp(5vh, 10vw, 8vh);
-  width: 38vw ;
+  width: 38vw;
 }
 
 #cartoes_sobre {
@@ -415,15 +370,18 @@ a:hover {
 p {
   font-family: "Geologica", sans-serif;
 }
+
 /* ===== RODAPÉ ===== */
 footer {
   margin-top: 23rem;
   border-radius: 0.1rem;
   background-color: #081f38;
 }
+
 footer section {
   flex-wrap: wrap;
 }
+
 footer div {
   display: flex;
   flex-wrap: wrap;
@@ -457,18 +415,9 @@ h3 {
 /* ======================================= */
 
 /* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
-@media (max-width: 1024px){
-  /* ===== CABEÇALHO ===== */
-  header {
-    padding: 0.4rem 1.5rem;
-    width: 97%;
-  }
+@media (max-width: 1024px) {
 
-  header a:first-of-type {
-    margin-left: auto;
-  }
-
-  /* ===== SEÇÃO INTRODUÇÃO (MANTÉM ORDEM ORIGINAL - TEXTO/IMAGEM) ===== */
+  /* ===== SEÇÃO INTRODUÇÃO (EMPILHAMENTO) ===== */
   .sec_intro {
     flex-direction: column;
     height: auto;
@@ -481,6 +430,7 @@ h3 {
   #texto_intro {
     align-items: center;
     padding-top: 5rem;
+    padding-bottom: 5rem; /* Adicionado para dar espaço após o texto */
   }
 
   /* ===== TÍTULO RESULTADOS ===== */
@@ -504,129 +454,128 @@ h3 {
     max-width: 30rem;
   }
 
- /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
+  /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
   #sec3 {
-  /* Remove o align-items: center que centralizava tudo */
-  align-items: flex-end; /* Volta ao padrão desktop */
-  padding-top: 5rem;
-  margin-bottom: 10rem;
-}
+    align-items: center; /* Centraliza no tablet */
+    padding-top: 5rem;
+    margin-bottom: 5rem; /* Reduzido o margin-bottom */
+  }
 
-.sec3_content {
-  /* Remove o empilhamento para telas até 1024px */
-  flex-direction: row; 
-}
+  .sec3_content {
+    flex-direction: column; /* Empilha no tablet */
+    align-items: center;
+    justify-content: center;
+  }
 
-.slide {
-  /* Remove o empilhamento e alinhamento central */
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start; /* Volta ao padrão desktop */
-}
+  .slide {
+    flex-direction: column; /* Empilha imagem e texto no slide */
+    align-items: center;
+    text-align: center;
+  }
 
-.slide img {
-  margin-top: 15%; /* Volta ao padrão desktop */
-  margin-bottom: 0;
-  /* Diminui o tamanho da imagem, mantendo a proporção */
-  width: clamp(18rem, 35vw, 35rem); 
-}
+  .slide img {
+    margin-top: 5%;
+    margin-bottom: 2rem;
+    width: clamp(20rem, 50vw, 35rem); /* Ajuste de tamanho */
+  }
+  
+  .slide-text {
+    margin-left: 0;
+    width: 90%; /* Ocupa mais espaço horizontal */
+    text-align: center;
+  }
 
-.slide-text {
-  /* Volta ao padrão desktop */
-  margin-left: 3.2rem;
-  width: 60%;
-  text-align: left;
-}
+  .slide-text h1 {
+    margin-right: 0;
+    text-align: center;
+    /* Faz o h1 seguir o empilhamento e centralização */
+  }
 
-.slide-text h1 {
-  /* Mantém o alinhamento central do tablet */
-  margin-right: 3rem; 
-  text-align: right; /* Volta ao alinhamento do desktop */
-}
+  .slide h2 {
+    margin-top: 5%; /* Ajustado o margin-top */
+  }
 
-.slide h2 {
-  margin-top: 15%; /* Volta ao padrão desktop */
-}
+  .sec3_controls {
+    justify-content: center; /* Centraliza os controles */
+    margin-right: 0;
+    margin-top: 2rem;
+  }
 
-.sec3_controls {
-  /* Volta ao padrão desktop */
-  justify-content: flex-end; 
-  margin-right: clamp(0rem, 7vw, 5rem);
-  margin-bottom: 5rem;
-}
+  .dot {
+    margin-right: 2rem; /* Espaçamento menor entre dots */
+    width: 4rem; /* Tamanho do dot ajustado */
+    height: 0.8rem;
+  }
 
-.dot {
-  margin-top: 1.5rem;
-  width: 5rem; /* Mantém o tamanho do desktop para o dot */
-  margin-right: 3rem; /* Mantém a margem do desktop para o dot */
-  height: 0.8rem;
-}
   /* ===== SEÇÃO 4 - PERGUNTAS (IMAGEM ACIMA DO TEXTO) ===== */
   #sec4 {
     margin-top: 5rem;
-    text-align: center;
+    /* flex-direction: column-reverse; Imagem fica em cima */
     padding: 1rem;
-    margin-bottom:25rem;
-
-    /* gap: 3rem; */
+    margin-bottom: 10rem;
+    margin-left: clamp(3rem,3vw,1rem);
   }
 
   #sec4 img {
-    width:  70vw;
-    margin-left: 2rem;    
+    width: 90vw; /* Ocupa quase toda a largura */
+    max-width: 40rem; /* Limita o tamanho em telas grandes de tablet */
+    margin-left: 0;
+    margin-right: 0;
   }
 
   #sec4 h1 {
-    margin-bottom: 1rem;
-    font-size: 3rem;
+    margin-bottom: 2rem; /* Espaçamento mais compacto */
+    font-size: clamp(2.5rem, 5vw, 4rem);
   }
 
-  .textoP {
+  #sec4 p {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 5vw; /* Adiciona padding lateral no texto */
+  }
+
+  hr {
+    margin-left: auto;
+    margin-right: auto;
     max-width: 80vw;
   }
-  /*Imagem decorativa*/
-  #imagem_decorativa{
+
+  #imagem_decorativa {
     display: none;
   }
 
   /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
   #sec_sobre {
     height: auto;
-    padding: 25vh 2vw;
+    padding: 10vh 2vw; /* Menos padding vertical */
   }
 
   #titulo_sobre {
     margin-right: 0;
     text-align: center;
-    margin-top: -2rem;
-    margin-bottom: 5vh;
+    margin-top: 0;
+    width: auto;
   }
 
   #cartoes_sobre {
     flex-direction: column;
     align-items: center;
-    gap: 5rem;
+    gap: 3rem; /* Espaçamento menor entre cards */
   }
 
   .card_sobre {
-    max-width: 85vw;
+    width: 85vw;
     height: auto;
-    padding: 4rem;
+    padding: 2rem;
     margin-right: 0 !important;
     background-position: center bottom;
     background-size: 80%;
   }
 
-  .card_sobre:nth-child(1) {
-    background-position: 50% 95%;
-  }
-  .card_sobre:nth-child(3) {
-    background-position: 50% 95%;
-  }
 
   /* ===== RODAPÉ (EMPILHAMENTO) ===== */
   footer {
-    margin-top: 10rem;
+    margin-top: 5rem; /* Rodapé mais próximo */
     padding: 2rem 0;
   }
 
@@ -645,146 +594,117 @@ h3 {
   }
 }
 
-/* --- TELA DE SMARTPHONE (MAX-WIDTH: 780PX) --- */
-@media (max-width: 780px) {
-  /* ===== CABEÇALHO (Compacto) ===== */
-  header {
-    justify-content: space-between;
-    gap: 0;
-    padding: 0.8rem 1rem;
-    width: 96vw;
-  }
-
-  header button {
-    padding: 0.5rem 1rem;
-  }
-
-  .menu-icon{
-    display: block;
-    padding-right: 1.5rem;
-  }
-  .menu-links {
-    display: none;
-    flex-direction: column;
-    position: inherit;
-    top: 4.5rem;
-    right: 1rem;
-    width: 12rem;
-    background: rgba(255, 255, 255, 0.97);
-    padding: 1rem; 
-    border-radius: 0.8rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-    z-index: 9999;
-    transition: all 1s ease;
-  }
-  .menu-links a{
-    margin-left: 0;
-    width: 10rem;
-    font-size: 1.2rem;
-  }
-  /* Quando o checkbox está marcado, mostra o menu */
-  #menu:checked ~ .menu-links {
-    display: flex;
-  }
+/* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
+@media (max-width: 767px) {
 
   /* ===== SEÇÃO INTRODUÇÃO (Compacto) ===== */
   .sec_intro {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 2vw;
+    padding-right: 2vw;
     padding-top: 2rem;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   /* ===== TÍTULO RESULTADOS (Compacto) ===== */
   #titulo_resultados {
-    padding-left: 0;
-    text-align: center;
+    font-size: clamp(2rem, 8vw, 3rem);
+    padding-top: 3rem;
+  }
+
+  /* ===== SEÇÃO CARTÕES (Largura total) ===== */
+  .card {
+    width: 90vw;
   }
 
   /* ===== SEÇÃO 3 - CONHEÇA O APP (Slider Compacto) ===== */
   #sec3 {
-    align-items: center; /* Centraliza a seção para o empilhamento */
-    margin-bottom: 3rem;
-}
-
-.sec3_content {
-    /* Aplica o empilhamento para smartphone */
-    flex-direction: column;
-}
-
-.slide {
-    /* Empilha a imagem e o texto e centraliza */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
-
-.slide img {
-  /* Ajusta a imagem no modo empilhado */
-    margin-top: 5%;
     margin-bottom: 2rem;
-    width: clamp(20rem, 60vw, 30rem); /* Ajuste de tamanho para mobile */
-    margin-right: 4rem;
-}
+  }
 
-.slide-text {
-    margin-left: 0;
-    width: 100%;
-    text-align: center;
-}
+  .slide img {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    width: clamp(15rem, 80vw, 25rem); /* Aumenta a imagem no mobile */
+    margin-right: 0; /* Remove a margem extra */
+  }
 
-.slide-text h1 {
-    margin-right: 0;
-    text-align: center;
-}
+  .slide-text {
+    width: 90%;
+  }
 
-.slide h2 {
+  .slide h2 {
+    margin-top: 0;
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .slide p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .sec3_controls {
     margin-top: 5%;
-}
-
-.sec3_controls {
-    /* Centraliza os controles */
-    justify-content: center;
-    margin-right: 0;
-    margin-bottom: 5rem;
-    margin-top: 10%;
-}
-
-.dot {
-    width: 4rem;
-    height: 0.6rem;
-    margin-right: 0.7rem;
-}
-
+  }
 
   /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
-  #sec4{
-    margin-bottom: 10rem;
-  }
-  #sec4 img {
-    width: 120vw;
-    margin-right: 1.5rem;
-    
+  #sec4 {
+    margin-bottom: 5rem;
+    /* flex-direction: column-reverse; Já estava, mas garantindo */
   }
 
-  /* ===== IMAGEM DECORATIVA ===== */
-  #imagem_decorativa {
-    background-size: 40% 80%;
+  #sec4 img {
+    width: 100vw; /* Ocupa a largura total para parecer um banner */
+    margin-right: 0;
+    margin-left: 0;
   }
+
+  /* ===== SEÇÃO DECORATIVA ===== */
+  #imagem_decorativa {
+    background-size: 60% 80%;
+    /* Aumenta um pouco para ser visível */
+  }
+
   /* ===== SEÇÃO SOBRE (Compacto) ===== */
   #sec_sobre {
-    margin-top: -2rem;
-    background-size: 400% 100%;
+    padding: 5vh 2vw;
+    background-size: 200% 100%; /* Ajuste para o fundo não ser exagerado */
   }
+  
   #titulo_sobre {
-    margin-top: 4vh;
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 3vh;
   }
 
-  /* Remove as imagens de fundo nos cartões da seção "Sobre Nós" para telas muito pequenas */
   .card_sobre {
+    /* Remove as imagens de fundo nos cartões */
     background-image: none !important;
-    padding: 2rem;
-    width: 17rem;
+    padding: 1.5rem;
+    width: 90vw;
+  }
+
+  .titulo_card {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer p,
+  footer h3 {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+
+  footer h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile muito pequeno (360px e abaixo) */
+@media (max-width: 480px) {
+  #botao-login {
+    margin-right: 1rem;
+  }
+
+  /* Ajustes finais de espaçamento */
+  main {
+    padding-top: 3rem;
   }
 }

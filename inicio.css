@@ -264,15 +264,6 @@ body {
         display: block;
     }
 
-    /* --- Estilos da Barra Lateral (Aside) --- */
-    /* .barra-lateral {
-    width: 15.6rem;
-    padding: 1.2rem 0;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-} */
-
     #logo {
         width: 8rem;
         margin-left: 4rem;
@@ -307,11 +298,10 @@ body {
     .menu-principal ul {
         position: fixed;
         top: 0;
-        /*colocar o -10 no left*/
-        left: -10rem;
-        width: 10rem;
+        left: -100rem;
+        width: 50%;
         height: 100%;
-        background-color: #192083;
+        background-color: #070b44;
         transition: left 0.3s ease;
         padding-top: 2rem;
         z-index: 1001;
@@ -323,7 +313,7 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.7);
         opacity: 0;
     }
 
@@ -336,41 +326,40 @@ body {
         pointer-events: auto;
     }
 
-    #menu:checked+.menu-icon span :nth-child(1) {
-        transform: rotate(45deg) translateY(13);
+    #menu:checked+.menu-icon span:nth-child(1) {
+        transform: rotate(50deg) translateY(13px);
         background: white;
+        margin-left: 0.5rem;
     }
 
-    #menu:checked+.menu-icon:nth-child(2) {
+    #menu:checked+.menu-icon span:nth-child(2) {
         opacity: 0;
     }
 
-    #menu:checked+.menu-icon:nth-child(3) {
-        transform: rotate(-45deg) translateY(-13);
-        background: #fff;
+    #menu:checked+.menu-icon span:nth-child(3) {
+        transform: rotate(-50deg) translateY(-13px);
+        margin-left: 0.5rem;
+        background: white;
+    }
+
+    .item-menu.ativo a {
+        margin: 1;
+        background: none;
+        box-shadow: none;
     }
 
     .item-menu a {
-        font-family: "Montserrat", sans-serif;
         font-weight: 700;
+        width: 12rem;
         margin-top: 1rem;
+        gap: 0.5rem;
         display: flex;
-        color: #3474cd;
-        align-items: none;
+        color: #cad3de;
         padding: 0.7rem 0;
-        text-decoration: none;
         font-size: 0.9rem;
-        transition: background-color 0.3s, color 0.3s;
     }
 
     /* Estilo para o item de menu ativo */
-    .item-menu.ativo a {
-        margin: 1;
-        background-color: none;
-        border-radius: none;
-        margin-right: none;
-        box-shadow: none;
-    }
 
     .item-menu a .box-icone {
         margin-right: 0rem;
@@ -380,8 +369,8 @@ body {
     }
 
     .item-menu a img {
-        width: 3rem;
-        margin-left: 1.5rem;
+        width: 2.2rem;
+        margin-left: 0.3rem;
     }
 
     /* --- Estilos da Área de Conteúdo --- */

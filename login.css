@@ -1,319 +1,290 @@
 /* ===== IMPORTAÇÃO DE FONTES ===== */
-/* "Montserrat" */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
-/* "Geologica" */
 @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
 
 /* ===== RESET GERAL ===== */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  overflow: hidden;
-}
+  overflow-x: hidden;
+} 
 
-/* ===== CABEÇALHO ===== */
-header {
-  background-image: url("./imgs/Fundo\ \ Header.png");
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
-  padding: 0.4rem 2.5rem;
-}
-
-header a {
-  padding: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: black;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-/* empurra o grupo de links + botão para a direita */
-header a:first-of-type {
-  margin-left: auto;
-}
-.menu-icon{
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #004cc5;
-  margin-left: auto;
-  user-select: none;
-}
-#menu {
-  display: none;
-}
-.menu-links {
-  font-size: clamp(0.9rem, 1.3vw, 1.2rem);
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 5rem);
-}
-
-/* ===== CONTEÚDO PRINCIPAL (ADICIONADO) ===== */
+/* ===== CONTEÚDO PRINCIPAL ===== */
 main {
   margin-top: 4.85rem;
   background-image: url("./imgs/Login.png");
-  background-size: 100% 120%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: calc(100vh - 4.85rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
+  padding: 2rem 1rem;
 }
 
 #inputs {
-  width: 32vw;
-  height: 60vh; 
+  width: min(90%, 30rem);
   background-color: white;
-  padding: 1.5rem 4rem;
-  padding-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: clamp(2rem, 4vw, 4rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -6rem;
+  gap: 1.5rem;
 }
 
 #inputs h1 {
-  margin-top: 1rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  font-size: 4rem;
-  margin-bottom: 0;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   background-clip: text;
   color: transparent;
-  width: 21rem;
   background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+  text-align: center;
+  width: 100%;
+  margin: 0;
 }
 
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
 #inputs input {
-  display: flex;
-  justify-self: center;
-  background-color: #eeeeee;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-  width: 28vw;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0.8rem;
-  border: 1px solid #cccc;
+  border: 1px solid #ddd;
   outline: none;
   border-radius: 0.5rem;
   font-size: 1rem;
   font-family: "Geologica", sans-serif;
+  transition: all 0.3s ease;
 }
 
 #inputs input::placeholder {
   color: #767676;
 }
-#inputs input:focus{
-    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+
+#inputs input:focus {
+  box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+  border-color: #1e88ee;
+  transform: scale(1.02);
 }
+
 #inputs p {
-  display: flex;
-  justify-self: center;
-  margin-left: 0.5rem;  
-  font-size: 1.4rem;
-  width: 27vw;
-  padding-left: 2vw;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   font-family: "Geologica", sans-serif;
-  margin-top: 0;
+  width: 100%;
+  line-height: 1.5;
+  color: #555;
+  text-align: center;
+  margin: 0rem 0;
 }
-form{
-    width: 20rem;
-}
+
 #inputs a {
   font-family: "Geologica", sans-serif;
   color: #004cc5;
   text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: inherit;
+}
+
+#inputs a:hover {
+  color: #002d75;
 }
 
 #buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: "Geologica", sans-serif;
   width: 100%;
-  justify-content: flex-end; 
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+#buttons a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#buttons a:hover {
+  text-decoration: none;
 }
 
 #buttons button {
-  border-radius: 0.1rem;
-  padding: 1.8rem 2rem;
-  border: none;
-  font-size: 1.3rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-right:0.6rem ;
-}
-#buttons a{
-    cursor: pointer;
-    text-decoration: none;
-    color: #eeeeee;
-}
-#buttons a:hover{
-    text-decoration: none;
-}
-#buttons button:hover {
-  transform: translateY(-2px);
-}
-
-#botao-login {
-  background-color: #004cc5;
-  border: none;
-  color: aliceblue;
   border-radius: 0.7rem;
-  padding: 1rem;
-  margin-right: 3rem;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border: none;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 8rem;
 }
 
-@media (max-width: 1024px){
-  #inputs{
-    width: 40rem;
-    margin-left: 0;
-    gap: 1.5rem;
-    align-items: center;
-  }
-  #inputs h1{
-    font-size: 7rem;
-    padding-left: 4rem;
-    width: 36rem;
-  }
-  #inputs input{
-    width: 34rem;
-    height: 4rem;
-    font-size: 2rem;
-    margin-bottom: 3.5rem;
-  }
-  #inputs p{
-    font-size: 2rem;
-    width: 30rem;
-    margin-top: 5rem;
-  }
-   #inputs a{
-    font-size: 2rem;
-  }
-  #buttons{
-    display: flex;
-    justify-content: center;
-  }
- 
-  #buttons button{
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-    margin-top: 1.5rem;
-    margin-left: 1rem;
-  }
-  #buttons button a{
-    font-size: 2.5rem;
-  }
-
+#buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 780px) {
+#buttons button:first-child {
+  background-color: #f8f9fa;
+  color: #767676;
+}
 
-  /* ===== CABEÇALHO (Compacto) ===== */
-  header {
-    gap: 0;
-    padding: 0.8rem 1rem;
-    width: 96vw;
-  }
-    
-  header button {
-    padding: 0.5rem 1rem;
-  }
+#buttons button:last-child {
+  background: linear-gradient(135deg, #004cc5, #0066ff);
+  color: white;
+}
 
-  .menu-icon{
-    display: block;
-    padding-right: 1.5rem;
+#buttons button:last-child:hover {
+  background: linear-gradient(135deg, #003a9a, #0055dd);
+}
+
+
+/* ===== MEDIA QUERIES OTIMIZADAS ===== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  
+  #inputs {
+    width: min(85%, 35rem);
+    padding: 3rem;
+    gap: 2rem;
   }
-  .menu-links {
-    display: none;
-    flex-direction: column;
-    position: inherit;
-    top: 4.5rem;
-    right: 1rem;
-    width: 12rem;
-    background: rgba(255, 255, 255, 0.97);
-    padding: 1rem; 
-    border-radius: 0.8rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-    z-index: 9999;
-    transition: all 1s ease;
+  
+  #inputs h1 {
+    font-size: clamp(2.5rem, 6vw, 3rem);
   }
-  .menu-links a{
-    margin-left: 0;
-    width: 10rem;
-  }
-  /* Quando o checkbox está marcado, mostra o menu */
-  #menu:checked ~ .menu-links {
-    display: flex;
-  }
-  main{
-    background-image: none !important;
-  }
-  #inputs{
-    width: 47vw;
-    height: auto;
-    margin-left: 0;
-  }
-  #inputs h1{
-    font-size: 3.5rem;
-    width: 18rem;
-    padding-bottom:1rem;
-    margin-top: 1rem;
-    margin-bottom: 0;
-  }
-  #inputs input{
-    width: 15rem;
-    height: 0.7rem;
-    font-size: 0.9rem;
-    margin-top: 0rem;
+  
+  #inputs input {
+    padding: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
   }
-  #inputs p{
-    font-size: 1rem;
-    width: 20rem;
-    margin-top: 4em;
-    padding-left: 4rem;
+  
+  #inputs p, #inputs a {
+    font-size: 1.1rem;
   }
-  #inputs a{
-    font-size: 1rem;
-   }
-   #esqueceu-senha{
-    padding-left: 4rem;
-   }
-  #buttons{
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+  
+  #buttons {
+    margin-top: 2rem;
+    gap: 1.5rem;
   }
- 
-  #buttons button{
-    padding: 1rem 1rem 1rem 1rem;
-    margin-top:0 ;
-    margin-left: 0.7rem;
-    margin-bottom: 0.2rem;
+  
+  #buttons button {
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
   }
-  #buttons button a{
-    font-size: 5vw;
-    
+  
+  #buttons button a {
+    font-size: 1.1rem;
   }
+}
 
+/* Tablets pequenos e mobile landscape (481px - 767px) */
+@media (max-width: 767px) {
+  
+  main {
+    background-image: none;
+    background-color: #f8f9fa;
+    padding: 1rem;
+  }
+  
+  #inputs {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
+    margin-top: 0;
+  }
+  
+  #inputs h1 {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+  }
+  
+  #inputs input {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  #inputs p, #inputs a {
+    font-size: 0.9rem;
+  }
+  
+  #buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  #buttons button {
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  #buttons button a {
+    font-size: 1rem;
+  }
+}
 
+/* Mobile (480px e abaixo) */
+@media (max-width: 480px) {
+  
+  #inputs {
+    padding: 1.5rem 1.2rem;
+    width: 98%;
+  }
+  
+  #inputs h1 {
+    font-size: 1.8rem;
+  }
+  
+  #inputs input {
+    padding: 0.8rem;
+  }
+  
+  #buttons button {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile muito pequeno (360px e abaixo) */
+@media (max-width: 360px) {
+
+  #inputs {
+    padding: 1.2rem 1rem;
+  }
+  
+  #buttons button {
+    padding: 0.8rem;
+  }
 }
