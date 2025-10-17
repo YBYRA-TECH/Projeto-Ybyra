@@ -94,14 +94,13 @@ header a:hover {
         position: absolute;
         top: 100%;
         right: 1rem;
-        width: 60%;
+        width: 52%;
         background: rgba(255, 255, 255, 0.98);
         flex-direction: column;
         padding: 1rem;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         gap: 0.5rem;
         border-radius: 0.8rem;
-        border: 0.5rem solid #f0f0f0;
         z-index: 1001;
     }
 
@@ -157,9 +156,9 @@ header a:hover {
     }
 
     .menu-links {
-        width: 70%;
+        width: 61%;
         right: 0.5rem;
-        border: 0.4rem solid #f0f0f0;
+
     }
 
     .menu-links a {
@@ -180,8 +179,7 @@ header a:hover {
     }
 
     .menu-links {
-        width: 80%;
-        border: 0.3rem solid #f0f0f0;
+        width: 65%;
     }
 
     .menu-links a {
