@@ -17,7 +17,6 @@ body {
 }
 /* ===== CONTEÚDO PRINCIPAL - ESTILOS DA PÁGINA DE SELEÇÃO ===== */
 main {
-  /* Compensa o cabeçalho fixo, garantindo que o conteúdo esteja centralizado */
   margin-top: 4.85rem;
   background-image: url("./imgs/Login.png"); 
   background-size: cover;
@@ -25,8 +24,7 @@ main {
   background-repeat: no-repeat;
   min-height: calc(100vh - 4.85rem);
   display: flex;
-  /* A direção do Flex muda na media query */
-  gap: 2.5rem;
+  gap:6rem;
   align-items: center;
   justify-content: center;
   padding: 3rem 1rem;
@@ -38,7 +36,6 @@ main p{
     font-family: "Geologica", sans-serif;
 }
 
-/* Estilo geral para ambos os cartões de seleção */
 .industria,
 .usuario {
   width: 100%;
@@ -71,7 +68,6 @@ main p{
   margin-bottom: 1rem;
 }
 
-/* Os botões agora são filhos diretos das divs .industria e .usuario */
 .industria button,
 .usuario button {
   border: none;
@@ -84,7 +80,6 @@ main p{
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  /* Usa o mesmo gradiente do botão de login */
   background: linear-gradient(135deg, #004cc5, #0066ff);
   box-shadow: 0 4px 10px rgba(0, 76, 197, 0.3);
   margin-top: auto; /* Empurra para o fundo do cartão */
@@ -96,11 +91,8 @@ main p{
   transform: scale(1.03);
 }
 
-/* Torna os links de nível de bloco dentro do main para a capacidade de clique completo do cartão */
 main a {
   text-decoration: none;
-  color: inherit;
-  display: block;
 }
 
 /* Adicionando ícones/visuais (usando pseudo-elementos para um toque visual) */
