@@ -8,7 +8,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Adicionado para facilitar o controle de padding e width */
 }
 
 html,
@@ -248,7 +247,7 @@ main {
   background: #0a4ec7;
 }
 
-/* ===== SEÇÃO 4 ===== */
+/* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
 #sec4 {
   margin-top: 10rem;
   display: flex;
@@ -259,17 +258,16 @@ main {
 
 .texto {
   margin-left: 1rem;
+  flex: 1;
 }
 
 #sec4 img {
   width: 50rem;
-  margin-left: clamp(0rem, 10vw, 15rem);
-  margin-right: clamp(0rem, 10vw, 15rem); /* Ajustado para não ter 100vw */
+  margin-left: clamp(0rem, 4vw, 15rem);
 }
 
 #sec4 h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
   background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
   background-clip: text;
   color: transparent;
@@ -277,13 +275,7 @@ main {
   margin-bottom: 7rem;
 }
 
-#sec4 p {
-  margin-left: 2.5rem;
-  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
-  font-family: "Geologica", sans-serif;
-  margin-bottom: 1rem;
-}
-
+/* HR agora se estende até perto da seta */
 hr {
   margin-left: 2rem;
   border: none;
@@ -291,6 +283,70 @@ hr {
   margin-bottom: 0.5rem;
 }
 
+#sec4 .textoP p {
+  margin-left: 1.5rem;
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  width: 34rem;
+  font-family: "Geologica", sans-serif;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+/* Estilos do texto da resposta */
+#sec4 .resposta p {
+  margin-left: 1.5rem;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  font-family: "Geologica", sans-serif;
+  color:#1d4eaf ;
+  margin-bottom: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* ===== MECANISMO DE EXPANSÃO ===== */
+.checkbox-faq {
+  display: none; /* escondido */
+}
+
+.cabecalho-faq {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.resposta {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.resposta p{
+  color: #004cc5;
+}
+
+/* Seta de expansão */
+.cabecalho-faq::after {
+  content: '';
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23333333" d="M12 15l-6-6 1.41-1.41L12 12.17l4.59-4.58L18 9z"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.3s ease;
+}
+
+/* A mágica agora isolada por item */
+.faq-item .checkbox-faq:checked ~ .resposta {
+  max-height: 13rem;
+  padding: 1rem 0; 
+}
+
+.faq-item .checkbox-faq:checked + .cabecalho-faq::after {
+  transform: rotate(180deg);
+}
 /* ===== SEÇÃO DECORATIVA ===== */
 #imagem_decorativa {
   height: 50vh;
@@ -564,7 +620,7 @@ h3 {
   }
 
   .card_sobre {
-    width: 85vw;
+    width: 45vw;
     height: auto;
     padding: 2rem;
     margin-right: 0 !important;
@@ -666,7 +722,7 @@ h3 {
   /* ===== SEÇÃO SOBRE (Compacto) ===== */
   #sec_sobre {
     padding: 5vh 2vw;
-    background-size: 200% 100%; /* Ajuste para o fundo não ser exagerado */
+    background-size: 200% 200%; /* Ajuste para o fundo não ser exagerado */
   }
   
   #titulo_sobre {
@@ -678,7 +734,7 @@ h3 {
     /* Remove as imagens de fundo nos cartões */
     background-image: none !important;
     padding: 1.5rem;
-    width: 90vw;
+    width: 55vw;
   }
 
   .titulo_card {
