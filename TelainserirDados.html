@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
+    <link rel="stylesheet" href="globalApp.css">
     <link rel="stylesheet" href="TelaIserirDados.css" />
     <title>YBYRA TECH</title>
 </head>
+
 <body>
     <div class="painel-principal">
         <aside class="barra-lateral">
@@ -117,57 +120,59 @@
                         </select>
                         <button class="btn-buscar">Buscar</button>
                     </div>
-                    
+
                     <!-- <div class="icones-header-direita">
                         <i class="fa-solid fa-bell icone-notificacao"></i>
                         <i class="fa-solid fa-circle-user icone-usuario"></i>
                     </div> -->
                     <div class="icones-header-direita">
                         <img src="./imgs/notificacoes.png" alt="imagem sino">
-                       <!-- <img src="./imgs/icone_usuario.png" alt="imagem usuario"> -->
+                        <!-- <img src="./imgs/icone_usuario.png" alt="imagem usuario"> -->
                     </div>
                 </header>
             </div>
 
             <section class="detalhes-upload-painel">
                 <h2 class="titulo-secao">Arquivo escolhido</h2>
-                
+
                 <div class="arquivo-preview">
                     <img src="" alt="Pré-visualização do Controle de Produção" class="preview-img">
                 </div>
-                
+
                 <div class="formulario-detalhes">
-                    
+
                     <div class="area-detalhes">
                         <h3 class="subtitulo-secao">Detalhes</h3>
-                        
+
                         <div class="campo">
                             <label for="titulo">Título</label>
-                            <input type="text" id="titulo" value="" placeholder="Digite o Assunto" >
+                            <input type="text" id="titulo" value="" placeholder="Digite o Assunto">
                         </div>
-                        
+
                         <div class="campo">
                             <label for="categoria">Categoria</label>
                             <input type="text" id="categoria" value="" placeholder="Digite a categoria">
                         </div>
-            
+
                         <div class="campo">
                             <label for="prioridade">Prioridade</label>
                             <input type="text" id="prioridade" value="" placeholder="Digite a prioridade">
                         </div>
                     </div>
-                    
+
                     <div class="area-descricao">
                         <h3 class="subtitulo-secao">Descrição</h3>
                         <h3 style="opacity: 0;">Espaço</h3>
-                        <textarea  class="texto-descricao" >coloque aqui a descrição do arquivo    
+                        <textarea class="texto-descricao">coloque aqui a descrição do arquivo    
                         </textarea>
-                        
-                        <a href="insercaoDados.html" class="link-inserir" ><button class="btn-enviar">Enviar Arquivo</button></a>
+
+                        <a href="insercaoDados.html" class="link-inserir"><button class="btn-enviar">Enviar
+                                Arquivo</button></a>
                     </div>
                 </div>
             </section>
         </main>
     </div>
 </body>
+
 </html>

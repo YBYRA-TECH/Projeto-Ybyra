@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
   <link rel="stylesheet" href="inicioBI.css" />
+  <link rel="stylesheet" href="globalApp.css">
   <title>YBYRA TECH</title>
 </head>
+
 <body>
   <div class="painel-principal">
     <aside class="barra-lateral">
-      <div class="logo-site">
-        <img src="./imgs/Nova logo.png" alt="Logo YBYRA TECH" />
-      </div>
+      <input type="checkbox" id="menu">
+      <label for="menu" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <label for="menu-icon" class="logo-logo">
+        <img src="./imgs/Nova logo.png" alt="Logo YBYRA TECH" id="logo" />
+      </label>
 
       <nav class="menu-principal">
         <ul>
@@ -79,26 +88,25 @@
           </li>
         </ul>
       </nav>
+      <div class="overlay"></div>
     </aside>
 
     <main class="area-conteudo">
       <div class="conteudo-principal-header">
         <header id="header-imagem">
-          <img src="./imgs/Nova logo.png" alt="Logo Header 1" />
-          <img src="./imgs/Nova logo.png" alt="Logo Header 2" />
+          <img src="./imgs/notificacoes.png" alt="Logo Header 1" />
+          <!-- <img src="./imgs/Nova logo.png" alt="Logo Header 2" /> -->
         </header>
       </div>
 
       <section class="painel">
-        <iframe
-          title="2 - Dashboard SAC"
-          id="meuIframe"
+        <iframe title="2 - Dashboard SAC" id="meuIframe"
           src="https://app.powerbi.com/view?r=eyJrIjoiNTYxN2MwYTUtMDczZS00YjA3LTk0ZjMtOTY4MzdiNmVhMWUyIiwidCI6ImIxNDhmMTRjLTIzOTctNDAyYy1hYjZhLTFiNDcxMTE3N2FjMCJ9&chromeless=true&filterPaneEnabled=false"
-          frameborder="0"
-          allowfullscreen="true">
+          frameborder="0" allowfullscreen="true">
         </iframe>
       </section>
     </main>
   </div>
 </body>
+
 </html>

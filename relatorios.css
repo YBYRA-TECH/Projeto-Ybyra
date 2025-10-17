@@ -14,7 +14,6 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px;
 }
 
 body {
@@ -26,78 +25,7 @@ body {
     min-height: 100vh;
 }
 
-/* --- Estilos da Barra Lateral (Aside) --- */
-.barra-lateral {
-    width: 15.6rem;
-    padding: 1.2rem 0;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-}
 
-#logo {
-    width: 10rem;
-    display: flex;
-    position: relative;
-    margin-left: 10%;
-    margin-bottom: 1.5rem;
-}
-
-#menu {
-    display: none;
-}
-
-.menu-icon {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #004cc5;
-    margin-left: auto;
-    user-select: none;
-}
-
-.menu-principal {
-    width: 100%;
-}
-
-.item-menu a {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    margin-top: 1rem;
-    display: flex;
-    color: #3474cd;
-    align-items: center;
-    padding: 0.7rem 0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.item-menu a:hover {
-    color: #0e14bf;
-    background-color: rgba(12, 142, 255, 0.1);
-}
-
-/* Estilo para o item de menu ativo */
-.item-menu.ativo a {
-    margin: 1;
-    background-color: #192083;
-    border-radius: 0 1.2rem 1.2rem 0;
-    margin-right: 15rem;
-    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
-}
-
-.item-menu a .box-icone {
-    margin-right: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.item-menu a img {
-    width: 3rem;
-    margin-left: 1.5rem;
-}
 
 /* --- Estilos da Área de Conteúdo --- */
 .area-conteudo {
@@ -113,6 +41,7 @@ body {
 #header-imagem {
     display: flex;
     justify-content: flex-end;
+    /* Alinha os ícones/logos à direita */
     align-items: center;
     padding: 0 1.6rem;
     margin-bottom: 2rem;
@@ -124,11 +53,15 @@ body {
     height: 2.5rem;
     cursor: pointer;
     transition: all 3.2s;
+    /* Mantendo seu estilo original para as imagens */
 }
 
-/* --- ESTILOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
 
-/* Estilos para o Painel de Ferramentas */
+/* -------------------------------------------------------------------------- */
+/* --- ESTILOS CORRIGIDOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
+/* -------------------------------------------------------------------------- */
+
+/* Estilos para o Painel de Ferramentas (Barra de Busca, Botões, Filtros) */
 .painel-ferramentas {
     display: flex;
     align-items: center;
@@ -138,7 +71,7 @@ body {
     gap: 1rem;
 }
 
-/* Busca de Relatórios */
+/* 1. Busca de Relatórios */
 .busca-relatorios {
     display: flex;
     align-items: center;
@@ -176,7 +109,7 @@ body {
     width: 1.1rem;
 }
 
-/* Botões de Ação */
+/* 2. Botões de Ação (Exportar e Adicionar) */
 .botoes-acao {
     display: flex;
     gap: 0.5rem;
@@ -201,6 +134,7 @@ body {
     margin-right: 0.4rem;
 }
 
+/* Botão Exportar (Branco com borda azul) */
 .btn-exportar {
     background-color: white;
     transition: all 0.3s;
@@ -233,7 +167,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Filtros */
+/* 3. Filtros de Data e Filtro Genérico */
 .filtros {
     display: flex;
     align-items: center;
@@ -263,6 +197,7 @@ body {
     border-radius: 0.5rem 0 0 0.5rem;
 }
 
+
 /* --- Tabela --- */
 .container-tabela {
     background: white;
@@ -270,6 +205,7 @@ body {
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin: 0 1.5rem;
+    /* Adicionado margem lateral para alinhamento */
 }
 
 table {
@@ -290,22 +226,28 @@ th {
     font-size: 0.95rem;
 }
 
+/* Ajuste nas larguras das colunas da tabela */
 thead th:nth-child(2) {
     width: 20%;
 }
 
+/* Indice */
 thead th:nth-child(3) {
     width: 25%;
 }
 
+/* Responsável */
 thead th:nth-child(4) {
     width: 15%;
 }
 
+/* Desempenho */
 thead th:last-child {
     width: 5%;
     text-align: center;
 }
+
+/* Ações */
 
 td {
     font-family: "Geologica", sans-serif;
@@ -313,6 +255,7 @@ td {
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.9rem;
     color: #475569;
+    /* Adicionado posicionamento para o link esticado */
     position: relative;
 }
 
@@ -324,36 +267,54 @@ tbody tr:hover {
     background: #f8fafc;
 }
 
-/* Linhas Clicáveis */
+/* --- Estilos para Linhas Clicáveis (Sem JS) --- */
+
+/* 1. Torna a linha o ponto de ancoragem para o link */
 .row-link {
     position: relative;
+    /* Essencial para o posicionamento absoluto do link */
     cursor: pointer;
+    /* Indica que a linha é clicável */
 }
 
+/* 2. Estica o link para cobrir toda a área da linha */
 .table-link {
     color: #475569;
 }
 
+/* Garante que o texto do ID, que está DENTRO do <a>, seja visível */
 .row-link td:first-child a.table-link {
     text-indent: 0;
     color: #475569;
+    /* Cor original do texto */
     padding: 1.2rem 1.5rem;
+    /* Reaplicar o padding da célula */
     display: block;
+    /* Ocupa o espaço visível do texto */
     position: relative;
+    /* Para não ser afetado pelo esticamento absoluto */
     z-index: 2;
+    /* Fica acima do link esticado */
     background: transparent;
 }
 
+/* O verdadeiro link que cobre tudo deve estar na primeira célula */
 .row-link td:first-child {
     position: relative;
+    /* Permite que o link esticado funcione */
 }
 
+
+/* 3. Garante que o botão de ações (...) seja clicável */
 .tres-pontos {
     position: relative;
+    /* Essencial para usar z-index */
     z-index: 3;
+    /* Deve ficar acima do link esticado e do texto do ID */
 }
 
-/* Barra de desempenho */
+
+/* Estilo para a barra de desempenho (simulação do visual da imagem) */
 .barra-desempenho {
     height: 1.2rem;
     border-radius: 0.6rem;
@@ -365,37 +326,45 @@ tbody tr:hover {
     justify-content: flex-end;
     padding-right: 0.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* Ajustes para remover o status-badge antigo */
     width: auto !important;
     padding: 0.5rem !important;
 }
 
+/* Cores e Larguras específicas conforme a imagem */
 .barra-verde {
+    /* 97% */
     background-color: #4caf50;
     width: 97%;
 }
 
 .barra-verde-med {
+    /* 85% */
     background-color: #66bb6a;
     width: 85%;
 }
 
 .barra-verde-claro {
+    /* 76% */
     background-color: #81c784;
     width: 76%;
 }
 
 .barra-vermelha {
+    /* 37% */
     background-color: #f44336;
     width: 37%;
 }
 
 .barra-amarela {
+    /* 50% */
     background-color: #ffc107;
     width: 50%;
     color: #333;
+    /* Texto escuro no amarelo */
 }
 
-/* Botão de Ações */
+/* Botão de Ações (Três Pontos) */
 td:last-child {
     text-align: center;
 }
@@ -411,6 +380,7 @@ td:last-child {
     padding: 0.5rem;
     border-radius: 0.3rem;
     transition: background 0.3s;
+
 }
 
 .tres-pontos:hover {
@@ -451,271 +421,18 @@ td:last-child {
     border-color: #3474cd;
 }
 
+/* Estilos removidos/substituídos */
 .status-badge,
 .status-ativo,
 .status-inativo,
 .status-manutencao {
     display: none !important;
+    /* Garantindo que os antigos estilos de status não apareçam */
 }
+
 
 a {
     text-decoration: none;
 }
 
-/* ===== MEDIA QUERIES - TABLET ===== */
-@media(max-width:1024px) {
-    .painel-principal {
-        display: flex;
-        min-height: 100vh;
-    }
 
-    .barra-lateral {
-        width: 15.6rem;
-        padding: 1.2rem 0;
-        background-color: transparent;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #logo {
-        width: 10rem;
-        position: relative;
-    }
-
-    .area-conteudo {
-        flex-grow: 1;
-        padding: 1.3rem 0.4rem;
-        background-color: #f8fcff;
-        border-radius: 1.25rem;
-        margin: 1.2rem;
-        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
-    }
-}
-
-/* ===== MEDIA QUERIES - MOBILE ===== */
-@media(max-width:780px) {
-    .painel-principal {
-        display: block;
-    }
-
-    #logo {
-        width: 8rem;
-        display: flex;
-        justify-self: flex-end;
-    }
-
-    #menu {
-        display: none;
-    }
-
-    .menu-icon {
-        position: fixed;
-        top: 3%;
-        left: 3%;
-        width: 2rem;
-        height: 1.2rem;
-        z-index: 1003;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: 0.3s;
-    }
-
-    .menu-icon span {
-        display: block;
-        height: 3px;
-        width: 100%;
-        background-color: #192083;
-        border-radius: 3px;
-        transition: 0.3s;
-    }
-
-    .menu-principal ul {
-        position: fixed;
-        top: 0;
-        left: -100rem;
-        width: 50%;
-        height: 100%;
-        background-color: #070b44;
-        transition: left 0.3s ease;
-        padding-top: 2rem;
-        z-index: 1001;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        opacity: 0;
-    }
-
-    #menu:checked~.menu-principal ul {
-        left: 0;
-    }
-
-    #menu:checked~.overlay {
-        opacity: 0;
-        pointer-events: auto;
-    }
-
-    #menu:checked+.menu-icon span:nth-child(1) {
-        transform: rotate(50deg) translateY(13px);
-        background: white;
-        margin-left: 0.5rem;
-    }
-
-    #menu:checked+.menu-icon span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #menu:checked+.menu-icon span:nth-child(3) {
-        transform: rotate(-50deg) translateY(-13px);
-        margin-left: 0.5rem;
-        background: white;
-    }
-
-    .item-menu.ativo a {
-        margin: 1;
-        background: none;
-        box-shadow: none;
-    }
-    .item-menu:nth-child(1){
-        margin-top: 2.5rem;
-
-    }
-    .item-menu a {
-        font-weight: 700;
-        width: 12rem;
-        margin-top: 1rem;
-        gap: 0.5rem;
-        display: flex;
-        color: #cad3de;
-        padding: 0.7rem 0;
-        font-size: 0.9rem;
-    }
-
-    .item-menu a .box-icone {
-        margin-right: 0rem;
-        display: flex;
-        align-items: none;
-        justify-content: center;
-    }
-
-    .item-menu a img {
-        width: 2.2rem;
-        margin-left: 0.5rem;
-    }
-
-    /* Área de conteúdo mobile */
-    .area-conteudo {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem 0.5rem;
-        background-color: #f8fcff;
-        border-radius: 1.25rem;
-        margin: 1.2rem;
-        margin-top: 1rem;
-        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
-    }
-
-    /* Header mobile */
-    #header-imagem {
-        justify-content: flex-end;
-        padding: 0 1rem;
-        margin-bottom: 1.5rem;
-        gap: 1rem;
-    }
-
-    #header-imagem img {
-        width: 2rem;
-        height: 2rem;
-    }
-
-    /* Painel de ferramentas mobile */
-    .painel-ferramentas {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0 1rem 1rem 1rem;
-        gap: 1rem;
-    }
-
-    .busca-relatorios {
-        width: 100%;
-        height: 2.5rem;
-    }
-
-    .busca-relatorios input {
-        width: 100%;
-        font-size: 0.85rem;
-    }
-
-    .filtros {
-        width: 100%;
-        margin-left: 0;
-        justify-content: center;
-    }
-
-    .filtro-data {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .botoes-acao {
-        width: 100%;
-        margin-left: 0;
-        gap: 0.8rem;
-    }
-
-    .btn-acao {
-        flex: 1;
-        justify-content: center;
-        padding: 0.6rem 0.8rem;
-        font-size: 0.8rem;
-    }
-
-    .btn-adicionar {
-        margin-left: 0;
-    }
-
-    /* Tabela mobile */
-    .container-tabela {
-        margin: 0 1rem;
-        overflow-x: auto;
-    }
-
-    table {
-        min-width: 600px;
-    }
-
-    th, td {
-        padding: 0.8rem 0.6rem;
-        font-size: 0.8rem;
-    }
-
-    .barra-desempenho {
-        height: 1rem;
-        font-size: 0.7rem;
-        padding: 0.4rem !important;
-    }
-
-    .tres-pontos {
-        font-size: 1.3rem;
-        padding: 0.4rem;
-    }
-
-    /* Paginação mobile */
-    .paginacao {
-        padding: 1rem;
-        gap: 0.4rem;
-        flex-wrap: wrap;
-    }
-
-    .paginacao button {
-        padding: 0.4rem 0.7rem;
-        font-size: 0.8rem;
-    }
-}   

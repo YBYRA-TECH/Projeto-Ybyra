@@ -22,7 +22,7 @@ body {
 }
 
 .painel-principal {
-    display: flex;
+    display:flex;
     min-height: 100vh;
 }
 
@@ -42,20 +42,6 @@ body {
     margin-left: 10%;
     margin-bottom: 1.5rem;
 }
-
-#menu {
-    display: none;
-}
-
-.menu-icon {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #004cc5;
-    margin-left: auto;
-    user-select: none;
-}
-
 
 .menu-principal {
     width: 100%;
