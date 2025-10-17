@@ -56,7 +56,7 @@ main {
 .sec_intro a {
   font-family: "Geologica", sans-serif; /* Corrigido o erro de digitação de "Geologic" para "Geologica" */
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: aliceblue;
 }
 .sec_intro a:hover{
@@ -357,6 +357,7 @@ hr {
 
 /* ===== SEÇÃO SOBRE ===== */
 #sec_sobre {
+
   background-image: url("./imgs/Fundo\ \ Sobre.png");
   background-size: cover;
   background-position: center;
@@ -365,7 +366,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 23vh;
+  padding: 25vh;
 }
 
 #titulo_sobre {
@@ -381,7 +382,7 @@ hr {
 
 #cartoes_sobre {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 1.5rem;
 }
 
