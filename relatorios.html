@@ -92,12 +92,6 @@
 
     </aside>
     <main class="area-conteudo">
-      <div class="conteudo-principal-header">
-        <header id="header-imagem">
-          <img src="./imgs/notificacoes.png" alt="Logo Header 1" />
-          <!-- <img src="./imgs/icone_usuario.png "alt="Logo Header 2" /> -->
-        </header>
-      </div>
 
       <section class="painel">
         <div class="painel-ferramentas">
@@ -109,12 +103,12 @@
 
           <div class="botoes-acao">
             <button class="btn-acao btn-exportar">
-              <img src="icone-exportar.png" alt="Ícone Exportar" />
+              <img src="./imgs/download.png" alt="Ícone Exportar" />
               <span>Exportar</span>
             </button>
             <a href="insercaoDados.html">
               <button class="btn-acao btn-adicionar">
-                <img src=" " alt="Ícone Adicionar" />
+                <!-- <img src=" " alt="Ícone Adicionar" /> -->
                 <span>Adicionar</span>
               </button>
             </a>
@@ -125,6 +119,19 @@
 
               <input type="date" placeholder="Filtrar por Data">
             </div>
+          </div>
+          <div class="area-icones-usuario">
+            <input type="checkbox" id="menu-notificacoes">
+            <label for="menu-notificacoes">
+              <img src="./imgs/notificacoes.png" alt="Notificações">
+            </label>
+            <div id="notificacoes">
+              <h1>Notificações</h1>
+              <div>Murilo adicionou uma tarefa</div>
+              <div>Guilherme concluiu uma tarefa</div>
+              <div>Emilly concluiu uma tarefa</div>
+            </div>
+
           </div>
         </div>
         <div class="container-tabela">
@@ -147,7 +154,7 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-med">85%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="" alt=""></button></td>
+                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">09875438ORT</a></td>
@@ -156,7 +163,7 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-vermelha">37%</div>
                   </a></td>
-                <td><button class="tres-pontos">...</button></td>
+                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">84972749ENI</a></td>
@@ -165,7 +172,7 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-amarela">50%</div>
                   </a></td>
-                <td><button class="tres-pontos">...</button></td>
+                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">2804375COW</a></td>
@@ -174,7 +181,7 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde">97%</div>
                   </a></td>
-                <td><button class="tres-pontos">...</button></td>
+                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">5260279EDF</a></td>
@@ -183,7 +190,7 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-claro">76%</div>
                   </a></td>
-                <td><button class="tres-pontos">...</button></td>
+                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">447910ZTLPK</a></td>
@@ -192,7 +199,7 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-med">89%</div>
                   </a></td>
-                <td><button class="tres-pontos">...</button></td>
+                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">112233QWERZ</a></td>
@@ -201,8 +208,26 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde">95%</div>
                   </a></td>
-                <td><button class="tres-pontos">...</button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira">
+                  <label for="menu-lixeira" class="icone-lixeira">
+                    <button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixeira"></button>
+                  </label>
+                  <div class="menu-lixo">
+                    <img src="./imgs/Trash.png" alt="">
+                    <h1>Deseja excluir o relatório?</h1>
+                    <div>
+                      <div class="buttons">
+                        <button type="button">Sim</button>
+                        <button type="button" class="btn-cancelar">Não</button>
+                      </div>
+
+                    </div>
+
+
+                </td>
               </tr>
+              
             </tbody>
             </tbody>
           </table>
@@ -218,6 +243,7 @@
           </div>
         </div>
       </section>
+      <div class="overlay"></div>
     </main>
   </div>
 </body>

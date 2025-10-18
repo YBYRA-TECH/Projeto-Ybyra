@@ -119,8 +119,8 @@ body {
 
 #conteudo img {
     margin-left: 6rem;
-    width: 17rem;
-    margin-bottom: 4rem;
+    width: 14rem;
+    margin-bottom: 2rem;
 }
 
 #conteudo h1 {
@@ -242,9 +242,7 @@ body {
         align-items: center;
         justify-self: center;
         font-size: 1.6rem;
-        /* margin-left: clamp(2rem,3vw,5rem); */
         width: 20.3rem;
-        /* text-align: center; */
         margin-bottom: 2rem;
     }
     #button button {

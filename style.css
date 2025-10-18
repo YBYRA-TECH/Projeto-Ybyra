@@ -7,7 +7,7 @@
 /* ===== RESET GERAL ===== */
 * {
   margin: 0;
-  padding: 0;
+  padding: 0; 
 }
 
 html,
@@ -54,7 +54,7 @@ main {
 }
 
 .sec_intro a {
-  font-family: "Geologica", sans-serif; /* Corrigido o erro de digitação de "Geologic" para "Geologica" */
+  font-family: "Geologica", sans-serif;
   text-decoration: none;
   font-size: 1.2rem;
   color: aliceblue;

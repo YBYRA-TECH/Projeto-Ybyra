@@ -25,53 +25,20 @@ body {
     min-height: 100vh;
 }
 
-
-
-/* --- Estilos da Área de Conteúdo --- */
-.area-conteudo {
-    flex-grow: 1;
-    padding: 1.3rem 0.4rem;
-    background-color: #f8fcff;
-    border-radius: 1.25rem;
-    margin: 1.2rem;
-    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
-}
-
-/*Imagem header dentro do area-conteudo*/
-#header-imagem {
-    display: flex;
-    justify-content: flex-end;
-    /* Alinha os ícones/logos à direita */
-    align-items: center;
-    padding: 0 1.6rem;
-    margin-bottom: 2rem;
-    gap: 2rem;
-}
-
-#header-imagem img {
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    transition: all 3.2s;
-    /* Mantendo seu estilo original para as imagens */
-}
-
-
 /* -------------------------------------------------------------------------- */
-/* --- ESTILOS CORRIGIDOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
+/* --- ESTILOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
 /* -------------------------------------------------------------------------- */
 
-/* Estilos para o Painel de Ferramentas (Barra de Busca, Botões, Filtros) */
 .painel-ferramentas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 0.5rem 1rem 0rem;
     margin-bottom: 1.2rem;
     gap: 1rem;
+    
 }
 
-/* 1. Busca de Relatórios */
 .busca-relatorios {
     display: flex;
     align-items: center;
@@ -109,11 +76,10 @@ body {
     width: 1.1rem;
 }
 
-/* 2. Botões de Ação (Exportar e Adicionar) */
 .botoes-acao {
     display: flex;
     gap: 0.5rem;
-    margin-left: auto;
+    margin-left: 1rem;
 }
 
 .btn-acao {
@@ -134,7 +100,6 @@ body {
     margin-right: 0.4rem;
 }
 
-/* Botão Exportar (Branco com borda azul) */
 .btn-exportar {
     background-color: white;
     transition: all 0.3s;
@@ -277,44 +242,31 @@ tbody tr:hover {
     /* Indica que a linha é clicável */
 }
 
-/* 2. Estica o link para cobrir toda a área da linha */
 .table-link {
     color: #475569;
 }
 
-/* Garante que o texto do ID, que está DENTRO do <a>, seja visível */
 .row-link td:first-child a.table-link {
     text-indent: 0;
     color: #475569;
-    /* Cor original do texto */
     padding: 1.2rem 1.5rem;
-    /* Reaplicar o padding da célula */
     display: block;
-    /* Ocupa o espaço visível do texto */
     position: relative;
-    /* Para não ser afetado pelo esticamento absoluto */
     z-index: 2;
-    /* Fica acima do link esticado */
     background: transparent;
 }
 
-/* O verdadeiro link que cobre tudo deve estar na primeira célula */
 .row-link td:first-child {
     position: relative;
-    /* Permite que o link esticado funcione */
 }
 
 
-/* 3. Garante que o botão de ações (...) seja clicável */
 .tres-pontos {
     position: relative;
-    /* Essencial para usar z-index */
     z-index: 3;
-    /* Deve ficar acima do link esticado e do texto do ID */
 }
 
 
-/* Estilo para a barra de desempenho (simulação do visual da imagem) */
 .barra-desempenho {
     height: 1.2rem;
     border-radius: 0.6rem;
@@ -331,7 +283,6 @@ tbody tr:hover {
     padding: 0.5rem !important;
 }
 
-/* Cores e Larguras específicas conforme a imagem */
 .barra-verde {
     /* 97% */
     background-color: #4caf50;
@@ -368,6 +319,74 @@ tbody tr:hover {
 td:last-child {
     text-align: center;
 }
+.menu-lixeira{
+    display: none;
+}
+.menu-lixo{
+    display: none;   
+    position: fixed; 
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 50rem;
+    height: 50rem;
+    top: 20%;
+    bottom: 50%;
+    right: 50%;
+    left: 30%;
+    text-align: center;
+    flex-direction: column; 
+    border-radius: 0.3rem;
+}
+/* .icone-lixeira button{
+    border: none;
+    background-color: white;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+.menu-lixo h1{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    width: 130%;
+}
+
+.buttons button:hover button{
+    padding:1rem;
+
+}
+.buttons {
+    display: flex;
+    gap: 1rem;
+    width: 20rem;
+    height: 3rem;
+}
+.buttons button{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    font-size: 0.5;
+    width: 60%;
+    border: none;
+    border-radius: 0.2rem;
+    transition: all 0.3s;
+    background: linear-gradient(to right, #3474cd, #192083);
+    color: white;
+}
+
+.menu-lixeira:checked~#menu-lixo{
+    display: block;
+}
+.menu-lixeira:checked~.overlay{
+    opacity: 0;
+}
+.btn-cancelar:focus~.menu-lixo{
+    display: none;
+
+} */
+
+
 
 .tres-pontos {
     background: transparent;
