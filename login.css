@@ -42,12 +42,12 @@ main {
 
 #inputs h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
-  text-align: center;
+  text-align: left;
+  margin-bottom: 1.5rem;
   width: 100%;
   margin: 0;
 }
@@ -102,7 +102,7 @@ form {
 }
 
 #inputs a:hover {
-  color: #002d75;
+  text-decoration: underline;
 }
 
 #buttons {
@@ -112,7 +112,6 @@ form {
   font-family: "Geologica", sans-serif;
   width: 100%;
   justify-content: flex-end;
-  flex-wrap: wrap;
 }
 
 #buttons a {
@@ -128,6 +127,7 @@ form {
 
 #buttons a:hover {
   text-decoration: none;
+  color: white;
 }
 
 #buttons button {
@@ -137,7 +137,6 @@ form {
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   cursor: pointer;
   transition: all 0.3s ease;
-  font-weight: 500;
   min-width: 8rem;
 }
 
@@ -150,10 +149,8 @@ form {
   background-color: #f8f9fa;
   color: #767676;
 }
-
 #buttons button:last-child {
   background: linear-gradient(135deg, #004cc5, #0066ff);
-  color: white;
 }
 
 #buttons button:last-child:hover {
