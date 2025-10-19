@@ -1,0 +1,288 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+#menu {
+  display: none;
+}
+
+#botao-login {
+  background-color: #004cc5;
+  border: none;
+  color: aliceblue;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#botao-login:hover {
+  background-color: #003a9a;
+  transform: translateY(-2px);
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main {
+  margin-top: 4.85rem;
+  background-image: url("./imgs/Login.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 4.85rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+#container {
+  width: min(90%, 35rem);
+  background-color: white;
+  padding: clamp(2rem, 5vw, 3rem);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+#icon-success {
+  font-size: clamp(4rem, 15vw, 8rem);
+  color: #004cc5;
+  margin-bottom: 1rem;
+}
+
+#titulo-conclusao {
+  font-family: 'Montserrat', sans-serif;
+  color: #007bff;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+#mensagem-conclusao {
+  font-family: 'Geologica', sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+#buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+#buttons a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#buttons a:hover {
+  text-decoration: none;
+}
+
+#buttons button {
+  border-radius: 0.7rem;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  border: none;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 8rem;
+}
+
+#buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#buttons button:first-child {
+  background-color: #f8f9fa;
+  color: #767676;
+}
+
+#buttons button:last-child {
+  background: linear-gradient(135deg, #004cc5, #0066ff);
+  color: white;
+}
+
+#buttons button:last-child:hover {
+  background: linear-gradient(135deg, #003a9a, #0055dd);
+}
+
+
+/* ===== MEDIA QUERIES OTIMIZADAS ===== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  
+  #container {
+    width: min(85%, 40rem);
+    padding: 2.5rem;
+  }
+  
+  #icon-success {
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #titulo-conclusao {
+    font-size: 2.5rem;
+  }
+  
+  #mensagem-conclusao {
+    font-size: 1.3rem;
+  }
+  
+  #buttons {
+    margin-top: 2rem;
+  }
+  
+  #buttons button {
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablets pequenos e mobile landscape (481px - 767px) */
+@media (max-width: 767px) {
+  
+  main {
+    background-image: none;
+    background-color: #f8f9fa;
+    padding: 1rem;
+  }
+  
+  #container {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
+  }
+  
+  #icon-success {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  #titulo-conclusao {
+    font-size: 1.8rem;
+  }
+  
+  #mensagem-conclusao {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #buttons {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  
+  #buttons button {
+    width: 50%;
+    max-width: 50%;
+    min-width: auto;
+  }
+}
+
+/* Mobile (480px e abaixo) */
+@media (max-width: 480px) {
+  header {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  header a {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  #container {
+    padding: 1.5rem 1.2rem;
+    width: 98%;
+  }
+  
+  #icon-success {
+    font-size: 3.5rem;
+  }
+  
+  #titulo-conclusao {
+    font-size: 1.6rem;
+  }
+  
+  #mensagem-conclusao {
+    font-size: 0.9rem;
+  }
+  
+  #buttons {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+  }
+  
+  #buttons button {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    max-width: 40%;
+    box-sizing: border-box;
+  }
+  
+  #voltar {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile muito pequeno (360px e abaixo) */
+@media (max-width: 360px) {
+  header {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  #container {
+    padding: 1.2rem 1rem;
+  }
+  
+  #buttons {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+  }
+  
+  #buttons button {
+    padding: 0.9rem;
+    font-size: 0.9rem;
+    max-width: 40%;
+    box-sizing: border-box;
+  }
+}

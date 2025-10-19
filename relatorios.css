@@ -1,0 +1,679 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- ESTILOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
+/* -------------------------------------------------------------------------- */
+
+.painel-ferramentas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.5rem 1rem 0rem;
+    margin-bottom: 1.2rem;
+    gap: 1rem;
+
+}
+
+.busca-relatorios {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 20rem;
+    height: 2.5rem;
+}
+
+.busca-relatorios input {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.busca-relatorios input::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.busca-relatorios .icone-busca {
+    background: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    height: 100%;
+}
+
+.busca-relatorios .icone-busca img {
+    width: 20px;
+    height: 20px;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.btn-acao {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+    transition: opacity 0.3s;
+}
+
+.btn-acao img {
+    width: 1.1rem;
+    margin-right: 0.4rem;
+}
+
+.btn-exportar {
+    background-color: white;
+    transition: all 0.3s;
+    color: #3474cd;
+    border: 1px solid #3474cd;
+}
+
+.btn-exportar img {
+    margin-right: 0.8rem;
+}
+
+.btn-adicionar img {
+    margin-right: 0.8rem;
+}
+
+.btn-exportar:hover {
+    background-color: #3474cd;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-adicionar {
+    margin-left: 1.3rem;
+    transition: all 0.3s;
+    background: linear-gradient(to right, #3474cd, #192083);
+    color: white;
+}
+
+.btn-adicionar:hover {
+    transform: translateY(-3px);
+}
+
+/* 3. Filtros de Data e Filtro Genérico */
+.filtros {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.filtro-data {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.filtro-data:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filtro-data input {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+
+/* --- Tabela --- */
+.container-tabela {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 0 1.5rem;
+    /* Adicionado margem lateral para alinhamento */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(to right, #3474cd, #192083);
+}
+
+th {
+    font-family: "Montserrat", sans-serif;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Ajuste nas larguras das colunas da tabela */
+thead th:nth-child(2) {
+    width: 20%;
+}
+
+/* Indice */
+thead th:nth-child(3) {
+    width: 25%;
+}
+
+/* Responsável */
+thead th:nth-child(4) {
+    width: 15%;
+}
+
+/* Desempenho */
+thead th:last-child {
+    width: 5%;
+    text-align: center;
+}
+
+/* Ações */
+
+td {
+    font-family: "Geologica", sans-serif;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    color: #475569;
+    /* Adicionado posicionamento para o link esticado */
+    position: relative;
+}
+
+tbody tr {
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* --- Estilos para Linhas Clicáveis (Sem JS) --- */
+
+/* 1. Torna a linha o ponto de ancoragem para o link */
+.row-link {
+    position: relative;
+    /* Essencial para o posicionamento absoluto do link */
+    cursor: pointer;
+    /* Indica que a linha é clicável */
+}
+
+.table-link {
+    color: #475569;
+}
+
+.row-link td:first-child a.table-link {
+    text-indent: 0;
+    color: #475569;
+    padding: 1.2rem 1.5rem;
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.row-link td:first-child {
+    position: relative;
+}
+
+
+.tres-pontos {
+    position: relative;
+    z-index: 3;
+}
+
+
+.barra-desempenho {
+    height: 1.2rem;
+    border-radius: 0.6rem;
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* Ajustes para remover o status-badge antigo */
+    width: auto !important;
+    padding: 0.5rem !important;
+}
+
+.barra-verde {
+    /* 97% */
+    background-color: #4caf50;
+    width: 97%;
+}
+
+.barra-verde-med {
+    /* 85% */
+    background-color: #66bb6a;
+    width: 85%;
+}
+
+.barra-verde-claro {
+    /* 76% */
+    background-color: #81c784;
+    width: 76%;
+}
+
+.barra-vermelha {
+    /* 37% */
+    background-color: #f44336;
+    width: 37%;
+}
+
+.barra-amarela {
+    /* 50% */
+    background-color: #ffc107;
+    width: 50%;
+    color: #333;
+    /* Texto escuro no amarelo */
+}
+
+/* Botão de Ações (Três Pontos) */
+td:last-child {
+    text-align: center;
+}
+
+/* ===== ESTILOS DO MODAL DE EXCLUSÃO (SEM JS) ===== */
+.menu-lixeira {
+    display: none;
+}
+
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    padding: 8%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none
+}
+
+/* Quando o checkbox estiver marcado, mostra o modal */
+.menu-lixeira:checked+.modal-overlay {
+    display: flex;
+}
+
+.menu-lixo {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.menu-lixo-icone {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background: #14097a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.menu-lixo-icone img {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1);
+}
+
+.menu-lixo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.menu-lixo p {
+    font-family: 'Geologica', sans-serif;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.menu-lixo .info-item {
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.menu-lixo .info-item strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-lixo .info-item span {
+    color: #475569;
+    font-size: 0.95rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.buttons label {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+    text-align: center;
+    display: block;
+}
+
+.btn-cancelar {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.btn-cancelar:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.btn-excluir {
+    background: linear-gradient(135deg, #2214a4, #14097a);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.btn-excluir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+/* Estilo do botão lixeira na tabela */
+.icone-lixeira {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.icone-lixeira:hover {
+    background: #d9d7e2;
+    transform: scale(1.1);
+}
+
+.icone-lixeira img {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+}
+
+.menu-lixeira:checked~.modal-overlay {
+    /* display: block; */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- PAGINAÇÃO --- */
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.paginacao button {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.paginacao button:hover {
+    background: #3474cd;
+    color: white;
+    border-color: #3474cd;
+}
+
+.paginacao button.ativo {
+    background: #3474cd;
+    color: white;
+    border-color: #3474cd;
+}
+
+/* Estilos removidos/substituídos */
+.status-badge,
+.status-ativo,
+.status-inativo,
+.status-manutencao {
+    display: none !important;
+    /* Garantindo que os antigos estilos de status não apareçam */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+/* Responsividade da tabela */
+@media (max-width: 1024px) {
+    .painel-ferramentas {
+        flex-wrap: wrap;
+    }
+
+    .busca-relatorios {
+        width: 28%;
+        margin-bottom: 0.5rem;
+    }
+
+    .filtros {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-tabela {
+        margin: 0 0.5rem;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th,
+    td {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .painel-ferramentas {
+        padding: 0.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .filtro-data {
+        padding: 0rem;
+    }
+
+    .botoes-acao {
+        flex-direction: row;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .btn-acao {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-adicionar {
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .busca-relatorios input {
+        padding: 1rem;
+        width: 20rem;
+    }
+
+    .painel-ferramentas {
+        flex-direction: row;
+    }
+
+    .menu-lixo {
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+
+    .menu-lixo h1 {
+        font-size: 1.3rem;
+    }
+
+    .menu-lixo p {
+        font-size: 0.9rem;
+    }
+
+    .menu-lixo-icone {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .menu-lixo-icone img {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons label {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-lixo {
+        padding: 1.5rem 1rem;
+    }
+
+    .menu-lixo h1 {
+        font-size: 1.2rem;
+    }
+
+    .menu-lixo p {
+        font-size: 0.85rem;
+    }
+
+    .menu-lixo .info-item {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .buttons label {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

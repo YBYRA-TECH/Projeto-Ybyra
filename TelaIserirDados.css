@@ -1,0 +1,223 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Container dos ícones da direita */
+
+
+/* Estilo para os ícones de Sino e Usuário */
+.icone-notificacao,
+.icone-usuario {
+    font-size: 1.5rem;
+    color: #3474cd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.icone-notificacao:hover,
+.icone-usuario:hover {
+    color: #192083;
+}
+
+
+.titulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #365576;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.subtitulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #365576;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* Área de Preview (Arquivo Escolhido) */
+.arquivo-preview {
+    /* Borda tracejada (como na imagem original) */
+    border: 1px dashed #a3c9ff; 
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f8ff; 
+}
+
+.preview-img {
+    width: 100%; 
+    max-width: 30rem; /* Limita o tamanho, se necessário */
+    max-height: 30rem;
+    height: auto;
+    display: block;
+    /* Adiciona uma borda levemente azul para simular o contorno da tabela */
+    border: 1px solid #d4d4d4; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout principal para Detalhes e Descrição */
+.formulario-detalhes {
+    display: flex;
+    gap: 2rem;
+}
+
+.area-detalhes {
+    flex: 0 0 35%; /* Ocupa cerca de 35% da largura */
+    display: flex;
+    flex-direction: column;
+}
+
+.area-descricao {
+    flex: 1; /* Ocupa o restante do espaço */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos dos campos de Detalhes (rótulo e input) */
+.campo {
+    margin-bottom: 1.2rem;
+}
+
+.campo label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.campo input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    font-family: 'Geologica', sans-serif;
+    font-size: 1rem;
+    color: #192083;
+    background-color: #ffffff;
+    cursor: default;
+}
+
+/* Estilo para a Descrição (simulando um textarea readonly) */
+.texto-descricao {
+    width: 99%;
+    height: 12rem;
+    padding: 1rem;
+    margin-top: 0;
+    text-align:justify;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    font-family: 'Geologica', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.4;    
+    color: #192083;
+    background-color: #ffffff;
+    resize: none;
+    margin-bottom: 1.4rem;
+}
+.detalhes-upload-painel{
+    text-align: center;
+}
+
+/* Botão Enviar Arquivo */
+.btn-enviar {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-enviar:hover {
+    background-color: #192083;
+}
+.link-inserir{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+input{
+    outline: none;
+}
+.preview-img{
+    width: 15rem;
+}
+@media(max-width:1024px){
+    .area-conteudo {
+        flex-grow: 1;
+        padding: 1.3rem 1.5rem; 
+        margin: 1.2rem;
+        height: 75vh;
+        
+    }
+    .painel-principal{
+        display: block;
+    }
+    .detalhes-upload-painel{
+        margin-top: 4rem;
+    }
+    .formulario-detalhes{
+        margin-top: 6rem;
+    }
+    .preview-img{
+        width: 14rem;
+    }
+
+}
+@media (max-width: 768px) {
+    .area-conteudo {
+        flex-grow: 1;
+        padding: 1.3rem 1.5rem; 
+        margin: 1.2rem;
+        height: 75vh;
+        
+    }
+    .painel-principal{
+        display: block;
+    }
+    .detalhes-upload-painel{
+        margin-top: 3rem;
+    }
+    .formulario-detalhes{
+        margin-top: 4rem;
+    }
+    .preview-img{
+        width: 8rem;
+    }
+    
+    
+}
