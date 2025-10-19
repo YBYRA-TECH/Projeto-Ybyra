@@ -82,8 +82,9 @@ body {
     color: #888;
 }
 
-.busca-relatorios .icone-busca i {
-    font-size: 0.9rem;
+.busca-relatorios img {
+    width: 20px;
+    height: 20px;
 }
 
 /* Estilo dos Dropdowns (selects) */
@@ -187,8 +188,6 @@ body {
     background-color: #192083;
 }
 
-
-
 /* --- Estilos da Área de Upload Recentes --- */
 
 .area-upload-recentes {
@@ -223,9 +222,53 @@ h1{
 @media (max-width:1024px) {
     .painel-principal {
         display:block;
-        /* min-height: 100vh; */
     }
 }
-@media(max-width:767px){
+@media (max-width: 768px) {
+    .busca-filtros{
+        justify-content: space-around;
+        max-width: 100%;    
+    }
+    .busca-filtros {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        /* flex-grow: 1; Permite que ocupe o espaço necessário */
+        max-width: 93%; 
+    }
+    
+    
+    .busca-relatorios input[type="text"] {
+        border: none;
+        padding: 0.6rem 0.8rem;
+        outline: none;
+        font-size: 0.75rem;
+        /* width: 10rem; Tamanho fixo para o campo de busca */
+    }
+
+    #categorias{
+        font-size: 0.8rem;
+    }
+    #periodo{
+        font-size: 0.8rem;
+    }
+    #prioridade{
+        font-size: 0.8rem;
+
+    }
+    
+    .busca-relatorios .icone-busca {
+        background-color: transparent;
+        border: none;
+        padding: 0 0.8rem;
+        cursor: pointer;
+        color: #888;
+    }
+    
+    .busca-relatorios img {
+        width: 20px;
+        height: 20px;
+    }
+    
     
 }

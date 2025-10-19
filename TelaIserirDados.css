@@ -25,183 +25,8 @@ body {
     min-height: 100vh;
 }
 
-/* --- Estilos da Barra Lateral (Aside) --- */
-.barra-lateral {
-    width: 15.6rem;
-    padding: 1.2rem 0;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-}
-
-#logo {
-    width: 10rem;
-    display: flex;
-    position: relative;
-    margin-left: 10%;
-    margin-bottom: 1.5rem;
-}
-
-#menu {
-    display: none;
-}
-
-.menu-icon {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #004cc5;
-    margin-left: auto;
-    user-select: none;
-}
-
-.menu-principal {
-    width: 100%;
-}
-
-.item-menu a {
-    font-family: "Montserrat", sans-serif;
-    font-weight:700;
-    margin-top: 1rem;
-    display: flex;
-    color: #3474cd;
-    align-items: center;
-    padding: 0.7rem 0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.item-menu a:hover {
-    color:#0e14bf;
-    background-color: rgba(12, 142, 255, 0.1);
-}
-
-/* Estilo para o item de menu ativo */
-.item-menu.ativo a {
-    margin: 1;
-    background-color:#192083;
-    border-radius: 0 1.2rem 1.2rem 0;
-    margin-right: 15rem;
-    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
-}
-
-.item-menu a .box-icone {
-    margin-right: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.item-menu a img {
-    width: 3rem;
-    margin-left: 1.5rem;
-}
-
-/* --- Estilos da Área de Conteúdo --- */
-
-
-
-.area-conteudo {
-    flex-grow: 1;
-    padding: 1.3rem 1.5rem; /* Ajustado o padding */
-    background-color: #f8fcff;
-    border-radius: 1.25rem;
-    margin: 1.2rem;
-    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo do cabeçalho principal */
-.header-principal {
-    display: flex;
-    justify-content: space-between; /* Espaça busca/filtros e ícones da direita */
-    align-items: center;
-    padding: 0 0.5rem;
-    margin-bottom: 2rem;
-}
-
-/* Container para a busca e os filtros (lado esquerdo) */
-.busca-filtros {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    flex-grow: 1; /* Permite que ocupe o espaço necessário */
-    max-width: 75%; /* Limita a largura para caber os ícones na direita */
-}
-
-/* Estilo do campo de busca */
-.busca-relatorios {
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    background-color: white;
-}
-
-.busca-relatorios input[type="text"] {
-    border: none;
-    padding: 0.6rem 0.8rem;
-    outline: none;
-    font-size: 0.85rem;
-    width: 12rem; /* Tamanho fixo para o campo de busca */
-}
-
-.busca-relatorios .icone-busca {
-    background-color: transparent;
-    border: none;
-    padding: 0 0.8rem;
-    cursor: pointer;
-    color: #888;
-}
-
-.busca-relatorios .icone-busca i {
-    font-size: 0.9rem;
-}
-
-
-/* Estilo dos Dropdowns (selects) */
-.busca-filtros select {
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    background-color: white;
-    font-size: 0.85rem;
-    color: #333;
-    appearance: none; /* Remove o estilo padrão de dropdown em alguns navegadores */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E'); /* Ícone de seta para dropdown */
-    background-repeat: no-repeat;
-    background-position: right 0.6rem top 50%;
-    background-size: 0.65rem auto;
-    padding-right: 2rem;
-}
-
-/* Estilo do botão Buscar */
-.btn-buscar {
-    background-color: #3474cd;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.6rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-buscar:hover {
-    background-color: #192083;
-}
-
-
 /* Container dos ícones da direita */
-.icones-header-direita {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-.icones-header-direita img {
-    width: 2.5rem;
-}
+
 
 /* Estilo para os ícones de Sino e Usuário */
 .icone-notificacao,
@@ -215,11 +40,6 @@ body {
 .icone-notificacao:hover,
 .icone-usuario:hover {
     color: #192083;
-}
-
-/* Oculta as imagens antigas que não são mais usadas */
-#header-imagem img {
-    display: none;
 }
 
 
@@ -309,19 +129,23 @@ body {
 
 /* Estilo para a Descrição (simulando um textarea readonly) */
 .texto-descricao {
-    width: 100%;
+    width: 99%;
     height: 12rem;
     padding: 1rem;
     margin-top: 0;
+    text-align:justify;
     border: 1px solid #ccc;
     border-radius: 0.4rem;
     font-family: 'Geologica', sans-serif;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.4;    
     color: #192083;
     background-color: #ffffff;
     resize: none;
     margin-bottom: 1.4rem;
+}
+.detalhes-upload-painel{
+    text-align: center;
 }
 
 /* Botão Enviar Arquivo */
@@ -335,7 +159,6 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
-    align-self: center; /* Alinha à esquerda */
 }
 
 .btn-enviar:hover {
@@ -349,4 +172,52 @@ body {
 
 input{
     outline: none;
+}
+.preview-img{
+    width: 15rem;
+}
+@media(max-width:1024px){
+    .area-conteudo {
+        flex-grow: 1;
+        padding: 1.3rem 1.5rem; 
+        margin: 1.2rem;
+        height: 75vh;
+        
+    }
+    .painel-principal{
+        display: block;
+    }
+    .detalhes-upload-painel{
+        margin-top: 4rem;
+    }
+    .formulario-detalhes{
+        margin-top: 6rem;
+    }
+    .preview-img{
+        width: 14rem;
+    }
+
+}
+@media (max-width: 768px) {
+    .area-conteudo {
+        flex-grow: 1;
+        padding: 1.3rem 1.5rem; 
+        margin: 1.2rem;
+        height: 75vh;
+        
+    }
+    .painel-principal{
+        display: block;
+    }
+    .detalhes-upload-painel{
+        margin-top: 3rem;
+    }
+    .formulario-detalhes{
+        margin-top: 4rem;
+    }
+    .preview-img{
+        width: 8rem;
+    }
+    
+    
 }

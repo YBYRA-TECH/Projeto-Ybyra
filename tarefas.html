@@ -89,7 +89,6 @@
                     </li>
                 </ul>
             </nav>
-            <div class="overlay"></div>
         </aside>
 
         <!-- CONTEÚDO PRINCIPAL -->
@@ -122,6 +121,9 @@
                         <input type="text" placeholder="Responsável">
                         <input type="date" placeholder="Prazo">
                         <input type="text" placeholder="Descrição">
+                        <div class="confirmar">
+                            <button type="button" class="btn-confirmar">confirmar</button>
+                        </div>
                     </div>
                     <button class="btn-buscar">Buscar</button>
                 </div>
@@ -132,9 +134,9 @@
                     </label>
                     <div id="notificacoes">
                         <h1>Notificações</h1>
-              <div>Murilo adicionou uma tarefa</div>
-              <div>Guilherme concluiu uma tarefa</div>
-              <div>Emilly concluiu uma tarefa</div>
+                        <div>Murilo adicionou uma tarefa</div>
+                        <div>Guilherme concluiu uma tarefa</div>
+                        <div>Emilly concluiu uma tarefa</div>
                     </div>
                 </div>
             </header>
@@ -155,11 +157,41 @@
                                 <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
                                 <div class="acoes-tarefa">
                                     <button class="btn-acao btn-editar">
-                                        <img src="./imgs/icone-editar.png" alt="Editar">
+                                        <label for="adicionar" class="icone-alterar">
+                                            <img src="./imgs/icone alterar.png" alt="Editar">
+                                        </label>
                                     </button>
-                                    <button class="btn-acao btn-excluir">
-                                        <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                    </button>
+                                    <input type="checkbox" class="menu-lixeira" id="modal-1">
+                                    <label for="modal-1" class="icone-lixeira">
+                                        <img src="./imgs/Trash.png" alt="lixeira">
+                                    </label>
+                                    <div class="modal-overlay">
+                                        <div class="menu-lixo">
+                                            <div class="menu-lixo-icone">
+                                                <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                                            </div>
+                                            <h1>Deseja excluir o relatório?</h1>
+                                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                                removidos.</p>
+                                            <div class="info-item">
+                                                <strong>Prazo:</strong>
+                                                <span>15/10/2025</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Descrição:</strong>
+                                                <span>Verificar ruído no motor principal e trocar o filtro de
+                                                    óleo.</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Responsável:</strong>
+                                                <span>Jorge Silva</span>
+                                            </div>
+                                            <div class="buttons">
+                                                <label for="modal-1" class="btn-cancelar">Não</label>
+                                                <label for="modal-1" class="btn-excluir">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <span class="seta-expandir">▼</span>
                             </label>
@@ -179,11 +211,41 @@
                                 <span class="titulo-tarefa">Manter a limpeza do setor.</span>
                                 <div class="acoes-tarefa">
                                     <button class="btn-acao btn-editar">
-                                        <img src="./imgs/icone-editar.png" alt="Editar">
+                                        <label for="adicionar" class="icone-alterar">
+                                            <img src="./imgs/icone alterar.png" alt="Editar">
+                                        </label>
                                     </button>
-                                    <button class="btn-acao btn-excluir">
-                                        <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                    </button>
+                                    <input type="checkbox" class="menu-lixeira" id="modal-3">
+                                    <label for="modal-3" class="icone-lixeira">
+                                        <img src="./imgs/Trash.png" alt="lixeira">
+                                    </label>
+                                    <div class="modal-overlay">
+                                        <div class="menu-lixo">
+                                            <div class="menu-lixo-icone">
+                                                <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                                            </div>
+                                            <h1>Deseja excluir o relatório?</h1>
+                                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                                removidos.</p>
+                                            <div class="info-item">
+                                                <strong>Prioridade:</strong>
+                                                <span>Alta</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Descrição:</strong>
+                                                <span>Realizar limpeza completa do setor incluindo equipamentos
+                                                    e área de produção.</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Responsável:</strong>
+                                                <span>Equipe de Limpeza</span>
+                                            </div>
+                                            <div class="buttons">
+                                                <label for="modal-3" class="btn-cancelar">Não</label>
+                                                <label for="modal-3" class="btn-excluir">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <span class="seta-expandir">▼</span>
                             </label>
@@ -208,11 +270,40 @@
                                 <span class="titulo-tarefa">Manutenção na máquina 15.</span>
                                 <div class="acoes-tarefa">
                                     <button class="btn-acao btn-editar">
-                                        <img src="./imgs/icone-editar.png" alt="Editar">
+                                        <label for="adicionar" class="icone-alterar">
+                                            <img src="./imgs/icone alterar.png" alt="Editar">
+                                        </label>
                                     </button>
-                                    <button class="btn-acao btn-excluir">
-                                        <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                    </button>
+                                    <input type="checkbox" class="menu-lixeira" id="modal-4">
+                                    <label for="modal-4" class="icone-lixeira">
+                                        <img src="./imgs/Trash.png" alt="lixeira">
+                                    </label>
+                                    <div class="modal-overlay">
+                                        <div class="menu-lixo">
+                                            <div class="menu-lixo-icone">
+                                                <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                                            </div>
+                                            <h1>Deseja excluir o relatório?</h1>
+                                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                                removidos.</p>
+                                            <div class="info-item">
+                                                <strong>Início em:</strong>
+                                                <span>01/9/2025</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Descrição:</strong>
+                                                <span>Aguardando peça.</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Responsável:</strong>
+                                                <span>Carlos Mendes</span>
+                                            </div>
+                                            <div class="buttons">
+                                                <label for="modal-4" class="btn-cancelar">Não</label>
+                                                <label for="modal-4" class="btn-excluir">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <span class="seta-expandir">▼</span>
                             </label>
@@ -231,11 +322,40 @@
                                 <span class="titulo-tarefa">Adicionar dados do app.</span>
                                 <div class="acoes-tarefa">
                                     <button class="btn-acao btn-editar">
-                                        <img src="./imgs/icone-editar.png" alt="Editar">
+                                        <label for="adicionar" class="icone-alterar">
+                                            <img src="./imgs/icone alterar.png" alt="Editar">
+                                        </label>
                                     </button>
-                                    <button class="btn-acao btn-excluir">
-                                        <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                    </button>
+                                    <input type="checkbox" class="menu-lixeira" id="modal-5">
+                                    <label for="modal-5" class="icone-lixeira">
+                                        <img src="./imgs/Trash.png" alt="lixeira">
+                                    </label>
+                                    <div class="modal-overlay">
+                                        <div class="menu-lixo">
+                                            <div class="menu-lixo-icone">
+                                                <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                                            </div>
+                                            <h1>Deseja excluir o relatório?</h1>
+                                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                                removidos.</p>
+                                            <div class="info-item">
+                                                <strong>Prioridade:</strong>
+                                                <span>Média</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Descrição:</strong>
+                                                <span>Inserir informações atualizadas no sistema do aplicativo.</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Responsável:</strong>
+                                                <span>Ana Paula</span>
+                                            </div>
+                                            <div class="buttons">
+                                                <label for="modal-5" class="btn-cancelar">Não</label>
+                                                <label for="modal-5" class="btn-excluir">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <span class="seta-expandir">▼</span>
                             </label>
@@ -261,11 +381,41 @@
                                 <span class="titulo-tarefa">Revisão de estoque.</span>
                                 <div class="acoes-tarefa">
                                     <button class="btn-acao btn-editar">
-                                        <img src="./imgs/icone-editar.png" alt="Editar">
+                                        <label for="adicionar" for="tarefa-5" class="icone-alterar">
+                                            <img src="./imgs/icone alterar.png" alt="Editar">
+                                        </label>
                                     </button>
-                                    <button class="btn-acao btn-excluir">
-                                        <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                    </button>
+                                    <input type="checkbox" class="menu-lixeira" id="modal-1">
+                                    <label for="modal-1" class="icone-lixeira">
+                                        <img src="./imgs/Trash.png" alt="lixeira">
+                                    </label>
+                                    <div class="modal-overlay">
+                                        <div class="menu-lixo">
+                                            <div class="menu-lixo-icone">
+                                                <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                                            </div>
+                                            <h1>Deseja excluir o relatório?</h1>
+                                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                                removidos.</p>
+                                            <div class="info-item">
+                                                <strong>Concluído em:</strong>
+                                                <span></span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Descrição:</strong>
+                                                <span>Revisão completa do estoque de materiais e atualização do
+                                                    sistema.</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Responsável:</strong>
+                                                <span>Pedro Santos</span>
+                                            </div>
+                                            <div class="buttons">
+                                                <label for="modal-1" class="btn-cancelar">Não</label>
+                                                <label for="modal-1" class="btn-excluir">Sim</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <span class="seta-expandir">▼</span>
                             </label>

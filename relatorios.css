@@ -36,12 +36,13 @@ body {
     padding: 0 0.5rem 1rem 0rem;
     margin-bottom: 1.2rem;
     gap: 1rem;
-    
+
 }
 
 .busca-relatorios {
     display: flex;
-    align-items: center;
+    align-items:center;
+    justify-content: space-between;
     border: 1px solid #e2e8f0;
     border-radius: 0.5rem;
     background-color: white;
@@ -73,7 +74,8 @@ body {
 }
 
 .busca-relatorios .icone-busca img {
-    width: 1.1rem;
+    width: 20px;
+    height: 20px;
 }
 
 .botoes-acao {
@@ -319,91 +321,190 @@ tbody tr:hover {
 td:last-child {
     text-align: center;
 }
-.menu-lixeira{
+
+/* ===== ESTILOS DO MODAL DE EXCLUSÃO (SEM JS) ===== */
+.menu-lixeira {
     display: none;
 }
-.menu-lixo{
-    display: none;   
-    position: fixed; 
-    background-color: white;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    width: 50rem;
-    height: 50rem;
-    top: 20%;
-    bottom: 50%;
-    right: 50%;
-    left: 30%;
-    text-align: center;
-    flex-direction: column; 
-    border-radius: 0.3rem;
-}
-/* .icone-lixeira button{
-    border: none;
-    background-color: white;
-}
-.overlay{
-    background-color: rgba(0, 0, 0, 0.1);
-    opacity: 0;
+
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    padding: 8%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none
 }
-.menu-lixo h1{
+
+/* Quando o checkbox estiver marcado, mostra o modal */
+.menu-lixeira:checked+.modal-overlay {
+    display: flex;
+}
+
+.menu-lixo {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.menu-lixo-icone {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background: #14097a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.menu-lixo-icone img {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1);
+}
+
+.menu-lixo h1 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.menu-lixo p {
+    font-family: 'Geologica', sans-serif;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.menu-lixo .info-item {
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
     margin-bottom: 1rem;
-    width: 130%;
+    text-align: left;
 }
 
-.buttons button:hover button{
-    padding:1rem;
-
+.menu-lixo .info-item strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.menu-lixo .info-item span {
+    color: #475569;
+    font-size: 0.95rem;
+    font-family: 'Geologica', sans-serif;
+}
+
 .buttons {
     display: flex;
     gap: 1rem;
-    width: 20rem;
-    height: 3rem;
-}
-.buttons button{
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
-    font-size: 0.5;
-    width: 60%;
-    border: none;
-    border-radius: 0.2rem;
-    transition: all 0.3s;
-    background: linear-gradient(to right, #3474cd, #192083);
-    color: white;
+    justify-content: center;
+    margin-top: 1.5rem;
 }
 
-.menu-lixeira:checked~#menu-lixo{
+.buttons label {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+    text-align: center;
     display: block;
 }
-.menu-lixeira:checked~.overlay{
-    opacity: 0;
+
+.btn-cancelar {
+    background: #f1f5f9;
+    color: #475569;
 }
-.btn-cancelar:focus~.menu-lixo{
-    display: none;
 
-} */
+.btn-cancelar:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
 
+.btn-excluir {
+    background: linear-gradient(135deg, #2214a4, #14097a);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
 
+.btn-excluir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
 
-.tres-pontos {
+/* Estilo do botão lixeira na tabela */
+.icone-lixeira {
     background: transparent;
     border: none;
-    color: #3474cd;
     cursor: pointer;
-    font-size: 1.5rem;
-    line-height: 0.5;
-    font-weight: 900;
     padding: 0.5rem;
     border-radius: 0.3rem;
-    transition: background 0.3s;
-
+    transition: all 0.3s;
+    display: inline-block;
 }
 
-.tres-pontos:hover {
-    background: #f1f5f9;
+.icone-lixeira:hover {
+    background: #d9d7e2;
+    transform: scale(1.1);
+}
+
+.icone-lixeira img {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+}
+
+.menu-lixeira:checked~.modal-overlay {
+    /* display: block; */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- PAGINAÇÃO --- */
@@ -421,7 +522,6 @@ td:last-child {
     border: 1px solid #e2e8f0;
     background: white;
     border-radius: 0.5rem;
-    cursor: pointer;
     font-size: 0.85rem;
     font-weight: 600;
     transition: all 0.3s;
@@ -449,9 +549,131 @@ td:last-child {
     /* Garantindo que os antigos estilos de status não apareçam */
 }
 
-
 a {
     text-decoration: none;
 }
 
+/* ===== RESPONSIVIDADE ===== */
+/* Responsividade da tabela */
+@media (max-width: 1024px) {
+    .painel-ferramentas {
+        flex-wrap: wrap;
+    }
 
+    .busca-relatorios {
+        width: 28%;
+        margin-bottom: 0.5rem;
+    }
+
+    .filtros {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-tabela {
+        margin: 0 0.5rem;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    th,
+    td {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .painel-ferramentas {
+        padding: 0.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .filtro-data {
+        padding: 0rem;
+    }
+
+    .botoes-acao {
+        flex-direction: row;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .btn-acao {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-adicionar {
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .busca-relatorios input {
+        padding: 1rem;
+        width: 20rem;
+    }
+
+    .painel-ferramentas {
+        flex-direction: row;
+    }
+
+    .menu-lixo {
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+
+    .menu-lixo h1 {
+        font-size: 1.3rem;
+    }
+
+    .menu-lixo p {
+        font-size: 0.9rem;
+    }
+
+    .menu-lixo-icone {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .menu-lixo-icone img {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons label {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-lixo {
+        padding: 1.5rem 1rem;
+    }
+
+    .menu-lixo h1 {
+        font-size: 1.2rem;
+    }
+
+    .menu-lixo p {
+        font-size: 0.85rem;
+    }
+
+    .menu-lixo .info-item {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .buttons label {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

@@ -55,10 +55,10 @@
                         <a href="insercaoDados.html">
                             <div class="box-icone">
                                 <img src="./imgs/camera_insercao.png" alt="Ícone Inserir Dados" ">
-              </div>
-              <span>Inserir Dados</span>
-            </a>
-          </li>
+                            </div>
+                            <span>Inserir Dados</span>
+                            </a>
+                        </li>
 <!-- 
           <li class=" item-menu">
                                 <a href="#">
@@ -88,55 +88,29 @@
                     </li>
                 </ul>
             </nav>
-            <div class="overlay"></div>
         </aside>
 
         <main class="area-conteudo">
             <div class="conteudo-principal-header">
-                <header class="header-principal">
-                    <div class="busca-filtros">
-                        <div class="busca-relatorios">
-                            <input type="text" placeholder="Buscar Relatórios" />
-                            <button class="icone-busca">
-                                <img src="./imgs/Research.png" alt="omagem lupa" />
-                            </button>
+                    <div class="area-icones-usuario">
+                        <input type="checkbox" id="menu-notificacoes">
+                        <label for="menu-notificacoes">
+                            <img src="./imgs/notificacoes.png" alt="Notificações">
+                        </label>
+                        <div id="notificacoes">
+                          <h1>Notificações</h1>
+                          <div>Murilo adicionou uma tarefa</div>
+                          <div>Guilherme concluiu uma tarefa</div>
+                          <div>Emilly concluiu uma tarefa</div>
                         </div>
-                        <select name="categorias">
-                            <option value="" disabled selected hidden>Todas as Categorias</option>
-                            <option value="">Área Fria</option>
-                            <option value="">Área Quente</option>
-                        </select>
-                        <select name="periodo">
-                            <option value="" disabled selected hidden>Período</option>
-                            <option value="">Manhã</option>
-                            <option value="">Tarde</option>
-                            <option value="">Noite</option>
-                        </select>
-                        <select name="prioridade">
-                            <option value="" disabled selected hidden>Prioridade</option>
-                            <option value="">Baixa</option>
-                            <option value="">Média</option>
-                            <option value="">Alta</option>
-                        </select>
-                        <button class="btn-buscar">Buscar</button>
                     </div>
-
-                    <!-- <div class="icones-header-direita">
-                        <i class="fa-solid fa-bell icone-notificacao"></i>
-                        <i class="fa-solid fa-circle-user icone-usuario"></i>
-                    </div> -->
-                    <div class="icones-header-direita">
-                        <img src="./imgs/notificacoes.png" alt="imagem sino">
-                        <!-- <img src="./imgs/icone_usuario.png" alt="imagem usuario"> -->
-                    </div>
-                </header>
             </div>
 
             <section class="detalhes-upload-painel">
                 <h2 class="titulo-secao">Arquivo escolhido</h2>
 
                 <div class="arquivo-preview">
-                    <img src="" alt="Pré-visualização do Controle de Produção" class="preview-img">
+                    <img src="./imgs/imagem modelo arquivo .jpg" alt="Pré-visualização do Controle de Produção" class="preview-img">
                 </div>
 
                 <div class="formulario-detalhes">
@@ -163,8 +137,7 @@
                     <div class="area-descricao">
                         <h3 class="subtitulo-secao">Descrição</h3>
                         <h3 style="opacity: 0;">Espaço</h3>
-                        <textarea class="texto-descricao">coloque aqui a descrição do arquivo    
-                        </textarea>
+                        <textarea class="texto-descricao" placeholder="coloque aqui a descrição do arquivo"></textarea>
 
                         <a href="insercaoDados.html" class="link-inserir"><button class="btn-enviar">Enviar
                                 Arquivo</button></a>

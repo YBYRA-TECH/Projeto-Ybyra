@@ -45,7 +45,7 @@
           <li class="item-menu">
             <a href="tarefas.html">
               <div class="box-icone">
-                <img src="./imgs/clipboard.png  " alt="Ícone Tarefas" />
+                <img src="./imgs/clipboard.png" alt="Ícone Tarefas" />
               </div>
               <span>Tarefas</span>
             </a>
@@ -54,29 +54,11 @@
           <li class="item-menu">
             <a href="insercaoDados.html">
               <div class="box-icone">
-                <img src="./imgs/camera_insercao.png" alt="Ícone Inserir Dados" ">
-                    </div>
-                    <span>Inserir Dados</span>
-                  </a>
-                </li>
-      
-                <!-- <li class=" item-menu">
-                <a href="#">
-                  <div class="box-icone">
-                    <img src="" alt="Ícone IA" />
-                  </div>
-                  <span>ChatBot</span>
-                </a>
-          </li>
-
-          <li class="item-menu" style="margin-top: 6.5rem;">
-            <a href="#">
-              <div class="box-icone">
-                <img src="./imgs/Help.png" alt="Ícone Ajuda" />
+                <img src="./imgs/camera_insercao.png" alt="Ícone Inserir Dados">
               </div>
-              <span>Ajuda</span>
+              <span>Inserir Dados</span>
             </a>
-          </li> -->
+          </li>
 
           <li class="item-menu">
             <a href="#">
@@ -95,7 +77,6 @@
 
       <section class="painel">
         <div class="painel-ferramentas">
-
           <div class="busca-relatorios">
             <input type="text" placeholder="Buscar Relatórios" />
             <button class="icone-busca"><img src="./imgs/Research.png" alt="Ícone Lupa"></button>
@@ -108,7 +89,6 @@
             </button>
             <a href="insercaoDados.html">
               <button class="btn-acao btn-adicionar">
-                <!-- <img src=" " alt="Ícone Adicionar" /> -->
                 <span>Adicionar</span>
               </button>
             </a>
@@ -116,7 +96,6 @@
 
           <div class="filtros">
             <div class="filtro-data">
-
               <input type="date" placeholder="Filtrar por Data">
             </div>
           </div>
@@ -131,9 +110,9 @@
               <div>Guilherme concluiu uma tarefa</div>
               <div>Emilly concluiu uma tarefa</div>
             </div>
-
           </div>
         </div>
+
         <div class="container-tabela">
           <table>
             <thead>
@@ -146,7 +125,6 @@
               </tr>
             </thead>
             <tbody>
-            <tbody>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">23456789DGH</a></td>
                 <td><a href="inicioBI.html" class="table-link">Cond_Cortes</a></td>
@@ -154,7 +132,37 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-med">85%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira" id="modal-1">
+                  <label for="modal-1" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
+                  </label>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                      </div>
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>23456789DGH</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Cond_Cortes</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Juliana Antunes</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-1" class="btn-cancelar">Não</label>
+                        <label for="modal-1" class="btn-excluir">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">09875438ORT</a></td>
@@ -163,7 +171,37 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-vermelha">37%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira" id="modal-2">
+                  <label for="modal-2" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
+                  </label>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                      </div>
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>09875438ORT</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Ctrl_Embalagens</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Tiago Araújo</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-2" class="btn-cancelar">Não</label>
+                        <label for="modal-2" class="btn-excluir">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">84972749ENI</a></td>
@@ -172,7 +210,37 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-amarela">50%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira" id="modal-3">
+                  <label for="modal-3" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
+                  </label>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                      </div>
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>84972749ENI</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Gord_Picanha</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Roberto Ferreira</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-3" class="btn-cancelar">Não</label>
+                        <label for="modal-3" class="btn-excluir">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">2804375COW</a></td>
@@ -181,7 +249,37 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde">97%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira" id="modal-4">
+                  <label for="modal-4" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
+                  </label>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                      </div>
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>2804375COW</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Escald</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Liliana Mendes</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-4" class="btn-cancelar">Não</label>
+                        <label for="modal-4" class="btn-excluir">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">5260279EDF</a></td>
@@ -190,7 +288,37 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-claro">76%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira" id="modal-5">
+                  <label for="modal-5" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
+                  </label>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                      </div>
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>5260279EDF</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Emb_Pri</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Jorge Silva</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-5" class="btn-cancelar">Não</label>
+                        <label for="modal-5" class="btn-excluir">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">447910ZTLPK</a></td>
@@ -199,7 +327,37 @@
                 <td><a href="inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-med">89%</div>
                   </a></td>
-                <td><button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixera"></button></td>
+                <td>
+                  <input type="checkbox" class="menu-lixeira" id="modal-6">
+                  <label for="modal-6" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
+                  </label>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
+                      </div>
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>447910ZTLPK</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Monitoramento_RH</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Felipe Castro</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-6" class="btn-cancelar">Não</label>
+                        <label for="modal-6" class="btn-excluir">Sim</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
               </tr>
               <tr class="row-link">
                 <td><a href="inicioBI.html" class="table-link">112233QWERZ</a></td>
@@ -209,26 +367,37 @@
                     <div class="barra-desempenho barra-verde">95%</div>
                   </a></td>
                 <td>
-                  <input type="checkbox" class="menu-lixeira">
-                  <label for="menu-lixeira" class="icone-lixeira">
-                    <button class="tres-pontos"><img src="./imgs/Trash.png" alt="lixeira"></button>
+                  <input type="checkbox" class="menu-lixeira" id="modal-7">
+                  <label for="modal-7" class="icone-lixeira">
+                    <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
-                  <div class="menu-lixo">
-                    <img src="./imgs/Trash.png" alt="">
-                    <h1>Deseja excluir o relatório?</h1>
-                    <div>
-                      <div class="buttons">
-                        <button type="button">Sim</button>
-                        <button type="button" class="btn-cancelar">Não</button>
+                  <div class="modal-overlay">
+                    <div class="menu-lixo">
+                      <div class="menu-lixo-icone">
+                        <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
-
+                      <h1>Deseja excluir o relatório?</h1>
+                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                      <div class="info-item">
+                        <strong>ID:</strong>
+                        <span>112233QWERZ</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Índice:</strong>
+                        <span>Logistica_Sul</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Ana Costa</span>
+                      </div>
+                      <div class="buttons">
+                        <label for="modal-7" class="btn-cancelar">Não</label>
+                        <label for="modal-7" class="btn-excluir">Sim</label>
+                      </div>
                     </div>
-
-
+                  </div>
                 </td>
               </tr>
-              
-            </tbody>
             </tbody>
           </table>
 
@@ -243,7 +412,6 @@
           </div>
         </div>
       </section>
-      <div class="overlay"></div>
     </main>
   </div>
 </body>
