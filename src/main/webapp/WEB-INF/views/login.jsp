@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: davioliveira-ieg
-  Date: 07/10/2025
-  Time: 11:23
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,10 +33,16 @@
 <main>
     <div id="inputs">
         <h1>Entrar</h1>
-        <form action="">
-            <input type="text" placeholder="Email / Telefone / Usuário" />
+        <form action="login" method="post">
+            <input type="email" name="email" placeholder="Email" required
+                   value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>" />
 
-            <input type="password" placeholder="Senha" />
+            <input type="password" name="senha" placeholder="Senha" required/>
+            <% if (request.getAttribute("erro") != null) { %>
+            <div class="erro-mensagem">
+                <%= request.getAttribute("erro") %>
+            </div>
+            <% } %>
 
             <p style="margin-left: 0.6rem;">Não tem uma conta? <a href="cadastro.jsp">Crie uma!</a></p>
             <a href="cadastroSenha.jsp" style="margin-left: 0.6rem;">Esqueceu a Senha?</a>

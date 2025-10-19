@@ -1,6 +1,7 @@
 package com.projybyraservletmvc.dao;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.*;
 
-//import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,8 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.Industria;
 
 public class IndustriaDAO{
     
@@ -130,5 +129,45 @@ public class IndustriaDAO{
             conexao.desconectar(conn);
         }
     }
+    public Industria login(String email, String senha) {
+        ConexaoBD conexaoBD = new ConexaoBD();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
 
-}
+        try {
+            System.out.println("=== Conectando ao banco para autenticação ===");
+            conn = conexaoBD.conectar();
+
+            String sql = "SELECT * FROM industria WHERE email = ? AND senha = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                System.out.println("Usuário encontrado!");
+
+                Industria industria = new Industria(
+                        rs.getString("nome"),
+                        rs.getString("cnpj"),
+                        rs.getString("email"),
+                        rs.getString("senha")
+                );
+
+                return industria;
+            } else {
+                System.out.println("Usuário não encontrado ou senha incorreta");
+                return null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexaoBD.desconectar(conn);
+
+            }
+        return null;
+    }
+
+    }

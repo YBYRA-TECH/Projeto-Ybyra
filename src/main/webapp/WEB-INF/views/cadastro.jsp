@@ -22,11 +22,11 @@
 <main>
     <div id="inputs">
         <h1>Cadastro</h1>
-
-        <form action="${pageContext.request.contextPath}/cadastro" method="get">
-            <input type="text" name="nome" placeholder="CNPJ da Empresa" required />
+        <form action="cadastro" method="post">
+            <input type="text" name="nome" placeholder="Digite o nome da indústria" required />
+            <input type="text" name="cnpj" placeholder="CNPJ da Empresa" required />
             <input type="email" name="email" placeholder="Email / Telefone" required />
-            <input type="password" name="senha" placeholder="Crie uma senha" required />
+            <input type="password" name="senha" placeholder="Senha" required />
 
             <p>Já tem uma conta? <a href="login.jsp">Login</a></p>
 

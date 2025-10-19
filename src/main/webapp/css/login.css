@@ -18,7 +18,7 @@ body {
 
 /* ===== CABEÇALHO ===== */
 header {
-    background-image: url("../imgs/Header.png");
+    background-image: url("../imgs/Fundo_Header.png");
     position: fixed;
     width: 95%;
     top: 0;
@@ -102,21 +102,22 @@ main {
 #inputs input::placeholder {
     color: #767676;
 }
+
 #inputs input:focus{
     box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
 }
-#inputs p {
 
+#inputs p {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     font-family: "Geologica", sans-serif;
-
 }
+
 form{
     width: 27rem;
 }
-#inputs p a {
 
+#inputs p a {
     font-family: "Geologica", sans-serif;
     color: #004cc5;
 }
@@ -128,6 +129,36 @@ form{
 
 #inputs a:hover {
     text-decoration: underline;
+}
+
+/* ===== MENSAGEM DE ERRO ===== */
+.erro-mensagem {
+    color: #dc3545;
+    background-color: #ffe6e6;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    text-align: left;
+    border-left: 4px solid #dc3545;
+    font-family: "Geologica", sans-serif;
+    font-weight: 500;
+    width: 90%;
+    align-self: flex-start;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-8px);
+    }
+    75% {
+        transform: translateX(8px);
+    }
 }
 
 #buttons {
@@ -151,9 +182,11 @@ form{
     color: #eeeeee;
     cursor: pointer;
 }
+
 #buttons a:hover{
     text-decoration: none;
 }
+
 #buttons button:hover {
     transform: translateY(-2px);
 }

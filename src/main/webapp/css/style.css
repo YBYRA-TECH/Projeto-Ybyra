@@ -1,0 +1,731 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+    background-image: url("../imgs/Fundo_Header.png");
+    position: fixed;
+    width: 95%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(1.5rem, 4vw, 5rem);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
+    padding: 0.4rem 2.5rem;
+}
+
+a {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+header a:first-of-type {
+    margin-left: auto;
+}
+
+header button {
+    background-color: #004cc5;
+    border: none;
+    color: aliceblue;
+    border-radius: 0.7rem;
+    padding: 1rem;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+main {
+    padding-top: 5rem;
+}
+
+/* ===== SEÇÃO INTRODUÇÃO ===== */
+.sec_intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding-left: 12vw;
+    padding-right: 3vw;
+    gap: 4vw;
+    background-image: url("../imgs/Primeiro_Elemento.png");
+    background-size: 92% 89%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sec_intro h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(3rem, 10vw, 5rem);
+}
+
+#texto_intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    color: aliceblue;
+}
+
+.sec_intro a {
+    font-family: "Geologic" sans-serif;
+    font-size: 1.2rem;
+    color: aliceblue;
+}
+
+/* ===== TÍTULO RESULTADOS ===== */
+#titulo_resultados {
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right, #13bffe, #0040a6);
+    background-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2.5rem, 5vw, 4.3rem);
+    text-align: left;
+    padding-left: clamp(2rem, 8vw, 6rem);
+    padding-top: 2rem;
+}
+
+/* ===== SEÇÃO CARTÕES ===== */
+.sec_cartoes {
+    height: 25vh;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    gap: 1.2rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+/* ===== ESTILO DOS CARDS ===== */
+.card {
+    width: 17.5rem;
+    min-height: 6.2rem;
+    font-size: 1.2rem;
+    padding: 1.8rem;
+    border-radius: 0.9rem;
+    background: linear-gradient(to right, #0245a8, #16283d);
+    transition: all 1.4s ease;
+    color: white;
+    font-family: "Geologica", sans-serif;
+}
+
+.num_cartao {
+    color: #56d4ff;
+    transition: color 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-0.8rem);
+    background: linear-gradient(to right, #2f9fff, #5cdffb);
+    color: black;
+}
+
+.card:hover .num_cartao {
+    color: #002b5b;
+}
+
+.texto_fim {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.9s ease;
+}
+
+.texto_inicio {
+    font-size: 1.4rem;
+}
+
+.link_cartao {
+    margin-top: 1rem;
+    color: #0a2f7a;
+    text-decoration: none;
+    opacity: 0;
+}
+
+.card:hover .texto_fim {
+    color: white;
+    opacity: 1;
+    max-height: 10rem;
+}
+
+.card:hover .link_cartao {
+    display: block;
+}
+
+.link_cartao:hover {
+    text-decoration: underline;
+}
+
+.card:hover .link_cartao {
+    opacity: 1;
+    transition: all 1.9s ease;
+    max-height: 1rem;
+}
+
+/* ===== SEÇÃO 3 ===== */
+
+#sec3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.slide-text h1 {
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(to right, #13bffe, #004cc5);
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+    font-size: clamp(2.7rem, 6vw, 5rem);
+    text-align: right;
+    margin-right: clamp(0rem, 15vw, 12rem);
+}
+
+.sec3_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.sec3_slider input[type="radio"] {
+    display: none;
+}
+
+.slide {
+    display: none;
+    align-items: center;
+}
+
+.slide img {
+    margin-top: 15%;
+    width: clamp(20rem, 40vw, 40rem);
+}
+
+.slide-text {
+    margin-left: 3.2rem;
+    width: 60%;
+}
+
+.slide h2 {
+    margin-top: 15%;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.6rem, 4.5vw, 3.5rem);
+    font-weight: lighter;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.slide p {
+    font-weight: lighter;
+    color: #5980b0;
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    line-height: 1.5;
+    font-family: "Geologica", sans-serif;
+}
+
+.sec3_controls {
+    display: flex;
+    margin-right: clamp(0rem, 7vw, 5rem);
+    justify-content: right;
+    margin-top: -7%;
+}
+
+.dot {
+    margin-right: 5rem;
+    width: 7rem;
+    height: 1rem;
+    border-radius: 0.6rem;
+    background: #c8d7ee;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#step1:checked ~ .slides .slide[data-step="1"],
+#step2:checked ~ .slides .slide[data-step="2"],
+#step3:checked ~ .slides .slide[data-step="3"],
+#step4:checked ~ .slides .slide[data-step="4"] {
+    display: flex;
+}
+
+#step1:checked ~ .sec3_controls label[for="step1"],
+#step2:checked ~ .sec3_controls label[for="step2"],
+#step3:checked ~ .sec3_controls label[for="step3"],
+#step4:checked ~ .sec3_controls label[for="step4"] {
+    background: #0a4ec7;
+}
+
+/* ===== SEÇÃO 4 ===== */
+#sec4 {
+    margin-top: 10rem;
+    display: flex;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 2rem;
+}
+
+#sec4 img {
+    margin-left: clamp(0rem, 9vw, 15rem);
+}
+
+#sec4 h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600  ;
+    background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(3rem, 8vw, 6.2rem);
+    margin-bottom: 7rem;
+}
+
+#sec4 p {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    font-family: "Geologica", sans-serif;
+    margin-bottom: 1.2rem;
+}
+
+hr {
+    margin: 1rem;
+    border: none;
+    border-top: 3px solid #ccc;
+}
+
+/* ===== SEÇÃO DECORATIVA ===== */
+#imagem_decorativa {
+    height: 50vh;
+    background-image: url("../imgs/Polygon_25.png");
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+/* ===== SEÇÃO SOBRE ===== */
+#sec_sobre {
+    background-image: url("../imgs/Fundo_Sobre.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 23vh;
+}
+
+#titulo_sobre {
+    margin-top: -2%;
+    margin-right: clamp(0rem, 46vw, 50rem);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    color: white;
+    text-align: left;
+    margin-bottom: clamp(5vh, 10vw, 8vh);
+}
+
+#cartoes_sobre {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.card_sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 130rem;
+    width: 23rem;
+    height: 100vh;
+    padding: 2rem;
+    gap: 2rem;
+    border-radius: 30px;
+    box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titulo_card {
+    margin-top: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(2rem, 3.05vw, 3.2rem);
+    background: linear-gradient(to right, #6edcfb, #3c78da);
+    background-clip: text;
+    color: transparent;
+}
+
+#sec_sobre p {
+    margin-top: 1rem;
+    font-size: clamp(1rem, 1.5vw, 1.2em);
+    color: #365576;
+    text-align: center;
+    font-family: "Geologica", sans-serif;
+    line-height: 1.6;
+    max-width: 23rem;
+}
+
+/* ===== AJUSTES GERAIS ===== */
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-family: "Geologica", sans-serif;
+}
+/* ===== RODAPÉ ===== */
+footer {
+    margin-top: 23rem;
+    border-radius: 0.1rem;
+    background-color: #081f38;
+}
+footer section {
+    flex-wrap: wrap;
+}
+footer div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.direitos {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    padding-bottom: 2rem;
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+footer h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+}
+
+footer p,
+h3 {
+    margin-top: 5rem;
+    color: aliceblue;
+}
+
+/* ======================================= */
+/* ===== AJUSTES PARA TELAS MENORES ===== */
+/* ======================================= */
+
+/* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
+@media (max-width: 1024px) {
+    /* ===== CABEÇALHO ===== */
+    header {
+        padding: 0.4rem 1.5rem;
+        width: 95%;
+    }
+
+    header a:first-of-type {
+        margin-left: auto;
+    }
+
+    /* ===== SEÇÃO INTRODUÇÃO (MANTÉM ORDEM ORIGINAL - TEXTO/IMAGEM) ===== */
+    .sec_intro {
+        flex-direction: column;
+        height: auto;
+        padding: 5rem 5vw 0;
+        text-align: center;
+        background-size: cover;
+        background-position: center top;
+    }
+
+    #texto_intro {
+        align-items: center;
+        padding-top: 5rem;
+    }
+
+    /* ===== TÍTULO RESULTADOS ===== */
+    #titulo_resultados {
+        padding-left: 0;
+        text-align: center;
+        padding-top: 5rem;
+    }
+
+    /* ===== SEÇÃO CARTÕES (EMPILHAMENTO) ===== */
+    .sec_cartoes {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 1.5rem;
+        padding-top: 2rem;
+    }
+
+    .card {
+        width: 80vw;
+        max-width: 30rem;
+    }
+
+    /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
+    #sec3 {
+        /* Remove o align-items: center que centralizava tudo */
+        align-items: flex-end; /* Volta ao padrão desktop */
+        padding-top: 5rem;
+    }
+
+    .sec3_content {
+        /* Remove o empilhamento para telas até 1024px */
+        flex-direction: row;
+    }
+
+    .slide {
+        /* Remove o empilhamento e alinhamento central */
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start; /* Volta ao padrão desktop */
+    }
+
+    .slide img {
+        margin-top: 15%; /* Volta ao padrão desktop */
+        margin-bottom: 0;
+        /* Diminui o tamanho da imagem, mantendo a proporção */
+        width: clamp(18rem, 35vw, 35rem);
+    }
+
+    .slide-text {
+        /* Volta ao padrão desktop */
+        margin-left: 3.2rem;
+        width: 60%;
+        text-align: left;
+    }
+
+    .slide-text h1 {
+        /* Mantém o alinhamento central do tablet */
+        margin-right: 0;
+        text-align: right; /* Volta ao alinhamento do desktop */
+    }
+
+    .slide h2 {
+        margin-top: 15%; /* Volta ao padrão desktop */
+    }
+
+    .sec3_controls {
+        /* Volta ao padrão desktop */
+        justify-content: flex-end;
+        margin-right: clamp(0rem, 7vw, 5rem);
+        margin-bottom: 5rem;
+    }
+
+    .dot {
+        margin-top: 1.5rem;
+        width: 5rem; /* Mantém o tamanho do desktop para o dot */
+        margin-right: 3rem; /* Mantém a margem do desktop para o dot */
+        height: 0.8rem;
+    }
+    /* ===== SEÇÃO 4 - PERGUNTAS (IMAGEM ACIMA DO TEXTO) ===== */
+    #sec4 {
+        flex-direction: column-reverse;
+        margin-top: 5rem;
+        text-align: center;
+        padding: 2rem;
+        gap: 5rem;
+    }
+
+    #sec4 img {
+        width: 80vw;
+        margin-left: 0;
+    }
+
+    #sec4 h1 {
+        margin-bottom: 1rem;
+    }
+
+    .textoP {
+        max-width: 80vw;
+    }
+
+    /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
+    #sec_sobre {
+        height: auto;
+        padding: 25vh 2vw;
+    }
+
+    #titulo_sobre {
+        margin-right: 0;
+        text-align: center;
+        margin-top: -2rem;
+        margin-bottom: 5vh;
+    }
+
+    #cartoes_sobre {
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+    }
+
+    .card_sobre {
+        max-width: 85vw;
+        height: auto;
+        padding: 2rem;
+        margin-right: 0 !important;
+        background-position: center bottom;
+        background-size: 80%;
+    }
+
+    .card_sobre:nth-child(1) {
+        background-position: 50% 95%;
+    }
+    .card_sobre:nth-child(3) {
+        background-position: 50% 95%;
+    }
+
+    /* ===== RODAPÉ (EMPILHAMENTO) ===== */
+    footer {
+        margin-top: 10rem;
+        padding: 2rem 0;
+    }
+
+    footer div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer section {
+        text-align: center;
+    }
+
+    footer p,
+    footer h3 {
+        margin-top: 2rem;
+    }
+}
+
+/* --- TELA DE SMARTPHONE (MAX-WIDTH: 780PX) --- */
+@media (max-width: 780px) {
+    /* ===== CABEÇALHO (Compacto) ===== */
+    header {
+        justify-content: space-between;
+        gap: 0;
+        padding: 0.8rem 1rem;
+        width: 96vw;
+    }
+
+    header a,
+    header a:first-of-type {
+        display: none;
+        margin-left: 0;
+    }
+
+    header button {
+        padding: 0.5rem 1rem;
+    }
+    header button p a {
+        display: block;
+        font-size: 0.9rem;
+    }
+
+    /* ===== SEÇÃO INTRODUÇÃO (Compacto) ===== */
+    .sec_intro {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 2rem;
+        gap: 2rem;
+    }
+
+    /* ===== TÍTULO RESULTADOS (Compacto) ===== */
+    #titulo_resultados {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    /* ===== SEÇÃO 3 - CONHEÇA O APP (Slider Compacto) ===== */
+    #sec3 {
+        align-items: center; /* Centraliza a seção para o empilhamento */
+    }
+
+    .sec3_content {
+        /* Aplica o empilhamento para smartphone */
+        flex-direction: column;
+    }
+
+    .slide {
+        /* Empilha a imagem e o texto e centraliza */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .slide img {
+        /* Ajusta a imagem no modo empilhado */
+        margin-top: 5%;
+        margin-bottom: 2rem;
+        width: clamp(20rem, 60vw, 30rem); /* Ajuste de tamanho para mobile */
+        margin-right: 4rem;
+    }
+
+    .slide-text {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .slide-text h1 {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .slide h2 {
+        margin-top: 5%;
+    }
+
+    .sec3_controls {
+        /* Centraliza os controles */
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: 5rem;
+        margin-top: 10%;
+    }
+
+    .dot {
+        width: 4rem;
+        height: 0.6rem;
+        margin-right: 0.7rem;
+    }
+
+
+    /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
+    #sec4 img {
+        width: 120vw;
+        margin-left: 1.5rem;
+    }
+
+    /* ===== IMAGEM DECORATIVA ===== */
+    #imagem_decorativa {
+        background-size: 40% 80%;
+    }
+    /* ===== SEÇÃO SOBRE (Compacto) ===== */
+    #sec_sobre {
+        margin-top: -2rem;
+        background-size: 400% 95%;
+    }
+    #titulo_sobre {
+        margin-top: 4vh;
+    }
+
+    /* Remove as imagens de fundo nos cartões da seção "Sobre Nós" para telas muito pequenas */
+    .card_sobre {
+        background-image: none !important;
+    }
+}

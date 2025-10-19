@@ -1,8 +1,12 @@
 package com.projybyraservletmvc.model;
 
-import com.projybyraservletmvc.conexao.*;
-import com.projybyraservletmvc.dao.*;
 import java.sql.Date;
+
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.EnderecoDAO;
+import com.projybyraservletmvc.dao.RelatoriosDAO;
+import com.projybyraservletmvc.dao.TelefoneDAO;
+import com.projybyraservletmvc.dao.UsuarioDAO;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,19 +66,11 @@ public class Main {
        // } catch (Exception e) {
          //   e.printStackTrace();
         //}
-
         //RELATORIOS
         RelatoriosDAO rel = new RelatoriosDAO();
 //        try {
 //
 //
-//        Date dataCriacao = Date.valueOf("2025-09-26");
-//        Date novaData = Date.valueOf("2025-09-28");
-//        Relatorios relatorio = new Relatorios(1, novaData, "pdf123", 1);
-////        if(rel.inserirDados(dataCriacao, "pdf1230mifow903", 1)){
-////            System.out.println("Relatório inserido com sucesso");
-////        }else System.out.println("Falha na inserção do relatório");
-//        //rel.deletar(1);
 ////        rel.atualizar(relatorio);
 //        System.out.println(rel.buscar());
 //    }catch (Exception e){

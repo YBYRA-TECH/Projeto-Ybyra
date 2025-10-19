@@ -92,35 +92,30 @@ body {
 /* --- Estilos da Área de Conteúdo --- */
 .area-conteudo {
     flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 1.3rem 0.4rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
     box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
 }
-#conteudo {
-    margin-top: -3rem;
-}
-#conteudo img{
-    margin-left: 6rem;
-    width: 17rem;
-    margin-bottom: 4rem;
-}
-#conteudo h1{
-    font-family: 'Montserrat', sans-serif;
-    color: #1F89EF;
-    font-size: 2.5rem;
+
+#header-imagem {
+    display: flex;
+    justify-content: right;
     margin-bottom: 2rem;
 }
-#button button{
-    margin-left: 10rem;
-    background-color: #FAFCFF;
-    border-color: #CAE3FF;
-    font-family: 'Geologica', sans-serif;
-    color: #1F89EF;
-    padding: 0.5rem 1rem;
+#header-imagem img {
+    width: 7rem;
+}
+
+#meuIframe {
     border-radius: 0.5rem;
+    width: 77rem;
+    height: 60rem;
+}
+
+/* O truque: esconde a barra de rolagem horizontal */
+#meuIframe {
+    overflow-x: hidden;
+    overflow-y: auto;
 }

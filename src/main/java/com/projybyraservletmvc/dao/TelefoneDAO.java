@@ -1,4 +1,6 @@
 package com.projybyraservletmvc.dao;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.Telefone;
 
 public class TelefoneDAO {
 
