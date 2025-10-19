@@ -11,15 +11,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
-    <link rel="stylesheet" href="insercaoDados.css" />
+    <link rel="shortcut icon" href="../imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/insercaoDados.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <div class="painel-principal">
     <aside class="barra-lateral">
         <div class="logo-site">
-            <img src="./imgs/Nova logo.png" alt="Logo YBYRA TECH" />
+            <img src="../imgs/Nova logo.png" alt="Logo YBYRA TECH" />
         </div>
 
         <nav class="menu-principal">
@@ -27,33 +27,33 @@
                 <li class="item-menu">
                     <a href="inicio.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/Nova logo Sem tech.png" alt="Ícone Início" />
+                            <img src="../imgs/icon.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="relatorios.html">
+                    <a href="relatorios.jsp">
                         <div class="box-icone">
-                            <img src="relatorios.html" alt="Ícone relatorios" />
+                            <img src="../imgs/document.png" alt="Ícone relatorios" />
                         </div>
                         <span>Relatórios</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="tarefas.html">
+                    <a href="tarefas.jsp">
                         <div class="box-icone">
-                            <img src="tarefas" alt="Ícone Tarefas" />
+                            <img src="../imgs/clipboard.png" alt="Ícone Tarefas" />
                         </div>
                         <span>Tarefas</span>
                     </a>
                 </li>
 
                 <li class="item-menu ativo">
-                    <a href="insercaoDados.html">
+                    <a href="insercaoDados.jsp">
                         <div class="box-icone">
-                            <img src="inserir dados" alt="Ícone Inserir Dados" />
+                            <img src="../imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
                         </div>
                         <span>Inserir Dados</span>
                     </a>
@@ -71,7 +71,7 @@
                 <li class="item-menu" style="margin-top: 6.5rem;">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="ajuda" alt="Ícone Ajuda" />
+                            <img src="../imgs/Help.png" alt="Ícone Ajuda" />
                         </div>
                         <span>Ajuda</span>
                     </a>
@@ -80,7 +80,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="configuracao" alt="Ícone Configurações" />
+                            <img src="../imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
@@ -124,8 +124,10 @@
 
         <section class="painel">
             <div class="area-upload-arquivo">
-                <input type="file" id="upload" placeholder="Escolher arquivo" />
-                <a href="TelainserirDados.jsp"><button class="btn-escolher-arquivo">Confimar Arquivo</button></a>
+                <form action="<%= request.getContextPath() %>/InserirDados" method="post" enctype="multipart/form-data">
+                    <input type="file" name="arquivo" id="upload" required>
+                    <button type="submit" class="btn-escolher-arquivo">Confirmar Arquivo</button>
+                </form>
 
             </div>
             <h1>Recentes</h1>

@@ -3,6 +3,7 @@ package com.example.ybyraservlet.model;
 
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Usuario {
 
@@ -10,9 +11,10 @@ public class Usuario {
     private int idUsuario;
     private String email;
     private String cpf;
+    private String senha;
     private String nome;
     private Date dataCadastro;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private Date dataValidade;
     private int idIndustria;
     private int tempoTrabalho;
@@ -20,7 +22,7 @@ public class Usuario {
     //CONSTRUTOR
 
     public Usuario(int idUsuario, String email, String cpf, String nome, Date dataCadastro,
-                   Date dataNascimento, Date dataValidade, int idIndustria, int tempoTrabalho) {
+                   LocalDate dataNascimento, Date dataValidade, int idIndustria, int tempoTrabalho) {
         this.idUsuario = idUsuario;
         this.email = email;
         this.cpf = cpf;
@@ -32,7 +34,34 @@ public class Usuario {
         this.tempoTrabalho = tempoTrabalho;
     }
 
+    public Usuario( String email, String cpf, String nome,
+                   LocalDate dataNascimento,String senha, int idIndustria) {
+        this.email = email;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+        this.idIndustria = idIndustria;
+    }
+
+    public Usuario( String email, String nome, String senha) {
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+    }
+
+
+
     // GETTERS E SETTERS
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -68,10 +97,10 @@ public class Usuario {
         this.dataCadastro = dataCadastro;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -110,5 +139,25 @@ public class Usuario {
                 ",\tidIndustria=" + idIndustria +
                 ",\ttempoTrabalho=" + tempoTrabalho +
                 "}\n";
+    }
+
+    // Regex's:
+
+    public boolean validarSenha(){
+        String senha = getSenha();
+        // Senha deve ter no mínimo 8 caracteres e pelo menos 1 número
+        return senha.matches("^(?=.*\\d).{8,}$");
+    }
+
+    public boolean validarEmail(){
+        String email = getEmail();
+        // Formato básico de email
+        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
+    }
+
+    public boolean validarCpf(){
+        String cpf = getCpf();
+        cpf.replaceAll("\\.-", "");
+        return cpf.matches("^\\d{11}$");
     }
 }

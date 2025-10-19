@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="shortcut icon"
-            href="../imgs/Nova logo Sem tech.png"
+            href="../imgs/icon.png"
             type="image/x-icon"
     />
     <link rel="stylesheet" href="../css/telaCon.css" />
@@ -45,10 +45,10 @@
 
             <div id="buttons">
                 <button >
-                    <a href="verificacao.jsp" style="color: #767676">Cancelar</a>
+                    <a href="../index.jsp" style="color: #767676">Cancelar</a>
                 </button>
                 <button style="background-color: #1e88ee;">
-                    <a href="inicio.jsp">Entrar</a>
+                    <a href="../web/inicio.jsp">Entrar</a>
                 </button>
             </div>
 

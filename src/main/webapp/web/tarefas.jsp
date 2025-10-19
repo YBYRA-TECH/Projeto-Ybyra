@@ -11,8 +11,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
-    <link rel="stylesheet" href="tarefas.css" />
+    <link rel="shortcut icon" href="../imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/tarefas.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
@@ -20,41 +20,41 @@
 
     <aside class="barra-lateral">
         <div class="logo-site">
-            <img src="./imgs/Nova logo.png" alt="" />
+            <img src="../imgs/Nova logo.png" alt="" />
         </div>
 
         <nav class="menu-principal">
             <ul>
                 <li class="item-menu">
-                    <a href="inicio.html">
+                    <a href="inicio.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/Nova logo Sem tech.png" alt="Ícone Início" />
+                            <img src="../imgs/icon.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="relatorios.html">
+                    <a href="relatorios.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/icone-relatorios.png" alt="Ícone relatórios" />
+                            <img src="../imgs/document.png" alt="Ícone relatórios" />
                         </div>
                         <span>Relatórios</span>
                     </a>
                 </li>
 
                 <li class="item-menu ativo">
-                    <a href="tarefas.html">
+                    <a href="tarefas.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/icone-tarefas.png" alt="Ícone Tarefas" />
+                            <img src="../imgs/clipboard.png" alt="Ícone Tarefas" />
                         </div>
                         <span>Tarefas</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="insercaoDados.html">
+                    <a href="insercaoDados.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/icone-inserir.png" alt="Ícone Inserir Dados" />
+                            <img src="../imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
                         </div>
                         <span>Inserir Dados</span>
                     </a>
@@ -63,7 +63,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="./imgs/icone-chatbot.png" alt="Ícone IA" />
+                            <img src="../imgs/icone-chatbot.png" alt="Ícone IA" />
                         </div>
                         <span>ChatBot</span>
                     </a>
@@ -72,7 +72,7 @@
                 <li class="item-menu" style="margin-top: 6.5rem;">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="./imgs/icone-ajuda.png" alt="Ícone Ajuda" />
+                            <img src="../imgs/Help.png" alt="Ícone Ajuda" />
                         </div>
                         <span>Ajuda</span>
                     </a>
@@ -81,7 +81,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="./imgs/icone-config.png" alt="Ícone Configurações" />
+                            <img src="../imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
@@ -90,9 +90,7 @@
         </nav>
     </aside>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="conteudo">
-        <!-- HEADER COM BUSCA E FILTROS -->
         <header class="topo">
             <div class="area-filtros">
                 <div class="campo-busca">
@@ -109,15 +107,15 @@
 
                 </select>
                 <button class="btn-adicionar">
-                    <img src=" " alt="icone" />
+                    <img src="+" alt="icone" />
                     <span>Adicionar</span>
                 </button>
                 <button class="btn-buscar">Buscar</button>
             </div>
 
             <div class="area-icones-usuario">
-                <img src="./imgs/icone-sino.png" alt="Notificações">
-                <img src="./imgs/icone-usuario.png" alt="Perfil">
+                <img src="../imgs/notificacoes.png" alt="Notificações">
+                <img src="../imgs/icone_usuario.png" alt="Perfil">
             </div>
         </header>
 
@@ -138,7 +136,7 @@
                             <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
                             <div class="acoes-tarefa">
                                 <button class="btn-acao btn-editar">
-                                    <img src="./imgs/icone-editar.png" alt="Editar">
+                                    <img src="../imgs/icone-editar.png" alt="Editar">
                                 </button>
                                 <button class="btn-acao btn-excluir">
                                     <img src="./imgs/icone-excluir.png" alt="Excluir">

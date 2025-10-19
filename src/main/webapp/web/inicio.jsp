@@ -11,49 +11,49 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
-    <link rel="stylesheet" href="inicio.css" />
+    <link rel="shortcut icon" href="../imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/inicio.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <div class="painel-principal">
     <aside class="barra-lateral">
         <div class="logo-site">
-            <img src="./imgs/Nova logo.png" alt="Logo YBYRA TECH" />
+            <img src="../imgs/Nova logo.png" alt="Logo YBYRA TECH" />
         </div>
 
         <nav class="menu-principal">
             <ul>
                 <li class="item-menu ativo">
-                    <a href="inicio.html">
+                    <a href="inicio.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/Nova logo Sem tech.png" alt="Ícone Início" />
+                            <img src="../imgs/icon.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="relatorios.html">
+                    <a href="relatorios.jsp">
                         <div class="box-icone">
-                            <img src="relatorios.html" alt="Ícone relatorios" />
+                            <img src="../imgs/document.png" alt="Ícone relatorios" />
                         </div>
                         <span>Relatórios</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="tarefas.html">
+                    <a href="tarefas.jsp">
                         <div class="box-icone">
-                            <img src="tarefas" alt="Ícone Tarefas" />
+                            <img src="../imgs/clipboard.png" alt="Ícone Tarefas" />
                         </div>
                         <span>Tarefas</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="insercaoDados.html">
+                    <a href="insercaoDados.jsp">
                         <div class="box-icone">
-                            <img src="inserir dados" alt="Ícone Inserir Dados" />
+                            <img src="../imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
                         </div>
                         <span>Inserir Dados</span>
                     </a>
@@ -80,7 +80,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="configuracao" alt="Ícone Configurações" />
+                            <img src="../imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
@@ -93,7 +93,7 @@
 
         <section class="painel">
             <div id="conteudo">
-                <img src="./imgs/Dois celulare 1Pa.png" alt="imagem vazio">
+                <img src="../imgs/Dois celulare 1Pa.png" alt="imagem vazio">
                 <h1>Nenhum Índice Inserido</h1>
 
                 <a href="insercaoDados.html"> <div id="button">

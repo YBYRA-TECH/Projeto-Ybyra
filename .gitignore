@@ -37,4 +37,6 @@ build/
 ### Mac OS ###
 .DS_Store
 
-.env
+# Arquivos de configuração com senhas
+src/main/resources/database.properties
+*.properties

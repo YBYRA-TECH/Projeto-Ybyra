@@ -1,7 +1,9 @@
 package com.example.ybyraservlet.servlet;
 
 import com.example.ybyraservlet.dao.IndustriaDAO;
+import com.example.ybyraservlet.dao.UsuarioDAO;
 import com.example.ybyraservlet.model.Industria;
+import com.example.ybyraservlet.model.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,8 +13,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginSERVLET", urlPatterns = {"/login"})
-public class LoginSERVLET extends HttpServlet {
+@WebServlet(name = "LoginUsuarioSERVLET", urlPatterns = {"/loginUsuario"})
+public class LoginUsuarioSERVLET extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,19 +38,19 @@ public class LoginSERVLET extends HttpServlet {
         }
 
         try {
-            System.out.println("Criando IndustriaDAO...");
-            IndustriaDAO dao = new IndustriaDAO();
+            System.out.println("Criando UsuarioDAO...");
+            UsuarioDAO dao = new UsuarioDAO();
 
             System.out.println("Verificando credenciais...");
-            Industria industria = dao.login(email, senha);
+            Usuario usuario = dao.login(email, senha);
 
-            if (industria != null) {
+            if (usuario != null) {
                 System.out.println("Login bem-sucedido!");
 
                 // Criar sessão para o usuário
                 HttpSession session = request.getSession();
-                session.setAttribute("usuarioLogado", industria);
-                session.setAttribute("nomeUsuario", industria.getNome());
+                session.setAttribute("usuarioLogado", usuario);
+                session.setAttribute("nomeUsuario", usuario.getNome());
                 session.setAttribute("emailUsuario", email);
 
                 // Redirecionar para página principal

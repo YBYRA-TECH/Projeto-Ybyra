@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="imgs/Nova logo Sem tech.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
     <title>YBYRA TECH</title>
 </head>
@@ -17,10 +17,10 @@
             style="width: 8.125rem;"
     />
     <a href="#sec3">Conheça o App</a>
-    <a href="autentificação/cadastro.jsp">Cadastre-se</a>
+    <a href="autentificacao/telaSeparação.jsp">Cadastre-se</a>
     <button>
         <p>
-            <a href="autentificação/login.jsp" style="color: aliceblue; font-size: 1rem"
+            <a href="autentificacao/telaSeparaçãoEntrar.jsp" style="color: aliceblue; font-size: 1rem"
             >Acesse a sua conta</a
             >
         </p>

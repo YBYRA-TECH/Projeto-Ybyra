@@ -1,59 +1,52 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: murilofonseca-ieg
-  Date: 11/10/2025
-  Time: 13:00
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./imgs/Nova logo Sem tech.png" type="image/x-icon" />
-    <link rel="stylesheet" href="TelaIserirDados.css" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/imgs/Nova logo Sem tech.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/TelaInserirDados.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <div class="painel-principal">
     <aside class="barra-lateral">
         <div class="logo-site">
-            <img src="./imgs/Nova logo.png" alt="Logo YBYRA TECH" />
+            <img src="<%= request.getContextPath() %>/imgs/Nova logo.png" alt="Logo YBYRA TECH" />
         </div>
 
         <nav class="menu-principal">
             <ul>
                 <li class="item-menu">
-                    <a href="inicio.html">
+                    <a href="<%= request.getContextPath() %>/web/inicio.jsp">
                         <div class="box-icone">
-                            <img src="./imgs/Nova logo Sem tech.png" alt="Ícone Início" />
+                            <img src="<%= request.getContextPath() %>/imgs/House.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="relatorios.html">
+                    <a href="<%= request.getContextPath() %>/web/relatorios.jsp">
                         <div class="box-icone">
-                            <img src="relatorios.html" alt="Ícone relatorios" />
+                            <img src="<%= request.getContextPath() %>/imgs/document.png" alt="Ícone relatorios" />
                         </div>
                         <span>Relatórios</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="#">
+                    <a href="<%= request.getContextPath() %>/web/tarefas.jsp">
                         <div class="box-icone">
-                            <img src="tarefas" alt="Ícone Tarefas" />
+                            <img src="<%= request.getContextPath() %>/imgs/clipboard.png" alt="Ícone Tarefas" />
                         </div>
                         <span>Tarefas</span>
                     </a>
                 </li>
 
                 <li class="item-menu ativo">
-                    <a href="insercaoDados.html">
+                    <a href="<%= request.getContextPath() %>/web/TelaInserirDados.jsp">
                         <div class="box-icone">
-                            <img src="inserir dados" alt="Ícone Inserir Dados" />
+                            <img src="<%= request.getContextPath() %>/imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
                         </div>
                         <span>Inserir Dados</span>
                     </a>
@@ -62,7 +55,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="" alt="Ícone IA" />
+                            <img src="<%= request.getContextPath() %>/imgs/chatbot.png" alt="Ícone ChatBot" />
                         </div>
                         <span>ChatBot</span>
                     </a>
@@ -71,7 +64,7 @@
                 <li class="item-menu" style="margin-top: 6.5rem;">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="ajuda" alt="Ícone Ajuda" />
+                            <img src="<%= request.getContextPath() %>/imgs/Help.png" alt="Ícone Ajuda" />
                         </div>
                         <span>Ajuda</span>
                     </a>
@@ -80,7 +73,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="configuracao" alt="Ícone Configurações" />
+                            <img src="<%= request.getContextPath() %>/imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
@@ -90,75 +83,42 @@
     </aside>
 
     <main class="area-conteudo">
-        <div class="conteudo-principal-header">
-            <header class="header-principal">
-                <div class="busca-filtros">
-                    <div class="busca-relatorios">
-                        <input type="text" placeholder="Buscar Relatórios" />
-                        <button class="icone-busca">
-                            <img src="" alt="omagem lupa" />
-                        </button>
-                    </div>
-                    <select name="categorias">
-                        <option value="" disabled selected>Todas as Categorias</option>
-                    </select>
-                    <select name="periodo">
-                        <option value="" disabled selected>Período</option>
-                    </select>
-                    <select name="prioridade">
-                        <option value="" disabled selected>Prioridade</option>
-                    </select>
-                    <button class="btn-buscar">Buscar</button>
-                </div>
-
-                <div class="icones-header-direita">
-                    <i class="fa-solid fa-bell icone-notificacao"></i>
-                    <i class="fa-solid fa-circle-user icone-usuario"></i>
-                </div>
-                <div class="icones-header-direita">
-                    <img src="" alt="imagem sino">
-                    <img src="" alt="imagem usuario">
-                </div>
-            </header>
-        </div>
-
-        <section class="detalhes-upload-painel">
+        <section class="painel">
             <h2 class="titulo-secao">Arquivo escolhido</h2>
 
             <div class="arquivo-preview">
-                <img src="" alt="Pré-visualização do Controle de Produção" class="preview-img">
+                <p>Arquivo: <strong><%= session.getAttribute("arquivoNome") != null ? session.getAttribute("arquivoNome") : "Nenhum arquivo selecionado" %></strong></p>
             </div>
 
-            <div class="formulario-detalhes">
+            <form action="<%= request.getContextPath() %>/InsercaoDados" method="post">
+                <div class="formulario-detalhes">
+                    <div class="area-detalhes">
+                        <h3 class="subtitulo-secao">Detalhes</h3>
 
-                <div class="area-detalhes">
-                    <h3 class="subtitulo-secao">Detalhes</h3>
+                        <div class="campo">
+                            <label for="titulo">Título</label>
+                            <input type="text"
+                                   name="nome"
+                                   placeholder="Digite o título do relatório"
+                                   required />>
+                        </div>
 
-                    <div class="campo">
-                        <label for="titulo">Título</label>
-                        <input type="text" id="titulo" value="" placeholder="Digite o Assunto" >
+                        <div class="campo">
+                            <label for="categoria">Categoria</label>
+                            <input type="text" id="categoria" name="area" placeholder="Digite a categoria" required>
+                        </div>
                     </div>
 
-                    <div class="campo">
-                        <label for="categoria">Categoria</label>
-                        <input type="text" id="categoria" value="" placeholder="Digite a categoria">
-                    </div>
-
-                    <div class="campo">
-                        <label for="prioridade">Prioridade</label>
-                        <input type="text" id="prioridade" value="" placeholder="Digite a prioridade">
+                    <div class="area-descricao">
+                        <h3 class="subtitulo-secao">Descrição</h3>
+                        <textarea name="descricao" class="texto-descricao" placeholder="Coloque aqui a descrição do arquivo" required></textarea>
                     </div>
                 </div>
 
-                <div class="area-descricao">
-                    <h3 class="subtitulo-secao">Descrição</h3>
-                    <h3 style="opacity: 0;">Espaço</h3>
-                    <textarea  class="texto-descricao" >coloque aqui a descrição do arquivo
-                        </textarea>
+                <input type="hidden" name="pdf" value="<%= session.getAttribute("arquivoNome") != null ? session.getAttribute("arquivoNome") : "" %>">
 
-                    <a href="insercaoDados.html" class="link-inserir" ><button class="btn-enviar">Enviar Arquivo</button></a>
-                </div>
-            </div>
+                <button type="submit" class="btn-enviar">Enviar Arquivo</button>
+            </form>
         </section>
     </main>
 </div>

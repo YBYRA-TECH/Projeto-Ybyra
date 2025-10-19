@@ -1,0 +1,473 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Estilos da Barra Lateral (Aside) --- */
+.barra-lateral {
+    width: 15.6rem;
+    padding: 1.2rem 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    width: 10rem;
+    display: flex;
+    position: relative;
+    margin-left: 10%;
+    margin-bottom: 1.5rem;
+}
+
+#menu {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #004cc5;
+    margin-left: auto;
+    user-select: none;
+}
+
+
+.menu-principal {
+    width: 100%;
+}
+
+.item-menu a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin-top: 1rem;
+    display: flex;
+    color: #3474cd;
+    align-items: center;
+    padding: 0.7rem 0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.item-menu a:hover {
+    color: #0e14bf;
+    background-color: rgba(12, 142, 255, 0.1);
+}
+
+/* Estilo para o item de menu ativo */
+.item-menu.ativo a {
+    margin: 1;
+    background-color: #192083;
+    border-radius: 0 1.2rem 1.2rem 0;
+    margin-right: 15rem;
+    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.item-menu a .box-icone {
+    margin-right: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-menu a img {
+    width: 3rem;
+    margin-left: 1.5rem;
+}
+
+/* --- Estilos da Área de Conteúdo --- */
+.area-conteudo {
+    flex-grow: 1;
+    padding: 1.3rem 0.4rem;
+    background-color: #f8fcff;
+    border-radius: 1.25rem;
+    margin: 1.2rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+}
+
+/*Imagem header dentro do area-conteudo*/
+#header-imagem {
+    display: flex;
+    justify-content: flex-end; /* Alinha os ícones/logos à direita */
+    align-items: center;
+    padding: 0 1.6rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+#header-imagem img {
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: all 3.2s; /* Mantendo seu estilo original para as imagens */
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* --- ESTILOS CORRIGIDOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
+/* -------------------------------------------------------------------------- */
+
+/* Estilos para o Painel de Ferramentas (Barra de Busca, Botões, Filtros) */
+.painel-ferramentas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 1.2rem;
+    gap: 1rem;
+}
+
+/* 1. Busca de Relatórios */
+.busca-relatorios {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 20rem;
+    height: 2.5rem;
+}
+
+.busca-relatorios input {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.busca-relatorios input::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.busca-relatorios .icone-busca {
+    background: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    height: 100%;
+}
+
+.busca-relatorios .icone-busca img {
+    width: 1.1rem;
+}
+
+/* 2. Botões de Ação (Exportar e Adicionar) */
+.botoes-acao {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.btn-acao {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+    transition: opacity 0.3s;
+}
+
+.btn-acao img {
+    width: 1.1rem;
+    margin-right: 0.4rem;
+}
+
+/* Botão Exportar (Branco com borda azul) */
+.btn-exportar {
+    background-color: white;
+    transition: all 0.3s;
+    color: #3474cd;
+    border: 1px solid #3474cd;
+}
+
+.btn-exportar img {
+    margin-right: 0.8rem;
+}
+
+.btn-adicionar img {
+    margin-right: 0.8rem;
+}
+
+.btn-exportar:hover {
+    background-color: #3474cd;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-adicionar {
+    margin-left: 1.3rem;
+    transition: all 0.3s;
+    background: linear-gradient(to right, #3474cd, #192083);
+    color: white;
+}
+
+.btn-adicionar:hover {
+    transform: translateY(-3px);
+}
+
+/* 3. Filtros de Data e Filtro Genérico */
+.filtros {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.filtro-data {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+.filtro-data:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.filtro-data input {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+
+/* --- Tabela --- */
+.container-tabela {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 0 1.5rem; /* Adicionado margem lateral para alinhamento */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(to right, #3474cd, #192083);
+}
+
+th {
+    font-family: "Montserrat", sans-serif;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Ajuste nas larguras das colunas da tabela */
+thead th:nth-child(2) { width: 20%; } /* Indice */
+thead th:nth-child(3) { width: 25%; } /* Responsável */
+thead th:nth-child(4) { width: 15%; } /* Desempenho */
+thead th:last-child { width: 5%; text-align: center; } /* Ações */
+
+td {
+    font-family: "Geologica", sans-serif;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    color: #475569;
+    /* Adicionado posicionamento para o link esticado */
+    position: relative;
+}
+
+tbody tr {
+    transition: background 0.2s;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* --- Estilos para Linhas Clicáveis (Sem JS) --- */
+
+/* 1. Torna a linha o ponto de ancoragem para o link */
+.row-link {
+    position: relative; /* Essencial para o posicionamento absoluto do link */
+    cursor: pointer; /* Indica que a linha é clicável */
+}
+
+/* 2. Estica o link para cobrir toda a área da linha */
+.table-link {
+    color: #475569;
+}
+
+/* Garante que o texto do ID, que está DENTRO do <a>, seja visível */
+.row-link td:first-child a.table-link {
+    text-indent: 0;
+    color: #475569; /* Cor original do texto */
+    padding: 1.2rem 1.5rem; /* Reaplicar o padding da célula */
+    display: block; /* Ocupa o espaço visível do texto */
+    position: relative; /* Para não ser afetado pelo esticamento absoluto */
+    z-index: 2; /* Fica acima do link esticado */
+    background: transparent;
+}
+
+/* O verdadeiro link que cobre tudo deve estar na primeira célula */
+.row-link td:first-child {
+    position: relative; /* Permite que o link esticado funcione */
+}
+
+
+/* 3. Garante que o botão de ações (...) seja clicável */
+.tres-pontos {
+    position: relative; /* Essencial para usar z-index */
+    z-index: 3; /* Deve ficar acima do link esticado e do texto do ID */
+}
+
+
+/* Estilo para a barra de desempenho (simulação do visual da imagem) */
+.barra-desempenho {
+    height: 1.2rem;
+    border-radius: 0.6rem;
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* Ajustes para remover o status-badge antigo */
+    width: auto !important;
+    padding: 0.5rem !important;
+}
+
+/* Cores e Larguras específicas conforme a imagem */
+.barra-verde { /* 97% */
+    background-color: #4caf50;
+    width: 97%;
+}
+
+.barra-verde-med { /* 85% */
+    background-color: #66bb6a;
+    width: 85%;
+}
+
+.barra-verde-claro { /* 76% */
+    background-color: #81c784;
+    width: 76%;
+}
+
+.barra-vermelha { /* 37% */
+    background-color: #f44336;
+    width: 37%;
+}
+
+.barra-amarela { /* 50% */
+    background-color: #ffc107;
+    width: 50%;
+    color: #333; /* Texto escuro no amarelo */
+}
+
+/* Botão de Ações (Três Pontos) */
+td:last-child {
+    text-align: center;
+}
+
+.tres-pontos {
+    background: transparent;
+    border: none;
+    color: #3474cd;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 0.5;
+    font-weight: 900;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: background 0.3s;
+
+}
+
+.tres-pontos:hover {
+    background: #f1f5f9;
+}
+
+/* --- PAGINAÇÃO --- */
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.paginacao button {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.paginacao button:hover {
+    background: #3474cd;
+    color: white;
+    border-color: #3474cd;
+}
+
+.paginacao button.ativo {
+    background: #3474cd;
+    color: white;
+    border-color: #3474cd;
+}
+
+/* Estilos removidos/substituídos */
+.status-badge, .status-ativo, .status-inativo, .status-manutencao {
+    display: none !important; /* Garantindo que os antigos estilos de status não apareçam */
+}
+
+
+a {
+    text-decoration: none;
+}
+
+@media(max-width:1024px){
+
+
+}

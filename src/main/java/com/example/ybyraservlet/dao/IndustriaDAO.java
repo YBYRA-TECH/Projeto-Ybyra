@@ -156,4 +156,59 @@ public class IndustriaDAO {
         return null;
     }
 
+    public Industria buscarEmail(String email){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            String sql = "SELECT * FROM industria WHERE email = ?";
+            conn = conexao.conectar();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery(sql);
+
+            System.out.println("Conteúdo da tabela indústria:");
+
+            if (rs.next()) {
+                Industria industria = new Industria();
+                industria.setIdIndustria(rs.getInt("id_industria"));
+                industria.setEmail(rs.getString("email"));
+                industria.setCnpj(rs.getString("cnpj"));
+                industria.setNome(rs.getString("nome"));
+                industria.setSenha(rs.getString("senha"));
+                return industria;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
+        }
+        return null;
     }
+
+    public int buscarID(String nome) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int id = -1;
+
+        try {
+            String sql = "SELECT id_industria FROM industria WHERE nome = ?";
+            conn = conexao.conectar();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                id = rs.getInt("id_industria");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return id;
+    }
+
+}

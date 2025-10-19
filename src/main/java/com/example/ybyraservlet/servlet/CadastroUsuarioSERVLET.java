@@ -1,7 +1,9 @@
 package com.example.ybyraservlet.servlet;
 
 import com.example.ybyraservlet.dao.IndustriaDAO;
+import com.example.ybyraservlet.dao.UsuarioDAO;
 import com.example.ybyraservlet.model.Industria;
+import com.example.ybyraservlet.model.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,33 +11,48 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
-@WebServlet(name = "CadastroSERVLET", urlPatterns = {"/cadastro"})
-public class CadastroSERVLET extends HttpServlet {
+@WebServlet(name = "CadastroUsuario", urlPatterns = {"/cadastroUsuario"})
+public class CadastroUsuarioSERVLET extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("=== doPost chamado no CadastroSERVLET ===");
+        System.out.println(" doPost chamado no CadastroSERVLET");
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
         // Receber dados
         String nome = request.getParameter("nome");
-        String cnpj = request.getParameter("cnpj");
+        String data_nasc_String = request.getParameter("data_nasc");
+        String cpf = request.getParameter("cpf");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
+        String industria = request.getParameter("industria");
+
+        IndustriaDAO daoInd = new IndustriaDAO();
+        int idIndustria = daoInd.buscarID(industria);
+
         System.out.println("Dados recebidos:");
         System.out.println("Nome: " + nome);
-        System.out.println("CNPJ: " + cnpj);
+        System.out.println("Data de nascimento: " + data_nasc_String);
+        System.out.println("Cpf: " + cpf);
         System.out.println("Email: " + email);
+        System.out.println("Id Industria:" + idIndustria);
 
         // Validar campos vazios
         if (nome == null || nome.isEmpty() ||
-                cnpj == null || cnpj.isEmpty() ||
+                data_nasc_String == null || data_nasc_String.isEmpty() ||
+                cpf == null || cpf.isEmpty() ||
                 email == null || email.isEmpty() ||
                 senha == null || senha.isEmpty()) {
 
@@ -44,28 +61,30 @@ public class CadastroSERVLET extends HttpServlet {
             return;
         }
 
+
         try {
-            System.out.println("Criando objeto Industria...");
-            Industria industria = new Industria(nome, cnpj, email, senha);
+            LocalDate data_nasc = LocalDate.parse(data_nasc_String);
+            System.out.println("Criando objeto Usuario...");
+            Usuario usuario = new Usuario(email, cpf, nome, data_nasc,senha,idIndustria);
 
             // VALIDAR CNPJ
-            if (!industria.validarCnpj()){
-                System.out.println("O cnpj está incorreto!");
-                request.setAttribute("erroCnpj", "Ops! O cnpj está incorreto!");
+            if (!usuario.validarCpf()){
+                System.out.println("O cpf está incorreto!");
+                request.setAttribute("erroCpf", "Ops! O cpf está incorreto!");
                 request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
+                request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
+                request.getRequestDispatcher("/autentificacao/cadastroUsuario.jsp").forward(request, response);
                 return;
             }
 
             // VALIDAR EMAIL
-            if (!industria.validarEmail()){
+            if (!usuario.validarEmail()){
                 System.out.println("O email está incorreto!");
                 request.setAttribute("erroEmail", "Ops! O email está incorreto!");
                 request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
+                request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
                 request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
@@ -73,22 +92,22 @@ public class CadastroSERVLET extends HttpServlet {
             }
 
             // VALIDAR SENHA
-            if (!industria.validarSenha()){
+            if (!usuario.validarSenha()){
                 System.out.println("A senha está incorreta!");
                 request.setAttribute("erroSenha", "Ops! A senha está incorreta! Ela precisa ter no mínimo 8 dígitos e um número");
                 request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
+                request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
                 request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
                 return;
             }
 
-            System.out.println("Criando IndustriaDAO...");
-            IndustriaDAO dao = new IndustriaDAO();
+            System.out.println("Criando UsuarioDao...");
+            UsuarioDAO dao = new UsuarioDAO();
 
             System.out.println("Inserindo dados no banco...");
-            boolean sucesso = dao.inserirDados(industria);
+            boolean sucesso = dao.inserirDados(usuario);
 
             if (sucesso) {
                 System.out.println("Cadastro realizado com sucesso!");
@@ -101,6 +120,5 @@ public class CadastroSERVLET extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().println("<h3> Erro: " + e.getMessage() + "</h3>");
-        }
     }
-}
+}}

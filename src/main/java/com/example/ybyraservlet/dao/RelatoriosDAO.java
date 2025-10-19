@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.ybyraservlet.conexao.ConexaoBD;
+import com.example.ybyraservlet.model.Industria;
 import com.example.ybyraservlet.model.Relatorios;
 
 public class RelatoriosDAO{
@@ -27,11 +28,13 @@ public class RelatoriosDAO{
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = ("INSERT INTO relatorios (data_criacao, pdf_documento, id_usuario) VALUES (?, ?, ?)");
+            String sql = ("INSERT INTO relatorios (nome, area,id_usuario, pdf_documento, descricao) VALUES (?, ?, ?, ?,?)");
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setDate(1, relatorios.getDataCriacao());
-            pstmt.setString(2, relatorios.getPdfDocumento());
+            pstmt.setString(1, relatorios.getNome());
+            pstmt.setString(2, relatorios.getArea());
             pstmt.setInt(3, relatorios.getIdUsuario());
+            pstmt.setString(4, relatorios.getPdfDocumento());
+            pstmt.setString(5, relatorios.getDescricao());
 
             return pstmt.executeUpdate() > 0;
 
@@ -72,7 +75,7 @@ public class RelatoriosDAO{
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "SELECT * FROM relatorios ORDER BY id_usuario ASC";
+            String sql = "SELECT * FROM relatorios ORDER BY id_relatorio ASC";
             conn = conexao.conectar();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -83,10 +86,6 @@ public class RelatoriosDAO{
                 String pdf = rs.getString("pdf_documento");
                 int idUser = rs.getInt("id_usuario");
 
-                Relatorios rel = new Relatorios(
-                        idRelatorios, dataCriacao, pdf, idUser
-                );
-                lista.add(rel);
             }
 
         } catch (SQLException e) {
@@ -119,5 +118,33 @@ public class RelatoriosDAO{
         }finally {
             conexao.desconectar(conn);
         }
+    }
+    public Relatorios buscarRelatorio(int idRelatorios) {
+
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM relatorios WHERE id_relatorio = ?";
+            conn = conexao.conectar();
+            pstmt.setInt(1, idRelatorios);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery(sql);
+
+                if (rs.next()) {
+                    Relatorios relatorio = new Relatorios();
+                    relatorio.setIdRelatorios(rs.getInt("id_relatorios"));
+                    relatorio.setDataCriacao(rs.getDate("data_criacao"));
+                    relatorio.setPdfDocumento(rs.getString("pdf_documento"));
+                    relatorio.setArea(rs.getString("area"));
+                    return relatorios;
+                }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
+        }
+        return null;
+
     }
 }
