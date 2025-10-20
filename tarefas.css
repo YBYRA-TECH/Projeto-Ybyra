@@ -21,7 +21,7 @@ body {
 /* ===== ÁREA DE CONTEÚDO ===== */
 .conteudo {
     flex-grow: 1;
-    padding: 1.3rem 0rem 1rem 3rem;
+    padding: 1.3rem 0rem 0.1rem 0.3rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
@@ -696,7 +696,7 @@ body {
 /* Tablets */
 @media (max-width: 1024px) {
     .topo {
-        gap: 0.75rem;
+        gap: 2.75rem;
     }
     .confirmar {
         width: 40%;
