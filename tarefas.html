@@ -94,7 +94,7 @@
         <!-- CONTEÚDO PRINCIPAL -->
         <main class="conteudo">
             <!-- HEADER COM BUSCA E FILTROS -->
-            <header class="topo">
+            <header class="topo" id="header">
                 <div class="area-filtros">
                     <div class="campo-busca">
                         <input type="text" placeholder="Buscar Tarefas" />
@@ -105,7 +105,7 @@
 
 
                     <input type="checkbox" id="adicionar">
-                    <label for="adicionar">
+                    <label for="adicionar" id="menu-adicionar">
                         <span>Adicionar</span>
                     </label>
 
@@ -153,14 +153,14 @@
                         <div class="tarefa nao-iniciada">
                             <input type="checkbox" id="tarefa-1" class="checkbox-expandir">
                             <label for="tarefa-1" class="cabecalho-tarefa">
-                                <span class="indicador-status"></span>
+                                
                                 <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
                                 <div class="acoes-tarefa">
-                                    <button class="btn-acao btn-editar">
+                                    <a href="#header" class="btn-acao btn-editar">
                                         <label for="adicionar" class="icone-alterar">
                                             <img src="./imgs/icone alterar.png" alt="Editar">
                                         </label>
-                                    </button>
+                                    </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-1">
                                     <label for="modal-1" class="icone-lixeira">
                                         <img src="./imgs/Trash.png" alt="lixeira">
@@ -207,14 +207,14 @@
                         <div class="tarefa nao-iniciada">
                             <input type="checkbox" id="tarefa-2" class="checkbox-expandir">
                             <label for="tarefa-2" class="cabecalho-tarefa">
-                                <span class="indicador-status"></span>
+                               
                                 <span class="titulo-tarefa">Manter a limpeza do setor.</span>
                                 <div class="acoes-tarefa">
-                                    <button class="btn-acao btn-editar">
+                                    <a href="#menu-adicionar" class="btn-acao btn-editar">
                                         <label for="adicionar" class="icone-alterar">
                                             <img src="./imgs/icone alterar.png" alt="Editar">
                                         </label>
-                                    </button>
+                                    </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-3">
                                     <label for="modal-3" class="icone-lixeira">
                                         <img src="./imgs/Trash.png" alt="lixeira">
@@ -266,14 +266,14 @@
                         <div class="tarefa em-andamento">
                             <input type="checkbox" id="tarefa-3" class="checkbox-expandir">
                             <label for="tarefa-3" class="cabecalho-tarefa">
-                                <span class="indicador-status"></span>
+                               
                                 <span class="titulo-tarefa">Manutenção na máquina 15.</span>
                                 <div class="acoes-tarefa">
-                                    <button class="btn-acao btn-editar">
+                                    <a href="#menu-adicionar" class="btn-acao btn-editar">
                                         <label for="adicionar" class="icone-alterar">
                                             <img src="./imgs/icone alterar.png" alt="Editar">
                                         </label>
-                                    </button>
+                                    </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-4">
                                     <label for="modal-4" class="icone-lixeira">
                                         <img src="./imgs/Trash.png" alt="lixeira">
@@ -318,14 +318,14 @@
                         <div class="tarefa em-andamento">
                             <input type="checkbox" id="tarefa-4" class="checkbox-expandir">
                             <label for="tarefa-4" class="cabecalho-tarefa">
-                                <span class="indicador-status"></span>
+                               
                                 <span class="titulo-tarefa">Adicionar dados do app.</span>
                                 <div class="acoes-tarefa">
-                                    <button class="btn-acao btn-editar">
+                                    <a href="#menu-adicionar" class="btn-acao btn-editar">
                                         <label for="adicionar" class="icone-alterar">
                                             <img src="./imgs/icone alterar.png" alt="Editar">
                                         </label>
-                                    </button>
+                                    </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-5">
                                     <label for="modal-5" class="icone-lixeira">
                                         <img src="./imgs/Trash.png" alt="lixeira">
@@ -377,16 +377,16 @@
                         <div class="tarefa concluida">
                             <input type="checkbox" id="tarefa-5" class="checkbox-expandir">
                             <label for="tarefa-5" class="cabecalho-tarefa">
-                                <span class="indicador-status"></span>
+                               
                                 <span class="titulo-tarefa">Revisão de estoque.</span>
                                 <div class="acoes-tarefa">
-                                    <button class="btn-acao btn-editar">
-                                        <label for="adicionar" for="tarefa-5" class="icone-alterar">
+                                    <a href="#header" class="btn-acao btn-editar">
+                                        <label for="adicionar" class="icone-alterar">
                                             <img src="./imgs/icone alterar.png" alt="Editar">
                                         </label>
-                                    </button>
-                                    <input type="checkbox" class="menu-lixeira" id="modal-1">
-                                    <label for="modal-1" class="icone-lixeira">
+                                    </a>
+                                    <input type="checkbox" class="menu-lixeira" id="modal-6">
+                                    <label for="modal-6" class="icone-lixeira">
                                         <img src="./imgs/Trash.png" alt="lixeira">
                                     </label>
                                     <div class="modal-overlay">
@@ -399,7 +399,7 @@
                                                 removidos.</p>
                                             <div class="info-item">
                                                 <strong>Concluído em:</strong>
-                                                <span></span>
+                                                <span>08/10/2025</span>
                                             </div>
                                             <div class="info-item">
                                                 <strong>Descrição:</strong>
@@ -411,8 +411,8 @@
                                                 <span>Pedro Santos</span>
                                             </div>
                                             <div class="buttons">
-                                                <label for="modal-1" class="btn-cancelar">Não</label>
-                                                <label for="modal-1" class="btn-excluir">Sim</label>
+                                                <label for="modal-6" class="btn-cancelar">Não</label>
+                                                <label for="modal-6" class="btn-excluir">Sim</label>
                                             </div>
                                         </div>
                                     </div>
