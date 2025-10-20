@@ -203,7 +203,7 @@ body {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position: right 0.5rem top 50%;
+    background-position:top 50%;
     background-size: 0.65rem auto;
     transition: all 10s ease;
 
@@ -260,7 +260,7 @@ body {
 .secao-board {
     display: flex;
     justify-content: flex-start;
-    gap: 3rem;
+    gap: 13rem;
     padding: 0 1.5rem 1.5rem;
 }
 
@@ -520,7 +520,7 @@ body {
     color: #94a3b8;
     transition: all 0.3s;
     display: block;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 /* Detalhes da Tarefa (Expansível) */
