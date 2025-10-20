@@ -14,8 +14,6 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px;
-    /* Definindo a base de 1rem = 16px */
 }
 
 body {
@@ -32,8 +30,6 @@ body {
 }
 #meuIframe {
     border-radius: 0.5rem;
-    width: 75rem;
-    height: 60rem;
 }
 
 /* O truque: esconde a barra de rolagem horizontal */

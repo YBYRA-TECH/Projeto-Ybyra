@@ -62,7 +62,7 @@ main {
 #inputs h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-size: clamp(2rem, 4vw, 2.7rem);
   margin-bottom: 0.5rem;
   background-clip: text;
   color: transparent;
