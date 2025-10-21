@@ -26,8 +26,6 @@ body {
     /* min-height: 100vh; */
 }
 
-
-
 /* --- Estilos da Área de Conteúdo --- */
 
 .area-conteudo {
@@ -105,7 +103,7 @@ body {
 
 /* Estilo do botão Buscar */
 .btn-buscar {
-    background-color: #3474cd;
+    background-color: #2067ca;
     color: white;
     border: none;
     border-radius: 0.5rem;

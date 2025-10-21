@@ -106,10 +106,10 @@
     justify-content: right;
 }
 
-
 .area-icones-usuario img {
     margin-right: 2rem;
     transition: all 0.6s;
+    margin: 0%;
 }
 
 #menu-notificacoes {
@@ -119,11 +119,11 @@
 #notificacoes {
     display: none;
     position: fixed;
-    top: 11.1%;
+    top: 12.5%;
     font-family: "Montserrat", sans-serif;
     background-color: white;
     border-radius: 0.3rem;
-    width: 40%;
+    width: 20%;
     padding: 1rem ;
     text-align: left;
     margin-left: 0%;
