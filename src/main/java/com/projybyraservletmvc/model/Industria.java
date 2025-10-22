@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.model;
+package com.ybyraservletmvc.model;
 
 public class Industria {
     //ATRIBUTOS

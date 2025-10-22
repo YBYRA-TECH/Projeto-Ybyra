@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.dao;
+package com.ybyraservletmvc.dao;
 
 
 import java.sql.Connection;
@@ -11,9 +11,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD:src/main/java/com/example/ybyraservlet/dao/UsuarioDAO.java
 import com.example.ybyraservlet.conexao.ConexaoBD;
 import com.example.ybyraservlet.model.Industria;
 import com.example.ybyraservlet.model.Usuario;
+=======
+import com.ybyraservletmvc.conexao.ConexaoBD;
+import com.ybyraservletmvc.model.*;
+>>>>>>> 29dd911bb23b0ce1a9e0039c83ebd007971edd39:src/main/java/com/projybyraservletmvc/dao/UsuarioDAO.java
 
 public class UsuarioDAO{
 

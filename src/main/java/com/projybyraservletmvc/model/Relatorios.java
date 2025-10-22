@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.model;
+package com.ybyraservletmvc.model;
 
 import java.sql.Date;
 

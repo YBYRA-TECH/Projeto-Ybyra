@@ -1,15 +1,21 @@
+<<<<<<< HEAD:src/main/java/com/example/ybyraservlet/servlet/LoginSERVLET.java
 package com.example.ybyraservlet.servlet;
+=======
 
-import com.example.ybyraservlet.dao.IndustriaDAO;
-import com.example.ybyraservlet.model.Industria;
+package com.ybyraservletmvc.servlet;
+
+import java.io.IOException;
+
+import com.ybyraservletmvc.dao.IndustriaDAO;
+import com.ybyraservletmvc.model.Industria;
+>>>>>>> 29dd911bb23b0ce1a9e0039c83ebd007971edd39:src/main/java/com/projybyraservletmvc/servlet/LoginServlet.java
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import java.io.IOException;
 
 @WebServlet(name = "LoginSERVLET", urlPatterns = {"/login"})
 public class LoginSERVLET extends HttpServlet {

@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.dao;
+package com.ybyraservletmvc.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.ybyraservlet.conexao.ConexaoBD;
-import com.example.ybyraservlet.model.Industria;
+import com.ybyraservletmvc.conexao.ConexaoBD;
+import com.ybyraservletmvc.model.*;
 
 public class IndustriaDAO {
 
