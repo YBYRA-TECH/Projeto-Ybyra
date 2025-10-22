@@ -9,7 +9,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -17,81 +18,10 @@ body {
     background: linear-gradient(to right, #CCF6FF, #192083);
 }
 
-/* ===== LAYOUT PRINCIPAL ===== */
-.container-principal {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* ===== SIDEBAR (MENU LATERAL) ===== */
-.barra-lateral {
-    width: 15.6rem;
-    padding: 1.2rem 0;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-site {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.logo-site img {
-    width: 10rem;
-}
-
-.menu-principal {
-    width: 100%;
-}
-
-.menu-principal ul {
-    list-style: none;
-}
-
-.item-menu a {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    margin-top: 1rem;
-    display: flex;
-    color: #3474cd;
-    align-items: center;
-    padding: 0.7rem 0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.item-menu a:hover {
-    color: #0e14bf;
-    background-color: rgba(12, 142, 255, 0.1);
-}
-
-.item-menu.ativo a {
-    background-color: #192083;
-    border-radius: 0 1.2rem 1.2rem 0;
-    margin-right: 15rem;
-    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
-}
-
-.box-icone {
-    margin-right: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.box-icone img {
-    width: 3rem;
-    margin-left: 1.5rem;
-}
-
 /* ===== ÁREA DE CONTEÚDO ===== */
 .conteudo {
     flex-grow: 1;
-    padding: 1.3rem 1.5rem;
+    padding: 1.3rem 0rem 1rem 3rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
@@ -99,20 +29,6 @@ body {
 }
 
 /* ===== HEADER (BUSCA E FILTROS) ===== */
-.topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.area-filtros {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    max-width: 75%;
-}
 
 .campo-busca {
     display: flex;
@@ -128,34 +44,168 @@ body {
     padding: 0.6rem 0.8rem;
     outline: none;
     font-size: 0.85rem;
-    width: 12rem;
+    flex: 1;
 }
-
 .btn-lupa {
     background-color: transparent;
     border: none;
     padding: 0 0.8rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-lupa img {
-    width: 1rem;
-    height: 1rem;
+    width: 20px;
+    height: 20px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#adicionar {
+    display: none;
+}
+
+#menu-tarefas {
+    display: none;
+    width: 80%;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    border: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    order: 3;
+    /* Coloca o menu abaixo dos outros elementos */
+}
+
+#menu-tarefas input,
+#menu-tarefas select {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 0.5rem);
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-family: "Geologica", sans-serif;
+    transition: all 0.3s ease;
+}
+
+#menu-tarefas input:focus,
+#menu-tarefas select:focus {
+    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+    border-color: #1e88ee;
+    transform: scale(1.02);
+}
+
+.area-filtros {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.area-filtros label {
+    display: flex;
+    gap: 0.5rem;
+    background-color: #3474cd;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.area-filtros label:hover {
+    background-color: #192083;
 }
 
 .filtro-select {
-    padding: 0.6rem 0.8rem;
-    border: 1px solid #ccc;
+    padding: 0.6rem 2rem 0.6rem 0.8rem;
+    font-weight: 600;
     border-radius: 0.5rem;
     background-color: white;
-    font-size: 0.85rem;
-    padding-right: 2rem;
+    font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 0.5rem top 50%;
     background-size: 0.65rem auto;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+.btn-buscar {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-buscar:hover {
+    background-color: #192083;
+}
+
+.area-icones-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    white-space: nowrap;
+}
+
+.area-icones-usuario img {
+    transition: all 0.3s;
+}
+
+/* Quando o menu está aberto */
+#adicionar:checked~#menu-tarefas {
+    display: flex;
+    transition: all 1.5s;
+}
+
+.filtro-select {
+    padding: 0.6rem 0.8rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.9rem;
+    padding-right: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position:top 50%;
+    background-size: 0.65rem auto;
+    transition: all 10s ease;
+
 }
 
 .btn-adicionar {
@@ -172,14 +222,12 @@ body {
     border: none;
 }
 
-
-
 .btn-buscar {
     background-color: #3474cd;
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 0.6rem 1.5rem;
+    padding: 0.6rem 1rem;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
@@ -190,24 +238,25 @@ body {
     background-color: #192083;
 }
 
-.area-icones-usuario {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.confirmar {
+    width: 24%;
 }
 
-.area-icones-usuario img {
-    width: 1.5rem;
-    height: 1.5rem;
+.btn-confirmar {
+    border-radius: 0.4rem;
+    border: none;
+    background: linear-gradient(135deg, #2214a4, #14097a);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
     cursor: pointer;
-    transition: all 0.2s;
+    font-size: 1rem;
 }
 
 /* ===== SECTION BOARD (Tarefas + ASIDE) ===== */
 .secao-board {
     display: flex;
     justify-content: flex-start;
-    gap: 3rem;
+    gap: 13rem;
     padding: 0 1.5rem 1.5rem;
 }
 
@@ -261,29 +310,6 @@ body {
     padding-bottom: 1rem;
     cursor: pointer;
 }
-
-.indicador-status {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    border: 2px solid;
-    margin-right: 0.75rem;
-}
-
-/* Cores dos Indicadores de Status */
-.nao-iniciada .indicador-status {
-    border-color: #ff5252;
-}
-
-.em-andamento .indicador-status {
-    border-color: #ff9800;
-}
-
-.concluida .indicador-status {
-    border-color: #4caf50;
-    background-color: #4caf50;
-}
-
 .titulo-tarefa {
     flex-grow: 1;
     margin-right: 0.5rem;
@@ -297,6 +323,173 @@ body {
     margin-right: 0.5rem;
 }
 
+.icone-alterar {
+    cursor: pointer;
+}
+
+#icone-alterar:checked~.tarefa.concluida {
+    background: #3474cd;
+}
+
+.menu-lixeira {
+    display: none;
+}
+
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    padding: 8%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none
+}
+
+.menu-lixeira:checked+.modal-overlay {
+    display: flex;
+}
+
+.menu-lixo {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.menu-lixo-icone {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background: #14097a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.menu-lixo-icone img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu-lixo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.menu-lixo p {
+    font-family: 'Geologica', sans-serif;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.menu-lixo .info-item {
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.menu-lixo .info-item strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-lixo .info-item span {
+    color: #475569;
+    font-size: 0.95rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.buttons label {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+    text-align: center;
+    display: block;
+}
+
+.btn-cancelar {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.btn-cancelar:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.btn-excluir {
+    background: linear-gradient(135deg, #2214a4, #14097a);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.btn-excluir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+/* Estilo do botão lixeira na tabela */
+.icone-lixeira {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.icone-lixeira:hover {
+    background: #d9d7e2;
+    transform: scale(1.1);
+}
+
+.icone-lixeira img {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+}
+
+.menu-lixeira:checked~.modal-overlay {
+    /* display: block; */
+    opacity: 1;
+    pointer-events: auto;
+}
 .btn-acao {
     background: none;
     border: none;
@@ -323,7 +516,7 @@ body {
     color: #94a3b8;
     transition: all 0.3s;
     display: block;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 /* Detalhes da Tarefa (Expansível) */
@@ -347,7 +540,7 @@ body {
     display: none;
 }
 
-.checkbox-expandir:checked ~ .detalhes-tarefa {
+.checkbox-expandir:checked~.detalhes-tarefa {
     max-height: 13rem;
     padding-bottom: 1rem;
     border-top-color: #f1f5f9;
@@ -394,7 +587,6 @@ body {
 }
 
 .avatar-usuario {
-    background-color: #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -415,3 +607,181 @@ body {
     background-color: #4caf50;
     margin-left: 0.5rem;
 }
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .topo {
+        gap: 0.75rem;
+    }
+    .confirmar {
+        width: 40%;
+    }
+
+    .btn-confirmar {
+        border-radius: 0.4rem;
+        border: none;
+        background: linear-gradient(135deg, #2214a4, #14097a);
+        color: white;
+        box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+        height: 3rem;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    .btn-confirmar {
+        width: 40%;
+        height: 3rem;
+    }
+
+    .area-filtros {
+        gap: 0.5rem;
+    }
+
+    .campo-busca input {
+        width: 10rem;
+    }
+    #menu-tarefas {
+        justify-content: right;
+    }
+    #menu-tarefas input,
+    #menu-tarefas select {
+        width: 100%;
+        /* Um por linha em tablets */
+    }
+}
+
+@media (min-width: 1440px) {
+    .area-filtros {
+        max-width: 70%;
+    }
+
+    .campo-busca input {
+        width: 15rem;
+    }
+}
+
+/* Tablets Pequenos */
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 1rem;
+    }
+}
+
+.btn-confirmar {
+    width: clamp(80%,60%,65%);
+    position: right;
+    height: 2.5rem;
+    cursor: pointer;
+    font-size: clamp(0.5rem,1.5vw,1.4rem);
+}
+
+.area-filtros {
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.campo-busca {
+    min-width: 1rem;
+    flex: 1;
+}
+
+.campo-busca input {
+    width: 0rem;
+    padding: 1rem;
+}
+
+.area-icones-usuario {
+    justify-content: center;
+    order: 2;
+    margin-top: 0.5rem;
+}
+
+#menu-tarefas {
+    order: 3;
+}
+
+.topo-painel h3 {
+    font-size: 1rem;
+    width: 8rem;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .area-filtros {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .campo-busca,
+    .area-filtros label,
+    .filtro-select,
+    .btn-buscar {
+        width: 100%;
+    }
+
+    .campo-busca input {
+        width: 100%;
+    }
+
+    .area-icones-usuario {
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    #menu-tarefas {
+        margin-top: 0.5rem;
+    }
+
+    .secao-board {
+        flex-direction: column;
+        padding: 0 0.5rem 1rem;
+    }
+
+    .quadro-tarefas {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .painel-pessoas {
+        width: 100%;
+    }
+}
+
+/* Mobile Pequeno */
+@media (max-width: 480px) {
+    .conteudo {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    .topo {
+        margin-bottom: 1rem;
+    }
+
+    .area-filtros label,
+    .btn-buscar {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .filtro-select {
+        padding: 0.5rem 1.8rem 0.5rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    #menu-tarefas {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    #menu-tarefas input,
+    #menu-tarefas select {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Ajustes para telas muito grandes */

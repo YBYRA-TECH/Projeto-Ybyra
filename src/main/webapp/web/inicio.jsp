@@ -1,104 +1,73 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: murilofonseca-ieg
-  Date: 11/10/2025
-  Time: 12:53
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../imgs/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/inicio.css" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/inicio.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/globalApp.css" />
+
     <title>YBYRA TECH</title>
 </head>
 <body>
 <div class="painel-principal">
     <aside class="barra-lateral">
-        <div class="logo-site">
-            <img src="../imgs/Nova logo.png" alt="Logo YBYRA TECH" />
-        </div>
+        <!-- ADICIONADO: input checkbox para menu mobile -->
+        <input type="checkbox" id="menu">
+        <!-- ADICIONADO: label com spans para ícone hamburger -->
+        <label for="menu" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <!-- CORRIGIDO: class de "logo-site" para "logo-logo" -->
+        <label for="menu-icon" class="logo-logo">
+            <!-- ADICIONADO: id="logo" na imagem -->
+            <img src="<%= request.getContextPath() %>/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
+        </label>
 
         <nav class="menu-principal">
             <ul>
                 <li class="item-menu ativo">
-                    <a href="inicio.jsp">
+                    <a href="<%= request.getContextPath() %>/web/inicio.jsp">
                         <div class="box-icone">
-                            <img src="../imgs/icon.png" alt="Ícone Início" />
+                            <!-- CORRIGIDO: ícone House.png ao invés de icon.png -->
+                            <img src="<%= request.getContextPath() %>/imgs/House.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
-                <li class="item-menu">
-                    <a href="relatorios.jsp">
-                        <div class="box-icone">
-                            <img src="../imgs/document.png" alt="Ícone relatorios" />
-                        </div>
-                        <span>Relatórios</span>
-                    </a>
-                </li>
-
-                <li class="item-menu">
-                    <a href="tarefas.jsp">
-                        <div class="box-icone">
-                            <img src="../imgs/clipboard.png" alt="Ícone Tarefas" />
-                        </div>
-                        <span>Tarefas</span>
-                    </a>
-                </li>
-
-                <li class="item-menu">
-                    <a href="insercaoDados.jsp">
-                        <div class="box-icone">
-                            <img src="../imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
-                        </div>
-                        <span>Inserir Dados</span>
-                    </a>
-                </li>
+                <!-- REMOVIDO: todos os outros itens do menu que estavam comentados no HTML original -->
+                <!-- Apenas Início e Configurações ficam -->
 
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="" alt="Ícone IA" />
-                        </div>
-                        <span>ChatBot</span>
-                    </a>
-                </li>
-
-                <li class="item-menu" style="margin-top: 6.5rem;">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="ajuda" alt="Ícone Ajuda" />
-                        </div>
-                        <span>Ajuda</span>
-                    </a>
-                </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="../imgs/configuracoes.png" alt="Ícone Configurações" />
+                            <img src="<%= request.getContextPath() %>/imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
                 </li>
             </ul>
         </nav>
+        <!-- ADICIONADO: div overlay -->
+        <div class="overlay"></div>
     </aside>
 
     <main class="area-conteudo">
 
         <section class="painel">
             <div id="conteudo">
-                <img src="../imgs/Dois celulare 1Pa.png" alt="imagem vazio">
+                <!-- CORRIGIDO: nome da imagem "sem documento.png" -->
+                <img src="<%= request.getContextPath() %>/imgs/sem%20documento.png" alt="imagem vazio">
                 <h1>Nenhum Índice Inserido</h1>
 
-                <a href="insercaoDados.html"> <div id="button">
-                    <button>Adicione um agora!</button>
-                </div>
+                <!-- CORRIGIDO: link para insercaoDados.jsp -->
+                <a href="<%= request.getContextPath() %>/web/insercaoDados.jsp">
+                    <div id="button">
+                        <button>Adicione um agora!</button>
+                    </div>
                 </a>
             </div>
         </section>

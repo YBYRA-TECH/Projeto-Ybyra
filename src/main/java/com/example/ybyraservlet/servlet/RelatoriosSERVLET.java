@@ -2,6 +2,7 @@ package com.example.ybyraservlet.servlet;
 
 import com.example.ybyraservlet.dao.IndustriaDAO;
 import com.example.ybyraservlet.dao.RelatoriosDAO;
+import com.example.ybyraservlet.dao.UsuarioDAO;
 import com.example.ybyraservlet.model.Relatorios;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -34,7 +35,12 @@ public class RelatoriosSERVLET extends HttpServlet {
         HttpSession session = request.getSession(false);
         if (session != null) {
             String nomeUsuario = (String) session.getAttribute("nomeUsuario");
-            IndustriaDAO dao = new IndustriaDAO();
+            String emailUsuario = (String) session.getAttribute("emailUsuario");
+            System.out.println("-----------------------------------------------------------------Nomes Usuario");
+            System.out.println("Nome do usuario que inseriu o relatorio: "+ nomeUsuario);
+            System.out.println("Email do usuario que inseriu o relatorio: "+ emailUsuario);
+            System.out.println("-----------------------------------------------------------------");
+            UsuarioDAO dao = new UsuarioDAO();
             int id_usuario = dao.buscarID(nomeUsuario);
 
 
@@ -55,7 +61,7 @@ public class RelatoriosSERVLET extends HttpServlet {
         }
 
         try {
-            System.out.println("Criando objeto Industria...");
+            System.out.println("Criando objeto Realtorios...");
             Relatorios relatorio = new Relatorios(nome, area, id_usuario, pdf_documento,descricao);
 
 

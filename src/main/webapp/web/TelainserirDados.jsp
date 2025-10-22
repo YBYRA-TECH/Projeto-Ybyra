@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="<%= request.getContextPath() %>/imgs/Nova logo Sem tech.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/globalApp.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/TelaInserirDados.css" />
-    <title>YBYRA TECH</title>
+    <title>YBYRA TECH - Detalhes do Upload</title>
 </head>
 <body>
 <div class="painel-principal">
     <aside class="barra-lateral">
-        <div class="logo-site">
-            <img src="<%= request.getContextPath() %>/imgs/Nova logo.png" alt="Logo YBYRA TECH" />
-        </div>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <label for="menu-icon" class="logo-logo">
+            <img src="<%= request.getContextPath() %>/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
+        </label>
 
         <nav class="menu-principal">
             <ul>
@@ -33,7 +40,6 @@
                         <span>Relatórios</span>
                     </a>
                 </li>
-
                 <li class="item-menu">
                     <a href="<%= request.getContextPath() %>/web/tarefas.jsp">
                         <div class="box-icone">
@@ -42,34 +48,14 @@
                         <span>Tarefas</span>
                     </a>
                 </li>
-
                 <li class="item-menu ativo">
-                    <a href="<%= request.getContextPath() %>/web/TelaInserirDados.jsp">
+                    <a href="<%= request.getContextPath() %>/web/insercaoDados.jsp">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
+                            <img src="<%= request.getContextPath() %>/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
                         </div>
                         <span>Inserir Dados</span>
                     </a>
                 </li>
-
-                <li class="item-menu">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/chatbot.png" alt="Ícone ChatBot" />
-                        </div>
-                        <span>ChatBot</span>
-                    </a>
-                </li>
-
-                <li class="item-menu" style="margin-top: 6.5rem;">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/Help.png" alt="Ícone Ajuda" />
-                        </div>
-                        <span>Ajuda</span>
-                    </a>
-                </li>
-
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
@@ -83,7 +69,22 @@
     </aside>
 
     <main class="area-conteudo">
-        <section class="painel">
+        <div class="conteudo-principal-header">
+            <div class="area-icones-usuario">
+                <input type="checkbox" id="menu-notificacoes">
+                <label for="menu-notificacoes">
+                    <img src="<%= request.getContextPath() %>/imgs/notificacoes.png" alt="Notificações">
+                </label>
+                <div id="notificacoes">
+                    <h1>Notificações</h1>
+                    <div>Murilo adicionou uma tarefa</div>
+                    <div>Guilherme concluiu uma tarefa</div>
+                    <div>Emilly concluiu uma tarefa</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="detalhes-upload-painel">
             <h2 class="titulo-secao">Arquivo escolhido</h2>
 
             <div class="arquivo-preview">
@@ -98,26 +99,37 @@
                         <div class="campo">
                             <label for="titulo">Título</label>
                             <input type="text"
+                                   id="titulo"
                                    name="nome"
                                    placeholder="Digite o título do relatório"
-                                   required />>
+                                   required />
                         </div>
 
                         <div class="campo">
                             <label for="categoria">Categoria</label>
-                            <input type="text" id="categoria" name="area" placeholder="Digite a categoria" required>
+                            <input type="text"
+                                   id="categoria"
+                                   name="area"
+                                   placeholder="Digite a categoria"
+                                   required>
                         </div>
                     </div>
 
                     <div class="area-descricao">
                         <h3 class="subtitulo-secao">Descrição</h3>
-                        <textarea name="descricao" class="texto-descricao" placeholder="Coloque aqui a descrição do arquivo" required></textarea>
+                        <h3 style="opacity: 0;">Espaço</h3>
+                        <textarea name="descricao"
+                                  class="texto-descricao"
+                                  placeholder="Coloque aqui a descrição do arquivo"
+                                  required></textarea>
+
+                        <input type="hidden"
+                               name="pdf"
+                               value="<%= session.getAttribute("arquivoNome") != null ? session.getAttribute("arquivoNome") : "" %>">
+
+                        <button type="submit" class="btn-enviar">Enviar Arquivo</button>
                     </div>
                 </div>
-
-                <input type="hidden" name="pdf" value="<%= session.getAttribute("arquivoNome") != null ? session.getAttribute("arquivoNome") : "" %>">
-
-                <button type="submit" class="btn-enviar">Enviar Arquivo</button>
             </form>
         </section>
     </main>

@@ -14,7 +14,6 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px; /* Definindo a base de 1rem = 16px */
 }
 
 body {
@@ -25,97 +24,24 @@ body {
     display: flex;
     min-height: 100vh;
 }
-
-/* --- Estilos da Barra Lateral (Aside) --- */
-.barra-lateral {
-    width: 15.6rem;
-    padding: 1.2rem 0;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
+.area-icones-usuario img {
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
 }
-
-.logo-site {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.logo-site img {
-    width: 10rem;
-}
-
-.menu-principal {
-    width: 100%;
-}
-
-.item-menu a {
-    font-family: "Montserrat", sans-serif;
-    font-weight:600;
-    margin-top: 1rem;
-    display: flex;
-    color: #3474cd;
-    align-items: center;
-    padding: 0.7rem 0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.item-menu a:hover {
-    color:#0e14bf;
-    background-color: rgba(12, 142, 255, 0.1);
-}
-
-/* Estilo para o item de menu ativo */
-.item-menu.ativo a {
-    margin: 1;
-    background-color:#192083;
-    border-radius: 0 1.2rem 1.2rem 0;
-    margin-right: 15rem;
-    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
-}
-
-.item-menu a .box-icone {
-    margin-right: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.item-menu a img {
-    width: 3rem;
-    margin-left: 1.5rem;
-}
-
-/* --- Estilos da Área de Conteúdo --- */
-.area-conteudo {
-    flex-grow: 1;
-    padding: 1.3rem 0.4rem;
-    background-color: #f8fcff;
-    border-radius: 1.25rem;
-    margin: 1.2rem;
-    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
-}
-
-#header-imagem {
-    display: flex;
-    justify-content: right;
-    margin-bottom: 2rem;
-}
-#header-imagem img {
-    width: 7rem;
-}
-
 #meuIframe {
     border-radius: 0.5rem;
-    width: 77rem;
-    height: 60rem;
 }
 
 /* O truque: esconde a barra de rolagem horizontal */
 #meuIframe {
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+@media(max-width:1024px) {
+
+    #meuIframe {
+        width: 95%;
+    }
+
 }

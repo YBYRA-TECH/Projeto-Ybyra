@@ -1,7 +1,4 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,28 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="shortcut icon"
-            href="../imgs/icon.png"
+            href="<%= request.getContextPath() %>/imgs/icon.png"
             type="image/x-icon"
     />
-    <link rel="stylesheet" href="../css/telaCon.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/telaCon.css" />
+    <!-- ADICIONADO: link para global.css -->
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/global.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <header>
     <img
-            src="../imgs/Nova%20logo.png"
+            src="<%= request.getContextPath() %>/imgs/Nova%20logo.png"
             alt="Logo Ybyra Tech"
             style="width: 8.125rem; max-width: 35vw; height: auto"
     />
-    <a href="../index.jsp">Conheça o App</a>
-    <a href="cadastro.jsp">Cadastre-se</a>
-    <button>
-        <p>
-            <a href="login.jsp" style="color: aliceblue; font-size: 1rem"
-            >Acesse a sua conta</a
-            >
-        </p>
-    </button>
+    <!-- ADICIONADO: input checkbox e label para menu mobile -->
+    <input type="checkbox" id="menu">
+    <label for="menu" class="menu-icon">☰</label>
+    <!-- ADICIONADO: nav com classe menu-links -->
+    <nav class="menu-links" >
+        <a href="<%= request.getContextPath() %>/index.jsp">Conheça o App</a>
+        <a href="<%= request.getContextPath() %>/autentificacao/telaSeparação.jsp">Cadastre-se</a>
+        <a href="<%= request.getContextPath() %>/autentificacao/telaSeparaçãoEntrar.jsp" style="color: aliceblue; font-size: 1rem" id="botao-login">Acesse a sua conta</a>
+    </nav>
+    <!-- REMOVIDO: button envolvendo o link -->
 </header>
 
 <main>
@@ -44,11 +44,12 @@
             <p id="mensagem-conclusao">Sua operação foi realizada com êxito. Obrigado por usar nossos serviços.</p>
 
             <div id="buttons">
-                <button >
-                    <a href="../index.jsp" style="color: #767676">Cancelar</a>
+                <!-- CORRIGIDO: link do cancelar para verificacaoIndustria.html -->
+                <button>
+                    <a href="<%= request.getContextPath() %>/autentificacao/verificacaoIndustria.jsp" style="color: #767676">Cancelar</a>
                 </button>
                 <button style="background-color: #1e88ee;">
-                    <a href="../web/inicio.jsp">Entrar</a>
+                    <a href="<%= request.getContextPath() %>/web/inicio.jsp">Entrar</a>
                 </button>
             </div>
 

@@ -15,46 +15,14 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== CABEÇALHO ===== */
-header {
-    background-image: url("../imgs/Fundo_Header.png");
-    position: fixed;
-    width: 95%;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: clamp(1.5rem, 4vw, 5rem);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.5rem;
-    padding: 0.4rem 2.5rem;
-}
-
-a {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(0.9rem, 1.3vw, 1.2rem);
-    text-decoration: none;
-    color: black;
-}
-
-header a:hover {
-    text-decoration: underline;
-}
-
-header a:first-of-type {
-    margin-left: auto;
-}
-
-header button {
-    background-color: #004cc5;
-    border: none;
-    color: aliceblue;
-    border-radius: 0.7rem;
-    padding: 1rem;
-}
 
 /* ===== ÁREA PRINCIPAL ===== */
 main {
     padding-top: 5rem;
+}
+
+#botao-login {
+    margin-right: 5rem;
 }
 
 /* ===== SEÇÃO INTRODUÇÃO ===== */
@@ -86,9 +54,13 @@ main {
 }
 
 .sec_intro a {
-    font-family: "Geologic" sans-serif;
-    font-size: 1.2rem;
+    font-family: "Geologica", sans-serif;
+    text-decoration: none;
+    font-size: 1.4rem;
     color: aliceblue;
+}
+.sec_intro a:hover{
+    text-decoration: underline;
 }
 
 /* ===== TÍTULO RESULTADOS ===== */
@@ -252,7 +224,7 @@ main {
 }
 
 .dot {
-    margin-right: 5rem;
+    margin-right: 4rem;
     width: 7rem;
     height: 1rem;
     border-radius: 0.6rem;
@@ -261,55 +233,134 @@ main {
     transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#step1:checked ~ .slides .slide[data-step="1"],
-#step2:checked ~ .slides .slide[data-step="2"],
-#step3:checked ~ .slides .slide[data-step="3"],
-#step4:checked ~ .slides .slide[data-step="4"] {
+#step1:checked~.slides .slide[data-step="1"],
+#step2:checked~.slides .slide[data-step="2"],
+#step3:checked~.slides .slide[data-step="3"],
+#step4:checked~.slides .slide[data-step="4"] {
     display: flex;
 }
 
-#step1:checked ~ .sec3_controls label[for="step1"],
-#step2:checked ~ .sec3_controls label[for="step2"],
-#step3:checked ~ .sec3_controls label[for="step3"],
-#step4:checked ~ .sec3_controls label[for="step4"] {
+#step1:checked~.sec3_controls label[for="step1"],
+#step2:checked~.sec3_controls label[for="step2"],
+#step3:checked~.sec3_controls label[for="step3"],
+#step4:checked~.sec3_controls label[for="step4"] {
     background: #0a4ec7;
 }
 
-/* ===== SEÇÃO 4 ===== */
+/* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
 #sec4 {
     margin-top: 10rem;
     display: flex;
     align-items: center;
-    padding: 4rem 2rem;
+    padding: 2rem 0rem;
     gap: 2rem;
 }
 
+.texto {
+    margin-left: 1rem;
+}
+
 #sec4 img {
-    margin-left: clamp(0rem, 9vw, 15rem);
+    width: 50rem;
+    margin-left: clamp(0rem, 4vw, 15rem);
 }
 
 #sec4 h1 {
+    align-items: flex-start;
     font-family: "Montserrat", sans-serif;
-    font-weight: 600  ;
     background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
     background-clip: text;
     color: transparent;
-    font-size: clamp(3rem, 8vw, 6.2rem);
-    margin-bottom: 7rem;
+    font-size: clamp(3rem, 8vw, 4.6rem);
+    width: 120%;
+    margin-bottom: 5rem;
 }
 
-#sec4 p {
-    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+/* Inputs Container */
+.inputs {
+    margin-left: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "email email"
+    "telefone nome"
+    "industria enviar";
+    gap: 2rem;
+}
+
+/* Posicionamento dos inputs */
+.inputs input:nth-of-type(1) {
+    grid-area: email;
+    padding-right:2.1rem;
+}
+
+.inputs input:nth-of-type(2) {
+    grid-area: telefone;
+}
+
+.inputs input:nth-of-type(3) {
+    margin-left: 1rem;
+    grid-area: nome;
+}
+
+.inputs input:nth-of-type(4) {
+    grid-area: industria;
+}
+
+#buttons {
+    grid-area: enviar;
+}
+
+/* Estilos dos inputs */
+.inputs input {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
     font-family: "Geologica", sans-serif;
-    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
 }
 
-hr {
-    margin: 1rem;
+.inputs input::placeholder {
+    color: #767676;
+}
+
+.inputs input:focus {
+    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+    border-color: #1e88ee;
+    transform: scale(1.02);
+}
+
+/* Button Container */
+#buttons {
+    display: flex;
+    font-family: "Geologica", sans-serif;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#buttons button {
+    background: linear-gradient(135deg, #004cc5, #0066ff);
+    color: #ffffff;
+    border-radius: 0.7rem;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
     border: none;
-    border-top: 3px solid #ccc;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 8rem;
 }
 
+#buttons button:hover {
+    background: linear-gradient(135deg, #003a9a, #0055dd);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 /* ===== SEÇÃO DECORATIVA ===== */
 #imagem_decorativa {
     height: 50vh;
@@ -320,6 +371,7 @@ hr {
 
 /* ===== SEÇÃO SOBRE ===== */
 #sec_sobre {
+
     background-image: url("../imgs/Fundo_Sobre.png");
     background-size: cover;
     background-position: center;
@@ -328,7 +380,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 23vh;
+    padding: 25vh;
 }
 
 #titulo_sobre {
@@ -339,12 +391,13 @@ hr {
     color: white;
     text-align: left;
     margin-bottom: clamp(5vh, 10vw, 8vh);
+    width: 38vw;
 }
 
 #cartoes_sobre {
     display: flex;
     justify-content: space-around;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .card_sobre {
@@ -353,10 +406,10 @@ hr {
     align-items: center;
     text-align: center;
     max-width: 130rem;
-    width: 23rem;
+    width: 25vw;
     height: 100vh;
     padding: 2rem;
-    gap: 2rem;
+    gap: 0.8rem;
     border-radius: 30px;
     box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.1);
 }
@@ -388,15 +441,18 @@ a:hover {
 p {
     font-family: "Geologica", sans-serif;
 }
+
 /* ===== RODAPÉ ===== */
 footer {
     margin-top: 23rem;
     border-radius: 0.1rem;
     background-color: #081f38;
 }
+
 footer section {
     flex-wrap: wrap;
 }
+
 footer div {
     display: flex;
     flex-wrap: wrap;
@@ -431,17 +487,8 @@ h3 {
 
 /* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
 @media (max-width: 1024px) {
-    /* ===== CABEÇALHO ===== */
-    header {
-        padding: 0.4rem 1.5rem;
-        width: 95%;
-    }
 
-    header a:first-of-type {
-        margin-left: auto;
-    }
-
-    /* ===== SEÇÃO INTRODUÇÃO (MANTÉM ORDEM ORIGINAL - TEXTO/IMAGEM) ===== */
+    /* ===== SEÇÃO INTRODUÇÃO (EMPILHAMENTO) ===== */
     .sec_intro {
         flex-direction: column;
         height: auto;
@@ -454,6 +501,7 @@ h3 {
     #texto_intro {
         align-items: center;
         padding-top: 5rem;
+        padding-bottom: 5rem; /* Adicionado para dar espaço após o texto */
     }
 
     /* ===== TÍTULO RESULTADOS ===== */
@@ -474,108 +522,121 @@ h3 {
 
     .card {
         width: 80vw;
+        box-sizing: border-box;
         max-width: 30rem;
     }
 
     /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
     #sec3 {
-        /* Remove o align-items: center que centralizava tudo */
-        align-items: flex-end; /* Volta ao padrão desktop */
+        align-items: center; /* Centraliza no tablet */
         padding-top: 5rem;
+        margin-bottom: 5rem; /* Reduzido o margin-bottom */
     }
 
     .sec3_content {
-        /* Remove o empilhamento para telas até 1024px */
-        flex-direction: row;
+        flex-direction: column; /* Empilha no tablet */
+        align-items: center;
+        justify-content: center;
     }
 
     .slide {
-        /* Remove o empilhamento e alinhamento central */
-        flex-direction: row;
+        flex-direction: column; /* Empilha imagem e texto no slide */
         align-items: center;
-        justify-content: flex-start; /* Volta ao padrão desktop */
+        text-align: center;
     }
 
     .slide img {
-        margin-top: 15%; /* Volta ao padrão desktop */
-        margin-bottom: 0;
-        /* Diminui o tamanho da imagem, mantendo a proporção */
-        width: clamp(18rem, 35vw, 35rem);
+        margin-top: 5%;
+        margin-bottom: 2rem;
+        width: clamp(20rem, 50vw, 35rem); /* Ajuste de tamanho */
     }
 
     .slide-text {
-        /* Volta ao padrão desktop */
-        margin-left: 3.2rem;
-        width: 60%;
-        text-align: left;
+        margin-left: 0;
+        width: 90%; /* Ocupa mais espaço horizontal */
+        text-align: center;
     }
 
     .slide-text h1 {
-        /* Mantém o alinhamento central do tablet */
         margin-right: 0;
-        text-align: right; /* Volta ao alinhamento do desktop */
+        text-align: center;
+        /* Faz o h1 seguir o empilhamento e centralização */
     }
 
     .slide h2 {
-        margin-top: 15%; /* Volta ao padrão desktop */
+        margin-top: 5%; /* Ajustado o margin-top */
     }
 
     .sec3_controls {
-        /* Volta ao padrão desktop */
-        justify-content: flex-end;
-        margin-right: clamp(0rem, 7vw, 5rem);
-        margin-bottom: 5rem;
+        justify-content: center; /* Centraliza os controles */
+        margin-right: 0;
+        margin-top: 2rem;
     }
 
     .dot {
-        margin-top: 1.5rem;
-        width: 5rem; /* Mantém o tamanho do desktop para o dot */
-        margin-right: 3rem; /* Mantém a margem do desktop para o dot */
+        margin-right: 2rem; /* Espaçamento menor entre dots */
+        width: 4rem; /* Tamanho do dot ajustado */
         height: 0.8rem;
     }
+
     /* ===== SEÇÃO 4 - PERGUNTAS (IMAGEM ACIMA DO TEXTO) ===== */
     #sec4 {
-        flex-direction: column-reverse;
         margin-top: 5rem;
-        text-align: center;
-        padding: 2rem;
-        gap: 5rem;
+        /* flex-direction: column-reverse; Imagem fica em cima */
+        padding: 1rem;
+        margin-bottom: 10rem;
+        margin-left: clamp(3rem,3vw,1rem);
     }
 
     #sec4 img {
-        width: 80vw;
+        width: 90vw; /* Ocupa quase toda a largura */
+        max-width: 40rem; /* Limita o tamanho em telas grandes de tablet */
         margin-left: 0;
+        margin-right: 0;
     }
 
     #sec4 h1 {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem; /* Espaçamento mais compacto */
+        font-size: clamp(2.5rem, 5vw, 4rem);
     }
 
-    .textoP {
+    #sec4 p {
+        margin-left: 0;
+        text-align: center;
+        padding: 0 5vw; /* Adiciona padding lateral no texto */
+    }
+
+    hr {
+        margin-left: auto;
+        margin-right: auto;
         max-width: 80vw;
+    }
+
+    #imagem_decorativa {
+        display: none;
     }
 
     /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
     #sec_sobre {
         height: auto;
-        padding: 25vh 2vw;
+        padding: 10vh 2vw; /* Menos padding vertical */
     }
 
     #titulo_sobre {
         margin-right: 0;
         text-align: center;
-        margin-top: -2rem;
-        margin-bottom: 5vh;
+        margin-top: 0;
+        width: auto;
     }
 
     #cartoes_sobre {
         flex-direction: column;
         align-items: center;
-        gap: 5rem;
+        gap: 3rem; /* Espaçamento menor entre cards */
     }
 
     .card_sobre {
-        max-width: 85vw;
+        width: 45vw;
         height: auto;
         padding: 2rem;
         margin-right: 0 !important;
@@ -583,16 +644,10 @@ h3 {
         background-size: 80%;
     }
 
-    .card_sobre:nth-child(1) {
-        background-position: 50% 95%;
-    }
-    .card_sobre:nth-child(3) {
-        background-position: 50% 95%;
-    }
 
     /* ===== RODAPÉ (EMPILHAMENTO) ===== */
     footer {
-        margin-top: 10rem;
+        margin-top: 5rem; /* Rodapé mais próximo */
         padding: 2rem 0;
     }
 
@@ -611,121 +666,117 @@ h3 {
     }
 }
 
-/* --- TELA DE SMARTPHONE (MAX-WIDTH: 780PX) --- */
-@media (max-width: 780px) {
-    /* ===== CABEÇALHO (Compacto) ===== */
-    header {
-        justify-content: space-between;
-        gap: 0;
-        padding: 0.8rem 1rem;
-        width: 96vw;
-    }
-
-    header a,
-    header a:first-of-type {
-        display: none;
-        margin-left: 0;
-    }
-
-    header button {
-        padding: 0.5rem 1rem;
-    }
-    header button p a {
-        display: block;
-        font-size: 0.9rem;
-    }
+/* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
+@media (max-width: 767px) {
 
     /* ===== SEÇÃO INTRODUÇÃO (Compacto) ===== */
     .sec_intro {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 2vw;
+        padding-right: 2vw;
         padding-top: 2rem;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     /* ===== TÍTULO RESULTADOS (Compacto) ===== */
     #titulo_resultados {
-        padding-left: 0;
-        text-align: center;
+        font-size: clamp(2rem, 8vw, 3rem);
+        padding-top: 3rem;
+    }
+
+    /* ===== SEÇÃO CARTÕES (Largura total) ===== */
+    .card {
+        width: 90vw;
     }
 
     /* ===== SEÇÃO 3 - CONHEÇA O APP (Slider Compacto) ===== */
     #sec3 {
-        align-items: center; /* Centraliza a seção para o empilhamento */
-    }
-
-    .sec3_content {
-        /* Aplica o empilhamento para smartphone */
-        flex-direction: column;
-    }
-
-    .slide {
-        /* Empilha a imagem e o texto e centraliza */
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
+        margin-bottom: 2rem;
     }
 
     .slide img {
-        /* Ajusta a imagem no modo empilhado */
-        margin-top: 5%;
-        margin-bottom: 2rem;
-        width: clamp(20rem, 60vw, 30rem); /* Ajuste de tamanho para mobile */
-        margin-right: 4rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        width: clamp(15rem, 80vw, 25rem); /* Aumenta a imagem no mobile */
+        margin-right: 0; /* Remove a margem extra */
     }
 
     .slide-text {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .slide-text h1 {
-        margin-right: 0;
-        text-align: center;
+        width: 90%;
     }
 
     .slide h2 {
-        margin-top: 5%;
+        margin-top: 0;
+        font-size: clamp(1.4rem, 6vw, 2rem);
+    }
+
+    .slide p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
     }
 
     .sec3_controls {
-        /* Centraliza os controles */
-        justify-content: center;
-        margin-right: 0;
-        margin-bottom: 5rem;
-        margin-top: 10%;
+        margin-top: 5%;
     }
-
-    .dot {
-        width: 4rem;
-        height: 0.6rem;
-        margin-right: 0.7rem;
-    }
-
 
     /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
-    #sec4 img {
-        width: 120vw;
-        margin-left: 1.5rem;
+    #sec4 {
+        margin-bottom: 5rem;
+        /* flex-direction: column-reverse; Já estava, mas garantindo */
     }
 
-    /* ===== IMAGEM DECORATIVA ===== */
-    #imagem_decorativa {
-        background-size: 40% 80%;
+    #sec4 img {
+        width: 100vw; /* Ocupa a largura total para parecer um banner */
+        margin-right: 0;
+        margin-left: 0;
     }
+
+    /* ===== SEÇÃO DECORATIVA ===== */
+    #imagem_decorativa {
+        background-size: 60% 80%;
+        /* Aumenta um pouco para ser visível */
+    }
+
     /* ===== SEÇÃO SOBRE (Compacto) ===== */
     #sec_sobre {
-        margin-top: -2rem;
-        background-size: 400% 95%;
-    }
-    #titulo_sobre {
-        margin-top: 4vh;
+        padding: 5vh 2vw;
+        background-size: 200% 200%; /* Ajuste para o fundo não ser exagerado */
     }
 
-    /* Remove as imagens de fundo nos cartões da seção "Sobre Nós" para telas muito pequenas */
+    #titulo_sobre {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        margin-bottom: 3vh;
+    }
+
     .card_sobre {
+        /* Remove as imagens de fundo nos cartões */
         background-image: none !important;
+        padding: 1.5rem;
+        width: 55vw;
+    }
+
+    .titulo_card {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+
+    /* ===== RODAPÉ ===== */
+    footer p,
+    footer h3 {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+
+    footer h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile muito pequeno (360px e abaixo) */
+@media (max-width: 480px) {
+    #botao-login {
+        margin-right: 1rem;
+    }
+
+    /* Ajustes finais de espaçamento */
+    main {
+        padding-top: 3rem;
     }
 }

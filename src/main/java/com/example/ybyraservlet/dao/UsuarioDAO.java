@@ -175,8 +175,8 @@ public class UsuarioDAO{
                 System.out.println("Usuário encontrado!");
 
                 Usuario usuario = new Usuario(
+                        rs.getString("email"), 
                         rs.getString("nome"),
-                        rs.getString("email"),
                         rs.getString("senha")
                 );
 
@@ -193,6 +193,58 @@ public class UsuarioDAO{
 
         }
         return null;
+    }
+
+    public int buscarID(String nome) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int id = -1;
+
+        try {
+            String sql = "SELECT id_usuario FROM usuario WHERE nome = ?";
+            conn = conexao.conectar();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                id = rs.getInt("id_usuario");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return id;
+    }
+
+
+
+    public String buscarNome(String email) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String nome = "Nome não encontrado";
+
+        try {
+            String sql = "SELECT nome FROM usuario WHERE email = ?";
+            conn = conexao.conectar();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                nome = rs.getString("nome");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return nome;
     }
 
 

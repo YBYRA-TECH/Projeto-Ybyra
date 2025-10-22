@@ -1,87 +1,74 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: murilofonseca-ieg
-  Date: 11/10/2025
-  Time: 12:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../imgs/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/tarefas.css" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/globalApp.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/tarefas.css" />
     <title>YBYRA TECH</title>
 </head>
+
 <body>
 <div class="container-principal">
 
     <aside class="barra-lateral">
-        <div class="logo-site">
-            <img src="../imgs/Nova logo.png" alt="" />
-        </div>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <label for="menu-icon" class="logo-logo">
+            <img src="<%= request.getContextPath() %>/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
+        </label>
 
         <nav class="menu-principal">
             <ul>
                 <li class="item-menu">
-                    <a href="inicio.jsp">
+                    <!-- CORRIGIDO: link para inicioBI.jsp -->
+                    <a href="<%= request.getContextPath() %>/web/inicioBI.jsp">
                         <div class="box-icone">
-                            <img src="../imgs/icon.png" alt="Ícone Início" />
+                            <img src="<%= request.getContextPath() %>/imgs/House.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="relatorios.jsp">
+                    <a href="<%= request.getContextPath() %>/web/relatorios.jsp">
                         <div class="box-icone">
-                            <img src="../imgs/document.png" alt="Ícone relatórios" />
+                            <img src="<%= request.getContextPath() %>/imgs/document.png" alt="Ícone relatorios" />
                         </div>
                         <span>Relatórios</span>
                     </a>
                 </li>
 
                 <li class="item-menu ativo">
-                    <a href="tarefas.jsp">
+                    <a href="<%= request.getContextPath() %>/web/tarefas.jsp">
                         <div class="box-icone">
-                            <img src="../imgs/clipboard.png" alt="Ícone Tarefas" />
+                            <!-- CORRIGIDO: dois espaços no final do src -->
+                            <img src="<%= request.getContextPath() %>/imgs/clipboard.png" alt="Ícone Tarefas" />
                         </div>
                         <span>Tarefas</span>
                     </a>
                 </li>
 
                 <li class="item-menu">
-                    <a href="insercaoDados.jsp">
+                    <a href="<%= request.getContextPath() %>/web/insercaoDados.jsp">
                         <div class="box-icone">
-                            <img src="../imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
+                            <!-- CORRIGIDO: removido aspas extras -->
+                            <img src="<%= request.getContextPath() %>/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
                         </div>
                         <span>Inserir Dados</span>
                     </a>
                 </li>
 
-                <li class="item-menu">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="../imgs/icone-chatbot.png" alt="Ícone IA" />
-                        </div>
-                        <span>ChatBot</span>
-                    </a>
-                </li>
-
-                <li class="item-menu" style="margin-top: 6.5rem;">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="../imgs/Help.png" alt="Ícone Ajuda" />
-                        </div>
-                        <span>Ajuda</span>
-                    </a>
-                </li>
 
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="../imgs/configuracoes.png" alt="Ícone Configurações" />
+                            <img src="<%= request.getContextPath() %>/imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
@@ -90,35 +77,57 @@
         </nav>
     </aside>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="conteudo">
-        <header class="topo">
+        <header class="topo" id="header">
             <div class="area-filtros">
                 <div class="campo-busca">
                     <input type="text" placeholder="Buscar Tarefas" />
                     <button class="btn-lupa">
-                        <img src="./imgs/icone-lupa.png" alt="Buscar" />
+                        <img src="<%= request.getContextPath() %>/imgs/Research.png" alt="Buscar" />
                     </button>
                 </div>
-                <select class="filtro-select" name="prioridade" >
-                    <option value="" disabled selected hidden>Prioridade</option>
-                    <option value="">Não Iniciada</option>
-                    <option value="">Em Andamento</option>
-                    <option value="">Concluída</option>
-
-                </select>
-                <button class="btn-adicionar">
-                    <img src="+" alt="icone" />
+                <input type="checkbox" id="adicionar">
+                <!-- ADICIONADO: id="menu-adicionar" no label -->
+                <label for="adicionar" id="menu-adicionar">
                     <span>Adicionar</span>
-                </button>
+                </label>
+
+                <div id="menu-tarefas">
+                <form action="<%= request.getContextPath() %>/AdicionarTarefa" method="post">
+
+                <select class="filtro-select" name="prioridade" required>
+                        <option value="" disabled selected hidden>Prioridade</option>
+                        <option value="nao_iniciada">Não Iniciada</option>
+                        <option value="em_andamento">Em Andamento</option>
+                        <option value="concluida">Concluída</option>
+                    </select>
+
+                    <input type="text" name="nome" placeholder="Nome da tarefa" required>
+                    <input type="text" name="responsavel" placeholder="Responsável" required>
+                    <input type="date" name="prazo" placeholder="Prazo" required>
+                    <input type="text" name="descricao" placeholder="Descrição" required>
+                    <div class="confirmar">
+                        <button type="submit" class="btn-confirmar">confirmar</button>
+                    </div>
+                </form>
+                </div>
+
                 <button class="btn-buscar">Buscar</button>
             </div>
-
             <div class="area-icones-usuario">
-                <img src="../imgs/notificacoes.png" alt="Notificações">
-                <img src="../imgs/icone_usuario.png" alt="Perfil">
+                <input type="checkbox" id="menu-notificacoes">
+                <label for="menu-notificacoes">
+                    <img src="<%= request.getContextPath() %>/imgs/notificacoes.png" alt="Notificações">
+                </label>
+                <div id="notificacoes">
+                    <h1>Notificações</h1>
+                    <div>Murilo adicionou uma tarefa</div>
+                    <div>Guilherme concluiu uma tarefa</div>
+                    <div>Emilly concluiu uma tarefa</div>
+                </div>
             </div>
         </header>
-
         <!-- BOARD DE TAREFAS + PESSOAS ONLINE -->
         <section class="secao-board">
             <!-- QUADRO KANBAN -->
@@ -132,22 +141,54 @@
                     <div class="tarefa nao-iniciada">
                         <input type="checkbox" id="tarefa-1" class="checkbox-expandir">
                         <label for="tarefa-1" class="cabecalho-tarefa">
-                            <span class="indicador-status"></span>
+                            <!-- REMOVIDO: span.indicador-status (não existe no HTML) -->
                             <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
                             <div class="acoes-tarefa">
-                                <button class="btn-acao btn-editar">
-                                    <img src="../imgs/icone-editar.png" alt="Editar">
-                                </button>
-                                <button class="btn-acao btn-excluir">
-                                    <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                </button>
+                                <!-- CORRIGIDO: <a> envolvendo label, href="#header" -->
+                                <a href="#header" class="btn-acao btn-editar">
+                                    <label for="adicionar" class="icone-alterar">
+                                        <img src="<%= request.getContextPath() %>/imgs/icone%20alterar.png" alt="Editar">
+                                    </label>
+                                </a>
+                                <input type="checkbox" class="menu-lixeira" id="modal-1">
+                                <label for="modal-1" class="icone-lixeira">
+                                    <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="lixeira">
+                                </label>
+                                <div class="modal-overlay">
+                                    <div class="menu-lixo">
+                                        <div class="menu-lixo-icone">
+                                            <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="Ícone Lixeira">
+                                        </div>
+                                        <h1>Deseja excluir o relatório?</h1>
+                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                            removidos.</p>
+                                        <div class="info-item">
+                                            <strong>Prazo:</strong>
+                                            <span>15/10/2025</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Descrição:</strong>
+                                            <span>Verificar ruído no motor principal e trocar o filtro de
+                                                óleo.</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Responsável:</strong>
+                                            <span>Jorge Silva</span>
+                                        </div>
+                                        <div class="buttons">
+                                            <label for="modal-1" class="btn-cancelar">Não</label>
+                                            <label for="modal-1" class="btn-excluir">Sim</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> Jorge Silva</p>
-                            <p><strong>Prazo:</strong> 15/Out/2025</p>
-                            <p><strong>Descrição:</strong> Verificar ruído no motor principal e trocar o filtro de óleo.</p>
+                            <p><strong>Prazo:</strong> 15/10/2025</p>
+                            <p><strong>Descrição:</strong> Verificar ruído no motor principal e trocar o filtro de
+                                óleo.</p>
                         </div>
                     </div>
 
@@ -155,22 +196,54 @@
                     <div class="tarefa nao-iniciada">
                         <input type="checkbox" id="tarefa-2" class="checkbox-expandir">
                         <label for="tarefa-2" class="cabecalho-tarefa">
-                            <span class="indicador-status"></span>
+                            <!-- REMOVIDO: span.indicador-status -->
                             <span class="titulo-tarefa">Manter a limpeza do setor.</span>
                             <div class="acoes-tarefa">
-                                <button class="btn-acao btn-editar">
-                                    <img src="./imgs/icone-editar.png" alt="Editar">
-                                </button>
-                                <button class="btn-acao btn-excluir">
-                                    <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                </button>
+                                <!-- CORRIGIDO: href="#menu-adicionar" -->
+                                <a href="#menu-adicionar" class="btn-acao btn-editar">
+                                    <label for="adicionar" class="icone-alterar">
+                                        <img src="<%= request.getContextPath() %>/imgs/icone%20alterar.png" alt="Editar">
+                                    </label>
+                                </a>
+                                <input type="checkbox" class="menu-lixeira" id="modal-3">
+                                <label for="modal-3" class="icone-lixeira">
+                                    <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="lixeira">
+                                </label>
+                                <div class="modal-overlay">
+                                    <div class="menu-lixo">
+                                        <div class="menu-lixo-icone">
+                                            <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="Ícone Lixeira">
+                                        </div>
+                                        <h1>Deseja excluir o relatório?</h1>
+                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                            removidos.</p>
+                                        <div class="info-item">
+                                            <strong>Prioridade:</strong>
+                                            <span>Alta</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Descrição:</strong>
+                                            <span>Realizar limpeza completa do setor incluindo equipamentos
+                                                e área de produção.</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Responsável:</strong>
+                                            <span>Equipe de Limpeza</span>
+                                        </div>
+                                        <div class="buttons">
+                                            <label for="modal-3" class="btn-cancelar">Não</label>
+                                            <label for="modal-3" class="btn-excluir">Sim</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> Equipe de Limpeza</p>
                             <p><strong>Prioridade:</strong> Alta</p>
-                            <p><strong>Descrição:</strong> Realizar limpeza completa do setor incluindo equipamentos e área de produção.</p>
+                            <p><strong>Descrição:</strong> Realizar limpeza completa do setor incluindo equipamentos
+                                e área de produção.</p>
                         </div>
                     </div>
                 </div>
@@ -183,22 +256,53 @@
                     <div class="tarefa em-andamento">
                         <input type="checkbox" id="tarefa-3" class="checkbox-expandir">
                         <label for="tarefa-3" class="cabecalho-tarefa">
-                            <span class="indicador-status"></span>
+                            <!-- REMOVIDO: span.indicador-status -->
                             <span class="titulo-tarefa">Manutenção na máquina 15.</span>
                             <div class="acoes-tarefa">
-                                <button class="btn-acao btn-editar">
-                                    <img src="./imgs/icone-editar.png" alt="Editar">
-                                </button>
-                                <button class="btn-acao btn-excluir">
-                                    <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                </button>
+                                <!-- CORRIGIDO: href="#menu-adicionar" -->
+                                <a href="#menu-adicionar" class="btn-acao btn-editar">
+                                    <label for="adicionar" class="icone-alterar">
+                                        <img src="<%= request.getContextPath() %>/imgs/icone%20alterar.png" alt="Editar">
+                                    </label>
+                                </a>
+                                <input type="checkbox" class="menu-lixeira" id="modal-4">
+                                <label for="modal-4" class="icone-lixeira">
+                                    <!-- CORRIGIDO: caminho ../imgs/ ao invés de ./imgs/ -->
+                                    <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="lixeira">
+                                </label>
+                                <div class="modal-overlay">
+                                    <div class="menu-lixo">
+                                        <div class="menu-lixo-icone">
+                                            <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="Ícone Lixeira">
+                                        </div>
+                                        <h1>Deseja excluir o relatório?</h1>
+                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                            removidos.</p>
+                                        <div class="info-item">
+                                            <strong>Início em:</strong>
+                                            <span>01/9/2025</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Descrição:</strong>
+                                            <span>Aguardando peça.</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Responsável:</strong>
+                                            <span>Carlos Mendes</span>
+                                        </div>
+                                        <div class="buttons">
+                                            <label for="modal-4" class="btn-cancelar">Não</label>
+                                            <label for="modal-4" class="btn-excluir">Sim</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> Carlos Mendes</p>
-                            <p><strong>Status:</strong> Aguardando peça</p>
-                            <p><strong>Início:</strong> 01/Nov/2025</p>
+                            <p><strong>Início:</strong> 01/9/2025</p>
+                            <p><strong>Descrição:</strong> Aguardando peça</p>
                         </div>
                     </div>
 
@@ -206,22 +310,57 @@
                     <div class="tarefa em-andamento">
                         <input type="checkbox" id="tarefa-4" class="checkbox-expandir">
                         <label for="tarefa-4" class="cabecalho-tarefa">
-                            <span class="indicador-status"></span>
+                            <!-- REMOVIDO: span.indicador-status -->
                             <span class="titulo-tarefa">Adicionar dados do app.</span>
                             <div class="acoes-tarefa">
-                                <button class="btn-acao btn-editar">
-                                    <img src="./imgs/icone-editar.png" alt="Editar">
-                                </button>
-                                <button class="btn-acao btn-excluir">
-                                    <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                </button>
+                                <!-- CORRIGIDO: href="#menu-adicionar" -->
+                                <a href="#menu-adicionar" class="btn-acao btn-editar">
+                                    <label for="adicionar" class="icone-alterar">
+                                        <!-- CORRIGIDO: caminho ../imgs/ -->
+                                        <img src="<%= request.getContextPath() %>/imgs/icone%20alterar.png" alt="Editar">
+                                    </label>
+                                </a>
+                                <input type="checkbox" class="menu-lixeira" id="modal-5">
+                                <label for="modal-5" class="icone-lixeira">
+                                    <!-- CORRIGIDO: caminho ../imgs/ -->
+                                    <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="lixeira">
+                                </label>
+                                <div class="modal-overlay">
+                                    <div class="menu-lixo">
+                                        <div class="menu-lixo-icone">
+                                            <!-- CORRIGIDO: caminho ../imgs/ -->
+                                            <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="Ícone Lixeira">
+                                        </div>
+                                        <h1>Deseja excluir o relatório?</h1>
+                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                            removidos.</p>
+                                        <div class="info-item">
+                                            <strong>Prioridade:</strong>
+                                            <span>Média</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Descrição:</strong>
+                                            <span>Inserir informações atualizadas no sistema do aplicativo.</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Responsável:</strong>
+                                            <span>Ana Paula</span>
+                                        </div>
+                                        <div class="buttons">
+                                            <label for="modal-5" class="btn-cancelar">Não</label>
+                                            <label for="modal-5" class="btn-excluir">Sim</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> Ana Paula</p>
                             <p><strong>Prioridade:</strong> Média</p>
-                            <p><strong>Descrição:</strong> Inserir informações atualizadas no sistema do aplicativo.</p>
+                            <p><strong>Descrição:</strong> Inserir informações atualizadas no sistema do aplicativo.
+                            </p>
+                            <p><strong>Prazo:</strong>19/9/2025</p>
                         </div>
                     </div>
                 </div>
@@ -234,22 +373,61 @@
                     <div class="tarefa concluida">
                         <input type="checkbox" id="tarefa-5" class="checkbox-expandir">
                         <label for="tarefa-5" class="cabecalho-tarefa">
-                            <span class="indicador-status"></span>
+                            <!-- REMOVIDO: span.indicador-status -->
                             <span class="titulo-tarefa">Revisão de estoque.</span>
                             <div class="acoes-tarefa">
-                                <button class="btn-acao btn-editar">
-                                    <img src="./imgs/icone-editar.png" alt="Editar">
-                                </button>
-                                <button class="btn-acao btn-excluir">
-                                    <img src="./imgs/icone-excluir.png" alt="Excluir">
-                                </button>
+                                <!-- CORRIGIDO: href="#header" -->
+                                <a href="#header" class="btn-acao btn-editar">
+                                    <!-- REMOVIDO: for duplicado (tinha for="adicionar" e for="tarefa-5") -->
+                                    <label for="adicionar" class="icone-alterar">
+                                        <!-- CORRIGIDO: caminho ../imgs/ -->
+                                        <img src="<%= request.getContextPath() %>/imgs/icone%20alterar.png" alt="Editar">
+                                    </label>
+                                </a>
+                                <!-- CORRIGIDO: id="modal-6" ao invés de modal-1 -->
+                                <input type="checkbox" class="menu-lixeira" id="modal-6">
+                                <label for="modal-6" class="icone-lixeira">
+                                    <!-- CORRIGIDO: caminho ../imgs/ -->
+                                    <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="lixeira">
+                                </label>
+                                <div class="modal-overlay">
+                                    <div class="menu-lixo">
+                                        <div class="menu-lixo-icone">
+                                            <!-- CORRIGIDO: caminho ../imgs/ -->
+                                            <img src="<%= request.getContextPath() %>/imgs/Trash.png" alt="Ícone Lixeira">
+                                        </div>
+                                        <h1>Deseja excluir o relatório?</h1>
+                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
+                                            removidos.</p>
+                                        <div class="info-item">
+                                            <strong>Concluído em:</strong>
+                                            <!-- CORRIGIDO: data 08/10/2025 adicionada no span vazio -->
+                                            <span>08/10/2025</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Descrição:</strong>
+                                            <span>Revisão completa do estoque de materiais e atualização do
+                                                sistema.</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <strong>Responsável:</strong>
+                                            <span>Pedro Santos</span>
+                                        </div>
+                                        <div class="buttons">
+                                            <!-- CORRIGIDO: for="modal-6" -->
+                                            <label for="modal-6" class="btn-cancelar">Não</label>
+                                            <label for="modal-6" class="btn-excluir">Sim</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> Pedro Santos</p>
-                            <p><strong>Concluído em:</strong> 08/Out/2025</p>
-                            <p><strong>Descrição:</strong> Revisão completa do estoque de materiais e atualização do sistema.</p>
+                            <p><strong>Concluído em:</strong> 08/10/2025</p>
+                            <p><strong>Descrição:</strong> Revisão completa do estoque de materiais e atualização do
+                                sistema.</p>
                         </div>
                     </div>
                 </div>
@@ -264,49 +442,52 @@
                 <div class="lista-usuarios">
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-marcia.png" alt="icone de usuário">
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">Davi Lacerda</span>
                         <span class="status-online"></span>
                     </div>
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-eduardo.png" alt="icone de usuário">
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">Murilo Rosa</span>
                         <span class="status-online"></span>
                     </div>
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-eduardo.png" alt="icone de usuário">
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">Felipe Augusto</span>
                         <span class="status-online"></span>
                     </div>
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-eduardo.png" alt="icone de usuário">
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">David Reche</span>
                         <span class="status-online"></span>
                     </div>
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-eduardo.png" alt="icone de usuário">
+                            <!-- CORRIGIDO: caminho ../imgs/ -->
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">Matheus fazan</span>
                         <span class="status-online"></span>
                     </div>
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-eduardo.png" alt="icone de usuário">
+                            <!-- CORRIGIDO: caminho ../imgs/ -->
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">Emilly Dantas</span>
                         <span class="status-online"></span>
                     </div>
                     <div class="usuario">
                         <div class="avatar-usuario">
-                            <img src="./imgs/avatar-eduardo.png" alt="icone de usuário">
+                            <!-- CORRIGIDO: caminho ../imgs/ -->
+                            <img src="<%= request.getContextPath() %>/imgs/icone_usuario.png" alt="icone de usuário">
                         </div>
                         <span class="nome-usuario">Marcelo Grilo</span>
                         <span class="status-online"></span>
@@ -318,4 +499,5 @@
     </main>
 </div>
 </body>
+
 </html>

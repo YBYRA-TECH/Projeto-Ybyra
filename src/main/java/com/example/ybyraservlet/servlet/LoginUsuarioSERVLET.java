@@ -51,7 +51,7 @@ public class LoginUsuarioSERVLET extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuarioLogado", usuario);
                 session.setAttribute("nomeUsuario", usuario.getNome());
-                session.setAttribute("emailUsuario", email);
+                session.setAttribute("emailUsuario", usuario.getEmail());
 
                 // Redirecionar para página principal
                 response.sendRedirect(request.getContextPath() + "/web/inicio.jsp");

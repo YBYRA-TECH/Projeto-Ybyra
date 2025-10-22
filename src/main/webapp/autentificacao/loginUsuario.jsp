@@ -10,6 +10,8 @@
             type="image/x-icon"
     />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/login.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/global.css" />
+
     <title>YBYRA TECH</title>
 </head>
 <body>
@@ -19,22 +21,24 @@
             alt="Logo Ybyra Tech"
             style="width: 8.125rem; max-width: 35vw; height: auto"
     />
-    <a href="<%= request.getContextPath() %>/index.jsp">Conheça o App</a>
-    <a href="<%= request.getContextPath() %>/autentificacao/cadastro.jsp">Cadastre-se</a>
-    <button>
-        <p>
-            <a href="<%= request.getContextPath() %>/autentificacao/login.jsp" style="color: aliceblue; font-size: 1rem"
-            >Acesse a sua conta</a
-            >
-        </p>
-    </button>
+    <!-- ADICIONADO: input checkbox e label para menu mobile -->
+    <input type="checkbox" id="menu">
+    <label for="menu" class="menu-icon">☰</label>
+    <!-- ADICIONADO: nav com classe menu-links -->
+    <nav class="menu-links" >
+        <a href="<%= request.getContextPath() %>/index.jsp">Conheça o App</a>
+        <a href="<%= request.getContextPath() %>/autentificacao/telaSeparação.jsp">Cadastre-se</a>
+        <a href="<%= request.getContextPath() %>/autentificacao/telaSeparaçãoEntrar.jsp" style="color: aliceblue; font-size: 1rem" id="botao-login">Acesse a sua conta</a>
+    </nav>
+    <!-- REMOVIDO: button envolvendo o link -->
 </header>
 
 <main>
     <div id="inputs">
         <h1>Entrar</h1>
         <form action="<%= request.getContextPath() %>/loginUsuario" method="post">
-            <input type="email" name="email" placeholder="Email" required
+            <!-- CORRIGIDO: placeholder "Email / Telefone / Usuário" -->
+            <input type="email" name="email" placeholder="Email / Telefone / Usuário" required
                    value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>" />
 
             <input type="password" name="senha" placeholder="Senha" required/>
@@ -44,14 +48,17 @@
             </div>
             <% } %>
 
-            <p style="margin-left: 0.6rem;">Não tem uma conta? <a href="<%= request.getContextPath() %>/autentificação/cadastro.jsp">Crie uma!</a></p>
-            <a href="<%= request.getContextPath() %>/autentificacao/cadastroSenha.jsp" style="margin-left: 0.6rem;">Esqueceu a Senha?</a>
+            <p style="margin-left: 0.6rem;">Não tem uma conta? <a href="<%= request.getContextPath() %>/autentificacao/cadastroUsuario.jsp">Crie uma!</a></p>
+            <!-- CORRIGIDO: link para cadastroSenhaUsuario.jsp -->
+            <a href="<%= request.getContextPath() %>/autentificacao/cadastroSenhaUsuario.jsp" style="margin-left: 0.6rem;">Esqueceu a Senha?</a>
 
             <div id="buttons">
-                <button type="button" style="color: #767676">
-                    <a href="<%= request.getContextPath() %>/index.jsp">Cancelar</a>
+                <!-- CORRIGIDO: link cancelar para telaSeparaçãoEntrar.jsp -->
+                <button type="button">
+                    <a href="<%= request.getContextPath() %>/autentificacao/telaSeparaçãoEntrar.jsp" style="color: #767676">Cancelar</a>
                 </button>
-                <button type="submit" style="background-color: #1e88ee; color: white;">
+                <!-- CORRIGIDO: link para inicio.jsp -->
+                <button type="submit" style="background-color: #1e88ee;">
                     Entrar
                 </button>
             </div>
