@@ -80,6 +80,7 @@ public class Industria {
 
     // METODOS DE VALIDAÇÃO
 
+
     public boolean validarSenha(){
         String senha = getSenha();
         // Senha deve ter no mínimo 8 caracteres e pelo menos 1 número

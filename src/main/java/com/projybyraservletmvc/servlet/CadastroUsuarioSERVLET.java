@@ -74,7 +74,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
                 request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastroUsuario.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastroUsuario.jsp").forward(request, response);
                 return;
             }
 
@@ -86,7 +86,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
                 request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastroUsuario.jsp").forward(request, response);
                 return;
             }
 
@@ -98,7 +98,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
                 request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastroUsuario.jsp").forward(request, response);
                 return;
             }
 
@@ -111,7 +111,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             if (sucesso) {
                 System.out.println("Cadastro realizado com sucesso!");
                 request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
-                response.sendRedirect(request.getContextPath() + "/autentificacao/telaCon.jsp");
+                response.sendRedirect(request.getContextPath() + "/paginaAutenticacao?nome=telaCon");
             } else {
                 System.out.println("Erro ao cadastrar no banco!");
                 response.getWriter().println("<h3> Erro ao cadastrar! Tente novamente.</h3>");

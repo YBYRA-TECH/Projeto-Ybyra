@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="<%= request.getContextPath() %>/imgs/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/globalApp.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/TelaInserirDados.css" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/TelaInserirDados.css" />
     <title>YBYRA TECH - Detalhes do Upload</title>
 </head>
 <body>
@@ -19,39 +19,39 @@
             <span></span>
         </label>
         <label for="menu-icon" class="logo-logo">
-            <img src="<%= request.getContextPath() %>/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
+            <img src="<%= request.getContextPath() %>/assets/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
         </label>
 
         <nav class="menu-principal">
             <ul>
                 <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/web/inicio.jsp">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=inicioBI">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/House.png" alt="Ícone Início" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/House.png" alt="Ícone Início" />
                         </div>
                         <span>Início</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/web/relatorios.jsp">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=relatorios">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/document.png" alt="Ícone relatorios" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/document.png" alt="Ícone relatorios" />
                         </div>
                         <span>Relatórios</span>
                     </a>
                 </li>
                 <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/web/tarefas.jsp">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=tarefas">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/clipboard.png" alt="Ícone Tarefas" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/clipboard.png" alt="Ícone Tarefas" />
                         </div>
                         <span>Tarefas</span>
                     </a>
                 </li>
                 <li class="item-menu ativo">
-                    <a href="<%= request.getContextPath() %>/web/insercaoDados.jsp">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=insercaoDados">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
                         </div>
                         <span>Inserir Dados</span>
                     </a>
@@ -59,7 +59,7 @@
                 <li class="item-menu">
                     <a href="#">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/configuracoes.png" alt="Ícone Configurações" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
                         <span>Configurações</span>
                     </a>
@@ -73,7 +73,7 @@
             <div class="area-icones-usuario">
                 <input type="checkbox" id="menu-notificacoes">
                 <label for="menu-notificacoes">
-                    <img src="<%= request.getContextPath() %>/imgs/notificacoes.png" alt="Notificações">
+                    <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações">
                 </label>
                 <div id="notificacoes">
                     <h1>Notificações</h1>

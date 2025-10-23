@@ -71,7 +71,7 @@ public class TarefasSERVLET extends HttpServlet {
 
                 if (sucesso) {
                     System.out.println("Tarefa inserida com sucesso!");
-                    response.sendRedirect(request.getContextPath() + "/web/tarefas.jsp");
+                    response.sendRedirect(request.getContextPath() + "/pagina?nome=inicio");
                 } else {
                     System.out.println("Erro ao carregar no banco!");
                     response.getWriter().println("<h3> Erro ao carregar! Tente novamente.</h3>");

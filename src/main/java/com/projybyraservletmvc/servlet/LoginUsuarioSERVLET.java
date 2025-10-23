@@ -32,7 +32,7 @@ public class LoginUsuarioSERVLET extends HttpServlet {
         if (email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
             System.out.println("Erro: Campos vazios!");
             request.setAttribute("erro", "Preencha todos os campos!");
-            request.getRequestDispatcher("/autentificação/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/autenticacao/loginUsuario.jsp").forward(request, response);
             return;
         }
 
@@ -53,18 +53,18 @@ public class LoginUsuarioSERVLET extends HttpServlet {
                 session.setAttribute("emailUsuario", usuario.getEmail());
 
                 // Redirecionar para página principal
-                response.sendRedirect(request.getContextPath() + "/web/inicio.jsp");
+                response.sendRedirect(request.getContextPath() + "/pagina?nome=inicio");
 
             } else {
                 System.out.println("Credenciais inválidas!");
                 request.setAttribute("erro", "Ops! O login está incorreto!");
-                request.getRequestDispatcher("/autentificacao/login.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/autenticacao/loginUsuario.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("erro", "Erro ao processar login: " + e.getMessage());
-            request.getRequestDispatcher("/autentificacao/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/autenticacao/loginUsuario.jsp").forward(request, response);
         }
     }
 }

@@ -28,6 +28,6 @@ public class ArquivoSERVLET extends HttpServlet {
 
         System.out.println("Nome guardado.");
 
-        response.sendRedirect(request.getContextPath() + "/web/TelainserirDados.jsp");
+        response.sendRedirect(request.getContextPath() + "/pagina?nome=TelaInserirDados");
     }
 }

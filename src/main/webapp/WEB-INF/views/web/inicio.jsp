@@ -1,0 +1,65 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/inicio.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css" />
+
+    <title>YBYRA TECH</title>
+</head>
+<body>
+<div class="painel-principal">
+    <aside class="barra-lateral">
+        <input type="checkbox" id="menu">
+        <label for="menu" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <label for="menu-icon" class="logo-logo">
+            <img src="<%= request.getContextPath() %>/assets/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
+        </label>
+
+        <nav class="menu-principal">
+            <ul>
+                <li class="item-menu ativo">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=inicio">
+                        <div class="box-icone">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/House.png" alt="Ícone Início" />
+                        </div>
+                        <span>Início</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#">
+                        <div class="box-icone">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/configuracoes.png" alt="Ícone Configurações" />
+                        </div>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="overlay"></div>
+    </aside>
+
+    <main class="area-conteudo">
+        <section class="painel">
+            <div id="conteudo">
+                <img src="<%= request.getContextPath() %>/assets/imgs/sem%20documento.png" alt="imagem vazio">
+                <h1>Nenhum Índice Inserido</h1>
+
+                <a href="<%= request.getContextPath() %>/pagina?nome=insercaoDados">
+                    <div id="button">
+                        <button>Adicione um agora!</button>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
