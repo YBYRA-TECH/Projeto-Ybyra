@@ -1,5 +1,7 @@
 package com.projybyraservletmvc.dao;
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IEnderecoDAO;
 import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
@@ -10,11 +12,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnderecoDAO {
+public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>{
 
 
     // INSERE UM NOVO ENDERÇO ASSOCIADO A UMA INDÚSTRIA NO BANCO DE DADOS
-    public boolean inserirDados(Endereco endereco){
+    @Override
+    public boolean inserir(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -43,6 +46,7 @@ public class EnderecoDAO {
     }
 
     //BUSCA TODOS OS ENDEREÇOS CADASTRADOS NO BANCO DE DADOS
+    @Override
     public List<Endereco> buscar() {
         List<Endereco> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -79,6 +83,7 @@ public class EnderecoDAO {
 
 
     //UPDATE
+    @Override
     public boolean atualizar(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -111,6 +116,7 @@ public class EnderecoDAO {
     }
 
     //DELETE
+    @Override
     public int deletar(int idEndereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;

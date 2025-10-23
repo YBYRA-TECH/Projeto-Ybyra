@@ -1,5 +1,7 @@
 package com.projybyraservletmvc.dao;
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.ITelefoneDAO;
 import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
@@ -11,16 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TelefoneDAO {
+public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone> {
 
-    // VARIAVEIS
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
 
 
     //INSERE NOVO TELEFONE NO BANCO DE DADOS
-    public boolean inserirTelefone(Telefone telefone){
+    @Override
+    public boolean inserir(Telefone telefone){
         ConexaoBD conexao = new ConexaoBD(); 
         Connection conn = null;
         try {
@@ -47,7 +46,8 @@ public class TelefoneDAO {
     }
 
     // BUSCA TODOS OS TELEFONES CADASTRADOS NO BANCO DE DADOS
-    public List<Telefone> buscar() { 
+    @Override
+    public List<Telefone> buscar() {
         List<Telefone> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -59,13 +59,12 @@ public class TelefoneDAO {
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Conteúdo da tabela telefone:");
 
-            //Exibindo os dados da tabela
             while (rs.next()) {
                 int id = rs.getInt("id_telefone");
                 String numero = rs.getString("numero");
                 String tipo = rs.getString("tipo");
                 int idUsuario = rs.getInt("id_usuario");
-                //Cria um objeto da classe TelefoneDao no pacote model e adiciona na lista conforme os valores na tabela
+
                 Telefone tel = new Telefone(
                         id,
                         numero,
@@ -83,7 +82,8 @@ public class TelefoneDAO {
 }
 
     // ATUALIZA UM NÚMERO DE TELEFONE CADASTRADO NO BANCO DE DADOS COM BASE NO ID DO USUÁRIO
-    public boolean atualizarNumero(Telefone telefone) { 
+    @Override
+    public boolean atualizar(Telefone telefone) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try{
@@ -108,7 +108,8 @@ public class TelefoneDAO {
 
 
     // DELETA UM TELEFONE DO BANCO DE DADOS COM BASE NO NÚMERO 
-    public int deletar(String numero) { 
+    @Override
+    public int deletar(String numero) {
         ConexaoBD conexao = new ConexaoBD(); 
         Connection conn = null;
         try {

@@ -1,5 +1,7 @@
 package com.projybyraservletmvc.dao;
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IIndustriaDAO;
 import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class IndustriaDAO{
+public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Industria>{
     
     // VARIAVEIS
     private Connection conn;
@@ -20,7 +22,8 @@ public class IndustriaDAO{
 
 
     //INSERE UMA NOVA INDÚSTRIA NO BANCO DE DADOS
-    public boolean inserirDados(Industria industria){
+    @Override
+    public boolean inserir(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try{
@@ -47,7 +50,8 @@ public class IndustriaDAO{
     }
 
     //ATUALIZA UMA INDÚSTRIA NO BANCO DE DADOS
-    public static boolean atualizarIndustria(Industria industria) {
+    @Override
+    public boolean atualizar(Industria industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -72,6 +76,7 @@ public class IndustriaDAO{
     }
 
     //BUSCA TODAS AS INDÚSTRIAS CADASTRADAS NO BANCO DE DADOS
+    @Override
     public List<Industria> buscar(){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -109,6 +114,7 @@ public class IndustriaDAO{
     }
 
     // DELETA UMA INDÚSTRIA DO BANCO DE DADOS COM BASE NO ID
+    @Override
     public int deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -129,6 +135,8 @@ public class IndustriaDAO{
             conexao.desconectar(conn);
         }
     }
+
+    @Override
     public Industria login(String email, String senha) {
         ConexaoBD conexaoBD = new ConexaoBD();
         Connection conn = null;
@@ -170,4 +178,4 @@ public class IndustriaDAO{
         return null;
     }
 
-    }
+}

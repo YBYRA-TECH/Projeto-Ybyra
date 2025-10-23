@@ -8,6 +8,7 @@ public class Industria {
     private String email;
     private String cnpj;
     private String senha;
+    private String endereco;
 
     //CONSTRUTOR
 
@@ -58,6 +59,9 @@ public class Industria {
 
     public String getSenha() {return senha;}
     public void setSenha(String senha) {this.senha = senha;}
+
+    public String getEndereco(){return endereco;}
+    public void setEndereco(String endereco){this.endereco = endereco;}
 
     //TOSTRING
     @Override

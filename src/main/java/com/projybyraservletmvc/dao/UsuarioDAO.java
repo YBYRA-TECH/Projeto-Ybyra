@@ -1,5 +1,7 @@
 package com.projybyraservletmvc.dao;
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IUsuarioDAO;
 import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
@@ -12,22 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UsuarioDAO{
-
-    // VARIAVEIS
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
+public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
 
-    //INSERE UM NOVO USUÁRIO NO BANCO DE DADOS
-    public boolean inserirDados(Usuario usuario) {
-        ConexaoBD conexao = new ConexaoBD(); 
+    @Override
+    public boolean inserir(Usuario usuario) {
+        ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
             String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -52,12 +49,12 @@ public class UsuarioDAO{
     }
 
 
-    //ATUALIZA UM USUÁRIO QUE EXISTE NO BANCO DE DADOS
-    public static boolean atualizar(Usuario usuario) { 
+    @Override
+    public boolean atualizar(Usuario usuario) {
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null; 
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); 
+            conn = conexao.conectar();
             String sql = "UPDATE usuario " +
                     "SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? " +
                     "WHERE id_usuario = ?";
@@ -87,20 +84,19 @@ public class UsuarioDAO{
     }
 
 
-    //BUSCA TODOS OS USUÁRIOS CADASTRADOS NO BANCO DE DADOS 
-    public List<Usuario> buscar() { 
-        List<Usuario> lista = new ArrayList<>(); 
+    @Override
+    public List<Usuario> buscar() {
+        List<Usuario> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null; 
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); 
-            Statement stmt = conn.createStatement(); 
-            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC"; 
+            conn = conexao.conectar();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC";
 
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Conteúdo da tabela usuário:");
 
-            //Exibindo os dados da tabela
             while (rs.next()) {
                 int id = rs.getInt("id_usuario");
                 String email = rs.getString("email");
@@ -112,8 +108,6 @@ public class UsuarioDAO{
                 int idIndustria = rs.getInt("id_industria");
                 int tempTrabalho = rs.getInt("tempo_trabalho");
 
-
-                //Cria um objeto da classe usuarioDao no pacote model e adiciona na lista conforme os valores na tabela
                 Usuario user = new Usuario(
                         id, email, cpf, nome,
                         dtCadastro, dtNascimento, dtValidade,
@@ -131,18 +125,17 @@ public class UsuarioDAO{
     }
 
 
-
-    // DELETA UM USUÁRIO DO BANCO DE DADOS COM BASE NO ID
-    public int deletar(int id){ 
-        ConexaoBD conexao = new ConexaoBD(); 
-        Connection conn = null; 
+    @Override
+    public int deletar(int id){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
         try {
             conn = conexao.conectar();
             String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql); 
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            //Deletando no banco
+
             pstmt.setInt(1, id);
             if(pstmt.executeUpdate()>0){
                 return 1;
