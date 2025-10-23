@@ -1,4 +1,4 @@
-package com.ybyraservletmvc.dao;
+package com.projybyraservletmvc.dao;
 
 
 import java.sql.Connection;
@@ -10,14 +10,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD:src/main/java/com/example/ybyraservlet/dao/RelatoriosDAO.java
-import com.example.ybyraservlet.conexao.ConexaoBD;
-import com.example.ybyraservlet.model.Industria;
-import com.example.ybyraservlet.model.Relatorios;
-=======
-import com.ybyraservletmvc.conexao.ConexaoBD;
-import com.ybyraservletmvc.model.*;
->>>>>>> 29dd911bb23b0ce1a9e0039c83ebd007971edd39:src/main/java/com/projybyraservletmvc/dao/RelatoriosDAO.java
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Relatorios;
+import com.projybyraservletmvc.model.*;
 
 public class RelatoriosDAO{
 

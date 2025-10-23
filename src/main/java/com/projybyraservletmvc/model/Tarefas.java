@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.model;
+package com.projybyraservletmvc.model;
 
 import java.time.LocalDate;
 
@@ -12,9 +12,30 @@ public class Tarefas {
     private LocalDate prazo;
     private int id_usuario;
 
+    // Construtores
 
-    //Getters e Setters
+    public Tarefas() {}
 
+    public Tarefas(String descricao, String nome, LocalDate prazo, String prioridade, String responsavel, int id_usuario) {
+        this.descricao = descricao;
+        this.nome = nome;
+        this.prazo = prazo;
+        this.prioridade = prioridade;
+        this.responsavel = responsavel;
+        this.id_usuario = id_usuario;
+    }
+
+    public Tarefas(String prioridade, String nome, String responsavel, String descricao, LocalDate prazo, int id_tarefa, int id_usuario) {
+        this.descricao = descricao;
+        this.nome = nome;
+        this.prazo = prazo;
+        this.prioridade = prioridade;
+        this.responsavel = responsavel;
+        this.id_tarefa = id_tarefa;
+        this.id_usuario = id_usuario;
+    }
+
+    // Getters e Setters
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
@@ -60,40 +81,30 @@ public class Tarefas {
         return id_tarefa;
     }
 
+    public void setId_tarefa(int id_tarefa) {
+        this.id_tarefa = id_tarefa;
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }
-    //To String
 
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    // ToString
+
+    @Override
     public String toString() {
-        return "Tarefas" +
-                "id='" + id_tarefa + '\'' +
-                "id Usuario='" + id_tarefa + '\'' +
-                "prioridade='" + prioridade + '\'' +
+        return "Tarefas{" +
+                "id_tarefa=" + id_tarefa +
+                ", id_usuario=" + id_usuario +
+                ", prioridade='" + prioridade + '\'' +
                 ", nome='" + nome + '\'' +
                 ", responsavel='" + responsavel + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", prazo=" + prazo;
+                ", prazo=" + prazo +
+                '}';
     }
-
-    // Construtor
-
-    public Tarefas(String descricao, String nome, LocalDate prazo, String prioridade, String responsavel, int id_usuario){
-        this.descricao = descricao;
-        this.nome = nome;
-        this.prazo = prazo;
-        this.prioridade = prioridade;
-        this.responsavel = responsavel;
-        this.id_usuario = id_usuario;
-    }
-    public Tarefas(String prioridade, String nome, String responsavel, String descricao, LocalDate prazo,int id_tarefa, int id_usuario){
-        this.descricao = descricao;
-        this.nome = nome;
-        this.prazo = prazo;
-        this.prioridade = prioridade;
-        this.responsavel = responsavel;
-        this.id_tarefa = id_tarefa;
-        this.id_usuario = id_usuario;
-    }
-    public Tarefas(){}
 }

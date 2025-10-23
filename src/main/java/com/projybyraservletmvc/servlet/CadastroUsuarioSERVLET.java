@@ -1,9 +1,8 @@
-package com.example.ybyraservlet.servlet;
+package com.projybyraservletmvc.servlet;
 
-import com.example.ybyraservlet.dao.IndustriaDAO;
-import com.example.ybyraservlet.dao.UsuarioDAO;
-import com.example.ybyraservlet.model.Industria;
-import com.example.ybyraservlet.model.Usuario;
+import com.projybyraservletmvc.dao.IndustriaDAO;
+import com.projybyraservletmvc.dao.UsuarioDAO;
+import com.projybyraservletmvc.model.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

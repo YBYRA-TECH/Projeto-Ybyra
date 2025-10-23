@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.servlet;
+package com.projybyraservletmvc.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;

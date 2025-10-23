@@ -1,4 +1,4 @@
-package com.ybyraservletmvc.dao;
+package com.projybyraservletmvc.dao;
 
 
 import java.sql.Connection;
@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ybyraservletmvc.conexao.ConexaoBD;
-import com.ybyraservletmvc.model.*;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.*;
 
 public class EnderecoDAO {
 

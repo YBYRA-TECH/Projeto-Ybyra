@@ -1,4 +1,4 @@
-package com.example.ybyraservlet.dao;
+package com.projybyraservletmvc.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.ybyraservlet.conexao.ConexaoBD;
-import com.example.ybyraservlet.model.Tarefas;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.model.Tarefas;
 
 public class TarefasDAO {
 

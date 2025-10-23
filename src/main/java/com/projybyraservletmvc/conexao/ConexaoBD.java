@@ -1,14 +1,10 @@
-package com.ybyraservletmvc.conexao;
+package com.projybyraservletmvc.conexao;
 
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-<<<<<<< HEAD:src/main/java/com/example/ybyraservlet/conexao/ConexaoBD.java
-=======
 
-import io.github.cdimascio.dotenv.Dotenv;
->>>>>>> 29dd911bb23b0ce1a9e0039c83ebd007971edd39:src/main/java/com/projybyraservletmvc/conexao/ConexaoBD.java
 
 public class ConexaoBD {
 

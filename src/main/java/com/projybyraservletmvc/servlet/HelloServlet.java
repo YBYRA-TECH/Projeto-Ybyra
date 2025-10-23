@@ -1,4 +1,4 @@
-package com.ybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;

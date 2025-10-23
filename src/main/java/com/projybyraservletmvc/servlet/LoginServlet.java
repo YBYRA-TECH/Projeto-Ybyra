@@ -1,14 +1,10 @@
-<<<<<<< HEAD:src/main/java/com/example/ybyraservlet/servlet/LoginSERVLET.java
-package com.example.ybyraservlet.servlet;
-=======
 
-package com.ybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet;
 
 import java.io.IOException;
 
-import com.ybyraservletmvc.dao.IndustriaDAO;
-import com.ybyraservletmvc.model.Industria;
->>>>>>> 29dd911bb23b0ce1a9e0039c83ebd007971edd39:src/main/java/com/projybyraservletmvc/servlet/LoginServlet.java
+import com.projybyraservletmvc.dao.IndustriaDAO;
+import com.projybyraservletmvc.model.Industria;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "LoginSERVLET", urlPatterns = {"/login"})
-public class LoginSERVLET extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

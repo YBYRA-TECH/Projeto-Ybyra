@@ -1,4 +1,4 @@
-package com.ybyraservletmvc.model;
+package com.projybyraservletmvc.model;
 
 
 public class Telefone {
