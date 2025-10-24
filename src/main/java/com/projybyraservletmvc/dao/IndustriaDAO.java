@@ -1,4 +1,8 @@
 package com.projybyraservletmvc.dao;
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IIndustriaDAO;
+import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,27 +12,33 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.*;
+//CLASSE COM METODOS CRUD PARA INDUSTRIA
+public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Industria>{
+    
+    private Connection conn;
+    private Statement stmt;
+    private PreparedStatement pstmt;
 
-public class IndustriaDAO {
 
-    //INSERE UMA NOVA INDÚSTRIA NO BANCO DE DADOS
-    public boolean inserirDados(Industria industria){
+    @Override
+    public boolean inserir(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try{
             conn = conexao.conectar();
 
-            String sql = "INSERT INTO industria(nome, email, cnpj, senha) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO industria(nome, endereco, cnpj, senha) VALUES (?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, industria.getNome());
-            pstmt.setString(2, industria.getEmail());
+            pstmt.setString(2, industria.getEndereco());
             pstmt.setString(3, industria.getCnpj());
             pstmt.setString(4, industria.getSenha());
 
-            return pstmt.executeUpdate() > 0;
+
+            if(pstmt.executeUpdate()>0){
+                return true;
+            }return false;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -37,22 +47,23 @@ public class IndustriaDAO {
         }
     }
 
-    //ATUALIZA UMA INDÚSTRIA NO BANCO DE DADOS
-    public static boolean atualizarIndustria(Industria industria) {
+    @Override
+    public boolean atualizar(Industria industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "UPDATE industria SET nome = ?, email = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
+            String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
             conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, industria.getNome());
-            stmt.setString(2, industria.getEmail());
+            stmt.setString(2, industria.getEndereco());
             stmt.setString(3, industria.getCnpj());
-            stmt.setString(4, industria.getSenha());
-            stmt.setInt(5, industria.getIdIndustria());
+            stmt.setInt(4, industria.getIdIndustria());
+            stmt.setString(5, industria.getSenha());
 
-            return stmt.executeUpdate() > 0;
+            if (stmt.executeUpdate() > 0) return true;
+            return false;
         } catch (SQLException sqle){
             sqle.printStackTrace();
             return false;
@@ -61,13 +72,13 @@ public class IndustriaDAO {
         }
     }
 
-    //BUSCA TODAS AS INDÚSTRIAS CADASTRADAS NO BANCO DE DADOS
+    @Override
     public List<Industria> buscar(){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         List<Industria> lista = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM industria ORDER BY id_industria ASC";
+            String sql = ("SELECT * FROM industria ORDER BY id_industria ASC");
             conn = conexao.conectar();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -77,11 +88,17 @@ public class IndustriaDAO {
             while (rs.next()) {
                 int id = rs.getInt("id_industria");
                 String nome = rs.getString("nome");
-                String email = rs.getString("email");
+                String endereco = rs.getString("endereco");
                 String cnpj = rs.getString("cnpj");
                 String senha = rs.getString("senha");
 
-                Industria industria = new Industria(id, nome, email, cnpj, senha);
+                Industria industria = new Industria(
+                        id,
+                        nome,
+                        endereco,
+                        cnpj,
+                        senha
+                );
                 lista.add(industria);
             }
         } catch (SQLException e) {
@@ -92,7 +109,7 @@ public class IndustriaDAO {
         return lista;
     }
 
-    // DELETA UMA INDÚSTRIA DO BANCO DE DADOS COM BASE NO ID
+    @Override
     public int deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -105,9 +122,7 @@ public class IndustriaDAO {
 
             if(pstmt.executeUpdate() > 0){
                 return 1;
-            }else{
-                return 0;
-            }
+            }else{return 0;}
         } catch (SQLException e) {
             e.printStackTrace();
             return -1;
@@ -115,6 +130,8 @@ public class IndustriaDAO {
             conexao.desconectar(conn);
         }
     }
+
+    @Override
     public Industria login(String email, String senha) {
         ConexaoBD conexaoBD = new ConexaoBD();
         Connection conn = null;
@@ -154,61 +171,6 @@ public class IndustriaDAO {
 
             }
         return null;
-    }
-
-    public Industria buscarEmail(String email){
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        try {
-            String sql = "SELECT * FROM industria WHERE email = ?";
-            conn = conexao.conectar();
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery(sql);
-
-            System.out.println("Conteúdo da tabela indústria:");
-
-            if (rs.next()) {
-                Industria industria = new Industria();
-                industria.setIdIndustria(rs.getInt("id_industria"));
-                industria.setEmail(rs.getString("email"));
-                industria.setCnpj(rs.getString("cnpj"));
-                industria.setNome(rs.getString("nome"));
-                industria.setSenha(rs.getString("senha"));
-                return industria;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            conexao.desconectar(conn);
-        }
-        return null;
-    }
-
-    public int buscarID(String nome) {
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        int id = -1;
-
-        try {
-            String sql = "SELECT id_industria FROM industria WHERE nome = ?";
-            conn = conexao.conectar();
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, nome);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                id = rs.getInt("id_industria");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            conexao.desconectar(conn);
-        }
-        return id;
     }
 
 }

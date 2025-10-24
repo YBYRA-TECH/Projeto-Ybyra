@@ -1,5 +1,8 @@
 package com.projybyraservletmvc.dao;
-
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IEnderecoDAO;
+import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,14 +12,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.*;
-
-public class EnderecoDAO {
+//CLASSE COM METODOS CRUD PARA ENDERECO
+public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>{
 
 
-    // INSERE UM NOVO ENDERÇO ASSOCIADO A UMA INDÚSTRIA NO BANCO DE DADOS
-    public boolean inserirDados(Endereco endereco){
+    @Override
+    public boolean inserir(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -31,7 +32,10 @@ public class EnderecoDAO {
             pstmt.setString(5,endereco.getBairro());
             pstmt.setString(6, endereco.getRua());
 
-            return pstmt.executeUpdate() > 0;
+            if(pstmt.executeUpdate()>0) {
+                return true;
+            }
+            return false;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,7 +45,7 @@ public class EnderecoDAO {
         }
     }
 
-    //BUSCA TODOS OS ENDEREÇOS CADASTRADOS NO BANCO DE DADOS
+    @Override
     public List<Endereco> buscar() {
         List<Endereco> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -63,7 +67,7 @@ public class EnderecoDAO {
 
 
                 Endereco end = new Endereco(
-                        id, idIndustria, estado, cidade, cep, bairro, rua
+                    id, idIndustria, estado, cidade, cep, bairro, rua
                 );
                 lista.add(end);
             }
@@ -77,7 +81,7 @@ public class EnderecoDAO {
     }
 
 
-    //UPDATE
+    @Override
     public boolean atualizar(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -98,7 +102,9 @@ public class EnderecoDAO {
             pstmt.setString(7, endereco.getRua());
             pstmt.setInt(8, endereco.getIdEndereco());
 
-            return pstmt.executeUpdate() > 0;
+            if (pstmt.executeUpdate() > 0){
+                return true;
+            }else return false;
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;
@@ -107,7 +113,8 @@ public class EnderecoDAO {
         }
     }
 
-    //DELETE
+
+    @Override
     public int deletar(int idEndereco){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;

@@ -44,151 +44,19 @@ body {
     padding: 0.6rem 0.8rem;
     outline: none;
     font-size: 0.85rem;
-    flex: 1;
+    width: 12rem;
 }
+
 .btn-lupa {
     background-color: transparent;
     border: none;
     padding: 0 0.8rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .btn-lupa img {
-    width: 20px;
-    height: 20px;
-}
-
-.topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0 0.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-#adicionar {
-    display: none;
-}
-
-#menu-tarefas {
-    display: none;
-    width: 80%;
-    gap: 1rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
-    border: 1px solid #e2e8f0;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    order: 3;
-    /* Coloca o menu abaixo dos outros elementos */
-}
-
-#menu-tarefas input,
-#menu-tarefas select {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 0.5rem);
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    outline: none;
-    border-radius: 0.5rem;
-    font-size: 0.9rem;
-    font-family: "Geologica", sans-serif;
-    transition: all 0.3s ease;
-}
-
-#menu-tarefas input:focus,
-#menu-tarefas select:focus {
-    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
-    border-color: #1e88ee;
-    transform: scale(1.02);
-}
-
-.area-filtros {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    flex-wrap: wrap;
-    flex: 1;
-}
-.area-filtros label {
-    display: flex;
-    gap: 0.5rem;
-    background-color: #3474cd;
-    color: white;
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    border: none;
-    transition: all 0.3s;
-    white-space: nowrap;
-}
-
-.area-filtros label:hover {
-    background-color: #192083;
-}
-
-.filtro-select {
-    padding: 0.6rem 2rem 0.6rem 0.8rem;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    background-color: white;
-    font-size: 0.9rem;
-    font-family: 'Montserrat', sans-serif;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 0.5rem top 50%;
-    background-size: 0.65rem auto;
-    border: 1px solid #ccc;
-    min-width: 120px;
-    white-space: nowrap;
-}
-
-.btn-buscar {
-    background-color: #3474cd;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.6rem 1.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-}
-
-.btn-buscar:hover {
-    background-color: #192083;
-}
-
-.area-icones-usuario {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    white-space: nowrap;
-}
-
-.area-icones-usuario img {
-    transition: all 0.3s;
-}
-
-/* Quando o menu está aberto */
-#adicionar:checked~#menu-tarefas {
-    display: flex;
-    transition: all 1.5s;
+    width: 70%;
+    height: 70%;
 }
 
 .filtro-select {
@@ -202,7 +70,7 @@ body {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position:top 50%;
+    background-position: right 0.5rem top 50%;
     background-size: 0.65rem auto;
     transition: all 10s ease;
 
@@ -227,7 +95,7 @@ body {
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 1.5rem;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
@@ -239,7 +107,9 @@ body {
 }
 
 .confirmar {
-    width: 24%;
+    width: 28.7%;
+    display: flex;
+    justify-content: right;
 }
 
 .btn-confirmar {
@@ -248,6 +118,7 @@ body {
     background: linear-gradient(135deg, #2214a4, #14097a);
     color: white;
     box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+    height: 3rem;
     cursor: pointer;
     font-size: 1rem;
 }
@@ -256,7 +127,7 @@ body {
 .secao-board {
     display: flex;
     justify-content: flex-start;
-    gap: 13rem;
+    gap: 3rem;
     padding: 0 1.5rem 1.5rem;
 }
 
@@ -310,6 +181,29 @@ body {
     padding-bottom: 1rem;
     cursor: pointer;
 }
+
+.indicador-status {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid;
+    margin-right: 0.75rem;
+}
+
+/* Cores dos Indicadores de Status */
+.nao-iniciada .indicador-status {
+    border-color: #ff5252;
+}
+
+.em-andamento .indicador-status {
+    border-color: #ff9800;
+}
+
+.concluida .indicador-status {
+    border-color: #4caf50;
+    background-color: #4caf50;
+}
+
 .titulo-tarefa {
     flex-grow: 1;
     margin-right: 0.5rem;
@@ -381,6 +275,7 @@ body {
 .menu-lixo-icone img {
     width: 2rem;
     height: 2rem;
+    filter: brightness(0) invert(1);
 }
 
 .menu-lixo h1 {
@@ -490,6 +385,29 @@ body {
     opacity: 1;
     pointer-events: auto;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .btn-acao {
     background: none;
     border: none;
@@ -516,7 +434,7 @@ body {
     color: #94a3b8;
     transition: all 0.3s;
     display: block;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 /* Detalhes da Tarefa (Expansível) */
@@ -608,6 +526,171 @@ body {
     margin-left: 0.5rem;
 }
 
+/* ===== HEADER (BUSCA E FILTROS) ===== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#adicionar {
+    display: none;
+}
+
+#menu-tarefas {
+    display: none;
+    width: 100%;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    border: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    order: 3;
+    /* Coloca o menu abaixo dos outros elementos */
+}
+
+#menu-tarefas input,
+#menu-tarefas select {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 0.5rem);
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-family: "Geologica", sans-serif;
+    transition: all 0.3s ease;
+}
+
+#menu-tarefas input:focus,
+#menu-tarefas select:focus {
+    border-color: #3474cd;
+    box-shadow: 0 0 0 2px rgba(52, 116, 205, 0.2);
+}
+
+.area-filtros {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.campo-busca {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: white;
+    min-width: 200px;
+}
+
+.campo-busca input {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    outline: none;
+    font-size: 0.85rem;
+    width: 12rem;
+    flex: 1;
+}
+
+.btn-lupa {
+    background-color: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-lupa img {
+    width: 20px;
+    height: 20px;
+}
+
+.area-filtros label {
+    display: flex;
+    gap: 0.5rem;
+    background-color: #3474cd;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.area-filtros label:hover {
+    background-color: #192083;
+}
+
+.filtro-select {
+    padding: 0.6rem 2rem 0.6rem 0.8rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem top 50%;
+    background-size: 0.65rem auto;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+.btn-buscar {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-buscar:hover {
+    background-color: #192083;
+}
+
+.area-icones-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    white-space: nowrap;
+}
+
+.area-icones-usuario img {
+    transition: all 0.3s;
+}
+
+/* Quando o menu está aberto */
+#adicionar:checked~#menu-tarefas {
+    display: flex;
+    transition: all 1.5s;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 
 /* Tablets */
@@ -618,7 +701,7 @@ body {
     .confirmar {
         width: 40%;
     }
-
+    
     .btn-confirmar {
         border-radius: 0.4rem;
         border: none;

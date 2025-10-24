@@ -1,5 +1,6 @@
 package com.projybyraservletmvc.model;
 
+
 public class Industria {
     //ATRIBUTOS
     private int idIndustria;
@@ -7,8 +8,11 @@ public class Industria {
     private String email;
     private String cnpj;
     private String senha;
+    private String endereco;
 
     //CONSTRUTOR
+
+
     public Industria(String nome, String cnpj, String email, String senha) {
         this.nome = nome;
         this.cnpj = cnpj;
@@ -16,19 +20,13 @@ public class Industria {
         this.senha = senha;
     }
 
-    public Industria(int idIndustria, String nome, String cnpj, String email, String senha) {
+    public Industria(int idIndustria,String nome, String cnpj, String email, String senha) {
         this.nome = nome;
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
-        this.idIndustria = idIndustria;
+        this.idIndustria =idIndustria;
     }
-    public Industria() {
-
-    }
-    public Industria(String nome) {
-        this.nome = nome;}
-
 
     // GETTERS E SETTERS
     public int getIdIndustria() {
@@ -59,12 +57,11 @@ public class Industria {
         this.cnpj = cnpj;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    public String getSenha() {return senha;}
+    public void setSenha(String senha) {this.senha = senha;}
+
+    public String getEndereco(){return endereco;}
+    public void setEndereco(String endereco){this.endereco = endereco;}
 
     //TOSTRING
     @Override
@@ -78,24 +75,5 @@ public class Industria {
                 "}\n";
     }
 
-    // METODOS DE VALIDAÇÃO
 
-    public boolean validarSenha(){
-        String senha = getSenha();
-        // Senha deve ter no mínimo 8 caracteres e pelo menos 1 número
-        return senha.matches("^(?=.*\\d).{8,}$");
-    }
-
-    public boolean validarEmail(){
-        String email = getEmail();
-        // Formato básico de email
-        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
-    }
-
-    public boolean validarCnpj(){
-        String cnpj = getCnpj();
-        String cnpjLimpo = cnpj.replaceAll("\\D", "");
-        // CNPJ deve ter exatamente 14 dígitos
-        return cnpjLimpo.matches("^\\d{14}$");
-    }
 }

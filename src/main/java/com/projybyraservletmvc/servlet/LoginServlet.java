@@ -1,4 +1,4 @@
-
+ 
 package com.projybyraservletmvc.servlet;
 
 import java.io.IOException;
@@ -13,11 +13,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(name = "LoginSERVLET", urlPatterns = {"/login"})
+@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        System.out.println("=== doPost chamado no LoginServlet ===");
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -33,7 +35,7 @@ public class LoginServlet extends HttpServlet {
         if (email == null || email.isEmpty() || senha == null || senha.isEmpty()) {
             System.out.println("Erro: Campos vazios!");
             request.setAttribute("erro", "Preencha todos os campos!");
-            request.getRequestDispatcher("/autentificação/login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
 
@@ -49,23 +51,23 @@ public class LoginServlet extends HttpServlet {
 
                 // Criar sessão para o usuário
                 HttpSession session = request.getSession();
-                session.setAttribute("industriaLogada", industria);
-                session.setAttribute("nomeIndustria", industria.getNome());
-                session.setAttribute("emailIndustria", email);
+                session.setAttribute("usuarioLogado", industria);
+                session.setAttribute("nomeUsuario", industria.getNome());
+                session.setAttribute("emailUsuario", email);
 
                 // Redirecionar para página principal
-                response.sendRedirect(request.getContextPath() + "/web/inicio.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
 
             } else {
                 System.out.println("Credenciais inválidas!");
                 request.setAttribute("erro", "Ops! O login está incorreto!");
-                request.getRequestDispatcher("/autentificacao/login.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("erro", "Erro ao processar login: " + e.getMessage());
-            request.getRequestDispatcher("/autentificacao/login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }

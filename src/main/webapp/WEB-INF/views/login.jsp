@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="shortcut icon"
-            href="../imgs/Nova logo Sem tech.png"
+            href="./imgs/Nova logo Sem tech.png"
             type="image/x-icon"
     />
-    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <header>
     <img
-            src="../imgs/Nova%20logo.png"
+            src="./imgs/Nova logo.png"
             alt="Logo Ybyra Tech"
             style="width: 8.125rem; max-width: 35vw; height: auto"
     />
-    <a href="../index.jsp">Conheça o App</a>
-    <a href="cadastro.jsp">Cadastre-se</a>
+    <a href="./index.jsp">Conheça o App</a>
+    <a href="./cadastro.jsp">Cadastre-se</a>
     <button>
         <p>
-            <a href="login.jsp" style="color: aliceblue; font-size: 1rem"
+            <a href="./login.jsp" style="color: aliceblue; font-size: 1rem"
             >Acesse a sua conta</a
             >
         </p>
@@ -48,11 +48,11 @@
             <a href="cadastroSenha.jsp" style="margin-left: 0.6rem;">Esqueceu a Senha?</a>
 
             <div id="buttons">
-                <button type="button" onclick="window.location.href='index.jsp'" style="color: #767676">
-                    Cancelar
+                <button>
+                    <a href="index.jsp" style="color: #767676"> Cancelar</a>
                 </button>
-                <button type="submit" style="background-color: #1e88ee; color: white;">
-                    Entrar
+                <button style="background-color: #1e88ee;">
+                    <a href="inicio.jsp">Entrar</a>
                 </button>
             </div>
         </form>

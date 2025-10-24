@@ -15,7 +15,7 @@ public class Relatorios {
 
 
     //CONSTRUTOR
-    public Relatorios(){}
+    public Relatorios(){};
 
     public Relatorios(int idRelatorios, Date dataCriacao, String pdfDocumento, String area) {
         this.idRelatorios = idRelatorios;

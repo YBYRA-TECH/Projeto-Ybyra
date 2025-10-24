@@ -254,7 +254,7 @@
     #notificacoes {
         top: 15%;
     }
-
+    
 }
 @media(max-width:880px) {
     #notificacoes {
@@ -354,18 +354,18 @@
         flex-direction: row;
         justify-content: right;
     }
-
-
+    
+    
     .area-icones-usuario label,img {
         width: 2rem;
         cursor: pointer;
         transition: all 0.6s;
     }
-
+    
     #menu-notificacoes {
         display: none;
     }
-
+    
     #notificacoes {
         top: 21.5%;
         width: 50%;
@@ -374,9 +374,9 @@
         text-align: left;
     }
     #notificacoes h1{
-        font-size: 1.6rem;
+        font-size: 1.6rem;        
     }
-
+    
     #notificacoes div {
         width: 100%;
         padding: 0.4rem;
@@ -387,7 +387,7 @@
         font-family: "Geologica", sans-serif;
         transition: all 0.5s ease;
     }
-
+    
 }
 @media(max-width:540px) {
     #notificacoes {

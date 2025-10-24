@@ -1,0 +1,61 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: davioliveira-ieg
+  Date: 07/10/2025
+  Time: 11:33
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            rel="shortcut icon"
+            href="./imgs/Nova logo Sem tech.png"
+            type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/cadastroSenha.css" />
+    <title>YBYRA TECH</title>
+</head>
+<body>
+<header>
+    <img
+            src="./imgs/Nova logo.png"
+            alt="Logo Ybyra Tech"
+            style="width: 8.125rem; max-width: 35vw; height: auto"
+    />
+    <a href="./index.jsp">Conheça o App</a>
+    <a href="./cadastro.jsp">Cadastre-se</a>
+    <button>
+        <p>
+            <a href="./login.html" style="color: aliceblue; font-size: 1rem"
+            >Acesse a sua conta</a
+            >
+        </p>
+    </button>
+</header>
+
+<main>
+    <div id="inputs">
+        <h1>Crie uma Senha</h1>
+        <form>
+
+            <input type="password" placeholder="Crie uma Senha" />
+            <input type="password" placeholder="Repita sua Senha">
+            <p style="margin-left: 0.6rem;">Já tem uma conta? <a href="login.jsp">Login</a></p>
+
+            <div id="buttons">
+                <button >
+                    <a href="cadastro.jsp" style="color: #767676">Cancelar</a>
+                </button>
+                <button style="background-color: #1e88ee;">
+                    <a href="verificacao.jsp">Entrar</a>
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

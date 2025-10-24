@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -9,24 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="shortcut icon"
-            href="../imgs/Nova logo Sem tech.png"
+            href="./imgs/Nova logo Sem tech.png"
             type="image/x-icon"
     />
-    <link rel="stylesheet" href="../css/telaCon.css" />
+    <link rel="stylesheet" href="css/telaCon.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <header>
     <img
-            src="../imgs/Nova%20logo.png"
+            src="./imgs/Nova logo.png"
             alt="Logo Ybyra Tech"
             style="width: 8.125rem; max-width: 35vw; height: auto"
     />
-    <a href="../index.jsp">Conheça o App</a>
-    <a href="cadastro.jsp">Cadastre-se</a>
+    <a href="./index.jsp">Conheça o App</a>
+    <a href="./cadastro.jsp">Cadastre-se</a>
     <button>
         <p>
-            <a href="login.jsp" style="color: aliceblue; font-size: 1rem"
+            <a href="./login.jsp" style="color: aliceblue; font-size: 1rem"
             >Acesse a sua conta</a
             >
         </p>

@@ -1,9 +1,7 @@
-package com.ybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet;
+
 
 import java.io.IOException;
-
-import com.projybyraservletmvc.dao.IndustriaDAO;
-import com.projybyraservletmvc.model.Industria;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,97 +9,24 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "CadastroSERVLET", urlPatterns = {"/cadastro"})
+@WebServlet(name="CadastroServlet", value = "/cadastro")
 public class CadastroServlet extends HttpServlet {
-
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("=== doPost chamado no CadastroSERVLET ===");
-
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
-
-        // Receber dados
         String nome = request.getParameter("nome");
-        String cnpj = request.getParameter("cnpj");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
-        System.out.println("Dados recebidos:");
-        System.out.println("Nome: " + nome);
-        System.out.println("CNPJ: " + cnpj);
-        System.out.println("Email: " + email);
-
-        // Validar campos vazios
-        if (nome == null || nome.isEmpty() ||
-                cnpj == null || cnpj.isEmpty() ||
-                email == null || email.isEmpty() ||
-                senha == null || senha.isEmpty()) {
-
-            System.out.println("Erro: Campos vazios!");
-            response.getWriter().println("<h3> Preencha todos os campos!</h3>");
+        if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+            response.getWriter().println("<h3>Preencha todos os campos!</h3>");
             return;
         }
 
-        try {
-            System.out.println("Criando objeto Industria...");
-            Industria industria = new Industria(nome, cnpj, email, senha);
-
-            // VALIDAR CNPJ
-            if (!industria.validarCnpj()){
-                System.out.println("O cnpj está incorreto!");
-                request.setAttribute("erroCnpj", "Ops! O cnpj está incorreto!");
-                request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
-                request.setAttribute("email", email);
-                request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
-                return;
-            }
-
-            // VALIDAR EMAIL
-            if (!industria.validarEmail()){
-                System.out.println("O email está incorreto!");
-                request.setAttribute("erroEmail", "Ops! O email está incorreto!");
-                request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
-                request.setAttribute("email", email);
-                request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
-                return;
-            }
-
-            // VALIDAR SENHA
-            if (!industria.validarSenha()){
-                System.out.println("A senha está incorreta!");
-                request.setAttribute("erroSenha", "Ops! A senha está incorreta! Ela precisa ter no mínimo 8 dígitos e um número");
-                request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
-                request.setAttribute("email", email);
-                request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/autentificacao/cadastro.jsp").forward(request, response);
-                return;
-            }
-
-            System.out.println("Criando IndustriaDAO...");
-            IndustriaDAO dao = new IndustriaDAO();
-
-            System.out.println("Inserindo dados no banco...");
-            boolean sucesso = dao.inserirDados(industria);
-
-            if (sucesso) {
-                System.out.println("Cadastro realizado com sucesso!");
-                request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
-                response.sendRedirect(request.getContextPath() + "/autentificacao/telaCon.jsp");
-            } else {
-                System.out.println("Erro ao cadastrar no banco!");
-                response.getWriter().println("<h3> Erro ao cadastrar! Tente novamente.</h3>");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.getWriter().println("<h3> Erro: " + e.getMessage() + "</h3>");
-        }
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().println("<h2>Cadastro realizado com sucesso!</h2>");
+        response.getWriter().println("<p>Nome: " + nome + "</p>");
+        response.getWriter().println("<p>Email: " + email + "</p>");
     }
 }

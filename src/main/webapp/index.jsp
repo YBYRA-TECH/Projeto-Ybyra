@@ -4,32 +4,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CORRIGIDO: caminho do ícone -->
     <link
             rel="shortcut icon"
-            href="<%= request.getContextPath() %>/imgs/icon.png"
-            type="image/x-icon"/>
-    <!-- CORRIGIDO: ordem dos CSS - global.css antes de style.css -->
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/global.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/style.css">
+            href="./imgs/Nova logo Sem tech.png"
+            type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>YBYRA TECH</title>
 </head>
 <body>
 <header>
-    <!-- CORRIGIDO: adicionado max-width e height auto no style -->
-    <img src="<%= request.getContextPath() %>/imgs/Nova%20logo.png" alt="Logo Ybyra Tech" style="width: 8.125rem; max-width: 35vw; height: auto" />
-    <!-- ADICIONADO: input checkbox para menu mobile -->
-    <input type="checkbox" id="menu">
-    <!-- ADICIONADO: label com ícone do menu -->
-    <label for="menu" class="menu-icon">☰</label>
-    <!-- ADICIONADO: nav com classe menu-links -->
-    <nav class="menu-links" >
-        <a href="#sec3">Conheça o App</a>
-        <!-- CORRIGIDO: link para telaSeparação.jsp -->
-        <a href="<%= request.getContextPath() %>/autentificacao/telaSeparação.jsp">Cadastre-se</a>
-        <!-- CORRIGIDO: estrutura - removido button e p, adicionado style e id -->
-        <a href="<%= request.getContextPath() %>/autentificacao/telaSeparaçãoEntrar.jsp" style="color: aliceblue; font-size: 1rem" id="botao-login">Acesse a sua conta</a>
-    </nav>
+    <img
+            src="./imgs/Nova logo.png"
+            alt="Logo Ybyra Tech"
+            style="width: 8.125rem;"
+    />
+    <a href="#sec3">Conheça o App</a>
+    <a href="./cadastro.html">Cadastre-se</a>
+    <button>
+        <p>
+            <a href="./login.html" style="color: aliceblue; font-size: 1rem"
+            >Acesse a sua conta</a
+            >
+        </p>
+    </button>
 </header>
 
 <main>
@@ -47,7 +45,7 @@
         </div>
         <div id="imagem_intro">
             <img
-                    src="<%= request.getContextPath() %>/imgs/Dois%20celulare%201Pa.png"
+                    src="./imgs/Dois celulare 1Pa.png"
                     alt="Dois celulares mostrando o aplicativo"
                     style="width: 31.25rem; max-width: 90vw; height: auto"
             />
@@ -66,7 +64,7 @@
                     Quando se está por dentro do que seu trabalho gera, você tende a
                     ter gosto pelo que faz.
                 </p>
-                <!-- REMOVIDO: link "Veja Mais" (não existe no HTML original) -->
+                <a class="link_cartao" href="#">Veja Mais →</a>
             </div>
         </div>
         <div>
@@ -77,7 +75,7 @@
                     Nosso App ajuda você a ter uma visão abrangente de toda a
                     produção.
                 </p>
-                <!-- REMOVIDO: link "Saiba Mais" (não existe no HTML original) -->
+                <a class="link_cartao" href="#">Saiba Mais →</a>
             </div>
         </div>
         <div>
@@ -90,7 +88,7 @@
                     Adicione mais um integrante ao seu brainstorming, a MelhoraAI te
                     ajuda a encontrar soluções para seus problemas!
                 </p>
-                <!-- REMOVIDO: link "Conheça já" (não existe no HTML original) -->
+                <a class="link_cartao" href="#">Conheça já →</a>
             </div>
         </div>
     </section>
@@ -105,8 +103,7 @@
 
                 <div class="slides">
                     <div class="slide" data-step="1">
-                        <!-- CORRIGIDO: caminho da imagem -->
-                        <img src="<%= request.getContextPath() %>/imgs/Escaneia.png" alt="Escaneie a informação" />
+                        <img src="./imgs/Escaneia.png" alt="Escaneie a informação" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
@@ -135,8 +132,7 @@
                     </div>
 
                     <div class="slide" data-step="2">
-                        <!-- CORRIGIDO: caminho da imagem -->
-                        <img src="<%= request.getContextPath() %>/imgs/Relatorios.png" alt="Relatórios" />
+                        <img src="./imgs/Relatorios.png" alt="Relatórios" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
@@ -159,8 +155,7 @@
                     </div>
 
                     <div class="slide" data-step="3">
-                        <!-- CORRIGIDO: caminho da imagem -->
-                        <img src="<%= request.getContextPath() %>/imgs/planilhia.png" alt="Planilhas" />
+                        <img src="./imgs/planilhia.png" alt="Planilhas" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
@@ -184,8 +179,7 @@
                     </div>
 
                     <div class="slide" data-step="4">
-                        <!-- CORRIGIDO: caminho da imagem -->
-                        <img src="<%= request.getContextPath() %>/imgs/Melhora%20ai.png" alt="Melhora AI" />
+                        <img src="./imgs/Melhora ai.png" alt="Melhora AI" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
@@ -221,32 +215,31 @@
 
     <section id="sec4">
         <div class="texto">
-            <h1>Seja um Parceiro</h1>
-            <form action="" method="post">
-                <div class="inputs">
-                    <input type="email" placeholder="E-mail" />
-                    <input type="tel" placeholder="Número de telefone" />
-                    <input type="text" placeholder="Nome" />
-                    <input type="text" placeholder="Tipo de industria" />
-
-                    <div id="buttons">
-                        <button>Enviar</button>
-                    </div>
-                </div>
-            </form>
+            <h1>Perguntas</h1>
+            <div class="textoP">
+                <p>Por que usar Ybyra Tech?</p>
+                <hr />
+                <p>Onde nos encontrar</p>
+                <hr />
+                <p>Funcionamento do Aplicativo</p>
+                <hr />
+                <p>Onde nos encontrar</p>
+                <hr />
+            </div>
         </div>
-        <!-- REMOVIDO: fechamento extra de div -->
-        <!-- ADICIONADO: imagem decorativa da sec4 -->
-        <img src="<%= request.getContextPath() %>/imgs/dundo%20sec4.png" alt="Imagem ilustrativa" id="sec4Im" />
+        <img
+                src="./imgs/dundo sec4.png"
+                alt=""
+                style="width: 50rem; max-width: 95vw; height: auto"
+                id="sec4Im"
+        />
     </section>
-    <!-- ADICIONADO: div imagem_decorativa -->
     <div id="imagem_decorativa"></div>
 
     <section id="sec_sobre">
         <h1 id="titulo_sobre">Sobre Nós</h1>
         <div id="cartoes_sobre">
-            <!-- CORRIGIDO: nome da imagem 'imagem nossa missao.png' para 'imagem nossa missao.png' -->
-            <div class="card_sobre" style="background-color: white;background-image: url('<%= request.getContextPath() %>/imgs/imagem%20nossa%20missao.png'); background-repeat: no-repeat; background-position: 0.5rem 22rem;background-size: 102%;">
+            <div class="card_sobre" style="background-color: white;background-image: url('./imgs/missao.png'); background-repeat: no-repeat; background-position: 0.5rem 22rem;background-size: 102%;">
                 <h1 class="titulo_card">Nossa Missão</h1>
                 <p>
                     Queremos impulsionar o processo produtivo industrial através de
@@ -271,8 +264,7 @@
                 </p>
             </div>
 
-            <!-- CORRIGIDO: nome da imagem e adicionado padding -->
-            <div class="card_sobre" style="margin-right: 3.5rem;background-color: white;background-image: url('<%= request.getContextPath() %>/imgs/imagem%20nossos%20valores.png'); background-repeat: no-repeat; background-position: 8.5rem 19rem;background-size: 70%;">
+            <div class="card_sobre" style="margin-right: 3.5rem;background-color: white;padding: 1.3rem;background-image: url('./imgs/valores.png'); background-repeat: no-repeat; background-position: 8.5rem 19rem;background-size: 70%;">
                 <h1 class="titulo_card">Nossos Valores</h1>
                 <p>
                     Prezamos pela simplicidade, um valor importantíssimo para uma
