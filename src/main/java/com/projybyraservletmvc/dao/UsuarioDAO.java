@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//CLASSE COM METODOS CRUD PARA USUARIO
 public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
 
