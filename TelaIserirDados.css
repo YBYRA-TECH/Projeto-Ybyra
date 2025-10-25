@@ -40,7 +40,27 @@ body {
     margin-bottom: 2rem;
     font-weight: 700;
 }
+#voltar {
+    rotate: 180deg;
+}
+.area-icones{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#menu-notificacoes label{
+    margin-right: 3rem;
+}
+#notificacoes{
+    right: 2%;
+}
+.area-icones{
+    margin-right: 3rem;
+}
 
+#span1{
+    margin-right: 0.3rem;
+}
 /* Área de Preview (Arquivo Escolhido) */
 .arquivo-preview {
     /* Borda tracejada (como na imagem original) */

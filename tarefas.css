@@ -14,14 +14,10 @@ body {
     overflow-x: hidden;
 }
 
-body {
-    background: linear-gradient(to right, #CCF6FF, #192083);
-}
-
 /* ===== ÁREA DE CONTEÚDO ===== */
 .conteudo {
     flex-grow: 1;
-    padding: 1.3rem 0rem 1rem 3rem;
+    padding: 0.8rem 0rem 1rem 3rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
@@ -36,7 +32,7 @@ body {
     border-radius: 0.5rem;
     overflow: hidden;
     background-color: white;
-    width: 10px;
+    width: 20rem;
 }
 
 .campo-busca input {
@@ -44,12 +40,13 @@ body {
     border: none;
     padding: 0.6rem 0.8rem;
     outline: none;
-    font-size: 0.85rem; 
-    flex: 1;
-    width: 3rem ;
+    font-size: 0.85rem;
+    flex: 400;
+    width: 30rem;
+    max-width: 30rem;
 }
 
-#buscar{
+#buscar {
     width: 1rem;
 }
 
@@ -58,9 +55,10 @@ body {
     border: none;
     padding: 0 0.8rem;
     cursor: pointer;
-    display: flex;
+    /* display: flex; */
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+
 }
 
 .btn-lupa img {
@@ -71,24 +69,60 @@ body {
 .topo {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 0 0.5rem;
     margin-bottom: 2rem;
     position: relative;
-    flex-wrap: wrap;
+}
+#buscar {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+#buscar::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    width: 80%;
+}
+/* Quando o menu está aberto */
+
+
+/* ===== HEADER (BUSCA E FILTROS) - MODIFICADO ===== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
     gap: 1rem;
 }
 
-#adicionar {
-    display: none;
-}
-
-/* Quando o menu está aberto */
-#adicionar:checked~#menu-tarefas {
+.area-filtros {
     display: flex;
-    transition: all 1.5s;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex: 1;
+    top: 0;
 }
 
+
+/* Container para notificações à direita */
+.area-icones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    left: 2.2%;
+    top: 0;
+}
+
+/* Menu de tarefas permanece com comportamento atual */
 #menu-tarefas {
     display: none;
     width: 100%;
@@ -102,43 +136,34 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     order: 3;
-    /* Coloca o menu abaixo dos outros elementos */
 }
 
-#menu-tarefas input,
-#menu-tarefas select {
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 0.5rem);
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    outline: none;
-    border-radius: 0.5rem;
-    font-size: 0.9rem;
-    font-family: "Geologica", sans-serif;
-    transition: all 0.3s ease;
-}
-
-#menu-tarefas input:focus,
-#menu-tarefas select:focus {
-    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
-    border-color: #1e88ee;
-    transform: scale(1.02);
+/* Notificações - posicionamento à direita */
+#notificacoes {
+    right: 0;
+    transform: translateX(0);
 }
 
 .area-filtros {
     display: flex;
     gap: 0.75rem;
     align-items: center;
-    flex-wrap: wrap;
-    width: 50%;
+    width: 20%;
 }
+
+#label-notificaçoes {
+    padding: 0rem 1.6rem 0.6rem 1.5rem;
+
+}
+
 .area-filtros label {
     display: flex;
     gap: 0.5rem;
     background-color: #2067ca;
     color: white;
+    /* padding: 0rem 1.4rem 0.6rem 1.5rem; */
     padding: 0.6rem 1.5rem;
+
     border-radius: 0.5rem;
     font-weight: 600;
     cursor: pointer;
@@ -150,9 +175,11 @@ body {
 }
 
 .area-filtros label:hover {
-    background-color: #2067ca;
     transform: translateY(-2px);
-
+}
+.menu-lixeira:checked~.modal-overlay {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .filtro-select {
@@ -169,7 +196,6 @@ body {
     background-size: 0.65rem auto;
     border: 1px solid #ccc;
     min-width: 120px;
-    white-space: nowrap;
 }
 
 .btn-buscar {
@@ -182,22 +208,37 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
-    white-space: nowrap;
 }
 
 .btn-buscar:hover {
     transform: translateY(-2px);
 }
 
-.area-icones-usuario {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    white-space: nowrap;
+.area-icones {
+    justify-self: end;
+    width: 50%;
 }
 
-.area-icones-usuario img {
+.area-icones label {
+    top: 2rem;
+    margin-right: 2.5rem;
+    margin-top: 0.5rem;
+    right: 0%;
+    display: flex;
+    background-color: #f8fcff;
+}
+
+#linkAdi {
+    text-decoration: none;
+    color: #f8fcff;
+}
+
+.area-icones img {
     transition: all 0.3s;
+}
+
+#notificacoes {
+    right: 2%;
 }
 
 .filtro-select {
@@ -211,10 +252,9 @@ body {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position:top 50%;
+    background-position: top 50%;
     background-size: 0.65rem auto;
     transition: all 10s ease;
-
 }
 
 .btn-adicionar {
@@ -319,6 +359,7 @@ body {
     padding-bottom: 1rem;
     cursor: pointer;
 }
+
 .titulo-tarefa {
     flex-grow: 1;
     margin-right: 0.5rem;
@@ -495,11 +536,6 @@ body {
     display: block;
 }
 
-.menu-lixeira:checked~.modal-overlay {
-    /* display: block; */
-    opacity: 1;
-    pointer-events: auto;
-}
 .btn-acao {
     background: none;
     border: none;
@@ -619,178 +655,3 @@ body {
 }
 
 /* ===== RESPONSIVIDADE ===== */
-
-/* Tablets */
-@media (max-width: 1024px) {
-    .topo {
-        gap: 0.75rem;
-    }
-    .confirmar {
-        width: 40%;
-    }
-    
-    .btn-confirmar {
-        border-radius: 0.4rem;
-        border: none;
-        background-color: #2067ca;
-        color: white;
-        box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
-        height: 3rem;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-    .btn-confirmar {
-        width: 40%;
-        height: 3rem;
-    }
-
-    .area-filtros {
-        gap: 0.5rem;
-    }
-
-    .campo-busca input {
-        width: 10rem;
-    }
-    #menu-tarefas {
-        justify-content: right;
-    }
-    #menu-tarefas input,
-    #menu-tarefas select {
-        width: 100%;
-        /* Um por linha em tablets */
-    }
-}
-
-/* @media (min-width: 1440px) {
-    .area-filtros {
-        max-width: 40%;
-    }
-
-    .campo-busca input {
-        width: 15rem;
-    }
-} */
-
-/* Tablets Pequenos */
-@media (max-width: 768px) {
-    .topo {
-        flex-direction: row;
-        align-items: stretch;
-        gap: 1rem;
-    }
-}
-
-.btn-confirmar {
-    width: clamp(80%,60%,65%);
-    position: right;
-    height: 2.5rem;
-    cursor: pointer;
-    font-size: clamp(0.5rem,1.5vw,1.4rem);
-}
-
-.area-filtros {
-    justify-content: space-between;
-    gap: 0.5rem;
-}
-
-.campo-busca {
-    min-width: 1rem;
-    flex: 1;
-}
-
-.campo-busca input {
-    width: 0rem;
-    padding: 1rem;
-}
-
-.area-icones-usuario {
-    order: 2;
-    margin-top: 0.5rem;
-}
-
-#menu-tarefas {
-    order: 3;
-}
-
-.topo-painel h3 {
-    font-size: 1rem;
-    width: 8rem;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-    .area-filtros {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    .campo-busca,
-    .area-filtros label,
-    .filtro-select,
-    .btn-buscar {
-        width: 100%;
-    }
-
-    .campo-busca input {
-        width: 100%;
-    }
-
-    .area-icones-usuario {
-        justify-content: space-around;
-        width: 100%;
-    }
-
-    #menu-tarefas {
-        margin-top: 0.5rem;
-    }
-
-    .secao-board {
-        flex-direction: column;
-        padding: 0 0.5rem 1rem;
-    }
-
-    .quadro-tarefas {
-        max-width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    .painel-pessoas {
-        width: 100%;
-    }
-}
-
-/* Mobile Pequeno */
-@media (max-width: 480px) {
-    .conteudo {
-        padding: 1rem;
-        margin: 0.5rem;
-    }
-
-    .topo {
-        margin-bottom: 1rem;
-    }
-
-    .area-filtros label,
-    .btn-buscar {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-    }
-
-    .filtro-select {
-        padding: 0.5rem 1.8rem 0.5rem 0.6rem;
-        font-size: 0.8rem;
-    }
-
-    #menu-tarefas {
-        padding: 0.75rem;
-        gap: 0.75rem;
-    }
-
-    #menu-tarefas input,
-    #menu-tarefas select {
-        padding: 0.6rem;
-        font-size: 0.8rem;
-    }
-}
-
-/* Ajustes para telas muito grandes */

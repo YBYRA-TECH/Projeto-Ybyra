@@ -56,10 +56,10 @@
                         <a href="insercaoDados.html">
                             <div class="box-icone">
                                 <img src="./imgs/camera_insercao.png" alt="Ícone Inserir Dados" ">
-              </div>
-              <span>Inserir Dados</span>
-            </a>
-          </li>
+                        </div>
+                        <span>Inserir Dados</span>
+                        </a>
+                    </li>
 
           <!-- <li class=" item-menu">
                                 <a href="#">
@@ -97,46 +97,29 @@
             <header class="topo">
                 <div class="area-filtros">
                     <div class="campo-busca">
-                        <input type="text" placeholder="Buscar Tarefas" id="buscar"/>
+                        <input type="text" placeholder="Buscar Tarefas" id="buscar" />
                         <button class="btn-lupa">
                             <img src="./imgs/Research.png" alt="Buscar" />
                         </button>
                     </div>
-
-
-                    <input type="checkbox" id="adicionar">
+                    <!-- retirado o input checkbox. Desnecessario -->
                     <label for="adicionar" id="menu-adicionar">
-                        <span>Adicionar</span>
+                        <a href="adicionarTarefa.html" id="linkAdi">Adicionar</a>
                     </label>
-
-                    <div id="menu-tarefas">
-                        <select class="filtro-select">
-                            <option value="" disabled selected hidden>Prioridade</option>
-                            <option value="">Não Iniciada</option>
-                            <option value="">Em Andamento</option>
-                            <option value="">Concluída</option>
-                        </select>
-
-                        <input type="text" placeholder="Nome da tarefa">
-                        <input type="text" placeholder="Responsável">
-                        <input type="date" placeholder="Prazo">
-                        <input type="text" placeholder="Descrição">
-                        <div class="confirmar">
-                            <button type="button" class="btn-confirmar">confirmar</button>
-                        </div>
-                    </div>
+                    <!-- retirado o pop up de adiconar e criado o adicionar.html -->
                     <button class="btn-buscar">Buscar</button>
-                </div>
-                <div class="area-icones-usuario">
-                    <input type="checkbox" id="menu-notificacoes">
-                    <label for="menu-notificacoes">
-                        <img src="./imgs/notificacoes.png" alt="Notificações">
-                    </label>
-                    <div id="notificacoes">
-                        <h1>Notificações</h1>
-                        <div>Murilo adicionou uma tarefa</div>
-                        <div>Guilherme concluiu uma tarefa</div>
-                        <div>Emilly concluiu uma tarefa</div>
+                    <div class="area-icones">
+                        <input type="checkbox" id="menu-notificacoes">
+                        <!-- adicionado um id para estilização -->
+                        <label for="menu-notificacoes" id="label-notificaçoes">
+                            <img src="./imgs/notificacoes.png" alt="Notificações">
+                        </label>
+                        <div id="notificacoes">
+                            <h1>Notificações</h1>
+                            <div>Murilo adicionou uma tarefa</div>
+                            <div>Guilherme concluiu uma tarefa</div>
+                            <div>Emilly concluiu uma tarefa</div>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -153,20 +136,19 @@
                         <div class="tarefa nao-iniciada">
                             <input type="checkbox" id="tarefa-1" class="checkbox-expandir">
                             <label for="tarefa-1" class="cabecalho-tarefa">
-                                
+
                                 <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
                                 <div class="acoes-tarefa">
                                     <a href="telaAlterar.html" class="btn-acao btn-editar">
-                                        <label for="adicionar" class="icone-alterar">
-                                            <img src="./imgs/icone alterar.png" alt="Editar">
-                                        </label>
+                                        <img src="./imgs/icone alterar.png" alt="Editar">
                                     </a>
+                                    
                                     <input type="checkbox" class="menu-lixeira" id="modal-1">
                                     <label for="modal-1" class="icone-lixeira">
                                         <img src="./imgs/Trash.png" alt="lixeira">
                                     </label>
                                     <div class="modal-overlay">
-                                        <div class="menu-lixo">
+                                        <div class="menu-lixo"> 
                                             <div class="menu-lixo-icone">
                                                 <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                                             </div>
@@ -207,13 +189,11 @@
                         <div class="tarefa nao-iniciada">
                             <input type="checkbox" id="tarefa-2" class="checkbox-expandir">
                             <label for="tarefa-2" class="cabecalho-tarefa">
-                               
+
                                 <span class="titulo-tarefa">Manter a limpeza do setor.</span>
                                 <div class="acoes-tarefa">
                                     <a href="telaAlterar.html" class="btn-acao btn-editar">
-                                        <label for="adicionar" class="icone-alterar">
-                                            <img src="./imgs/icone alterar.png" alt="Editar">
-                                        </label>
+                                        <img src="./imgs/icone alterar.png" alt="Editar">
                                     </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-3">
                                     <label for="modal-3" class="icone-lixeira">
@@ -266,13 +246,12 @@
                         <div class="tarefa em-andamento">
                             <input type="checkbox" id="tarefa-3" class="checkbox-expandir">
                             <label for="tarefa-3" class="cabecalho-tarefa">
-                               
+
                                 <span class="titulo-tarefa">Manutenção na máquina 15.</span>
                                 <div class="acoes-tarefa">
                                     <a href="telaAlterar.html" class="btn-acao btn-editar">
-                                        <label for="adicionar" class="icone-alterar">
-                                            <img src="./imgs/icone alterar.png" alt="Editar">
-                                        </label>
+                                        <!-- retirado o label das imagens -->
+                                        <img src="./imgs/icone alterar.png" alt="Editar">
                                     </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-4">
                                     <label for="modal-4" class="icone-lixeira">
@@ -318,13 +297,11 @@
                         <div class="tarefa em-andamento">
                             <input type="checkbox" id="tarefa-4" class="checkbox-expandir">
                             <label for="tarefa-4" class="cabecalho-tarefa">
-                               
+
                                 <span class="titulo-tarefa">Adicionar dados do app.</span>
                                 <div class="acoes-tarefa">
                                     <a href="telaAlterar.html" class="btn-acao btn-editar">
-                                        <label for="adicionar" class="icone-alterar">
-                                            <img src="./imgs/icone alterar.png" alt="Editar">
-                                        </label>
+                                        <img src="./imgs/icone alterar.png" alt="Editar">
                                     </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-5">
                                     <label for="modal-5" class="icone-lixeira">
@@ -377,13 +354,10 @@
                         <div class="tarefa concluida">
                             <input type="checkbox" id="tarefa-5" class="checkbox-expandir">
                             <label for="tarefa-5" class="cabecalho-tarefa">
-                               
                                 <span class="titulo-tarefa">Revisão de estoque.</span>
                                 <div class="acoes-tarefa">
                                     <a href="telaAlterar.html" class="btn-acao btn-editar">
-                                        <label for="adicionar" class="icone-alterar">
-                                            <img src="./imgs/icone alterar.png" alt="Editar">
-                                        </label>
+                                        <img src="./imgs/icone alterar.png" alt="Editar">
                                     </a>
                                     <input type="checkbox" class="menu-lixeira" id="modal-6">
                                     <label for="modal-6" class="icone-lixeira">

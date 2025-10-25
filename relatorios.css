@@ -35,8 +35,12 @@ body {
     justify-content: space-around;
     padding: 0 0.5rem 1rem 0rem;
     margin-bottom: 1.2rem;
-    gap: 1rem;
+    gap: 16rem;
 
+}
+.painel-info{
+    display: flex;
+    align-items: center;
 }
 
 .busca-relatorios {
@@ -81,7 +85,7 @@ body {
 
 .botoes-acao {
     display: flex;
-    gap: 3rem;
+    gap: 0rem;
     margin-left: 1rem;
 }
 
@@ -135,6 +139,12 @@ body {
     transform: translateY(-3px);
 }
 
+.area-icones{
+    margin-left: 2rem;
+}
+#notificacoes{
+    right: 2%;
+}
 /* 3. Filtros de Data e Filtro Genérico */
 .filtros {
     display: flex;
@@ -173,7 +183,6 @@ body {
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin: 0 2.5rem;
-    /* Adicionado margem lateral para alinhamento */
 }
 
 table {
@@ -226,7 +235,6 @@ td {
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.9rem;
     color: #475569;
-    /* Adicionado posicionamento para o link esticado */
     position: relative;
 }
 
@@ -489,28 +497,6 @@ td:last-child {
     pointer-events: auto;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* --- PAGINAÇÃO --- */
 .paginacao {
     display: flex;
@@ -613,10 +599,6 @@ a {
     .btn-adicionar {
         margin-left: 0;
     }
-}
-
-
-@media (max-width: 768px) {
     .busca-relatorios input {
         padding: 1rem;
         width: 20rem;
@@ -658,6 +640,7 @@ a {
     }
 }
 
+
 @media (max-width: 480px) {
     .menu-lixo {
         padding: 1.5rem 1rem;
@@ -680,4 +663,8 @@ a {
         padding: 0.7rem 1.5rem;
         font-size: 0.9rem;
     }
+}
+@media (max-width: 375px) {
+}
+@media (min-width: 1400px) {
 }

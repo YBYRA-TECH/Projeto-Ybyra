@@ -77,32 +77,34 @@
 
       <section class="painel">
         <div class="painel-ferramentas">
-          <div class="busca-relatorios">
-            <input type="text" placeholder="Buscar Relatórios" />
-            <button class="icone-busca"><img src="./imgs/Research.png" alt="Ícone Lupa"></button>
-          </div>
+          <div class="painel-info">
+            <div class="busca-relatorios">
+              <input type="text" placeholder="Buscar Relatórios" title="Busca"/>
+              <button class="icone-busca"><img src="./imgs/Research.png" alt="Ícone Lupa" title="Lupa"></button>
+            </div>
 
-          <div class="botoes-acao">
-            <button class="btn-acao btn-exportar">
-              <img src="./imgs/download.png" alt="Ícone Exportar" />
-              <span>Exportar</span>
-            </button>
-            <a href="insercaoDados.html">
-              <button class="btn-acao btn-adicionar">
-                <img src="./imgs/icone mais.png" alt="">
-                <span>Adicionar</span>
+            <div class="botoes-acao">
+              <button class="btn-acao btn-exportar" title="Upload">
+                <img src="./imgs/download.png" alt="Ícone Exportar" title="Download" title="upload"/>
+                <span >Exportar</span>
               </button>
-            </a>
-          </div>
+              <a href="insercaoDados.html">
+                <button class="btn-acao btn-adicionar" title="Adicionar">
+                  <span>Adicionar</span>
+                </button>
+              </a>
+            </div>
 
-          <div class="filtros">
-            <div class="filtro-data">
-              <input type="date" placeholder="Filtrar por Data">
+            <div class="filtros">
+              <div class="filtro-data">
+                <input type="date" placeholder="Filtrar por Data" title="Data">
+              </div>
             </div>
           </div>
-          <div class="area-icones-usuario">
+
+          <div class="area-icones">
             <input type="checkbox" id="menu-notificacoes">
-            <label for="menu-notificacoes">
+            <label for="menu-notificacoes" title="Notificações">
               <img src="./imgs/notificacoes.png" alt="Notificações">
             </label>
             <div id="notificacoes">
@@ -135,12 +137,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-1">
-                  <label for="modal-1" class="icone-lixeira">
+                  <label for="modal-1" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
@@ -174,12 +176,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-2">
-                  <label for="modal-2" class="icone-lixeira">
+                  <label for="modal-2" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
@@ -213,12 +215,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-3">
-                  <label for="modal-3" class="icone-lixeira">
+                  <label for="modal-3" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
@@ -252,12 +254,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-4">
-                  <label for="modal-4" class="icone-lixeira">
+                  <label for="modal-4" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
@@ -291,12 +293,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-5">
-                  <label for="modal-5" class="icone-lixeira">
+                  <label for="modal-5" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
@@ -330,12 +332,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-6">
-                  <label for="modal-6" class="icone-lixeira">
+                  <label for="modal-6" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
@@ -369,12 +371,12 @@
                   </a></td>
                 <td>
                   <input type="checkbox" class="menu-lixeira" id="modal-7">
-                  <label for="modal-7" class="icone-lixeira">
+                  <label for="modal-7" class="icone-lixeira" title="Lixeira">
                     <img src="./imgs/Trash.png" alt="lixeira">
                   </label>
                   <div class="modal-overlay">
                     <div class="menu-lixo">
-                      <div class="menu-lixo-icone">
+                      <div class="menu-lixo-icone" title="Lixeira">
                         <img src="./imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
                       <h1>Deseja excluir o relatório?</h1>
