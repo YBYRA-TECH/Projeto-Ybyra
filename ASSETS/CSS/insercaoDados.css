@@ -1,0 +1,263 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    font-size: 16px; /* Definindo a base de 1rem = 16px */
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display:flex;
+}
+
+/* --- Estilos da Área de Conteúdo --- */
+
+.area-conteudo {
+    flex-grow: 1;
+    padding: 1.3rem 0rem 2rem 1.3rem ;
+    background-color: #f8fcff;
+    border-radius: 1.25rem;
+    margin: 1.2rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do cabeçalho principal */
+.header-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.conteudo-principal-header{
+    margin-left: 2.3%;
+}
+
+/* Container para a busca e os filtros (lado esquerdo) */
+.busca-filtros {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-grow: 1; /* Permite que ocupe o espaço necessário */
+    max-width: 75%; /* Limita a largura para caber os ícones na direita */
+}
+
+/* Estilo do campo de busca */
+.busca-relatorios .icone-busca {
+    background-color: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.busca-relatorios img {
+    width: 20px;
+    height: 20px;
+}
+.busca-relatorios {
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 16rem;
+    height: 2.5rem;
+}
+
+.busca-relatorios input {
+    border: none;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.6rem 0.8rem;
+    outline: none;
+    flex: 400;
+
+}
+
+.busca-relatorios input::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    width: 80%;
+}
+
+/* Estilo dos Dropdowns (selects) */
+.busca-filtros select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.85rem;
+    color: #333;
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E'); /* Ícone de seta para dropdown */
+    background-repeat: no-repeat;
+    background-position: right 0.5rem top 50%;
+    background-size: 0.65rem auto;
+    padding-right: 2rem;
+}
+#span1{
+    margin-right: 0.3rem;
+}
+/* Estilo do botão Buscar */
+.btn-buscar {
+    background-color: #2067ca;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-buscar:hover {
+    background-color: #192083;
+}
+
+#upload{
+    font-size: 0.9rem;
+   margin-bottom: 1.3rem;
+}
+
+#notificacoes{
+    right: 2%;
+}
+
+.area-icones{
+    margin-right: 2.5rem;
+}
+
+.area-upload-arquivo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 13rem;
+    background-color: #e6f3ff; 
+    border: 2px dashed #a3c9ff; 
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
+    width: 93%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.btn-escolher-arquivo {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.btn-escolher-arquivo:hover {
+    background-color: #192083;
+}
+
+/* --- Estilos da Área de Upload Recentes --- */
+
+.area-upload-recentes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 28rem;
+    width: 93.3%;
+    margin-left: 2rem;
+    background-color: #ffffff;
+    border: 2px solid #EEF2F9; 
+    border-radius: 0.8rem;
+}
+
+.area-upload-recentes img{
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+.painel h1{
+    font-family: 'Montserra', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    color: #2F567D;
+
+}
+@media (max-width:1024px) {
+    .painel-principal {
+        display:block;
+    }
+}
+@media (max-width: 768px) {
+    .busca-filtros{
+        justify-content: space-around;
+        max-width: 100%;    
+    }
+    .busca-filtros {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        /* flex-grow: 1; Permite que ocupe o espaço necessário */
+        max-width: 93%; 
+    }
+    
+    
+    .busca-relatorios input[type="text"] {
+        border: none;
+        padding: 0.6rem 0.8rem;
+        outline: none;
+        font-size: 0.75rem;
+        /* width: 10rem; Tamanho fixo para o campo de busca */
+    }
+
+    #categorias{
+        font-size: 0.8rem;
+    }
+    #periodo{
+        font-size: 0.8rem;
+    }
+    #prioridade{
+        font-size: 0.8rem;
+
+    }
+    
+    .busca-relatorios .icone-busca {
+        background-color: transparent;
+        border: none;
+        padding: 0 0.8rem;
+        cursor: pointer;
+        color: #888;
+    }
+    
+    .busca-relatorios img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    
+}

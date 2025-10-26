@@ -1,0 +1,664 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* ===== ÁREA DE CONTEÚDO ===== */
+.conteudo {
+    flex-grow: 1;
+    padding: 0.8rem 0rem 1rem 3rem;
+    background-color: #f8fcff;
+    border-radius: 1.25rem;
+    margin: 1.2rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+}
+
+/* ===== HEADER (BUSCA E FILTROS) ===== */
+.campo-busca {
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 16rem;
+    height: 2.5rem;
+}
+
+.campo-busca input {
+    border: none;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.6rem 0.8rem;
+    outline: none;
+    flex: 400;
+
+}
+
+.campo-busca input::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    width: 80%;
+}
+
+
+#buscar {
+    width: 1rem;
+}
+
+.btn-lupa {
+    background-color: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    /* display: flex; */
+    align-items: center;
+    /* justify-content: center; */
+
+}
+
+.btn-lupa img {
+    width: 20px;
+    height: 20px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+#buscar {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+#buscar::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    width: 80%;
+}
+/* Quando o menu está aberto */
+
+
+/* ===== HEADER (BUSCA E FILTROS) - MODIFICADO ===== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    gap: 1rem;
+}
+
+.area-filtros {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex: 1;
+    top: 0;
+}
+
+
+/* Container para notificações à direita */
+.area-icones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    left: 2.2%;
+    top: 0;
+}
+
+/* Menu de tarefas permanece com comportamento atual */
+#menu-tarefas {
+    display: none;
+    width: 100%;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    border: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    order: 3;
+}
+
+/* Notificações - posicionamento à direita */
+#notificacoes {
+    right: 0;
+    transform: translateX(0);
+}
+
+.area-filtros {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    width: 20%;
+}
+
+#label-notificaçoes {
+    padding: 0rem 1.6rem 0.6rem 1.5rem;
+
+}
+
+.area-filtros label {
+    display: flex;
+    gap: 0.5rem;
+    background-color: #2067ca;
+    color: white;
+    /* padding: 0rem 1.4rem 0.6rem 1.5rem; */
+    padding: 0.6rem 1.5rem;
+
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.area-filtros label:hover {
+    transform: translateY(-2px);
+}
+.menu-lixeira:checked~.modal-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.filtro-select {
+    padding: 0.6rem 2rem 0.6rem 0.8rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem top 50%;
+    background-size: 0.65rem auto;
+    border: 1px solid #ccc;
+    min-width: 120px;
+}
+
+.btn-buscar {
+    background-color: #2067ca;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-buscar:hover {
+    transform: translateY(-2px);
+}
+
+.area-icones {
+    justify-self: end;
+    width: 50%;
+}
+
+.area-icones label {
+    top: 2rem;
+    margin-right: 2.5rem;
+    margin-top: 0.5rem;
+    right: 0%;
+    display: flex;
+    background-color: #f8fcff;
+}
+
+#linkAdi {
+    text-decoration: none;
+    color: #f8fcff;
+    display: flex;
+    gap: 2rem;
+    background-color: #3474cd;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    border: none;
+}
+
+.area-icones img {
+    transition: all 0.3s;
+}
+
+#notificacoes {
+    right: 2%;
+}
+
+.filtro-select {
+    padding: 0.6rem 0.8rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.9rem;
+    padding-right: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: top 50%;
+    background-size: 0.65rem auto;
+    transition: all 10s ease;
+}
+
+
+.btn-buscar {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-buscar:hover {
+    background-color: #3474cd;
+}
+
+.confirmar {
+    width: 24%;
+}
+
+.btn-confirmar {
+    border-radius: 0.4rem;
+    border: none;
+    background-color: #3474cd;
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ===== SECTION BOARD (Tarefas + ASIDE) ===== */
+.secao-board {
+    display: flex;
+    justify-content: space-around;
+    gap: 8rem;
+    padding: 0 1.5rem 2rem 0.5rem;
+}
+
+.quadro-tarefas {
+    display: flex;
+    flex-direction: column;
+    max-width: 75%;
+    gap: 2rem;
+}
+
+.coluna-status {
+    background-color: #f8fcff;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    padding: 2rem;
+}
+
+.titulo-status {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2F567D;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* ===== CARTÃO DE TAREFA ===== */
+.tarefa {
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-family: "Geologica", sans-serif;
+    font-size: 0.9rem;
+    color: black;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+}
+
+.tarefa:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho da Tarefa */
+.cabecalho-tarefa {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+
+.titulo-tarefa {
+    flex-grow: 1;
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+/* Ações (Editar e Excluir) */
+.acoes-tarefa {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.icone-alterar {
+    cursor: pointer;
+}
+
+#icone-alterar:checked~.tarefa.concluida {
+    background: #3474cd;
+}
+
+.menu-lixeira {
+    display: none;
+}
+
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    padding: 8%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none
+}
+
+.menu-lixeira:checked+.modal-overlay {
+    display: flex;
+}
+
+.menu-lixo {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.menu-lixo-icone {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background-color: #3474cd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.menu-lixo-icone img {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1);
+}
+
+.menu-lixo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.menu-lixo p {
+    font-family: 'Geologica', sans-serif;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.menu-lixo .info-item {
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.menu-lixo .info-item strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-lixo .info-item span {
+    color: #475569;
+    font-size: 0.95rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.buttons label {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    flex: 1;
+    text-align: center;
+    display: block;
+}
+
+.btn-cancelar {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.btn-cancelar:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.btn-excluir {
+    background-color: #2067ca;
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.btn-excluir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+/* Estilo do botão lixeira na tabela */
+.icone-lixeira {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.icone-lixeira:hover {
+    background: #d9d7e2;
+    transform: scale(1.1);
+}
+
+.icone-lixeira img {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+}
+
+.btn-acao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-acao:hover {
+    opacity: 0.6;
+}
+
+.btn-acao img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* Seta de Expansão */
+.seta-expandir {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: all 0.3s;
+    display: block;
+    margin-right: 1rem;
+}
+
+/* Detalhes da Tarefa (Expansível) */
+.detalhes-tarefa {
+    padding: 0 1rem 0 2.75rem;
+    font-size: 0.9rem;
+    color: #64748b;
+    border-top: 1px solid transparent;
+    margin-top: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.detalhes-tarefa p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.checkbox-expandir {
+    display: none;
+}
+
+.checkbox-expandir:checked~.detalhes-tarefa {
+    max-height: 13rem;
+    padding-bottom: 1rem;
+    border-top-color: #f1f5f9;
+}
+
+/* ===== ASIDE PESSOAS ONLINE ===== */
+.painel-pessoas {
+    width: 20rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.topo-painel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.topo-painel h3 {
+    font-family: "Montserrat", sans-serif;
+    margin-left: 3rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.lista-usuarios {
+    padding-top: 0.5rem;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.usuario:last-child {
+    border-bottom: none;
+}
+
+.avatar-usuario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+}
+
+.nome-usuario {
+    flex-grow: 1;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.status-online {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #4caf50;
+    margin-left: 0.5rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
