@@ -76,11 +76,45 @@ public class TarefasDAO {
 
             while (rs.next()) {
                 Tarefas tarefa = new Tarefas();
+                tarefa.setId_tarefa(rs.getInt("id_tarefa"));
                 tarefa.setDescricao(rs.getString("descricao"));
                 tarefa.setNome(rs.getString("nome"));
                 tarefa.setPrazo(rs.getDate("prazo").toLocalDate());
                 tarefa.setPrioridade(rs.getString("prioridade"));
                 tarefa.setResponsavel(rs.getString("responsavel"));
+                tarefa.setId_usuario(rs.getInt("id_usuario"));
+
+                lista.add(tarefa);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
+
+    public List<Tarefas> buscarPorUsuario(int id_usuario) {
+        List<Tarefas> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM tarefas WHERE id_usuario = ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_usuario);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Tarefas tarefa = new Tarefas();
+                tarefa.setId_tarefa(rs.getInt("id_tarefa"));
+                tarefa.setDescricao(rs.getString("descricao"));
+                tarefa.setNome(rs.getString("nome"));
+                tarefa.setPrazo(rs.getDate("prazo").toLocalDate());
+                tarefa.setPrioridade(rs.getString("prioridade"));
+                tarefa.setResponsavel(rs.getString("responsavel"));
+                tarefa.setId_usuario(rs.getInt("id_usuario"));
 
                 lista.add(tarefa);
             }
@@ -131,11 +165,13 @@ public class TarefasDAO {
 
             if (rs.next()) {
                 Tarefas tarefa = new Tarefas();
+                tarefa.setId_tarefa(rs.getInt("id_tarefa"));
                 tarefa.setDescricao(rs.getString("descricao"));
                 tarefa.setNome(rs.getString("nome"));
                 tarefa.setPrazo(rs.getDate("prazo").toLocalDate());
                 tarefa.setPrioridade(rs.getString("prioridade"));
                 tarefa.setResponsavel(rs.getString("responsavel"));
+                tarefa.setId_usuario(rs.getInt("id_usuario"));
                 return tarefa;
             }
 
@@ -145,5 +181,43 @@ public class TarefasDAO {
             conexao.desconectar(conn);
         }
         return null;
+    }
+
+
+// BUSCA O QUE O USUARIO DIGITAR NA PESQUISA
+    public List<Tarefas> buscarComParametro(String texto) {
+        List<Tarefas> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM tarefas where descricao LIKE ? OR nome LIKE ? OR responsavel LIKE ? OR  TO_CHAR(prazo, 'DD/MM/YYYY') LIKE ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            String busca = "%" + texto + "%" ;
+            pstmt.setString(1, busca);
+            pstmt.setString(2, busca);
+            pstmt.setString(3, busca);
+            pstmt.setString(4, busca);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Tarefas tarefa = new Tarefas();
+                tarefa.setId_tarefa(rs.getInt("id_tarefa"));
+                tarefa.setDescricao(rs.getString("descricao"));
+                tarefa.setNome(rs.getString("nome"));
+                tarefa.setPrazo(rs.getDate("prazo").toLocalDate());
+                tarefa.setPrioridade(rs.getString("prioridade"));
+                tarefa.setResponsavel(rs.getString("responsavel"));
+                tarefa.setId_usuario(rs.getInt("id_usuario"));
+
+                lista.add(tarefa);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
     }
 }

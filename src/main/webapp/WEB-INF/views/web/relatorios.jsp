@@ -136,7 +136,7 @@
                         <td>
                             <input type="checkbox" class="menu-lixeira" id="modal-1">
                             <label for="modal-1" class="icone-lixeira">
-                                <img src="<%= request.getContextPath() %>/asseta/imgs/Trash.png" alt="lixeira">
+                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
                             </label>
                             <div class="modal-overlay">
                                 <div class="menu-lixo">

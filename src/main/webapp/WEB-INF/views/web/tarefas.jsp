@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.projybyraservletmvc.model.Tarefas" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,11 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/tarefas.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/tarefas.css"/>
     <title>YBYRA TECH</title>
 </head>
 
 <body>
+<%
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    List<Tarefas> tarefas = (List<Tarefas>) request.getAttribute("tarefas");
+%>
+
 <div class="container-principal">
 
     <aside class="barra-lateral">
@@ -75,54 +83,35 @@
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="conteudo">
-        <header class="topo" id="header">
+        <header class="topo">
             <div class="area-filtros">
-                <div class="campo-busca">
-                    <input type="text" placeholder="Buscar Tarefas" />
-                    <button class="btn-lupa">
-                        <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Buscar" />
-                    </button>
-                </div>
-                <input type="checkbox" id="adicionar">
+                <form method="get" action="<%= request.getContextPath() %>/BuscaTarefas">
+                    <div class="campo-busca">
+                        <input type="text" placeholder="Buscar Tarefas" id="buscar" name="busca"  />
+                        <button class="btn-lupa" type="submit">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Buscar" />
+                        </button>
+                    </div>
+                </form>
+
                 <label for="adicionar" id="menu-adicionar">
-                    <span>Adicionar</span>
-                </label>
-
-                <div id="menu-tarefas">
-                    <form action="<%= request.getContextPath() %>/AdicionarTarefa" method="post">
-
-                        <select class="filtro-select" name="prioridade" required>
-                            <option value="" disabled selected hidden>Prioridade</option>
-                            <option value="nao_iniciada">Não Iniciada</option>
-                            <option value="em_andamento">Em Andamento</option>
-                            <option value="concluida">Concluída</option>
-                        </select>
-
-                        <input type="text" name="nome" placeholder="Nome da tarefa" required>
-                        <input type="text" name="responsavel" placeholder="Responsável" required>
-                        <input type="date" name="prazo" placeholder="Prazo" required>
-                        <input type="text" name="descricao" placeholder="Descrição" required>
-                        <div class="confirmar">
-                            <button type="submit" class="btn-confirmar">confirmar</button>
-                        </div>
-                    </form>
-                </div>
-
-                <button class="btn-buscar">Buscar</button>
-            </div>
-            <div class="area-icones-usuario">
-                <input type="checkbox" id="menu-notificacoes">
-                <label for="menu-notificacoes">
-                    <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações">
-                </label>
-                <div id="notificacoes">
-                    <h1>Notificações</h1>
-                    <div>Murilo adicionou uma tarefa</div>
-                    <div>Guilherme concluiu uma tarefa</div>
-                    <div>Emilly concluiu uma tarefa</div>
+                    <a href="<%= request.getContextPath() %>/pagina?nome=adicionarTarefa" id="linkAdi">Adicionar</a>
+                </label>-
+                <div class="area-icones">
+                    <input type="checkbox" id="menu-notificacoes">
+                    <label for="menu-notificacoes" id="label-notificações">
+                        <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações">
+                    </label>
+                    <div id="notificacoes">
+                        <h1>Notificações</h1>
+                        <div>Murilo adicionou uma tarefa</div>
+                        <div>Guilherme concluiu uma tarefa</div>
+                        <div>Emilly concluiu uma tarefa</div>
+                    </div>
                 </div>
             </div>
         </header>
+
         <!-- BOARD DE TAREFAS + PESSOAS ONLINE -->
         <section class="secao-board">
             <!-- QUADRO KANBAN -->
@@ -131,20 +120,24 @@
                 <!-- COLUNA: NÃO INICIADA -->
                 <div class="coluna-status">
                     <h3 class="titulo-status">Não Iniciada</h3>
-
-                    <!-- TAREFA 1 -->
+                    <%
+                        if (tarefas != null && !tarefas.isEmpty()) {
+                            int contadorNaoIniciada = 1;
+                            for (Tarefas tarefa : tarefas) {
+                                if ("nao_iniciada".equals(tarefa.getPrioridade())) {
+                                    String tarefaId = "tarefa-ni-" + contadorNaoIniciada;
+                                    String modalid = "modal-ni-" + contadorNaoIniciada;
+                    %>
                     <div class="tarefa nao-iniciada">
-                        <input type="checkbox" id="tarefa-1" class="checkbox-expandir">
-                        <label for="tarefa-1" class="cabecalho-tarefa">
-                            <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
+                        <input type="checkbox" id="<%= tarefaId %>" class="checkbox-expandir">
+                        <label for="<%= tarefaId %>" class="cabecalho-tarefa">
+                            <span class="titulo-tarefa"><%= tarefa.getNome() %></span>
                             <div class="acoes-tarefa">
-                                <a href="#header" class="btn-acao btn-editar">
-                                    <label for="adicionar" class="icone-alterar">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                    </label>
+                                <a href="<%= request.getContextPath() %>/pagina?nome=telaAlterar" class="btn-acao btn-editar">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
                                 </a>
-                                <input type="checkbox" class="menu-lixeira" id="modal-1">
-                                <label for="modal-1" class="icone-lixeira">
+                                <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
+                                <label for="<%= modalid %>" class="icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
                                 </label>
                                 <div class="modal-overlay">
@@ -152,110 +145,70 @@
                                         <div class="menu-lixo-icone">
                                             <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
                                         </div>
-                                        <h1>Deseja excluir o relatório?</h1>
-                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
-                                            removidos.</p>
+                                        <h1>Deseja excluir a tarefa?</h1>
+                                        <p>Esta ação não pode ser desfeita.</p>
                                         <div class="info-item">
                                             <strong>Prazo:</strong>
-                                            <span>15/10/2025</span>
+                                            <span><%= tarefa.getPrazo().format(formatter) %></span>
                                         </div>
                                         <div class="info-item">
                                             <strong>Descrição:</strong>
-                                            <span>Verificar ruído no motor principal e trocar o filtro de
-                                                óleo.</span>
+                                            <span><%= tarefa.getDescricao() %></span>
                                         </div>
                                         <div class="info-item">
                                             <strong>Responsável:</strong>
-                                            <span>Jorge Silva</span>
+                                            <span><%= tarefa.getResponsavel() %></span>
                                         </div>
-                                        <div class="buttons">
-                                            <label for="modal-1" class="btn-cancelar">Não</label>
-                                            <label for="modal-1" class="btn-excluir">Sim</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="seta-expandir">▼</span>
-                        </label>
-                        <div class="detalhes-tarefa">
-                            <p><strong>Responsável:</strong> Jorge Silva</p>
-                            <p><strong>Prazo:</strong> 15/10/2025</p>
-                            <p><strong>Descrição:</strong> Verificar ruído no motor principal e trocar o filtro de
-                                óleo.</p>
-                        </div>
-                    </div>
 
-                    <!-- TAREFA 2 -->
-                    <div class="tarefa nao-iniciada">
-                        <input type="checkbox" id="tarefa-2" class="checkbox-expandir">
-                        <label for="tarefa-2" class="cabecalho-tarefa">
-                            <span class="titulo-tarefa">Manter a limpeza do setor.</span>
-                            <div class="acoes-tarefa">
-                                <a href="#menu-adicionar" class="btn-acao btn-editar">
-                                    <label for="adicionar" class="icone-alterar">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                    </label>
-                                </a>
-                                <input type="checkbox" class="menu-lixeira" id="modal-3">
-                                <label for="modal-3" class="icone-lixeira">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
-                                </label>
-                                <div class="modal-overlay">
-                                    <div class="menu-lixo">
-                                        <div class="menu-lixo-icone">
-                                            <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                        </div>
-                                        <h1>Deseja excluir o relatório?</h1>
-                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
-                                            removidos.</p>
-                                        <div class="info-item">
-                                            <strong>Prioridade:</strong>
-                                            <span>Alta</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Descrição:</strong>
-                                            <span>Realizar limpeza completa do setor incluindo equipamentos
-                                                e área de produção.</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Responsável:</strong>
-                                            <span>Equipe de Limpeza</span>
-                                        </div>
-                                        <div class="buttons">
-                                            <label for="modal-3" class="btn-cancelar">Não</label>
-                                            <label for="modal-3" class="btn-excluir">Sim</label>
-                                        </div>
+                                        <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
+                                            <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
+                                            <input type="hidden" name="acao" value="excluir">
+
+                                            <div class="buttons">
+                                                <label for="<%= modalid %>" class="btn-cancelar">Não</label>
+                                                <button type="submit" class="btn-excluir">Sim</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
-                            <p><strong>Responsável:</strong> Equipe de Limpeza</p>
-                            <p><strong>Prioridade:</strong> Alta</p>
-                            <p><strong>Descrição:</strong> Realizar limpeza completa do setor incluindo equipamentos
-                                e área de produção.</p>
+                            <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
+                            <p><strong>Prazo:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
+                            <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
                     </div>
+                    <%
+                                    contadorNaoIniciada++;
+                                }
+                            }
+                        }
+                    %>
                 </div>
 
                 <!-- COLUNA: EM ANDAMENTO -->
                 <div class="coluna-status">
                     <h3 class="titulo-status">Em Andamento</h3>
-
-                    <!-- TAREFA 3 -->
+                    <%
+                        if (tarefas != null && !tarefas.isEmpty()) {
+                            int contadorEmAndamento = 1;
+                            for (Tarefas tarefa : tarefas) {
+                                if ("em_andamento".equals(tarefa.getPrioridade())) {
+                                    String tarefaId = "tarefa-ea-" + contadorEmAndamento;
+                                    String modalid = "modal-ea-" + contadorEmAndamento;
+                    %>
                     <div class="tarefa em-andamento">
-                        <input type="checkbox" id="tarefa-3" class="checkbox-expandir">
-                        <label for="tarefa-3" class="cabecalho-tarefa">
-                            <span class="titulo-tarefa">Manutenção na máquina 15.</span>
+                        <input type="checkbox" id="<%= tarefaId %>" class="checkbox-expandir">
+                        <label for="<%= tarefaId %>" class="cabecalho-tarefa">
+                            <span class="titulo-tarefa"><%= tarefa.getNome() %></span>
                             <div class="acoes-tarefa">
-                                <a href="#menu-adicionar" class="btn-acao btn-editar">
-                                    <label for="adicionar" class="icone-alterar">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                    </label>
+                                <a href="<%= request.getContextPath() %>/pagina?nome=telaAlterar" class="btn-acao btn-editar">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
                                 </a>
-                                <input type="checkbox" class="menu-lixeira" id="modal-4">
-                                <label for="modal-4" class="icone-lixeira">
+                                <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
+                                <label for="<%= modalid %>" class="icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
                                 </label>
                                 <div class="modal-overlay">
@@ -263,108 +216,70 @@
                                         <div class="menu-lixo-icone">
                                             <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
                                         </div>
-                                        <h1>Deseja excluir o relatório?</h1>
-                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
-                                            removidos.</p>
+                                        <h1>Deseja excluir a tarefa?</h1>
+                                        <p>Esta ação não pode ser desfeita.</p>
                                         <div class="info-item">
-                                            <strong>Início em:</strong>
-                                            <span>01/9/2025</span>
+                                            <strong>Prazo:</strong>
+                                            <span><%= tarefa.getPrazo().format(formatter) %></span>
                                         </div>
                                         <div class="info-item">
                                             <strong>Descrição:</strong>
-                                            <span>Aguardando peça.</span>
+                                            <span><%= tarefa.getDescricao() %></span>
                                         </div>
                                         <div class="info-item">
                                             <strong>Responsável:</strong>
-                                            <span>Carlos Mendes</span>
+                                            <span><%= tarefa.getResponsavel() %></span>
                                         </div>
-                                        <div class="buttons">
-                                            <label for="modal-4" class="btn-cancelar">Não</label>
-                                            <label for="modal-4" class="btn-excluir">Sim</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="seta-expandir">▼</span>
-                        </label>
-                        <div class="detalhes-tarefa">
-                            <p><strong>Responsável:</strong> Carlos Mendes</p>
-                            <p><strong>Início:</strong> 01/9/2025</p>
-                            <p><strong>Descrição:</strong> Aguardando peça</p>
-                        </div>
-                    </div>
 
-                    <!-- TAREFA 4 -->
-                    <div class="tarefa em-andamento">
-                        <input type="checkbox" id="tarefa-4" class="checkbox-expandir">
-                        <label for="tarefa-4" class="cabecalho-tarefa">
-                            <span class="titulo-tarefa">Adicionar dados do app.</span>
-                            <div class="acoes-tarefa">
-                                <a href="#menu-adicionar" class="btn-acao btn-editar">
-                                    <label for="adicionar" class="icone-alterar">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                    </label>
-                                </a>
-                                <input type="checkbox" class="menu-lixeira" id="modal-5">
-                                <label for="modal-5" class="icone-lixeira">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
-                                </label>
-                                <div class="modal-overlay">
-                                    <div class="menu-lixo">
-                                        <div class="menu-lixo-icone">
-                                            <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                        </div>
-                                        <h1>Deseja excluir o relatório?</h1>
-                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
-                                            removidos.</p>
-                                        <div class="info-item">
-                                            <strong>Prioridade:</strong>
-                                            <span>Média</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Descrição:</strong>
-                                            <span>Inserir informações atualizadas no sistema do aplicativo.</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Responsável:</strong>
-                                            <span>Ana Paula</span>
-                                        </div>
-                                        <div class="buttons">
-                                            <label for="modal-5" class="btn-cancelar">Não</label>
-                                            <label for="modal-5" class="btn-excluir">Sim</label>
-                                        </div>
+                                        <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
+                                            <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
+                                            <input type="hidden" name="acao" value="excluir">
+
+                                            <div class="buttons">
+                                                <label for="<%= modalid %>" class="btn-cancelar">Não</label>
+                                                <button type="submit" class="btn-excluir">Sim</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
-                            <p><strong>Responsável:</strong> Ana Paula</p>
-                            <p><strong>Prioridade:</strong> Média</p>
-                            <p><strong>Descrição:</strong> Inserir informações atualizadas no sistema do aplicativo.
-                            </p>
-                            <p><strong>Prazo:</strong>19/9/2025</p>
+                            <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
+                            <p><strong>Prazo:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
+                            <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
                     </div>
+                    <%
+                                    contadorEmAndamento++;
+                                }
+                            }
+                        }
+                    %>
                 </div>
 
                 <!-- COLUNA: CONCLUÍDA -->
                 <div class="coluna-status">
-                    <h3 class="titulo-status">Matéria Concluída</h3>
-
-                    <!-- TAREFA 5 -->
+                    <h3 class="titulo-status">Tarefa Concluída</h3>
+                    <%
+                        if (tarefas != null && !tarefas.isEmpty()) {
+                            int contadorConcluida = 1;
+                            for (Tarefas tarefa : tarefas) {
+                                if ("concluida".equals(tarefa.getPrioridade())) {
+                                    String tarefaId = "tarefa-c-" + contadorConcluida;
+                                    String modalid = "modal-c-" + contadorConcluida;
+                    %>
                     <div class="tarefa concluida">
-                        <input type="checkbox" id="tarefa-5" class="checkbox-expandir">
-                        <label for="tarefa-5" class="cabecalho-tarefa">
-                            <span class="titulo-tarefa">Revisão de estoque.</span>
+                        <input type="checkbox" id="<%= tarefaId %>" class="checkbox-expandir">
+                        <label for="<%= tarefaId %>" class="cabecalho-tarefa">
+                            <span class="titulo-tarefa"><%= tarefa.getNome() %></span>
                             <div class="acoes-tarefa">
-                                <a href="#header" class="btn-acao btn-editar">
-                                    <label for="adicionar" class="icone-alterar">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                    </label>
+                                <a href="<%= request.getContextPath() %>/pagina?nome=telaAlterar" class="btn-acao btn-editar">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
                                 </a>
-                                <input type="checkbox" class="menu-lixeira" id="modal-6">
-                                <label for="modal-6" class="icone-lixeira">
+                                <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
+                                <label for="<%= modalid %>" class="icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
                                 </label>
                                 <div class="modal-overlay">
@@ -372,38 +287,47 @@
                                         <div class="menu-lixo-icone">
                                             <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
                                         </div>
-                                        <h1>Deseja excluir o relatório?</h1>
-                                        <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente
-                                            removidos.</p>
+                                        <h1>Deseja excluir a tarefa?</h1>
+                                        <p>Esta ação não pode ser desfeita.</p>
                                         <div class="info-item">
-                                            <strong>Concluído em:</strong>
-                                            <span>08/10/2025</span>
+                                            <strong>Prazo:</strong>
+                                            <span><%= tarefa.getPrazo().format(formatter) %></span>
                                         </div>
                                         <div class="info-item">
                                             <strong>Descrição:</strong>
-                                            <span>Revisão completa do estoque de materiais e atualização do
-                                                sistema.</span>
+                                            <span><%= tarefa.getDescricao() %></span>
                                         </div>
                                         <div class="info-item">
                                             <strong>Responsável:</strong>
-                                            <span>Pedro Santos</span>
+                                            <span><%= tarefa.getResponsavel() %></span>
                                         </div>
-                                        <div class="buttons">
-                                            <label for="modal-6" class="btn-cancelar">Não</label>
-                                            <label for="modal-6" class="btn-excluir">Sim</label>
-                                        </div>
+
+                                        <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
+                                            <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
+                                            <input type="hidden" name="acao" value="excluir">
+
+                                            <div class="buttons">
+                                                <label for="<%= modalid %>" class="btn-cancelar">Não</label>
+                                                <button type="submit" class="btn-excluir">Sim</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                             <span class="seta-expandir">▼</span>
                         </label>
                         <div class="detalhes-tarefa">
-                            <p><strong>Responsável:</strong> Pedro Santos</p>
-                            <p><strong>Concluído em:</strong> 08/10/2025</p>
-                            <p><strong>Descrição:</strong> Revisão completa do estoque de materiais e atualização do
-                                sistema.</p>
+                            <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
+                            <p><strong>Concluído em:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
+                            <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
                     </div>
+                    <%
+                                    contadorConcluida++;
+                                }
+                            }
+                        }
+                    %>
                 </div>
             </div>
 
@@ -411,7 +335,6 @@
             <aside class="painel-pessoas">
                 <div class="topo-painel">
                     <h3>Pessoas Online</h3>
-
                 </div>
                 <div class="lista-usuarios">
                     <div class="usuario">
@@ -463,12 +386,10 @@
                         <span class="nome-usuario">Marcelo Grilo</span>
                         <span class="status-online"></span>
                     </div>
-
                 </div>
             </aside>
         </section>
     </main>
 </div>
 </body>
-
 </html>

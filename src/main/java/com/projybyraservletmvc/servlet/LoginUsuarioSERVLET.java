@@ -52,8 +52,8 @@ public class LoginUsuarioSERVLET extends HttpServlet {
                 session.setAttribute("nomeUsuario", usuario.getNome());
                 session.setAttribute("emailUsuario", usuario.getEmail());
 
-                // Redirecionar para página principal
-                response.sendRedirect(request.getContextPath() + "/pagina?nome=inicio");
+                // Redirecionar para o inicio
+                request.getRequestDispatcher("/pagina?nome=inicio").forward(request, response);
 
             } else {
                 System.out.println("Credenciais inválidas!");

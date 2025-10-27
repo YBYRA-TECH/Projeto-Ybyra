@@ -51,7 +51,7 @@ public class TarefasSERVLET extends HttpServlet {
         if (session != null) {
             String nomeUsuario = (String) session.getAttribute("nomeUsuario");
             System.out.println("-----------------------------------------------------------------Nomes Usuario");
-            System.out.println("Nome do usuario que inseriu o relatorio: "+ nomeUsuario);
+            System.out.println("Nome do usuario que inseriu a tarefa: "+ nomeUsuario);
             System.out.println("-----------------------------------------------------------------");
             UsuarioDAO dao = new UsuarioDAO();
             int id_usuario = dao.buscarID(nomeUsuario);
@@ -71,7 +71,7 @@ public class TarefasSERVLET extends HttpServlet {
 
                 if (sucesso) {
                     System.out.println("Tarefa inserida com sucesso!");
-                    response.sendRedirect(request.getContextPath() + "/pagina?nome=inicio");
+                    response.sendRedirect(request.getContextPath() + "/pagina?nome=tarefas");
                 } else {
                     System.out.println("Erro ao carregar no banco!");
                     response.getWriter().println("<h3> Erro ao carregar! Tente novamente.</h3>");

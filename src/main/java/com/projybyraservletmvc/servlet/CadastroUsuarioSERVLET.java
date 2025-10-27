@@ -22,7 +22,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws  IOException {
 
         System.out.println(" doPost chamado no CadastroSERVLET");
 
