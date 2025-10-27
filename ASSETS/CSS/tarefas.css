@@ -662,3 +662,33 @@ body {
 }
 
 /* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1340px) and (max-height:800px){
+    .area-filtros { 
+        flex-wrap: nowrap;
+    }
+    
+    
+    /* Container para notificações à direita */
+    .area-icones {
+        margin-left: auto;
+        left: 3%;
+    }
+
+}
+@media  (max-height:1340px) and (max-width: 800px) {
+    .conteudo{
+        padding-left: 1.5rem;
+    }
+    .area-filtros { 
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .area-icones {
+        left: 6%;
+        margin-left: 0;
+    }
+    #notificacoes{
+        right: inherit;
+        
+    }
+}

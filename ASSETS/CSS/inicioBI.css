@@ -60,8 +60,22 @@ body {
 }
 
 /* ===== MEDIA QUERIES ===== */
+@media (max-width: 1340px) and (max-height:800px){
 
-@media (min-width: 576px) {
+}
+@media  (max-height:1340px) and (max-width: 800px) {
+    .painel-principal{
+        display:block;
+    }    
+    .area-conteudo{
+        width: 96%;
+    }
+    iframe{
+        width: 300rem;
+    }
+}
+
+/* @media (min-width: 576px) {
     #meuIframe {
         width: 90rem;
     }
@@ -111,4 +125,4 @@ body {
         border-radius: 0.3rem;
         min-height: 250px;
     }
-}
+} */
