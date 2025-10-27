@@ -12,14 +12,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//CLASSE COM METODOS CRUD PARA INDUSTRIA
+
 public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Industria>{
     
+    // VARIAVEIS
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
 
 
+    //INSERE UMA NOVA INDÚSTRIA NO BANCO DE DADOS
     @Override
     public boolean inserir(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
@@ -47,6 +49,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
     }
 
+    //ATUALIZA UMA INDÚSTRIA NO BANCO DE DADOS
     @Override
     public boolean atualizar(Industria industria) {
         ConexaoBD conexao = new ConexaoBD();
@@ -72,6 +75,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
     }
 
+    //BUSCA TODAS AS INDÚSTRIAS CADASTRADAS NO BANCO DE DADOS
     @Override
     public List<Industria> buscar(){
         ConexaoBD conexao = new ConexaoBD();
@@ -109,6 +113,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         return lista;
     }
 
+    // DELETA UMA INDÚSTRIA DO BANCO DE DADOS COM BASE NO ID
     @Override
     public int deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();

@@ -1,5 +1,8 @@
 package com.projybyraservletmvc.dao;
-
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IRelatoriosDAO;
+import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,11 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.Relatorios;
-import com.projybyraservletmvc.model.*;
 
-public class RelatoriosDAO{
+public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Relatorios> {
 
     // VARIAVEIS
     private Connection conn;
@@ -23,20 +23,22 @@ public class RelatoriosDAO{
     Relatorios relatorios = new Relatorios();
 
     //INSERE NOVO RELATÓRIO NO BANCO DE DADOS
-    public boolean inserirDados(Relatorios relatorios){
+    @Override
+    public boolean inserir(Relatorios relatorios){
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = ("INSERT INTO relatorios (nome, area,id_usuario, pdf_documento, descricao) VALUES (?, ?, ?, ?,?)");
+            String sql = ("INSERT INTO relatorios (data_criacao, pdf_documento, id_usuario) VALUES (?, ?, ?)");
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, relatorios.getNome());
-            pstmt.setString(2, relatorios.getArea());
+            pstmt.setDate(1, relatorios.getDataCriacao());
+            pstmt.setString(2, relatorios.getPdfDocumento());
             pstmt.setInt(3, relatorios.getIdUsuario());
-            pstmt.setString(4, relatorios.getPdfDocumento());
-            pstmt.setString(5, relatorios.getDescricao());
 
-            return pstmt.executeUpdate() > 0;
+            if(pstmt.executeUpdate()>0) {
+                return true;
+            }
+            return false;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,6 +49,7 @@ public class RelatoriosDAO{
     }
 
     //ATUALIZA UM RELATÓRIO EXISTENTE NO BANCO DE DADOS
+    @Override
     public boolean atualizar(Relatorios relatorios) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -59,7 +62,9 @@ public class RelatoriosDAO{
             pstmt.setInt(3, relatorios.getIdUsuario());
             pstmt.setInt(4, relatorios.getIdRelatorios());
 
-            return pstmt.executeUpdate() > 0;
+            if (pstmt.executeUpdate() > 0){
+                return true;
+            }else return false;
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;
@@ -70,12 +75,13 @@ public class RelatoriosDAO{
     }
 
     //BUSCA TODOS OS RELATÓRIOS CADASTRADOS NO BANCO DE DADOS
+    @Override
     public List<Relatorios> buscar() {
         List<Relatorios> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "SELECT * FROM relatorios ORDER BY id_relatorio ASC";
+            String sql = "SELECT * FROM relatorios ORDER BY id_usuario ASC";
             conn = conexao.conectar();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -86,6 +92,10 @@ public class RelatoriosDAO{
                 String pdf = rs.getString("pdf_documento");
                 int idUser = rs.getInt("id_usuario");
 
+                Relatorios rel = new Relatorios(
+                        idRelatorios, dataCriacao, pdf, idUser
+                );
+                lista.add(rel);
             }
 
         } catch (SQLException e) {
@@ -98,6 +108,7 @@ public class RelatoriosDAO{
 
 
     // DELETA UM RELATÓRIO DO BANCO DE DADOS COM BASE NO ID
+    @Override
     public int deletar(int idRelatorios) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -118,33 +129,5 @@ public class RelatoriosDAO{
         }finally {
             conexao.desconectar(conn);
         }
-    }
-    public Relatorios buscarRelatorio(int idRelatorios) {
-
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
-        try {
-            String sql = "SELECT * FROM relatorios WHERE id_relatorio = ?";
-            conn = conexao.conectar();
-            pstmt.setInt(1, idRelatorios);
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery(sql);
-
-                if (rs.next()) {
-                    Relatorios relatorio = new Relatorios();
-                    relatorio.setIdRelatorios(rs.getInt("id_relatorios"));
-                    relatorio.setDataCriacao(rs.getDate("data_criacao"));
-                    relatorio.setPdfDocumento(rs.getString("pdf_documento"));
-                    relatorio.setArea(rs.getString("area"));
-                    return relatorios;
-                }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            conexao.desconectar(conn);
-        }
-        return null;
-
     }
 }

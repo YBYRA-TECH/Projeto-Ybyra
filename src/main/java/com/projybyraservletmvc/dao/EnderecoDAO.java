@@ -12,10 +12,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//CLASSE COM METODOS CRUD PARA ENDERECO
 public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>{
 
 
+    // INSERE UM NOVO ENDERÇO ASSOCIADO A UMA INDÚSTRIA NO BANCO DE DADOS
     @Override
     public boolean inserir(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
@@ -45,6 +45,7 @@ public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>
         }
     }
 
+    //BUSCA TODOS OS ENDEREÇOS CADASTRADOS NO BANCO DE DADOS
     @Override
     public List<Endereco> buscar() {
         List<Endereco> lista = new ArrayList<>();
@@ -81,6 +82,7 @@ public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>
     }
 
 
+    //UPDATE
     @Override
     public boolean atualizar(Endereco endereco){
         ConexaoBD conexao = new ConexaoBD();
@@ -113,7 +115,7 @@ public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>
         }
     }
 
-
+    //DELETE
     @Override
     public int deletar(int idEndereco){
         ConexaoBD conexao = new ConexaoBD();
