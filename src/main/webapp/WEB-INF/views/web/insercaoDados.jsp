@@ -137,7 +137,7 @@
             </div>
             <h1>Recentes</h1>
             <div class="area-upload-recentes">
-                <img src="<%= request.getContextPath() %>/imgs/imagem%20modelo%20arquivo%20.jpg" alt="imagem papel">
+                <img src="<%= request.getContextPath() %>/assets/imgs/imagem_modelo_arquivo.jpg" alt="imagem papel">
                 <p>Digitalizar novos documentos</p>
             </div>
         </section>

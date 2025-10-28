@@ -47,7 +47,8 @@ public class WebController extends HttpServlet {
         if (!isPaginaPublica(nome)) {
             HttpSession session = request.getSession(false);
 
-            if (session == null || session.getAttribute("usuarioLogado") == null) {
+            if (session == null || session.getAttribute("usuarioLogado") == null &&
+                    session.getAttribute("industriaLogada") == null) {
                 response.sendRedirect(request.getContextPath() + "/pagina?nome=login");
                 return;
             }

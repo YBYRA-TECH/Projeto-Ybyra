@@ -29,11 +29,11 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         try{
             conn = conexao.conectar();
 
-            String sql = "INSERT INTO industria(nome, endereco, cnpj, senha) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO industria(nome, email, cnpj, senha) VALUES (?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, industria.getNome());
-            pstmt.setString(2, industria.getEndereco());
+            pstmt.setString(2, industria.getEmail());
             pstmt.setString(3, industria.getCnpj());
             pstmt.setString(4, industria.getSenha());
 
@@ -55,12 +55,12 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
+            String sql = "UPDATE industria SET nome = ?, email = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
             conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, industria.getNome());
-            stmt.setString(2, industria.getEndereco());
+            stmt.setString(2, industria.getEmail());
             stmt.setString(3, industria.getCnpj());
             stmt.setInt(4, industria.getIdIndustria());
             stmt.setString(5, industria.getSenha());
@@ -177,5 +177,28 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
             }
         return null;
     }
+
+    public int buscarID(String nomeIndustria) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT id_industria FROM industria WHERE nome = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, nomeIndustria);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("id_industria");
+            }
+            return 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
+
 
 }

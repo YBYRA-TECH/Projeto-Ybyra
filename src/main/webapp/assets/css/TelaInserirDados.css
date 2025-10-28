@@ -25,24 +25,6 @@ body {
     min-height: 100vh;
 }
 
-/* Container dos ícones da direita */
-
-
-/* Estilo para os ícones de Sino e Usuário */
-.icone-notificacao,
-.icone-usuario {
-    font-size: 1.5rem;
-    color: #3474cd;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.icone-notificacao:hover,
-.icone-usuario:hover {
-    color: #192083;
-}
-
-
 .titulo-secao {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
@@ -58,23 +40,51 @@ body {
     margin-bottom: 2rem;
     font-weight: 700;
 }
+#voltar {
+    rotate: 180deg;
+}
+.area{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.3rem;
+}
+.area a{
+    margin-left: 1.8rem;
+}
+#menu-notificacoes label{
+    margin-right: 3rem;
+}
+#notificacoes{
+    right: 2%;
+}
+.area-icones{
+    right: 4%;
+    top: 2%;
+}
 
+
+#span1{
+    margin-right: 0.3rem;
+}
 /* Área de Preview (Arquivo Escolhido) */
 .arquivo-preview {
-    /* Borda tracejada (como na imagem original) */
-    border: 1px dashed #a3c9ff;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 2rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: #f0f8ff;
+    justify-content: center;
+    height: 13rem;
+    background-color: #e6f3ff;
+    border: 2px dashed #a3c9ff;
+    border-radius: 0.8rem;
+    margin-bottom: 2rem;
+    width: 96%;
+
 }
 
 .preview-img {
-    width: 100%;
-    max-width: 30rem; /* Limita o tamanho, se necessário */
+    width: 90%;
+    max-width: 10rem; /* Limita o tamanho, se necessário */
     max-height: 30rem;
     height: auto;
     display: block;
@@ -129,7 +139,7 @@ body {
 
 /* Estilo para a Descrição (simulando um textarea readonly) */
 .texto-descricao {
-    width: 99%;
+    width: 95%;
     height: 12rem;
     padding: 1rem;
     margin-top: 0;
@@ -146,6 +156,7 @@ body {
 }
 .detalhes-upload-painel{
     text-align: left;
+    padding-left: 2.3rem;
 }
 
 /* Botão Enviar Arquivo */
@@ -158,11 +169,11 @@ body {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .btn-enviar:hover {
-    background-color: #192083;
+    transform: translateY(-2px);
 }
 .link-inserir{
     display: flex;

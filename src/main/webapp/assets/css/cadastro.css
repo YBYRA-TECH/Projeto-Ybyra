@@ -11,10 +11,8 @@
 
 html,
 body {
-    overflow-x: hidden;
+    overflow: hidden;
 }
-
-
 
 #botao-login {
     background: linear-gradient(135deg, #004cc5, #0066ff);
@@ -36,7 +34,7 @@ body {
 /* ===== CONTEÚDO PRINCIPAL ===== */
 main {
     margin-top: 4.85rem;
-    background-image: url("../imgs/Login.png");
+    background-image: url("/assets/imgs/Login.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -62,7 +60,7 @@ main {
 #inputs h1 {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.7rem);
     margin-bottom: 0.5rem;
     background-clip: text;
     color: transparent;
@@ -305,7 +303,6 @@ form {
         font-size: 1rem;
     }
 }
-
 /* ===== ESTILOS DE ERRO ===== */
 .erro-mensagem {
     color: #dc3545 !important;

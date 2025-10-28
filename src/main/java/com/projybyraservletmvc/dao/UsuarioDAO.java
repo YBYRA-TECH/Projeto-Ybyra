@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
+public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
 
 
     @Override
@@ -26,19 +26,19 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
             String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
             //efetuando a insercao no banco
-            ps.setString(1, usuario.getEmail());
-            ps.setString(2, usuario.getCpf());
-            ps.setString(3, usuario.getNome());
-            ps.setDate(4, usuario.getDataCadastro());
-            ps.setDate(5, usuario.getDataNascimento());
-            ps.setDate(6, usuario.getDataValidade());
-            ps.setInt(7, usuario.getIdIndustria());
-            ps.setInt(8, usuario.getTempoTrabalho());
+            pstmt.setString(1, usuario.getEmail());
+            pstmt.setString(2, usuario.getCpf());
+            pstmt.setString(3, usuario.getNome());
+            pstmt.setDate(4, Date.valueOf(usuario.getDataCadastro()));
+            pstmt.setDate(5, Date.valueOf(usuario.getDataNascimento()));
+            pstmt.setDate(6, usuario.getDataValidade());
+            pstmt.setInt(7, usuario.getIdIndustria());
+            pstmt.setInt(8, usuario.getTempoTrabalho());
 
-            return ps.executeUpdate() > 0;
+            return pstmt.executeUpdate() > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,18 +66,19 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
             pstmt.setString(1, usuario.getEmail());
             pstmt.setString(2, usuario.getCpf());
             pstmt.setString(3, usuario.getNome());
-            pstmt.setDate(4, usuario.getDataCadastro());
-            pstmt.setDate(5, usuario.getDataNascimento());
+            pstmt.setDate(4, Date.valueOf(usuario.getDataCadastro()));
+            pstmt.setDate(5, Date.valueOf(usuario.getDataNascimento()));
             pstmt.setDate(6, usuario.getDataValidade());
             pstmt.setInt(7, usuario.getIdIndustria());
             pstmt.setInt(8, usuario.getTempoTrabalho());
             pstmt.setInt(9, usuario.getIdUsuario());
-            if (pstmt.executeUpdate() > 0) {return true;}
-            else return false;
-        } catch (SQLException e){
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            } else return false;
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             conexao.desconectar(conn);
         }
 
@@ -110,7 +111,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
                 Usuario user = new Usuario(
                         id, email, cpf, nome,
-                        dtCadastro, dtNascimento, dtValidade,
+                        dtCadastro.toLocalDate(), dtNascimento.toLocalDate(), dtValidade,
                         idIndustria, tempTrabalho
                 );
                 lista.add(user);
@@ -118,7 +119,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             conexao.desconectar(conn);
         }
         return lista;
@@ -126,7 +127,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
 
     @Override
-    public int deletar(int id){
+    public int deletar(int id) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -137,15 +138,87 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
 
             pstmt.setInt(1, id);
-            if(pstmt.executeUpdate()>0){
+            if (pstmt.executeUpdate() > 0) {
                 return 1;
-            }else{return 0;}
-        }catch (SQLException e){
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
             return -1;
-        }finally {
+        } finally {
             conexao.desconectar(conn);
         }
     }
 
+    public int buscarID(String nome) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT id_usuario FROM usuario WHERE nome = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, nome);
+            ResultSet rs = pstmt.executeQuery();
+
+            System.out.println("Buscando ID do usuário: " + nome);
+
+            if (rs.next()) {
+                int id = rs.getInt("id_usuario");
+                System.out.println("ID encontrado: " + id);
+                return id;
+            }
+
+            System.out.println("Usuário não encontrado");
+            return 0;
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar ID do usuário: " + e.getMessage());
+            e.printStackTrace();
+            return 0;
+        } finally {
+            conexao.desconectar(conn);
+        }
+
+    }
+
+    public Usuario login(String email, String senha) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            System.out.println("=== Conectando ao banco para autenticação de usuário ===");
+            conn = conexao.conectar();
+
+            String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, email);
+            pstmt.setString(2, senha);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                System.out.println("Usuário encontrado!");
+
+                Usuario usuario = new Usuario(
+                        rs.getInt("id_usuario"),
+                        rs.getString("email"),
+                        rs.getString("cpf"),
+                        rs.getString("nome"),
+                        rs.getDate("data_cadastro").toLocalDate(),
+                        rs.getDate("data_nascimento").toLocalDate(),
+                        rs.getDate("data_validade"),
+                        rs.getInt("id_industria"),
+                        rs.getInt("tempo_trabalho")
+                );
+                return usuario;
+            } else {
+                System.out.println("Usuário não encontrado ou senha incorreta");
+                return null;
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao fazer login: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
 }

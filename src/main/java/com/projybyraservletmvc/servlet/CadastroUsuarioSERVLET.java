@@ -106,7 +106,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             UsuarioDAO dao = new UsuarioDAO();
 
             System.out.println("Inserindo dados no banco...");
-            boolean sucesso = dao.inserirDados(usuario);
+            boolean sucesso = dao.inserir(usuario);
 
             if (sucesso) {
                 System.out.println("Cadastro realizado com sucesso!");

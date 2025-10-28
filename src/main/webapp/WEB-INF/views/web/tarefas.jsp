@@ -85,21 +85,18 @@
     <main class="conteudo">
         <header class="topo">
             <div class="area-filtros">
-                <form method="get" action="<%= request.getContextPath() %>/BuscaTarefas">
-                    <div class="campo-busca">
-                        <input type="text" placeholder="Buscar Tarefas" id="buscar" name="busca"  />
-                        <button class="btn-lupa" type="submit">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Buscar" />
-                        </button>
-                    </div>
+                <form class="campo-busca" method="get" action="<%= request.getContextPath() %>/BuscaTarefas">
+                    <input type="text" placeholder="Buscar Tarefas" id="buscar" name="busca" title="Busca" />
+                    <button class="btn-lupa" type="submit">
+                        <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa" title="Lupa" />
+                    </button>
                 </form>
 
-                <label for="adicionar" id="menu-adicionar">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=adicionarTarefa" id="linkAdi">Adicionar</a>
-                </label>
+                <a href="<%= request.getContextPath() %>/pagina?nome=adicionarTarefa" id="linkAdi" title="Adicionar">Adicionar</a>
+
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
-                    <label for="menu-notificacoes" id="label-notificações">
+                    <label for="menu-notificacoes" id="label-notificações" title="Notificações">
                         <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações">
                     </label>
                     <div id="notificacoes">
@@ -119,7 +116,46 @@
 
                 <!-- COLUNA: NÃO INICIADA -->
                 <div class="coluna-status">
-                    <h3 class="titulo-status">Não Iniciada</h3>
+                    <div class="titulo-status">
+                        <h3>Não Iniciada</h3>
+                        <!-- BOTÃO APAGAR TODOS COM MODAL -->
+                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-1" />
+                        <label for="modal-apagar-todos-1" class="btn-apagar-todos">Apagar Todos</label>
+                    </div>
+
+                    <!-- MODAL APAGAR TODOS -->
+                    <div class="modal-overlay">
+                        <div class="menu-lixo">
+                            <div class="menu-lixo-icone">
+                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
+                            </div>
+                            <h1>Deseja excluir TODAS as tarefas?</h1>
+                            <p>
+                                Esta ação não pode ser desfeita. Todos os dados desta coluna serão
+                                permanentemente removidos.
+                            </p>
+                            <div class="info-item">
+                                <strong>Coluna:</strong>
+                                <span>Não Iniciada</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Total de tarefas:</strong>
+                                <span><%
+                                    int countNaoIniciada = 0;
+                                    if (tarefas != null) {
+                                        for (Tarefas t : tarefas) {
+                                            if ("nao_iniciada".equals(t.getPrioridade())) countNaoIniciada++;
+                                        }
+                                    }
+                                %><%= countNaoIniciada %> tarefa<%= countNaoIniciada != 1 ? "s" : "" %></span>
+                            </div>
+                            <div class="buttons">
+                                <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
+                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <%
                         if (tarefas != null && !tarefas.isEmpty()) {
                             int contadorNaoIniciada = 1;
@@ -143,50 +179,62 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
+
                                 <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
-                                <label for="<%= modalid %>" class="icone-lixeira">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
+                                <label for="<%= modalid %>" class="btn-acao icone-lixeira">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira">
                                 </label>
-                                <div class="modal-overlay">
-                                    <div class="menu-lixo">
-                                        <div class="menu-lixo-icone">
-                                            <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                        </div>
-                                        <h1>Deseja excluir a tarefa?</h1>
-                                        <p>Esta ação não pode ser desfeita.</p>
-                                        <div class="info-item">
-                                            <strong>Prazo:</strong>
-                                            <span><%= tarefa.getPrazo().format(formatter) %></span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Descrição:</strong>
-                                            <span><%= tarefa.getDescricao() %></span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Responsável:</strong>
-                                            <span><%= tarefa.getResponsavel() %></span>
-                                        </div>
-
-                                        <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
-                                            <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
-                                            <input type="hidden" name="acao" value="excluir">
-
-                                            <div class="buttons">
-                                                <label for="<%= modalid %>" class="btn-cancelar">Não</label>
-                                                <button type="submit" class="btn-excluir">Sim</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
-                            <span class="seta-expandir">▼</span>
+                            <span class="seta-expandir" title="detalhes">▼</span>
                         </label>
+
+                        <!-- MODAL FORA DO LABEL -->
+                        <div class="modal-overlay">
+                            <div class="menu-lixo">
+                                <div class="menu-lixo-icone">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
+                                </div>
+                                <h1>Deseja excluir a tarefa?</h1>
+                                <p>
+                                    Esta ação não pode ser desfeita. Todos os dados serão
+                                    permanentemente removidos.
+                                </p>
+                                <div class="info-item">
+                                    <strong>Responsável:</strong>
+                                    <span><%= tarefa.getResponsavel() %></span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Prioridade:</strong>
+                                    <span>Alta</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Prazo de enceramento:</strong>
+                                    <span><%= tarefa.getPrazo().format(formatter) %></span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Descrição:</strong>
+                                    <span><%= tarefa.getDescricao() %></span>
+                                </div>
+
+                                <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
+                                    <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
+                                    <input type="hidden" name="acao" value="excluir">
+
+                                    <div class="buttons">
+                                        <label for="<%= modalid %>" class="btn-cancelar">Não</label>
+                                        <button type="submit" class="btn-excluir">Sim</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Prazo:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
+                            <p><strong>Prioridade:</strong> Alta</p>
+                            <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
                     </div>
@@ -200,7 +248,46 @@
 
                 <!-- COLUNA: EM ANDAMENTO -->
                 <div class="coluna-status">
-                    <h3 class="titulo-status">Em Andamento</h3>
+                    <div class="titulo-status">
+                        <h3>Em Andamento</h3>
+                        <!-- BOTÃO APAGAR TODOS COM MODAL -->
+                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-2" />
+                        <label for="modal-apagar-todos-2" class="btn-apagar-todos">Apagar Todos</label>
+                    </div>
+
+                    <!-- MODAL APAGAR TODOS -->
+                    <div class="modal-overlay">
+                        <div class="menu-lixo">
+                            <div class="menu-lixo-icone">
+                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
+                            </div>
+                            <h1>Deseja excluir TODAS as tarefas?</h1>
+                            <p>
+                                Esta ação não pode ser desfeita. Todos os dados desta coluna serão
+                                permanentemente removidos.
+                            </p>
+                            <div class="info-item">
+                                <strong>Coluna:</strong>
+                                <span>Em Andamento</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Total de tarefas:</strong>
+                                <span><%
+                                    int countEmAndamento = 0;
+                                    if (tarefas != null) {
+                                        for (Tarefas t : tarefas) {
+                                            if ("em_andamento".equals(t.getPrioridade())) countEmAndamento++;
+                                        }
+                                    }
+                                %><%= countEmAndamento %> tarefa<%= countEmAndamento != 1 ? "s" : "" %></span>
+                            </div>
+                            <div class="buttons">
+                                <label for="modal-apagar-todos-2" class="btn-cancelar">Não</label>
+                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <%
                         if (tarefas != null && !tarefas.isEmpty()) {
                             int contadorEmAndamento = 1;
@@ -224,50 +311,61 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
+
                                 <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
-                                <label for="<%= modalid %>" class="icone-lixeira">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
+                                <label for="<%= modalid %>" class="btn-acao icone-lixeira">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira">
                                 </label>
-                                <div class="modal-overlay">
-                                    <div class="menu-lixo">
-                                        <div class="menu-lixo-icone">
-                                            <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                        </div>
-                                        <h1>Deseja excluir a tarefa?</h1>
-                                        <p>Esta ação não pode ser desfeita.</p>
-                                        <div class="info-item">
-                                            <strong>Prazo:</strong>
-                                            <span><%= tarefa.getPrazo().format(formatter) %></span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Descrição:</strong>
-                                            <span><%= tarefa.getDescricao() %></span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Responsável:</strong>
-                                            <span><%= tarefa.getResponsavel() %></span>
-                                        </div>
-
-                                        <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
-                                            <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
-                                            <input type="hidden" name="acao" value="excluir">
-
-                                            <div class="buttons">
-                                                <label for="<%= modalid %>" class="btn-cancelar">Não</label>
-                                                <button type="submit" class="btn-excluir">Sim</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
-                            <span class="seta-expandir">▼</span>
+                            <span class="seta-expandir" title="detalhes">▼</span>
                         </label>
+
+                        <div class="modal-overlay">
+                            <div class="menu-lixo">
+                                <div class="menu-lixo-icone">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
+                                </div>
+                                <h1>Deseja excluir a tarefa?</h1>
+                                <p>
+                                    Esta ação não pode ser desfeita. Todos os dados serão
+                                    permanentemente removidos.
+                                </p>
+                                <div class="info-item">
+                                    <strong>Responsável:</strong>
+                                    <span><%= tarefa.getResponsavel() %></span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Prioridade:</strong>
+                                    <span>Média</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Prazo:</strong>
+                                    <span><%= tarefa.getPrazo().format(formatter) %></span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Descrição:</strong>
+                                    <span><%= tarefa.getDescricao() %></span>
+                                </div>
+
+                                <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
+                                    <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
+                                    <input type="hidden" name="acao" value="excluir">
+
+                                    <div class="buttons">
+                                        <label for="<%= modalid %>" class="btn-cancelar">Não</label>
+                                        <button type="submit" class="btn-excluir">Sim</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Prazo:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
+                            <p><strong>Prioridade:</strong> Média</p>
+                            <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
                     </div>
@@ -281,7 +379,46 @@
 
                 <!-- COLUNA: CONCLUÍDA -->
                 <div class="coluna-status">
-                    <h3 class="titulo-status">Tarefa Concluída</h3>
+                    <div class="titulo-status">
+                        <h3>Matéria Concluída</h3>
+                        <!-- BOTÃO APAGAR TODOS COM MODAL -->
+                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-3" />
+                        <label for="modal-apagar-todos-3" class="btn-apagar-todos">Apagar Todos</label>
+                    </div>
+
+                    <!-- MODAL APAGAR TODOS -->
+                    <div class="modal-overlay">
+                        <div class="menu-lixo">
+                            <div class="menu-lixo-icone">
+                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
+                            </div>
+                            <h1>Deseja excluir TODAS as tarefas?</h1>
+                            <p>
+                                Esta ação não pode ser desfeita. Todos os dados desta coluna serão
+                                permanentemente removidos.
+                            </p>
+                            <div class="info-item">
+                                <strong>Coluna:</strong>
+                                <span>Matéria Concluída</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Total de tarefas:</strong>
+                                <span><%
+                                    int countConcluida = 0;
+                                    if (tarefas != null) {
+                                        for (Tarefas t : tarefas) {
+                                            if ("concluida".equals(t.getPrioridade())) countConcluida++;
+                                        }
+                                    }
+                                %><%= countConcluida %> tarefa<%= countConcluida != 1 ? "s" : "" %></span>
+                            </div>
+                            <div class="buttons">
+                                <label for="modal-apagar-todos-3" class="btn-cancelar">Não</label>
+                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <%
                         if (tarefas != null && !tarefas.isEmpty()) {
                             int contadorConcluida = 1;
@@ -305,50 +442,60 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
+
                                 <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
-                                <label for="<%= modalid %>" class="icone-lixeira">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
+                                <label for="<%= modalid %>" class="btn-acao icone-lixeira">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira">
                                 </label>
-                                <div class="modal-overlay">
-                                    <div class="menu-lixo">
-                                        <div class="menu-lixo-icone">
-                                            <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                        </div>
-                                        <h1>Deseja excluir a tarefa?</h1>
-                                        <p>Esta ação não pode ser desfeita.</p>
-                                        <div class="info-item">
-                                            <strong>Prazo:</strong>
-                                            <span><%= tarefa.getPrazo().format(formatter) %></span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Descrição:</strong>
-                                            <span><%= tarefa.getDescricao() %></span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Responsável:</strong>
-                                            <span><%= tarefa.getResponsavel() %></span>
-                                        </div>
-
-                                        <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
-                                            <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
-                                            <input type="hidden" name="acao" value="excluir">
-
-                                            <div class="buttons">
-                                                <label for="<%= modalid %>" class="btn-cancelar">Não</label>
-                                                <button type="submit" class="btn-excluir">Sim</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
-                            <span class="seta-expandir">▼</span>
+                            <span class="seta-expandir" title="detalhes">▼</span>
                         </label>
+
+                        <div class="modal-overlay">
+                            <div class="menu-lixo">
+                                <div class="menu-lixo-icone">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
+                                </div>
+                                <h1>Deseja excluir a tarefa?</h1>
+                                <p>
+                                    Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.
+                                </p>
+                                <div class="info-item">
+                                    <strong>Responsável:</strong>
+                                    <span><%= tarefa.getResponsavel() %></span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Prioridade:</strong>
+                                    <span>Baixa</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Prazo:</strong>
+                                    <span><%= tarefa.getPrazo().format(formatter) %></span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Descrição:</strong>
+                                    <span><%= tarefa.getDescricao() %></span>
+                                </div>
+
+                                <form method="post" action="<%= request.getContextPath() %>/ExcluirTarefa">
+                                    <input type="hidden" name="id" value="<%= tarefa.getId_tarefa() %>">
+                                    <input type="hidden" name="acao" value="excluir">
+
+                                    <div class="buttons">
+                                        <label for="<%= modalid %>" class="btn-cancelar">Não</label>
+                                        <button type="submit" class="btn-excluir">Sim</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Concluído em:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
+                            <p><strong>Prioridade:</strong> Baixa</p>
+                            <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
                     </div>

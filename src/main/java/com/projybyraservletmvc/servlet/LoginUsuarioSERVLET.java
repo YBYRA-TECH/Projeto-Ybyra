@@ -52,9 +52,7 @@ public class LoginUsuarioSERVLET extends HttpServlet {
                 session.setAttribute("nomeUsuario", usuario.getNome());
                 session.setAttribute("emailUsuario", usuario.getEmail());
 
-                // Redirecionar para o inicio
-                request.getRequestDispatcher("/pagina?nome=inicio").forward(request, response);
-
+                response.sendRedirect(request.getContextPath() + "/pagina?nome=inicio");
             } else {
                 System.out.println("Credenciais inválidas!");
                 request.setAttribute("erro", "Ops! O login está incorreto!");

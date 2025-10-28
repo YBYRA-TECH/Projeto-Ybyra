@@ -14,38 +14,114 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px;
-    /* Definindo a base de 1rem = 16px */
 }
 
-body {
-    background: linear-gradient(to right, #CCF6FF, #192083);
-}
+.area-icones{
+    display: flex;
+    justify-content: space-between;
 
+
+}
+#area-header h1{
+    color: #2F567D;
+}
+/* ===== PAINEL PRINCIPAL ===== */
 .painel-principal {
     display: flex;
-    min-height: 100vh;
-}   
-.area-icones-usuario img {
-    margin-right: 0.5rem;  
-    margin-top: 0.3rem;  
+    width: 99%;
 }
-#meuIframe {
+
+#notificacoes {
+    right: 2%;
+}
+
+/* ===== ÁREA DE ÍCONES DO USUÁRIO ===== */
+#notificacoes-img {
+    margin-right: 3.8rem;
+    /* margin-top: 0.3rem; */
+}
+.painel{
+    margin-top: 1rem;
+}
+.painel h1{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: "Montserrat", sans-serif;
+    color: #2F567D;
+}
+/* ===== IFRAME ===== */
+.painel iframe {
     border-radius: 0.5rem;
-    width: 75rem;
-    height: 60rem;
-}
-
-/* O truque: esconde a barra de rolagem horizontal */
-#meuIframe {
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
+    width: 73%;
+    height: 35rem;
 }
 
-@media(max-width:1024px) {
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 1340px) and (max-height:800px){
 
+}
+@media  (max-height:1340px) and (max-width: 800px) {
+    .painel-principal{
+        display:block;
+    }
+    .area-conteudo{
+        width: 96%;
+    }
+    iframe{
+        width: 300rem;
+    }
+}
+
+/* @media (min-width: 576px) {
     #meuIframe {
-        width: 95%;
+        width: 90rem;
+    }
+}
+
+@media (max-width: 800px) and (max-height:1300) {
+    .painel {
+        width: 80rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .painel {
+        width: 100rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .painel {
+        width: 100rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .painel {
+        width: 100rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .painel {
+        width: 100rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .painel-principal {
+        min-height: 40vh;
     }
 
-}
+    .area-icones-usuario img {
+        margin-right: 1%;
+        margin-top: 0.2rem;
+    }
+
+    #meuIframe {
+        border-radius: 0.3rem;
+        min-height: 250px;
+    }
+} */

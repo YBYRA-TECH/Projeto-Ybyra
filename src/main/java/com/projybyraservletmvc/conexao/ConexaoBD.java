@@ -8,23 +8,28 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 public class ConexaoBD {
     private Connection conn;
-    private static final Dotenv dotenv = Dotenv.load();
-
-    // CONECTANDO COM O BANCO DE DADOS
-    public Connection conectar() {
+    static {
         try {
             Class.forName("org.postgresql.Driver");
-            this.conn = DriverManager.getConnection(
-                    dotenv.get("DB_URL"),
-                    dotenv.get("DB_USER"),
-                    dotenv.get("DB_PASSWORD")
-            );
-            System.out.println("Conexão com o banco foi bem-sucedida");
-        } catch (Exception e) {
-            System.err.println("Erro ao conectar com o banco de dados:");
+            System.out.println("Driver PostgreSQL carregado com sucesso!");
+        } catch (ClassNotFoundException e) {
+            System.err.println("ERRO: Driver PostgreSQL NÃO encontrado!");
             e.printStackTrace();
         }
-        return this.conn;
+    }
+
+
+    // CONECTANDO COM O BANCO DE DADOS
+    public static Connection conectar() throws SQLException {
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
+
+        if (url == null || user == null || password == null) {
+            throw new SQLException("Variáveis de ambiente não configuradas!");
+        }
+
+        return DriverManager.getConnection(url, user, password);
     }
 
     // DESCONECTANDO DO BANCO DE DADOS

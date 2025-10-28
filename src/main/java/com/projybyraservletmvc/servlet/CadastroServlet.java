@@ -1,4 +1,4 @@
-package com.ybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet;
 
 import java.io.IOException;
 
@@ -89,7 +89,7 @@ public class CadastroServlet extends HttpServlet {
             IndustriaDAO dao = new IndustriaDAO();
 
             System.out.println("Inserindo dados no banco...");
-            boolean sucesso = dao.inserirDados(industria);
+            boolean sucesso = dao.inserir(industria);
 
             if (sucesso) {
                 System.out.println("Cadastro realizado com sucesso!");

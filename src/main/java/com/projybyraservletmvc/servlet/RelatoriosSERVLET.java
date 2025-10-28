@@ -69,7 +69,7 @@ public class RelatoriosSERVLET extends HttpServlet {
             RelatoriosDAO relatoriosDAO = new RelatoriosDAO();
 
             System.out.println("Inserindo dados no banco...");
-            boolean sucesso = relatoriosDAO.inserirDados(relatorio);
+            boolean sucesso = relatoriosDAO.inserir(relatorio);
 
             if (sucesso) {
                 System.out.println("Relatorio carregado com sucesso!");

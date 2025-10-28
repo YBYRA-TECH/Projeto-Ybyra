@@ -103,7 +103,7 @@ body {
     font-size: 1.1rem;
     color: #555;
     display: block;
-    margin-bottom: 0.3rem;
+    margin-bottom: 1rem;
     font-weight: 600;
 }
 
@@ -161,4 +161,11 @@ input {
 }
 .area-icones{
     right: 4%;
+}
+#notificacoes{
+    right: 2%;
+
+}
+#notificacoes h1{
+    color: black;
 }
