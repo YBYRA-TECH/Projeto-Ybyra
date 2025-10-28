@@ -1,5 +1,8 @@
 package com.projybyraservletmvc.dao;
-
+import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.IUsuarioDAO;
+import com.projybyraservletmvc.model.*;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -7,43 +10,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.projybyraservletmvc.conexao.ConexaoBD;
-import com.projybyraservletmvc.model.Usuario;
-import com.projybyraservletmvc.model.*;
 
-public class UsuarioDAO{
-
-    // VARIAVEIS
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
+public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario>{
 
 
-    //INSERE UM NOVO USUÁRIO NO BANCO DE DADOS
-    public boolean inserirDados(Usuario usuario) {
-        ConexaoBD conexao = new ConexaoBD(); //Instanciando objeto da classe conexao
-        Connection conn = null; //Inicializando atributo conn
+    @Override
+    public boolean inserir(Usuario usuario) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); //Atribuindo o metodo conectar ao atributo 'conn'
-            String sql = "INSERT INTO usuario (email, cpf, nome, data_nascimento,senha,id_industria) " +
-                    "VALUES (?, ?, ?, ?, ?, ?)"; //STRING SQL
+            conn = conexao.conectar();
+            String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement ps = conn.prepareStatement(sql); //transformando a String sql em um preparedStatement
+            PreparedStatement ps = conn.prepareStatement(sql);
 
             //efetuando a insercao no banco
             ps.setString(1, usuario.getEmail());
             ps.setString(2, usuario.getCpf());
             ps.setString(3, usuario.getNome());
-            ps.setDate(4, Date.valueOf(usuario.getDataNascimento()));
-            ps.setString(5, usuario.getSenha());
-            ps.setInt(6, usuario.getIdIndustria());
+            ps.setDate(4, usuario.getDataCadastro());
+            ps.setDate(5, usuario.getDataNascimento());
+            ps.setDate(6, usuario.getDataValidade());
+            ps.setInt(7, usuario.getIdIndustria());
+            ps.setInt(8, usuario.getTempoTrabalho());
 
-
-            return ps.executeUpdate() > 0; //retornando o preparedStatement
+            return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -54,17 +49,17 @@ public class UsuarioDAO{
     }
 
 
-    //ATUALIZA UM USUÁRIO QUE EXISTE NO BANCO DE DADOS
-    public static boolean atualizar(Usuario usuario) { //O metodo recebe um objeto da classe Usuario
-        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe conexao
-        Connection conn = null; //inicializando uma variavel da classe Connection
+    @Override
+    public boolean atualizar(Usuario usuario) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
+            conn = conexao.conectar();
             String sql = "UPDATE usuario " +
                     "SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? " +
-                    "WHERE id_usuario = ?"; //String sql
+                    "WHERE id_usuario = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql); //Transformando a string sql em comando com PreparedStatement
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
 
             //Atualizando os dados no banco
@@ -72,13 +67,13 @@ public class UsuarioDAO{
             pstmt.setString(2, usuario.getCpf());
             pstmt.setString(3, usuario.getNome());
             pstmt.setDate(4, usuario.getDataCadastro());
-            pstmt.setDate(5, Date.valueOf(usuario.getDataNascimento()));
+            pstmt.setDate(5, usuario.getDataNascimento());
             pstmt.setDate(6, usuario.getDataValidade());
             pstmt.setInt(7, usuario.getIdIndustria());
             pstmt.setInt(8, usuario.getTempoTrabalho());
             pstmt.setInt(9, usuario.getIdUsuario());
-            //Retornado os valores conforme o pstmt
-            return pstmt.executeUpdate() > 0;
+            if (pstmt.executeUpdate() > 0) {return true;}
+            else return false;
         } catch (SQLException e){
             e.printStackTrace();
             return false;
@@ -89,31 +84,30 @@ public class UsuarioDAO{
     }
 
 
-    //BUSCA TODOS OS USUÁRIOS CADASTRADOS NO BANCO DE DADOS
-    public List<Usuario> buscar() { //O metodo retorna uma lista de objetos com todos os valores da tabela
-        List<Usuario> lista = new ArrayList<>(); //Inicializando a lista
-        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
-        Connection conn = null; //Inicializando uma variavel da classe Connection
+    @Override
+    public List<Usuario> buscar() {
+        List<Usuario> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
-            Statement stmt = conn.createStatement(); //Inicializando um Statement
-            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC"; //String sql
+            conn = conexao.conectar();
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM usuario ORDER BY id_usuario ASC";
 
-            ResultSet rs = stmt.executeQuery(sql); //Transformando a String sql em ResultSet
+            ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Conteúdo da tabela usuário:");
 
-            //Exibindo os dados da tabela
             while (rs.next()) {
                 int id = rs.getInt("id_usuario");
                 String email = rs.getString("email");
                 String cpf = rs.getString("cpf");
                 String nome = rs.getString("nome");
                 Date dtCadastro = rs.getDate("data_cadastro");
-                LocalDate dtNascimento = rs.getDate("data_nascimento").toLocalDate();
+                Date dtNascimento = rs.getDate("data_nascimento");
                 Date dtValidade = rs.getDate("data_validade");
                 int idIndustria = rs.getInt("id_industria");
                 int tempTrabalho = rs.getInt("tempo_trabalho");
-                //Cria um objeto da classe model Usuario e adiciona na lista conforme os valores na tabela
+
                 Usuario user = new Usuario(
                         id, email, cpf, nome,
                         dtCadastro, dtNascimento, dtValidade,
@@ -131,20 +125,19 @@ public class UsuarioDAO{
     }
 
 
-
-    // DELETA UM USUÁRIO DO BANCO DE DADOS COM BASE NO ID
-    public int deletar(int id){ //Deleta de acordo com o nome passado no parametro
-        ConexaoBD conexao = new ConexaoBD(); //Inicializando um objeto da classe ConexaoBD
-        Connection conn = null; //Inicializando uma variavel da classe Connection
+    @Override
+    public int deletar(int id){
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
         try {
-            conn = conexao.conectar(); //Atribuindo metodo conectar a variavel conn
-            String sql = "DELETE FROM Usuario WHERE id_usuario = ?"; //String sql
+            conn = conexao.conectar();
+            String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql); //Preparando a String sql com PreparedStatement
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            //Deletando no banco
+
             pstmt.setInt(1, id);
-            if(pstmt.executeUpdate()>0){ //Retornando valores conforme o pstmt.executeUpdate()
+            if(pstmt.executeUpdate()>0){
                 return 1;
             }else{return 0;}
         }catch (SQLException e){
@@ -153,101 +146,6 @@ public class UsuarioDAO{
         }finally {
             conexao.desconectar(conn);
         }
-
     }
-    public Usuario login(String email, String senha) {
-        ConexaoBD conexaoBD = new ConexaoBD();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            System.out.println("Conectado no banco para fazer Login!");
-            conn = conexaoBD.conectar();
-
-            String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, email);
-            stmt.setString(2, senha);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                System.out.println("Usuário encontrado!");
-
-                Usuario usuario = new Usuario(
-                        rs.getString("email"), 
-                        rs.getString("nome"),
-                        rs.getString("senha")
-                );
-
-                return usuario;
-            } else {
-                System.out.println("Usuário não encontrado ou senha incorreta");
-                return null;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            conexaoBD.desconectar(conn);
-
-        }
-        return null;
-    }
-
-    public int buscarID(String nome) {
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        int id = -1;
-
-        try {
-            String sql = "SELECT id_usuario FROM usuario WHERE nome = ?";
-            conn = conexao.conectar();
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, nome);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                id = rs.getInt("id_usuario");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            conexao.desconectar(conn);
-        }
-        return id;
-    }
-
-
-
-    public String buscarNome(String email) {
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        String nome = "Nome não encontrado";
-
-        try {
-            String sql = "SELECT nome FROM usuario WHERE email = ?";
-            conn = conexao.conectar();
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, nome);
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                nome = rs.getString("nome");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            conexao.desconectar(conn);
-        }
-        return nome;
-    }
-
-
-
 
 }

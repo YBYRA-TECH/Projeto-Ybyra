@@ -1,11 +1,10 @@
 package com.projybyraservletmvc.model;
 
-
 public class Telefone {
 
     //ATRIBUTOS
     private int idTelefone;
-    private final String numero;
+    private String numero;
     private String tipo;
     private int idUsuario;
 

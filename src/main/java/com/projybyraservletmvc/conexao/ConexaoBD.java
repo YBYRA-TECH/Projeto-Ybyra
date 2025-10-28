@@ -1,92 +1,42 @@
 package com.projybyraservletmvc.conexao;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class ConexaoBD {
+    private Connection conn;
+    private static final Dotenv dotenv = Dotenv.load();
 
-
-
-    static {
-            String DB_URL = System.getenv("DB_URL");
-            String DB_USER = System.getenv("DB_USER");
-            String DB_PASSWORD = System.getenv("DB_PASSWORD");
-
-        try {
-            System.out.println("Carregando configurações do banco...");
-
-
-
-            if (DB_URL == null || DB_USER == null || DB_PASSWORD == null) {
-                System.out.println("ERRO: .env não encontrado!");
-            } else {
-                System.out.println("Configurações carregadas com sucesso!");
-                System.out.println("URL: " + System.getenv("DB_URL"));
-                System.out.println("User: " + System.getenv("DB_USER"));
-            }
-        } catch (Exception e) {
-            System.out.println("ERRO ao carregar configurações: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
+    // CONECTANDO COM O BANCO DE DADOS
     public Connection conectar() {
-        Connection conn = null;
         try {
-            System.out.println("\n=== TENTANDO CONECTAR AO BANCO ===");
-
-            String DB_URL = System.getenv("DB_URL");
-            String DB_USER = System.getenv("DB_USER");
-            String DB_PASSWORD = System.getenv("DB_PASSWORD");
-
-
-            // Validar se as propriedades foram carregadas
-            if ( DB_URL == null || DB_USER == null || DB_PASSWORD == null) {
-                System.out.println("ERRO: Propriedades do banco não foram carregadas!");
-                System.out.println("   DB_URL: " + DB_URL);
-                System.out.println("   DB_USER: " + DB_USER);
-                System.out.println("   DB_PASSWORD: " + (DB_PASSWORD != null ? "SENHA CARREGADA!" : "null"));
-                return null;
-            }
-
-            System.out.println("Carregando driver PostgreSQL...");
             Class.forName("org.postgresql.Driver");
-            System.out.println("Driver carregado!");
-
-            System.out.println("Conectando em: " + DB_URL);
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            System.out.println("CONEXÃO ESTABELECIDA COM SUCESSO!");
-
-            return conn;
-
-        } catch (ClassNotFoundException e) {
-            System.out.println("ERRO: Driver PostgreSQL não encontrado!");
-            System.out.println("   Verifique se o postgresql está no pom.xml");
-            e.printStackTrace();
-            return null;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-
+            this.conn = DriverManager.getConnection(
+                    dotenv.get("DB_URL"),
+                    dotenv.get("DB_USER"),
+                    dotenv.get("DB_PASSWORD")
+            );
+            System.out.println("Conexão com o banco foi bem-sucedida");
         } catch (Exception e) {
-            System.out.println("ERRO DESCONHECIDO:");
+            System.err.println("Erro ao conectar com o banco de dados:");
             e.printStackTrace();
-            return null;
         }
+        return this.conn;
     }
 
+    // DESCONECTANDO DO BANCO DE DADOS
     public void desconectar(Connection conn) {
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
-                System.out.println("Conexão fechada com sucesso");
+                System.out.println("Conexão com o banco foi encerrada.");
             }
+
         } catch (SQLException e) {
-            System.out.println("Erro ao fechar conexão: " + e.getMessage());
+            System.err.println("Erro ao desconectar do banco de dados:");
             e.printStackTrace();
         }
     }

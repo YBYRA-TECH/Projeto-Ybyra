@@ -15,13 +15,19 @@ public class Relatorios {
 
 
     //CONSTRUTOR
-    public Relatorios(){}
+    public Relatorios(){};
 
     public Relatorios(int idRelatorios, Date dataCriacao, String pdfDocumento, String area) {
         this.idRelatorios = idRelatorios;
         this.dataCriacao = dataCriacao;
         this.pdfDocumento = pdfDocumento;
         this.area = area;
+    }
+    public Relatorios(int idRelatorios, Date dataCriacao, String pdfDocumento, int idUsuario) {
+        this.idRelatorios = idRelatorios;
+        this.dataCriacao = dataCriacao;
+        this.pdfDocumento = pdfDocumento;
+        this.idUsuario = idUsuario;
     }
     public Relatorios(int idRelatorios, Date dataCriacao, String pdfDocumento, int idUsuario, String descricao) {
         this.idRelatorios = idRelatorios;
