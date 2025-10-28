@@ -66,7 +66,7 @@ body {
 }
 
 .btn-buscar:hover {
-    background-color: #192083;
+    transform: translateY(-2px);
 }
 
 #upload{
@@ -105,11 +105,11 @@ body {
     font-weight: 600;
     cursor: pointer;
     margin-bottom: 0.5rem;
-    transition: background-color 0.2s;
+    transition: all 0.2s  ease;
 }
 
 .btn-escolher-arquivo:hover {
-    background-color: #192083;
+  transform: translateY(-2px);
 }
 
 /* --- Estilos da Área de Upload Recentes --- */

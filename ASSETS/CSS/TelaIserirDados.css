@@ -169,11 +169,11 @@ body {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .btn-enviar:hover {
-    background-color: #192083;
+   transform: translateY(-2px);
 }
 .link-inserir{
     display: flex;
