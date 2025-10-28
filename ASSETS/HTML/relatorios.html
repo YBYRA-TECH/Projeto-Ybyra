@@ -72,32 +72,36 @@
     <main class="area-conteudo">
 
       <section class="painel">
-        <div class="painel-ferramentas">
-          <div class="painel-info">
+         <header>
+          <div class="busca-filtros">
+           
+            <select name="categorias" id="categorias" title="Categorias">
+              <option value="" disabled selected hidden>Todas as Categorias</option>
+              <option value="">Área Fria</option>
+              <option value="">Área Quente</option>
+            </select>
+            <select name="periodo" id="periodo" title="Período">
+              <option value="" disabled selected hidden>Período</option>
+              <option value="">Manhã</option>
+              <option value="">Tarde</option>
+              <option value="">Noite</option>
+            </select>
+            <select name="prioridade" id="prioridade" title="Prioridade">
+              <option value="" disabled selected hidden>Eficiência</option>
+              <option value="">Baixa</option>
+              <option value="">Média</option>
+              <option value="">Alta</option>
+            </select>
             <div class="busca-relatorios">
               <input type="text" placeholder="Buscar Relatórios" title="Busca"/>
-              <button class="icone-busca"><img src="/ASSETS/imgs/Research.png" alt="Ícone Lupa" title="Lupa"></button>
-            </div>
-
-            <div class="botoes-acao">
-              <button class="btn-acao btn-exportar" title="Upload">
-                <img src="/ASSETS/imgs/download.png" alt="Ícone Exportar" title="Download" title="upload"/>
-                <span >Exportar</span>
+              <button class="icone-busca">
+                <img src="/ASSETS/imgs/Research.png" alt="Lupa" title="lupa">
               </button>
-              <a href="/ASSETS/HTML/insercaoDados.html">
-                <button class="btn-acao btn-adicionar" title="Adicionar">
-                  <span>Adicionar</span>
-                </button>
-              </a>
             </div>
-
-            <div class="filtros">
-              <div class="filtro-data">
-                <input type="date" placeholder="Filtrar por Data" title="Data">
-              </div>
-            </div>
+              <form action="" method="post">
+                <button id="apagarTodos">Apagar todos</button>
+              </form>
           </div>
-
           <div class="area-icones">
             <input type="checkbox" id="menu-notificacoes">
             <label for="menu-notificacoes" title="Notificações">
@@ -110,14 +114,17 @@
               <div>Emilly concluiu uma tarefa</div>
             </div>
           </div>
-        </div>
+         </header>
+
 
         <div class="container-tabela">
           <table>
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Indice</th>
+                <th>Índice</th>
+                <th>Turno</th>
+                <th>Área</th>
                 <th>Responsável</th>
                 <th>Desempenho</th>
                 <th></th>
@@ -127,6 +134,8 @@
               <tr class="row-link">
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">23456789DGH</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Cond_Cortes</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Manhã</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Área Fria</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Juliana Antunes</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde-med">85%</div>
@@ -141,7 +150,7 @@
                       <div class="menu-lixo-icone" title="Lixeira">
                         <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
-                      <h1>Deseja excluir o relatório?</h1>
+                      <h1>Deseja excluir o lote?</h1>
                       <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                       <div class="info-item">
                         <strong>ID:</strong>
@@ -166,6 +175,8 @@
               <tr class="row-link">
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">09875438ORT</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Ctrl_Embalagens</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Tarde</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Área Quente</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Tiago Araújo</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-vermelha">37%</div>
@@ -180,7 +191,7 @@
                       <div class="menu-lixo-icone" title="Lixeira">
                         <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
-                      <h1>Deseja excluir o relatório?</h1>
+                      <h1>Deseja excluir o lote?</h1>
                       <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                       <div class="info-item">
                         <strong>ID:</strong>
@@ -205,6 +216,8 @@
               <tr class="row-link">
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">84972749ENI</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Gord_Picanha</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Noite</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Área Fria</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Roberto Ferreira</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-amarela">50%</div>
@@ -219,7 +232,7 @@
                       <div class="menu-lixo-icone" title="Lixeira">
                         <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
-                      <h1>Deseja excluir o relatório?</h1>
+                      <h1>Deseja excluir o lote?</h1>
                       <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                       <div class="info-item">
                         <strong>ID:</strong>
@@ -244,6 +257,8 @@
               <tr class="row-link">
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">2804375COW</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Escald</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Manhã</a></td>
+                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Área Quente</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Liliana Mendes</a></td>
                 <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
                     <div class="barra-desempenho barra-verde">97%</div>
@@ -258,7 +273,7 @@
                       <div class="menu-lixo-icone" title="Lixeira">
                         <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
                       </div>
-                      <h1>Deseja excluir o relatório?</h1>
+                      <h1>Deseja excluir o lote?</h1>
                       <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                       <div class="info-item">
                         <strong>ID:</strong>
@@ -275,123 +290,6 @@
                       <div class="buttons">
                         <label for="modal-4" class="btn-cancelar">Não</label>
                         <label for="modal-4" class="btn-excluir">Sim</label>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr class="row-link">
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">5260279EDF</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Emb_Pri</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Jorge Silva</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
-                    <div class="barra-desempenho barra-verde-claro">76%</div>
-                  </a></td>
-                <td>
-                  <input type="checkbox" class="menu-lixeira" id="modal-5">
-                  <label for="modal-5" class="icone-lixeira" title="Lixeira">
-                    <img src="/ASSETS/imgs/Trash.png" alt="lixeira">
-                  </label>
-                  <div class="modal-overlay">
-                    <div class="menu-lixo">
-                      <div class="menu-lixo-icone" title="Lixeira">
-                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
-                      </div>
-                      <h1>Deseja excluir o relatório?</h1>
-                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                      <div class="info-item">
-                        <strong>ID:</strong>
-                        <span>5260279EDF</span>
-                      </div>
-                      <div class="info-item">
-                        <strong>Índice:</strong>
-                        <span>Emb_Pri</span>
-                      </div>
-                      <div class="info-item">
-                        <strong>Responsável:</strong>
-                        <span>Jorge Silva</span>
-                      </div>
-                      <div class="buttons">
-                        <label for="modal-5" class="btn-cancelar">Não</label>
-                        <label for="modal-5" class="btn-excluir">Sim</label>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr class="row-link">
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">447910ZTLPK</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Monitoramento_RH</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Felipe Castro</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
-                    <div class="barra-desempenho barra-verde-med">89%</div>
-                  </a></td>
-                <td>
-                  <input type="checkbox" class="menu-lixeira" id="modal-6">
-                  <label for="modal-6" class="icone-lixeira" title="Lixeira">
-                    <img src="/ASSETS/imgs/Trash.png" alt="lixeira">
-                  </label>
-                  <div class="modal-overlay">
-                    <div class="menu-lixo">
-                      <div class="menu-lixo-icone" title="Lixeira">
-                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
-                      </div>
-                      <h1>Deseja excluir o relatório?</h1>
-                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                      <div class="info-item">
-                        <strong>ID:</strong>
-                        <span>447910ZTLPK</span>
-                      </div>
-                      <div class="info-item">
-                        <strong>Índice:</strong>
-                        <span>Monitoramento_RH</span>
-                      </div>
-                      <div class="info-item">
-                        <strong>Responsável:</strong>
-                        <span>Felipe Castro</span>
-                      </div>
-                      <div class="buttons">
-                        <label for="modal-6" class="btn-cancelar">Não</label>
-                        <label for="modal-6" class="btn-excluir">Sim</label>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr class="row-link">
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">112233QWERZ</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Logistica_Sul</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">Ana Costa</a></td>
-                <td><a href="/ASSETS/HTML/inicioBI.html" class="table-link">
-                    <div class="barra-desempenho barra-verde">95%</div>
-                  </a></td>
-                <td>
-                  <input type="checkbox" class="menu-lixeira" id="modal-7">
-                  <label for="modal-7" class="icone-lixeira" title="Lixeira">
-                    <img src="/ASSETS/imgs/Trash.png" alt="lixeira">
-                  </label>
-                  <div class="modal-overlay">
-                    <div class="menu-lixo">
-                      <div class="menu-lixo-icone" title="Lixeira">
-                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira">
-                      </div>
-                      <h1>Deseja excluir o relatório?</h1>
-                      <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                      <div class="info-item">
-                        <strong>ID:</strong>
-                        <span>112233QWERZ</span>
-                      </div>
-                      <div class="info-item">
-                        <strong>Índice:</strong>
-                        <span>Logistica_Sul</span>
-                      </div>
-                      <div class="info-item">
-                        <strong>Responsável:</strong>
-                        <span>Ana Costa</span>
-                      </div>
-                      <div class="buttons">
-                        <label for="modal-7" class="btn-cancelar">Não</label>
-                        <label for="modal-7" class="btn-excluir">Sim</label>
                       </div>
                     </div>
                   </div>

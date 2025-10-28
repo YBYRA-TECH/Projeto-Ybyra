@@ -94,51 +94,52 @@
             </div>
 
             <section class="detalhes-upload-painel">
+              <form action="" method="post">
+                  <div class="formulario-detalhes">
 
-                <div class="formulario-detalhes">
+                      <div class="area-detalhes">
+                          <h3 class="subtitulo-secao">Detalhes</h3>
+                          <div class="detalhes-campos">
+                              <div>
+                                  <div class="campo">
+                                      <label for="">Prioridade</label>
+                                      <select class="filtro-select">
+                                          <option value="" disabled selected hidden>Prioridade</option>
+                                          <option value="">Não Iniciada</option>
+                                          <option value="">Em Andamento</option>
+                                          <option value="">Concluída</option>
+                                      </select>
+                                  </div>
 
-                    <div class="area-detalhes">
-                        <h3 class="subtitulo-secao">Detalhes</h3>
-                        <div class="detalhes-campos">
-                            <div>
-                                <div class="campo">
-                                    <label for="">Prioridade</label>
-                                    <select class="filtro-select">
-                                        <option value="" disabled selected hidden>Prioridade</option>
-                                        <option value="">Não Iniciada</option>
-                                        <option value="">Em Andamento</option>
-                                        <option value="">Concluída</option>
-                                    </select>
-                                </div>
+                                  <div class="campo">
+                                      <label for="nome-tarefa">Nome da Tarefa</label>
+                                      <input type="text" id="nome-tarefa" value="" placeholder="Digite o Nome da Tarefa">
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="campo">
+                                      <label for="responsavel">Responsável</label>
+                                      <input type="text" value="" id="responsavel"
+                                          placeholder="Digite o Nome do Responsável">
+                                  </div>
+                                  <div class="campo">
+                                      <label for="data-tarefa">Data de enceramento</label>
+                                      <input type="date" id="data-tarefa" value="">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
 
-                                <div class="campo">
-                                    <label for="nome-tarefa">Nome da Tarefa</label>
-                                    <input type="text" id="nome-tarefa" value="" placeholder="Digite o Nome da Tarefa">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="campo">
-                                    <label for="responsavel">Responsável</label>
-                                    <input type="text" value="" id="responsavel"
-                                        placeholder="Digite o Nome do Responsável">
-                                </div>
-                                <div class="campo">
-                                    <label for="data-tarefa">Data da Tarefa</label>
-                                    <input type="date" id="data-tarefa" value="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                      <div class="area-descricao">
+                          <h3 class="subtitulo-secao">Descrição</h3>
+                          <h3 style="opacity: 0;">Espaço</h3>
+                          <textarea class="texto-descricao" placeholder="coloque aqui a descrição da tarefa"></textarea>
 
-                    <div class="area-descricao">
-                        <h3 class="subtitulo-secao">Descrição</h3>
-                        <h3 style="opacity: 0;">Espaço</h3>
-                        <textarea class="texto-descricao" placeholder="coloque aqui a descrição da tarefa"></textarea>
-
-                        <a href="tarefas.html" class="link-inserir"><button
-                                class="btn-enviar">Confirmar</button></a>
-                    </div>
-                </div>
+                          <a href="tarefas.html" class="link-inserir"><button
+                                  class="btn-enviar">Confirmar</button></a>
+                      </div>
+                  </div>
+                </form>
             </section>
         </main>
     </div>
