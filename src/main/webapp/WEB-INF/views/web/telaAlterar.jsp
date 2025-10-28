@@ -15,7 +15,6 @@
 
 <body>
 <%
-    // Recuperar dados da sessão
     Integer id_tarefa = (Integer) session.getAttribute("id_tarefa");
     Integer id_usuario = (Integer) session.getAttribute("id_usuario");
     String prioridade = (String) session.getAttribute("prioridade");
@@ -27,7 +26,7 @@
     // Formatar data para o input
     String prazoFormatado = "";
     if (prazo != null) {
-        prazoFormatado = prazo.toString(); // formato yyyy-MM-dd
+        prazoFormatado = prazo.toString();
     }
 %>
 

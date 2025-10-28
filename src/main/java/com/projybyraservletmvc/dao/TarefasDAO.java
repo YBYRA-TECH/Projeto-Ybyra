@@ -220,4 +220,28 @@ public class TarefasDAO {
         }
         return lista;
     }
+
+    public int deletarPorPrioridade(String prioridade) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+
+        try {
+            conn = conexao.conectar();
+            String sql = "DELETE FROM tarefas WHERE prioridade = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, prioridade);
+
+            if (pstmt.executeUpdate() > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
 }

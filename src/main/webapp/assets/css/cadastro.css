@@ -11,7 +11,7 @@
 
 html,
 body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -319,7 +319,7 @@ form {
     border-left: 4px solid #dc3545 !important;
     font-family: "Geologica", sans-serif !important;
     font-weight: 500 !important;
-    width: 90% !important;
+    width: 100% !important;
     align-self: flex-start !important;
     animation: shake 0.5s !important;
 }

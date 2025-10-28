@@ -296,7 +296,7 @@ form {
     border-left: 4px solid #dc3545;
     font-family: "Geologica", sans-serif;
     font-weight: 500;
-    width: 90%;
+    width: 100%;
     align-self: flex-start;
     animation: shake 0.5s;
 }
