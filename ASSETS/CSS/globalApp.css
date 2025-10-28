@@ -11,6 +11,9 @@
     display: flex;
     min-height: 100vh;
 }
+.area-icones img{
+    transform: translateY(-2px);
+}
 .barra-lateral {
     width: 15.6rem;
     padding: 1.2rem 0;

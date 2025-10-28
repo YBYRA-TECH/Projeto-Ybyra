@@ -39,85 +39,19 @@ body {
 /* Estilo do cabeçalho principal */
 .header-principal {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     padding: 0 0.5rem;
     margin-bottom: 2rem;
 }
-
-.conteudo-principal-header{
-    margin-left: 2.3%;
+.header-principal h1{
+    color: #2F567D;
+    margin-left: 2rem;
+}
+.header-principal img{
+    margin-right: 2.5rem;
 }
 
-/* Container para a busca e os filtros (lado esquerdo) */
-.busca-filtros {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    flex-grow: 1; /* Permite que ocupe o espaço necessário */
-    max-width: 75%; /* Limita a largura para caber os ícones na direita */
-}
-
-/* Estilo do campo de busca */
-.busca-relatorios .icone-busca {
-    background-color: transparent;
-    border: none;
-    padding: 0 0.8rem;
-    cursor: pointer;
-    color: #888;
-}
-
-.busca-relatorios img {
-    width: 20px;
-    height: 20px;
-}
-.busca-relatorios {
-    display: flex;
-    align-items:center;
-    justify-content: space-around;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.5rem;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    width: 16rem;
-    height: 2.5rem;
-}
-
-.busca-relatorios input {
-    border: none;
-    font-size: 0.9rem;
-    font-family: 'Montserrat', sans-serif;
-    padding: 0.6rem 0.8rem;
-    outline: none;
-    flex: 400;
-
-}
-
-.busca-relatorios input::placeholder {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    color: #94a3b8;
-    width: 80%;
-}
-
-/* Estilo dos Dropdowns (selects) */
-.busca-filtros select {
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    background-color: white;
-    font-size: 0.85rem;
-    color: #333;
-    appearance: none; 
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E'); /* Ícone de seta para dropdown */
-    background-repeat: no-repeat;
-    background-position: right 0.5rem top 50%;
-    background-size: 0.65rem auto;
-    padding-right: 2rem;
-}
-#span1{
-    margin-right: 0.3rem;
-}
 /* Estilo do botão Buscar */
 .btn-buscar {
     background-color: #2067ca;
@@ -144,9 +78,7 @@ body {
     right: 2%;
 }
 
-.area-icones{
-    margin-right: 2.5rem;
-}
+
 
 .area-upload-arquivo {
     display: flex;

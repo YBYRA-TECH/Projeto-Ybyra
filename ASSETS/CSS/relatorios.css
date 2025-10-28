@@ -36,13 +36,42 @@ body {
     padding: 0 0.5rem 1rem 0rem;
     margin-bottom: 1.2rem;
     gap: 16rem;
-
 }
-.painel-info{
+/* Estilo do cabeçalho principal */
+.header-principal {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
 }
 
+.conteudo-principal-header{
+    margin-left: 2.3%;
+}
+
+/* Container para a busca e os filtros (lado esquerdo) */
+.busca-filtros {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-grow: 1; /* Permite que ocupe o espaço necessário */
+    max-width: 75%; /* Limita a largura para caber os ícones na direita */
+}
+
+/* Estilo do campo de busca */
+.busca-relatorios .icone-busca {
+    background-color: transparent;
+    border: none;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.busca-relatorios img {
+    width: 20px;
+    height: 20px;
+}
 .busca-relatorios {
     display: flex;
     align-items:center;
@@ -57,10 +86,12 @@ body {
 
 .busca-relatorios input {
     border: none;
-    padding: 0.5rem 1rem;
     font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.6rem 0.8rem;
     outline: none;
-    border-radius: 0.5rem 0 0 0.5rem;
+    flex: 400;
+
 }
 
 .busca-relatorios input::placeholder {
@@ -70,109 +101,37 @@ body {
     width: 80%;
 }
 
-.busca-relatorios .icone-busca {
-    background: transparent;
-    border: none;
-    padding: 0 0.8rem;
-    cursor: pointer;
-    height: 100%;
-}
-
-.busca-relatorios .icone-busca img {
-    width: 20px;
-    height: 20px;
-}
-
-.botoes-acao {
-    display: flex;
-    gap: 0rem;
-    margin-left: 1rem;
-}
-
-.btn-acao {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
+/* Estilo dos Dropdowns (selects) */
+.busca-filtros select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
     border-radius: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    border: none;
-    transition: opacity 0.3s;
-}
-
-.btn-acao img {
-    width: 1.1rem;
-    margin-right: 0.4rem;
-}
-
-.btn-exportar {
     background-color: white;
-    transition: all 0.3s;
-    color: #3474cd;
-    border: 1px solid #3474cd;
+    font-size: 0.85rem;
+    color: #333;
+    appearance: none; 
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E'); /* Ícone de seta para dropdown */
+    background-repeat: no-repeat;
+    background-position: right 0.5rem top 50%;
+    background-size: 0.65rem auto;
+    padding-right: 2rem;
+}
+#span1{
+    margin-right: 0.3rem;
 }
 
-.btn-exportar img {
-    margin-right: 0.8rem;
+
+#upload{
+    font-size: 0.9rem;
+   margin-bottom: 1.3rem;
 }
 
-.btn-adicionar img {
-    margin-right: 0.8rem;
-}
-
-.btn-exportar:hover {
-    background-color: #3474cd;
-    color: white;
-    transform: translateY(-3px);
-}
-
-.btn-adicionar {
-    margin-left: 1.3rem;
-    transition: all 0.3s;
-    background-color: #3474cd;
-    color: white;
-}
-
-.btn-adicionar:hover {
-    transform: translateY(-3px);
-}
-
-.area-icones{
-    margin-left: 2rem;
-}
 #notificacoes{
     right: 2%;
 }
-/* 3. Filtros de Data e Filtro Genérico */
-.filtros {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-}
 
-.filtro-data {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.8rem;
-    color: #475569;
-}
-
-.filtro-data:hover {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.filtro-data input {
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    outline: none;
-    border-radius: 0.5rem 0 0 0.5rem;
+.area-icones{
+align-items: center;
 }
 
 
