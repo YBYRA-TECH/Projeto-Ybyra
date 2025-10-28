@@ -1,6 +1,8 @@
 package com.projybyraservletmvc.controller;
 
+import com.projybyraservletmvc.dao.LoteDAO;
 import com.projybyraservletmvc.dao.TarefasDAO;
+import com.projybyraservletmvc.model.Lote;
 import com.projybyraservletmvc.model.Tarefas;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -71,6 +73,27 @@ public class WebController extends HttpServlet {
             }
 
             request.setAttribute("tarefas", tarefas);
+        }
+        if ("relatorios".equals(nome)) {
+            HttpSession session = request.getSession();
+
+            List<Lote> lote = (List<Lote>) session.getAttribute("lote");
+
+            if (lote == null) {
+                try {
+                    LoteDAO loteDAO = new LoteDAO();
+                    lote = loteDAO.buscar();
+                    System.out.println("Tarefas carregadas do banco: " + lote.size());
+                } catch (Exception e) {
+                    System.err.println("Erro ao carregar tarefas: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Lotes vindos da busca: " + lote.size());
+                session.removeAttribute("lote");
+            }
+
+            request.setAttribute("lote", lote);
         }
 
         String caminho = "/WEB-INF/views/web/" + nome + ".jsp";

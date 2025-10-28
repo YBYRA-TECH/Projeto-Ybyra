@@ -73,7 +73,7 @@ public class RelatoriosSERVLET extends HttpServlet {
 
             if (sucesso) {
                 System.out.println("Relatorio carregado com sucesso!");
-                response.sendRedirect(request.getContextPath() + "/pagina?nome=inicio");
+                response.sendRedirect(request.getContextPath() + "/pagina?nome=inicioBI");
             } else {
                 System.out.println("Erro ao carregar no banco!");
                 response.getWriter().println("<h3> Erro ao carregar! Tente novamente.</h3>");

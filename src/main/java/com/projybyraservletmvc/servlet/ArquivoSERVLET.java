@@ -8,14 +8,14 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-@WebServlet(name = "ArquivoSERVLET", urlPatterns = {"/InserirDados"})@MultipartConfig
+@WebServlet("/InserirDados")@MultipartConfig
 public class ArquivoSERVLET extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("=== ArquivoSERVLET chamado ===");
+        System.out.println("ArquivoSERVLET");
 
 
         Part filePart = request.getPart("arquivo");
@@ -28,6 +28,6 @@ public class ArquivoSERVLET extends HttpServlet {
 
         System.out.println("Nome guardado.");
 
-        response.sendRedirect(request.getContextPath() + "/pagina?nome=TelaInserirDados");
+        response.sendRedirect(request.getContextPath() + "/pagina?nome=TelainserirDados");
     }
 }

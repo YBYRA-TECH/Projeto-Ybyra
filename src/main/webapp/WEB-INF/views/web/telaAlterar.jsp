@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: murilofonseca-ieg
-  Date: 25/10/2025
-  Time: 18:00
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -19,6 +14,23 @@
 </head>
 
 <body>
+<%
+    // Recuperar dados da sessão
+    Integer id_tarefa = (Integer) session.getAttribute("id_tarefa");
+    Integer id_usuario = (Integer) session.getAttribute("id_usuario");
+    String prioridade = (String) session.getAttribute("prioridade");
+    String responsavel = (String) session.getAttribute("responsavel");
+    String nome = (String) session.getAttribute("nome");
+    LocalDate prazo = (LocalDate) session.getAttribute("prazo");
+    String descricao = (String) session.getAttribute("descricao");
+
+    // Formatar data para o input
+    String prazoFormatado = "";
+    if (prazo != null) {
+        prazoFormatado = prazo.toString(); // formato yyyy-MM-dd
+    }
+%>
+
 <div class="painel-principal">
     <aside class="barra-lateral">
         <input type="checkbox" id="menu">
@@ -101,37 +113,35 @@
         </div>
 
         <section class="detalhes-upload-painel">
-
-            <div class="formulario-detalhes">
+            <form method="post" action="<%= request.getContextPath() %>/AlterarTarefas" class="formulario-detalhes">
 
                 <div class="area-detalhes">
                     <h3 class="subtitulo-secao">Detalhes</h3>
                     <div class="detalhes-campos">
                         <div>
                             <div class="campo">
-                                <label for="">Prioridade</label>
-                                <select class="filtro-select">
-                                    <option value="" disabled selected hidden>Prioridade</option>
-                                    <option value="">Não Iniciada</option>
-                                    <option value="">Em Andamento</option>
-                                    <option value="">Concluída</option>
+                                <label for="prioridade">Prioridade</label>
+                                <select class="filtro-select" id="prioridade" name="prioridade" required>
+                                    <option value="" disabled <%= (prioridade == null || prioridade.isEmpty()) ? "selected" : "" %>>Selecione a Prioridade</option>
+                                    <option value="nao_iniciada" <%= "nao_iniciada".equals(prioridade) ? "selected" : "" %>>Não Iniciada</option>
+                                    <option value="em_andamento" <%= "em_andamento".equals(prioridade) ? "selected" : "" %>>Em Andamento</option>
+                                    <option value="concluida" <%= "concluida".equals(prioridade) ? "selected" : "" %>>Concluída</option>
                                 </select>
                             </div>
 
                             <div class="campo">
                                 <label for="nome-tarefa">Nome da Tarefa</label>
-                                <input type="text" id="nome-tarefa" value="" placeholder="Digite o Nome da Tarefa">
+                                <input type="text" id="nome-tarefa" name="nome" value="<%= nome != null ? nome : "" %>" placeholder="Digite o Nome da Tarefa" required>
                             </div>
                         </div>
                         <div>
                             <div class="campo">
                                 <label for="responsavel">Responsável</label>
-                                <input type="text" value="" id="responsavel"
-                                       placeholder="Digite o Nome do Responsável">
+                                <input type="text" value="<%= responsavel != null ? responsavel : "" %>" id="responsavel" name="responsavel" placeholder="Digite o Nome do Responsável" required>
                             </div>
                             <div class="campo">
                                 <label for="data-tarefa">Data da Tarefa</label>
-                                <input type="date" id="data-tarefa" value="">
+                                <input type="date" id="data-tarefa" name="prazo" value="<%= prazoFormatado %>" required>
                             </div>
                         </div>
                     </div>
@@ -140,12 +150,11 @@
                 <div class="area-descricao">
                     <h3 class="subtitulo-secao">Descrição</h3>
                     <h3 style="opacity: 0;">Espaço</h3>
-                    <textarea class="texto-descricao" placeholder="coloque aqui a descrição da tarefa"></textarea>
+                    <textarea class="texto-descricao" name="descricao" placeholder="Coloque aqui a descrição da tarefa" required><%= descricao != null ? descricao : "" %></textarea>
 
-                    <a href="<%= request.getContextPath() %>/pagina?nome=tarefas" class="link-inserir"><button
-                            class="btn-enviar">Confirmar</button></a>
+                    <button type="submit" class="btn-enviar">Confirmar</button>
                 </div>
-            </div>
+            </form>
         </section>
     </main>
 </div>

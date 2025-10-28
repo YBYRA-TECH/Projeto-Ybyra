@@ -1,8 +1,7 @@
-package com.projybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet.tarefasSERVLET;
 
 import com.projybyraservletmvc.dao.TarefasDAO;
 import com.projybyraservletmvc.model.Tarefas;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

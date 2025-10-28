@@ -120,7 +120,7 @@
 
         <section class="painel">
             <div class="area-upload-arquivo">
-                <form action="<%= request.getContextPath() %>/InserirDados"
+                <form action="<%=request.getContextPath() %>/InserirDados"
                       method="post"
                       enctype="multipart/form-data">
 

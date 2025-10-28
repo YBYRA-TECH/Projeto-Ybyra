@@ -96,7 +96,7 @@
 
                 <label for="adicionar" id="menu-adicionar">
                     <a href="<%= request.getContextPath() %>/pagina?nome=adicionarTarefa" id="linkAdi">Adicionar</a>
-                </label>-
+                </label>
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
                     <label for="menu-notificacoes" id="label-notificações">
@@ -133,9 +133,19 @@
                         <label for="<%= tarefaId %>" class="cabecalho-tarefa">
                             <span class="titulo-tarefa"><%= tarefa.getNome() %></span>
                             <div class="acoes-tarefa">
-                                <a href="<%= request.getContextPath() %>/pagina?nome=telaAlterar" class="btn-acao btn-editar">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                </a>
+                                <form method="post" action="<%=request.getContextPath()%>/DadosAlterarTarefa">
+                                    <input type="hidden" name="id_tarefa" value="<%= tarefa.getId_tarefa()%>">
+                                    <input type="hidden" name="id_usuario" value="<%= tarefa.getId_usuario()%>">
+                                    <input type="hidden" name="prioridade" value="<%= tarefa.getPrioridade()%>">
+                                    <input type="hidden" name="responsavel" value="<%= tarefa.getResponsavel()%>">
+                                    <input type="hidden" name="nome" value="<%= tarefa.getNome()%>">
+                                    <input type="hidden" name="prazo" value="<%= tarefa.getPrazo()%>">
+                                    <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
+
+                                    <button class="btn-acao btn-editar" type="submit">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
+                                    </button>
+                                </form>
                                 <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                                 <label for="<%= modalid %>" class="icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
@@ -204,9 +214,19 @@
                         <label for="<%= tarefaId %>" class="cabecalho-tarefa">
                             <span class="titulo-tarefa"><%= tarefa.getNome() %></span>
                             <div class="acoes-tarefa">
-                                <a href="<%= request.getContextPath() %>/pagina?nome=telaAlterar" class="btn-acao btn-editar">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                </a>
+                                <form method="post" action="<%=request.getContextPath()%>/DadosAlterarTarefa">
+                                    <input type="hidden" name="id_tarefa" value="<%= tarefa.getId_tarefa()%>">
+                                    <input type="hidden" name="id_usuario" value="<%= tarefa.getId_usuario()%>">
+                                    <input type="hidden" name="prioridade" value="<%= tarefa.getPrioridade()%>">
+                                    <input type="hidden" name="responsavel" value="<%= tarefa.getResponsavel()%>">
+                                    <input type="hidden" name="nome" value="<%= tarefa.getNome()%>">
+                                    <input type="hidden" name="prazo" value="<%= tarefa.getPrazo()%>">
+                                    <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
+
+                                    <button class="btn-acao btn-editar" type="submit">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
+                                    </button>
+                                </form>
                                 <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                                 <label for="<%= modalid %>" class="icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
@@ -275,9 +295,19 @@
                         <label for="<%= tarefaId %>" class="cabecalho-tarefa">
                             <span class="titulo-tarefa"><%= tarefa.getNome() %></span>
                             <div class="acoes-tarefa">
-                                <a href="<%= request.getContextPath() %>/pagina?nome=telaAlterar" class="btn-acao btn-editar">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
-                                </a>
+                                <form method="post" action="<%=request.getContextPath()%>/DadosAlterarTarefa">
+                                    <input type="hidden" name="id_tarefa" value="<%= tarefa.getId_tarefa()%>">
+                                    <input type="hidden" name="id_usuario" value="<%= tarefa.getId_usuario()%>">
+                                    <input type="hidden" name="prioridade" value="<%= tarefa.getPrioridade()%>">
+                                    <input type="hidden" name="responsavel" value="<%= tarefa.getResponsavel()%>">
+                                    <input type="hidden" name="nome" value="<%= tarefa.getNome()%>">
+                                    <input type="hidden" name="prazo" value="<%= tarefa.getPrazo()%>">
+                                    <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
+
+                                    <button class="btn-acao btn-editar" type="submit">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar">
+                                    </button>
+                                </form>
                                 <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                                 <label for="<%= modalid %>" class="icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">

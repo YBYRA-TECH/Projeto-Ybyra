@@ -1,0 +1,116 @@
+package com.projybyraservletmvc.model;
+
+public class Lote {
+    private int id_lote;
+    private String descricao;
+    private String responsavel;
+    private int producao;
+    private int planejado;
+    private int problemas;
+    private String observacao;
+    private int id_industria;
+    private int id_relatorio;
+    private double eficiencia;
+
+
+    //Getters e Setters
+
+
+    public int getId_lote() {
+        return id_lote;
+    }
+
+    public void setId_lote(int id_lote) {
+        this.id_lote = id_lote;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public int getPlanejado() {
+        return planejado;
+    }
+
+    public void setPlanejado(int planejado) {
+        this.planejado = planejado;
+    }
+
+    public double getEficiencia() {
+        return eficiencia;
+    }
+
+    public void setEficiencia(double eficiencia) {
+        this.eficiencia = eficiencia;
+    }
+
+    public int getId_industria() {
+        return id_industria;
+    }
+
+    public void setId_industria(int id_industria) {
+        this.id_industria = id_industria;
+    }
+
+    public int getId_relatorio() {
+        return id_relatorio;
+    }
+
+    public void setId_relatorio(int id_relatorio) {
+        this.id_relatorio = id_relatorio;
+    }
+
+    public int getProblemas() {
+        return problemas;
+    }
+    public void setProblemas(int problemas) {
+        this.problemas = problemas;
+    }
+
+    public void setProducao(int producao) {
+        this.producao = producao;
+    }
+
+    public int getProducao() {
+        return producao;
+    }
+
+
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    //Construtor
+
+    public Lote(String descricao, String responsavel, int producao, int planejado, int problemas,
+                String observacao, int id_industria, int id_relatorio, double eficiencia){
+
+        this.descricao = descricao;
+        this.responsavel = responsavel;
+        this.observacao = observacao;
+        this.eficiencia = eficiencia;
+        this.id_industria = id_industria;
+        this.id_relatorio = id_relatorio;
+        this.planejado = planejado;
+        this.producao = producao;
+        this.problemas = problemas;
+
+    }
+}
