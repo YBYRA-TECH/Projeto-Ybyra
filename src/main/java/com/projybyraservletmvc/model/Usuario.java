@@ -41,6 +41,12 @@ public class Usuario {
         this.idIndustria = idIndustria;
     }
 
+
+    public Usuario(int idUsuario, String nome) {
+        this.nome = nome;
+        this.idUsuario = idUsuario;
+    }
+
     // GETTERS E SETTERS
     public int getIdUsuario() {
         return idUsuario;

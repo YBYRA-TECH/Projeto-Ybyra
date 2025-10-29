@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -221,7 +222,7 @@ public class TarefasDAO {
         return lista;
     }
 
-    public int deletarPorPrioridade(String prioridade) {
+    public int deletar(String prioridade) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
 
@@ -243,5 +244,47 @@ public class TarefasDAO {
         } finally {
             conexao.desconectar(conn);
         }
+    }
+    public List<Tarefas> buscarPorIndustria(int id_industria) {
+        List<Tarefas> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT t.*, u.nome as responsavel " +
+                    "FROM tarefas t " +
+                    "INNER JOIN usuario u ON t.id_usuario = u.id_usuario " +
+                    "WHERE u.id_industria = ? " +
+                    "ORDER BY t.id_tarefa ASC";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_industria);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            System.out.println("Buscando tarefas da indústria: " + id_industria);
+
+            while (rs.next()) {
+                int id = rs.getInt("id_tarefa");
+                int idUsuario = rs.getInt("id_usuario");
+                String prioridade = rs.getString("prioridade");
+                String responsavel = rs.getString("responsavel");
+                String nome = rs.getString("nome");
+                LocalDate prazo = rs.getDate("prazo").toLocalDate();
+                String descricao = rs.getString("descricao");
+
+                Tarefas tarefa = new Tarefas(id,prioridade, responsavel, nome, prazo, descricao ,idUsuario);
+                lista.add(tarefa);
+            }
+
+            System.out.println("Total de tarefas encontradas: " + lista.size());
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar tarefas por indústria: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
     }
 }

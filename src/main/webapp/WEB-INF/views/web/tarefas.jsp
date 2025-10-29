@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.projybyraservletmvc.model.Tarefas" %>
+<%@ page import="com.projybyraservletmvc.model.Usuario" %>
+
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
@@ -17,6 +19,7 @@
 <%
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     List<Tarefas> tarefas = (List<Tarefas>) request.getAttribute("tarefas");
+    List<Usuario> usuarios = (List<Usuario>) request.getAttribute(("usuarios"));
 %>
 
 <div class="container-principal">
@@ -233,7 +236,6 @@
 
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Prioridade:</strong> Alta</p>
                             <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
@@ -364,7 +366,6 @@
 
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Prioridade:</strong> Média</p>
                             <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
@@ -380,7 +381,7 @@
                 <!-- COLUNA: CONCLUÍDA -->
                 <div class="coluna-status">
                     <div class="titulo-status">
-                        <h3>Matéria Concluída</h3>
+                        <h3>Concluidas</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
                         <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-3" />
                         <label for="modal-apagar-todos-3" class="btn-apagar-todos">Apagar Todos</label>
@@ -399,7 +400,7 @@
                             </p>
                             <div class="info-item">
                                 <strong>Coluna:</strong>
-                                <span>Matéria Concluída</span>
+                                <span>Concluidas</span>
                             </div>
                             <div class="info-item">
                                 <strong>Total de tarefas:</strong>
@@ -468,10 +469,6 @@
                                     <span><%= tarefa.getResponsavel() %></span>
                                 </div>
                                 <div class="info-item">
-                                    <strong>Prioridade:</strong>
-                                    <span>Baixa</span>
-                                </div>
-                                <div class="info-item">
                                     <strong>Prazo:</strong>
                                     <span><%= tarefa.getPrazo().format(formatter) %></span>
                                 </div>
@@ -514,55 +511,17 @@
                     <h3>Pessoas Online</h3>
                 </div>
                 <div class="lista-usuarios">
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">Davi Lacerda</span>
-                        <span class="status-online"></span>
-                    </div>
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">Murilo Rosa</span>
-                        <span class="status-online"></span>
-                    </div>
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">Felipe Augusto</span>
-                        <span class="status-online"></span>
-                    </div>
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">David Reche</span>
-                        <span class="status-online"></span>
-                    </div>
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">Matheus fazan</span>
-                        <span class="status-online"></span>
-                    </div>
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">Emilly Dantas</span>
-                        <span class="status-online"></span>
-                    </div>
-                    <div class="usuario">
-                        <div class="avatar-usuario">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                        </div>
-                        <span class="nome-usuario">Marcelo Grilo</span>
-                        <span class="status-online"></span>
-                    </div>
+                    <%
+                        if (usuarios != null && !usuarios.isEmpty()) {
+                            for (Usuario usuario : usuarios) { %>
+                            <div class="usuario">
+                                <div class="avatar-usuario">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
+                                </div>
+                                <span class="nome-usuario"><%= usuario.getNome() %></span>
+                                <span class="status-online"></span>
+                            </div>
+                    <%}}%>
                 </div>
             </aside>
         </section>

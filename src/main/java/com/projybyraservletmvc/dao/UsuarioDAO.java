@@ -221,4 +221,35 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
             conexao.desconectar(conn);
         }
     }
+    public List<Usuario> buscarUsuarios(int id_industria) {
+        List<Usuario> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT * FROM usuario WHERE id_industria = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_industria);
+
+            ResultSet rs = pstmt.executeQuery();
+
+
+
+            System.out.println("Conteúdo da tabela usuário:");
+
+            while (rs.next()) {
+                int id = rs.getInt("id_usuario");
+                String nome = rs.getString("nome");
+
+                Usuario user = new Usuario(id, nome);
+                lista.add(user);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
 }

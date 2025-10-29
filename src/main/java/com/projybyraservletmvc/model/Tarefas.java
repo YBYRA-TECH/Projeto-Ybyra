@@ -24,6 +24,15 @@ public class Tarefas {
         this.responsavel = responsavel;
         this.id_usuario = id_usuario;
     }
+    public Tarefas(int id_tarefa,String prioridade, String responsavel, String nome, LocalDate prazo, String descricao ,int id_usuario) {
+        this.id_tarefa = id_tarefa;
+        this.descricao = descricao;
+        this.nome = nome;
+        this.prazo = prazo;
+        this.prioridade = prioridade;
+        this.responsavel = responsavel;
+        this.id_usuario = id_usuario;
+    }
 
     public Tarefas(String prioridade, String nome, String responsavel, String descricao, LocalDate prazo, int id_tarefa, int id_usuario) {
         this.descricao = descricao;
