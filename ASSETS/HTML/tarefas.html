@@ -1,576 +1,724 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/ASSETS/imgs/Nova logo Sem tech.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/ASSETS/imgs/Nova logo Sem tech.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css" />
     <link rel="stylesheet" href="/ASSETS/CSS/tarefas.css" />
     <title>YBYRA TECH</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container-principal">
-        <aside class="barra-lateral">
-            <input type="checkbox" id="menu" />
-            <label for="menu" class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <label for="menu-icon" class="logo-logo">
-                <img src="/ASSETS/imgs/Nova logo.png" alt="Logo YBYRA TECH" id="logo" />
-            </label>
-            <nav class="menu-principal">
-                <ul>
-                    <li class="item-menu">
-                        <a href="/ASSETS/HTML/inicioBI.html">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/House.png" alt="Ícone Início" />
-                            </div>
-                            <span>Início</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="/ASSETS/HTML/relatorios.html">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/document.png" alt="Ícone relatorios" />
-                            </div>
-                            <span>Relatórios</span>
-                        </a>
-                    </li>
-
-                    <li class="item-menu ativo">
-                        <a href="/ASSETS/HTML/tarefas.html">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/clipboard.png" alt="Ícone Tarefas" />
-                            </div>
-                            <span>Tarefas</span>
-                        </a>
-                    </li>
-
-                    <li class="item-menu">
-                        <a href="/ASSETS/HTML/insercaoDados.html">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
-                            </div>
-                            <span>Inserir Dados</span>
-                        </a>
-                    </li>
-                    <li class="item-menu">
-                        <a href="#">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/configuracoes.png" alt="Ícone Configurações" />
-                            </div>
-                            <span>Configurações</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- CONTEÚDO PRINCIPAL -->
-        <main class="conteudo">
-            <!-- HEADER COM BUSCA E FILTROS -->
-            <header class="topo">
-                <div class="area-filtros">
-                    <form class="campo-busca">
-                        <input type="text" placeholder="Buscar Tarefas" id="buscar" title="Busca" />
-                        <button class="btn-lupa" type="button">
-                            <img src="/ASSETS/imgs/Research.png" alt="Lupa" title="Lupa" />
-                        </button>
-                    </form>
-                    <a href="/ASSETS/HTML/adicionarTarefa.html" id="linkAdi" title="Adicionar">Adicionar</a>
-
-                    <div class="area-icones">
-                        <input type="checkbox" id="menu-notificacoes" />
-                        <label for="menu-notificacoes" id="label-notificaçoes" title="Notificações">
-                            <img src="/ASSETS/imgs/notificacoes.png" alt="Notificações" />
-                        </label>
-                        <div id="notificacoes">
-                            <h1>Notificações</h1>
-                            <div>Murilo adicionou uma tarefa</div>
-                            <div>Guilherme concluiu uma tarefa</div>
-                            <div>Emilly concluiu uma tarefa</div>
-                        </div>
-                    </div>
+      <aside class="barra-lateral">
+        <input type="checkbox" id="menu" />
+        <label for="menu" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <label for="menu-icon" class="logo-logo">
+          <img
+            src="/ASSETS/imgs/Nova logo.png"
+            alt="Logo YBYRA TECH"
+            id="logo"
+          />
+        </label>
+        <nav class="menu-principal">
+          <ul>
+            <li class="item-menu">
+              <a href="/ASSETS/HTML/inicioBI.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/House.png" alt="Ícone Início" />
                 </div>
-            </header>
-            
-            <!-- BOARD DE TAREFAS + PESSOAS ONLINE -->
-            <section class="secao-board">
-                <!-- QUADRO KANBAN -->
-                <div class="quadro-tarefas">
-                    <!-- COLUNA: NÃO INICIADA -->
-                    <div class="coluna-status">
-                        <div class="titulo-status">
-                            <h3>Não Iniciada</h3>
-                            <label for="modal-apagar-todos-1" class="btn-apagar-todos">Apagar Todos</label>
-                        </div>
+                <span>Início</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="/ASSETS/HTML/relatorios.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/document.png" alt="Ícone relatorios" />
+                </div>
+                <span>Relatórios</span>
+              </a>
+            </li>
 
-                        <!-- CHECKBOX E MODAL APAGAR TODOS -->
-                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-1" />
-                        <div class="modal-overlay">
-                            <div class="menu-lixo">
-                                <div class="menu-lixo-icone">
-                                    <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                </div>
-                                <h1>Deseja excluir TODAS as tarefas?</h1>
-                                <p>
-                                    Esta ação não pode ser desfeita. Todos os dados desta coluna serão
-                                    permanentemente removidos.
-                                </p>
-                                <div class="info-item">
-                                    <strong>Coluna:</strong>
-                                    <span>Não Iniciada</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Total de tarefas:</strong>
-                                    <span>2 tarefas</span>
-                                </div>
-                                <div class="buttons">
-                                    <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
-                                    <button type="submit" class="btn-excluir">Sim</button>
-                                </div>
-                            </div>
-                        </div>
+            <li class="item-menu ativo">
+              <a href="/ASSETS/HTML/tarefas.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/clipboard.png" alt="Ícone Tarefas" />
+                </div>
+                <span>Tarefas</span>
+              </a>
+            </li>
 
-                        <!-- TAREFA 1 -->
-                        <div class="tarefa nao-iniciada">
-                            <input type="checkbox" id="tarefa-1" class="checkbox-expandir" />
-                            <label for="tarefa-1" class="cabecalho-tarefa">
-                                <span class="titulo-tarefa">Manutenção na máquina do setor C.</span>
-                                <div class="acoes-tarefa">
-                                    <a href="/ASSETS/HTML/telaAlterar.html" class="btn-acao btn-editar">
-                                        <img src="/ASSETS/imgs/icone alterar.png" alt="Editar" title="Alterar" />
-                                    </a>
-                                    <label for="modal-1" class="btn-acao icone-lixeira">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="lixeira" title="Lixeira" />
-                                    </label>
-                                </div>
-                                <span class="seta-expandir" title="detalhes">▼</span>
-                            </label>
-                            
-                            <!-- CHECKBOX E MODAL DA TAREFA -->
-                            <input type="checkbox" class="menu-lixeira" id="modal-1" />
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                    </div>
-                                    <h1>Deseja excluir a tarefa?</h1>
-                                    <p>
-                                        Esta ação não pode ser desfeita. Todos os dados serão
-                                        permanentemente removidos.
-                                    </p>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Jorge Silva</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prioridade:</strong>
-                                        <span>Alta</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prazo de enceramento:</strong>
-                                        <span>15/10/2025</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Descrição:</strong>
-                                        <span>Verificar ruído no motor principal e trocar o filtro de óleo.</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-1" class="btn-cancelar">Não</label>
-                                        <button type="submit" class="btn-excluir">Sim</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="detalhes-tarefa">
-                                <p><strong>Responsável:</strong> Jorge Silva</p>
-                                <p><strong>Prioridade:</strong> Alta</p>
-                                <p><strong>Prazo de enceramento:</strong> 15/10/2025</p>
-                                <p>
-                                    <strong>Descrição:</strong> Verificar ruído no motor
-                                    principal e trocar o filtro de óleo.
-                                </p>
-                            </div>
-                        </div>
+            <li class="item-menu">
+              <a href="/ASSETS/HTML/insercaoDados.html">
+                <div class="box-icone">
+                  <img
+                    src="/ASSETS/imgs/camera_insercao.png"
+                    alt="Ícone Inserir Dados"
+                  />
+                </div>
+                <span>Inserir Dados</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="configuraçoes.html">
+                <div class="box-icone">
+                  <img
+                    src="/ASSETS/imgs/configuracoes.png"
+                    alt="Ícone Configurações"
+                  />
+                </div>
+                <span>Configurações</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-                        <!-- TAREFA 2 -->
-                        <div class="tarefa nao-iniciada">
-                            <input type="checkbox" id="tarefa-2" class="checkbox-expandir" />
-                            <label for="tarefa-2" class="cabecalho-tarefa">
-                                <span class="titulo-tarefa">Manter a limpeza do setor.</span>
-                                <div class="acoes-tarefa">
-                                    <a href="/ASSETS/HTML/telaAlterar.html" class="btn-acao btn-editar">
-                                        <img src="/ASSETS/imgs/icone alterar.png" alt="Editar" title="Alterar" />
-                                    </a>
-                                    <label for="modal-2" class="btn-acao icone-lixeira">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="lixeira" title="Lixeira" />
-                                    </label>
-                                </div>
-                                <span class="seta-expandir" title="detalhes">▼</span>
-                            </label>
-                            
-                            <input type="checkbox" class="menu-lixeira" id="modal-2" />
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                    </div>
-                                    <h1>Deseja excluir a tarefa?</h1>
-                                    <p>
-                                        Esta ação não pode ser desfeita. Todos os dados serão
-                                        permanentemente removidos.
-                                    </p>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Equipe de Limpeza</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prioridade:</strong>
-                                        <span>Alta</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prazo:</strong>
-                                        <span>29/11/2025</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Descrição:</strong>
-                                        <span>Realizar limpeza completa do setor incluindo equipamentos e área de produção.</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-2" class="btn-cancelar">Não</label>
-                                        <button type="submit" class="btn-excluir">Sim</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="detalhes-tarefa">
-                                <p><strong>Responsável:</strong> Equipe de Limpeza</p>
-                                <p><strong>Prioridade:</strong> Alta</p>
-                                <p><strong>Prazo de enceramento:</strong> Diariamente</p>
-                                <p>
-                                    <strong>Descrição:</strong> Realizar limpeza completa do
-                                    setor incluindo equipamentos e área de produção.
-                                </p>
-                            </div>
-                        </div>
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="conteudo">
+        <!-- HEADER COM BUSCA E FILTROS -->
+        <header class="topo">
+          <div class="area-filtros">
+            <form class="campo-busca">
+              <input
+                type="text"
+                placeholder="Buscar Tarefas"
+                id="buscar"
+                title="Busca"
+              />
+              <button class="btn-lupa" type="button">
+                <img src="/ASSETS/imgs/Research.png" alt="Lupa" title="Lupa" />
+              </button>
+            </form>
+            <a
+              href="/ASSETS/HTML/adicionarTarefa.html"
+              id="linkAdi"
+              title="Adicionar"
+              >Adicionar</a
+            >
+
+            <div class="area-icones">
+              <input type="checkbox" id="menu-notificacoes" />
+              <label
+                for="menu-notificacoes"
+                id="label-notificaçoes"
+                title="Notificações"
+              >
+                <img src="/ASSETS/imgs/notificacoes.png" alt="Notificações" />
+              </label>
+              <div id="notificacoes">
+                <h1>Notificações</h1>
+                <div>Murilo adicionou uma tarefa</div>
+                <div>Guilherme concluiu uma tarefa</div>
+                <div>Emilly concluiu uma tarefa</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- BOARD DE TAREFAS + PESSOAS ONLINE -->
+        <section class="secao-board">
+          <!-- QUADRO KANBAN -->
+          <div class="quadro-tarefas">
+            <!-- COLUNA: NÃO INICIADA -->
+            <div class="coluna-status">
+              <div class="titulo-status">
+                <h3>Não Iniciada</h3>
+                <label for="modal-apagar-todos-1" class="btn-apagar-todos"
+                  >Apagar Todos</label
+                >
+              </div>
+
+              <!-- CHECKBOX E MODAL APAGAR TODOS -->
+              <input
+                type="checkbox"
+                class="menu-lixeira"
+                id="modal-apagar-todos-1"
+              />
+              <div class="modal-overlay">
+                <div class="menu-lixo">
+                  <div class="menu-lixo-icone">
+                    <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                  </div>
+                  <h1>Deseja excluir TODAS as tarefas?</h1>
+                  <p>
+                    Esta ação não pode ser desfeita. Todos os dados desta coluna
+                    serão permanentemente removidos.
+                  </p>
+                  <div class="info-item">
+                    <strong>Coluna:</strong>
+                    <span>Não Iniciada</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Total de tarefas:</strong>
+                    <span>2 tarefas</span>
+                  </div>
+                  <div class="buttons">
+                    <label for="modal-apagar-todos-1" class="btn-cancelar"
+                      >Não</label
+                    >
+                    <button type="submit" class="btn-excluir">Sim</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAREFA 1 -->
+              <div class="tarefa nao-iniciada">
+                <input
+                  type="checkbox"
+                  id="tarefa-1"
+                  class="checkbox-expandir"
+                />
+                <label for="tarefa-1" class="cabecalho-tarefa">
+                  <span class="titulo-tarefa"
+                    >Manutenção na máquina do setor C.</span
+                  >
+                  <div class="acoes-tarefa">
+                    <a
+                      href="/ASSETS/HTML/telaAlterar.html"
+                      class="btn-acao btn-editar"
+                    >
+                      <img
+                        src="/ASSETS/imgs/icone alterar.png"
+                        alt="Editar"
+                        title="Alterar"
+                      />
+                    </a>
+                    <label for="modal-1" class="btn-acao icone-lixeira">
+                      <img
+                        src="/ASSETS/imgs/Trash.png"
+                        alt="lixeira"
+                        title="Lixeira"
+                      />
+                    </label>
+                  </div>
+                  <span class="seta-expandir" title="detalhes">▼</span>
+                </label>
+
+                <!-- CHECKBOX E MODAL DA TAREFA -->
+                <input type="checkbox" class="menu-lixeira" id="modal-1" />
+                <div class="modal-overlay">
+                  <div class="menu-lixo">
+                    <div class="menu-lixo-icone">
+                      <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                    </div>
+                    <h1>Deseja excluir a tarefa?</h1>
+                    <p>
+                      Esta ação não pode ser desfeita. Todos os dados serão
+                      permanentemente removidos.
+                    </p>
+                    <div class="info-item">
+                      <strong>Responsável:</strong>
+                      <span>Jorge Silva</span>
                     </div>
 
-                    <!-- COLUNA: EM ANDAMENTO -->
-                    <div class="coluna-status">
-                        <div class="titulo-status">
-                            <h3>Em Andamento</h3>
-                            <label for="modal-apagar-todos-2" class="btn-apagar-todos">Apagar Todos</label>
-                        </div>
-
-                        <!-- CHECKBOX E MODAL APAGAR TODOS -->
-                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-2" />
-                        <div class="modal-overlay">
-                            <div class="menu-lixo">
-                                <div class="menu-lixo-icone">
-                                    <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                </div>
-                                <h1>Deseja excluir TODAS as tarefas?</h1>
-                                <p>
-                                    Esta ação não pode ser desfeita. Todos os dados desta coluna serão
-                                    permanentemente removidos.
-                                </p>
-                                <div class="info-item">
-                                    <strong>Coluna:</strong>
-                                    <span>Em Andamento</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Total de tarefas:</strong>
-                                    <span>2 tarefas</span>
-                                </div>
-                                <div class="buttons">
-                                    <label for="modal-apagar-todos-2" class="btn-cancelar">Não</label>
-                                    <button type="submit" class="btn-excluir">Sim</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAREFA 3 -->
-                        <div class="tarefa em-andamento">
-                            <input type="checkbox" id="tarefa-3" class="checkbox-expandir" />
-                            <label for="tarefa-3" class="cabecalho-tarefa">
-                                <span class="titulo-tarefa">Manutenção na máquina 15.</span>
-                                <div class="acoes-tarefa">
-                                    <a href="/ASSETS/HTML/telaAlterar.html" class="btn-acao btn-editar">
-                                        <img src="/ASSETS/imgs/icone alterar.png" alt="Editar" title="Alterar" />
-                                    </a>
-                                    <label for="modal-3" class="btn-acao icone-lixeira">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="lixeira" title="Lixeira" />
-                                    </label>
-                                </div>
-                                <span class="seta-expandir" title="detalhes">▼</span>
-                            </label>
-                            
-                            <input type="checkbox" class="menu-lixeira" id="modal-3" />
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                    </div>
-                                    <h1>Deseja excluir a tarefa?</h1>
-                                    <p>
-                                        Esta ação não pode ser desfeita. Todos os dados serão
-                                        permanentemente removidos.
-                                    </p>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Carlos Mendes</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prioridade:</strong>
-                                        <span>Média</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prazo:</strong>
-                                        <span>30/09/2025</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Descrição:</strong>
-                                        <span>Aguardando peça para conclusão da manutenção.</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-3" class="btn-cancelar">Não</label>
-                                        <button type="submit" class="btn-excluir">Sim</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="detalhes-tarefa">
-                                <p><strong>Responsável:</strong> Carlos Mendes</p>
-                                <p><strong>Prioridade:</strong> Média</p>
-                                <p><strong>Prazo de enceramento:</strong> 30/09/2025</p>
-                                <p>
-                                    <strong>Descrição:</strong> Aguardando peça para conclusão
-                                    da manutenção.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- TAREFA 4 -->
-                        <div class="tarefa em-andamento">
-                            <input type="checkbox" id="tarefa-4" class="checkbox-expandir" />
-                            <label for="tarefa-4" class="cabecalho-tarefa">
-                                <span class="titulo-tarefa">Adicionar dados do app.</span>
-                                <div class="acoes-tarefa">
-                                    <a href="/ASSETS/HTML/telaAlterar.html" class="btn-acao btn-editar">
-                                        <img src="/ASSETS/imgs/icone alterar.png" alt="Editar" title="Alterar" />
-                                    </a>
-                                    <label for="modal-4" class="btn-acao icone-lixeira">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="lixeira" title="Lixeira" />
-                                    </label>
-                                </div>
-                                <span class="seta-expandir" title="detalhes">▼</span>
-                            </label>
-                            
-                            <input type="checkbox" class="menu-lixeira" id="modal-4" />
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                    </div>
-                                    <h1>Deseja excluir a tarefa?</h1>
-                                    <p>
-                                        Esta ação não pode ser desfeita. Todos os dados serão
-                                        permanentemente removidos.
-                                    </p>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Ana Paula</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prioridade:</strong>
-                                        <span>Média</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prazo:</strong>
-                                        <span>19/09/2025</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Descrição:</strong>
-                                        <span>Inserir informações atualizadas no sistema do aplicativo.</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-4" class="btn-cancelar">Não</label>
-                                        <button type="submit" class="btn-excluir">Sim</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="detalhes-tarefa">
-                                <p><strong>Responsável:</strong> Ana Paula</p>
-                                <p><strong>Prioridade:</strong> Média</p>
-                                <p><strong>Prazo de enceramento:</strong> 19/09/2025</p>
-                                <p>
-                                    <strong>Descrição:</strong> Inserir informações atualizadas
-                                    no sistema do aplicativo.
-                                </p>
-                            </div>
-                        </div>
+                    <div class="info-item">
+                      <strong>Prazo de enceramento:</strong>
+                      <span>15/10/2025</span>
                     </div>
-
-                    <!-- COLUNA: CONCLUÍDA -->
-                    <div class="coluna-status">
-                        <div class="titulo-status">
-                            <h3>Matéria Concluída</h3>
-                            <label for="modal-apagar-todos-3" class="btn-apagar-todos">Apagar Todos</label>
-                        </div>
-
-                        <!-- CHECKBOX E MODAL APAGAR TODOS -->
-                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-3" />
-                        <div class="modal-overlay">
-                            <div class="menu-lixo">
-                                <div class="menu-lixo-icone">
-                                    <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                </div>
-                                <h1>Deseja excluir TODAS as tarefas?</h1>
-                                <p>
-                                    Esta ação não pode ser desfeita. Todos os dados desta coluna serão
-                                    permanentemente removidos.
-                                </p>
-                                <div class="info-item">
-                                    <strong>Coluna:</strong>
-                                    <span>Matéria Concluída</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Total de tarefas:</strong>
-                                    <span>1 tarefa</span>
-                                </div>
-                                <div class="buttons">
-                                    <label for="modal-apagar-todos-3" class="btn-cancelar">Não</label>
-                                    <button type="submit" class="btn-excluir">Sim</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- TAREFA 5 -->
-                        <div class="tarefa concluida">
-                            <input type="checkbox" id="tarefa-5" class="checkbox-expandir" />
-                            <label for="tarefa-5" class="cabecalho-tarefa">
-                                <span class="titulo-tarefa">Revisão de estoque.</span>
-                                <div class="acoes-tarefa">
-                                    <a href="/ASSETS/HTML/telaAlterar.html" class="btn-acao btn-editar">
-                                        <img src="/ASSETS/imgs/icone alterar.png" alt="Editar" title="Alterar" />
-                                    </a>
-                                    <label for="modal-5" class="btn-acao icone-lixeira">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="lixeira" title="Lixeira" />
-                                    </label>
-                                </div>
-                                <span class="seta-expandir" title="detalhes">▼</span>
-                            </label>
-                            
-                            <input type="checkbox" class="menu-lixeira" id="modal-5" />
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone">
-                                        <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
-                                    </div>
-                                    <h1>Deseja excluir a tarefa?</h1>
-                                    <p>
-                                        Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.
-                                    </p>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Pedro Santos</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prioridade:</strong>
-                                        <span>Baixa</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Prazo:</strong>
-                                        <span>08/10/2025</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Descrição:</strong>
-                                        <span>Revisão completa do estoque de materiais e atualização do sistema.</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-5" class="btn-cancelar">Não</label>
-                                        <button type="button" class="btn-excluir">Sim</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="detalhes-tarefa">
-                                <p><strong>Responsável:</strong> Pedro Santos</p>
-                                <p><strong>Prioridade:</strong> Baixa</p>
-                                <p><strong>Prazo de enceramento:</strong> 08/10/2025</p>
-                                <p>
-                                    <strong>Descrição:</strong> Revisão completa do estoque de
-                                    materiais e atualização do sistema.
-                                </p>
-                            </div>
-                        </div>
+                    <div class="info-item">
+                      <strong>Descrição:</strong>
+                      <span
+                        >Verificar ruído no motor principal e trocar o filtro de
+                        óleo.</span
+                      >
                     </div>
+                    <div class="buttons">
+                      <label for="modal-1" class="btn-cancelar">Não</label>
+                      <button type="submit" class="btn-excluir">Sim</button>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- PAINEL PESSOAS ONLINE -->
-                <aside class="painel-pessoas">
-                    <div class="topo-painel">
-                        <h3>Pessoas Online</h3>
+                <div class="detalhes-tarefa">
+                  <p><strong>Responsável:</strong> Jorge Silva</p>
+
+                  <p><strong>Prazo de enceramento:</strong> 15/10/2025</p>
+                  <p>
+                    <strong>Descrição:</strong> Verificar ruído no motor
+                    principal e trocar o filtro de óleo.
+                  </p>
+                </div>
+              </div>
+
+              <!-- TAREFA 2 -->
+              <div class="tarefa nao-iniciada">
+                <input
+                  type="checkbox"
+                  id="tarefa-2"
+                  class="checkbox-expandir"
+                />
+                <label for="tarefa-2" class="cabecalho-tarefa">
+                  <span class="titulo-tarefa">Manter a limpeza do setor.</span>
+                  <div class="acoes-tarefa">
+                    <a
+                      href="/ASSETS/HTML/telaAlterar.html"
+                      class="btn-acao btn-editar"
+                    >
+                      <img
+                        src="/ASSETS/imgs/icone alterar.png"
+                        alt="Editar"
+                        title="Alterar"
+                      />
+                    </a>
+                    <label for="modal-2" class="btn-acao icone-lixeira">
+                      <img
+                        src="/ASSETS/imgs/Trash.png"
+                        alt="lixeira"
+                        title="Lixeira"
+                      />
+                    </label>
+                  </div>
+                  <span class="seta-expandir" title="detalhes">▼</span>
+                </label>
+
+                <input type="checkbox" class="menu-lixeira" id="modal-2" />
+                <div class="modal-overlay">
+                  <div class="menu-lixo">
+                    <div class="menu-lixo-icone">
+                      <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
                     </div>
-                    <div class="lista-usuarios">
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">Davi Lacerda</span>
-                            <span class="status-online"></span>
-                        </div>
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">Murilo Rosa</span>
-                            <span class="status-online"></span>
-                        </div>
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">Felipe Augusto</span>
-                            <span class="status-online"></span>
-                        </div>
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">David Reche</span>
-                            <span class="status-online"></span>
-                        </div>
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">Matheus fazan</span>
-                            <span class="status-online"></span>
-                        </div>
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">Emilly Dantas</span>
-                            <span class="status-online"></span>
-                        </div>
-                        <div class="usuario">
-                            <div class="avatar-usuario">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="icone de usuário" />
-                            </div>
-                            <span class="nome-usuario">Marcelo Grilo</span>
-                            <span class="status-online"></span>
-                        </div>
+                    <h1>Deseja excluir a tarefa?</h1>
+                    <p>
+                      Esta ação não pode ser desfeita. Todos os dados serão
+                      permanentemente removidos.
+                    </p>
+                    <div class="info-item">
+                      <strong>Responsável:</strong>
+                      <span>Equipe de Limpeza</span>
                     </div>
-                </aside>
-            </section>
-        </main>
+
+                    <div class="info-item">
+                      <strong>Prazo:</strong>
+                      <span>29/11/2025</span>
+                    </div>
+                    <div class="info-item">
+                      <strong>Descrição:</strong>
+                      <span
+                        >Realizar limpeza completa do setor incluindo
+                        equipamentos e área de produção.</span
+                      >
+                    </div>
+                    <div class="buttons">
+                      <label for="modal-2" class="btn-cancelar">Não</label>
+                      <button type="submit" class="btn-excluir">Sim</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="detalhes-tarefa">
+                  <p><strong>Responsável:</strong> Equipe de Limpeza</p>
+
+                  <p><strong>Prazo de enceramento:</strong> Diariamente</p>
+                  <p>
+                    <strong>Descrição:</strong> Realizar limpeza completa do
+                    setor incluindo equipamentos e área de produção.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUNA: EM ANDAMENTO -->
+            <div class="coluna-status">
+              <div class="titulo-status">
+                <h3>Em Andamento</h3>
+                <label for="modal-apagar-todos-2" class="btn-apagar-todos"
+                  >Apagar Todos</label
+                >
+              </div>
+
+              <!-- CHECKBOX E MODAL APAGAR TODOS -->
+              <input
+                type="checkbox"
+                class="menu-lixeira"
+                id="modal-apagar-todos-2"
+              />
+              <div class="modal-overlay">
+                <div class="menu-lixo">
+                  <div class="menu-lixo-icone">
+                    <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                  </div>
+                  <h1>Deseja excluir TODAS as tarefas?</h1>
+                  <p>
+                    Esta ação não pode ser desfeita. Todos os dados desta coluna
+                    serão permanentemente removidos.
+                  </p>
+                  <div class="info-item">
+                    <strong>Coluna:</strong>
+                    <span>Em Andamento</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Total de tarefas:</strong>
+                    <span>2 tarefas</span>
+                  </div>
+                  <div class="buttons">
+                    <label for="modal-apagar-todos-2" class="btn-cancelar"
+                      >Não</label
+                    >
+                    <button type="submit" class="btn-excluir">Sim</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAREFA 3 -->
+              <div class="tarefa em-andamento">
+                <input
+                  type="checkbox"
+                  id="tarefa-3"
+                  class="checkbox-expandir"
+                />
+                <label for="tarefa-3" class="cabecalho-tarefa">
+                  <span class="titulo-tarefa">Manutenção na máquina 15.</span>
+                  <div class="acoes-tarefa">
+                    <a
+                      href="/ASSETS/HTML/telaAlterar.html"
+                      class="btn-acao btn-editar"
+                    >
+                      <img
+                        src="/ASSETS/imgs/icone alterar.png"
+                        alt="Editar"
+                        title="Alterar"
+                      />
+                    </a>
+                    <label for="modal-3" class="btn-acao icone-lixeira">
+                      <img
+                        src="/ASSETS/imgs/Trash.png"
+                        alt="lixeira"
+                        title="Lixeira"
+                      />
+                    </label>
+                  </div>
+                  <span class="seta-expandir" title="detalhes">▼</span>
+                </label>
+
+                <input type="checkbox" class="menu-lixeira" id="modal-3" />
+                <div class="modal-overlay">
+                  <div class="menu-lixo">
+                    <div class="menu-lixo-icone">
+                      <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                    </div>
+                    <h1>Deseja excluir a tarefa?</h1>
+                    <p>
+                      Esta ação não pode ser desfeita. Todos os dados serão
+                      permanentemente removidos.
+                    </p>
+                    <div class="info-item">
+                      <strong>Responsável:</strong>
+                      <span>Carlos Mendes</span>
+                    </div>
+
+                    <div class="info-item">
+                      <strong>Prazo:</strong>
+                      <span>30/09/2025</span>
+                    </div>
+                    <div class="info-item">
+                      <strong>Descrição:</strong>
+                      <span>Aguardando peça para conclusão da manutenção.</span>
+                    </div>
+                    <div class="buttons">
+                      <label for="modal-3" class="btn-cancelar">Não</label>
+                      <button type="submit" class="btn-excluir">Sim</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="detalhes-tarefa">
+                  <p><strong>Responsável:</strong> Carlos Mendes</p>
+
+                  <p><strong>Prazo de enceramento:</strong> 30/09/2025</p>
+                  <p>
+                    <strong>Descrição:</strong> Aguardando peça para conclusão
+                    da manutenção.
+                  </p>
+                </div>
+              </div>
+
+              <!-- TAREFA 4 -->
+              <div class="tarefa em-andamento">
+                <input
+                  type="checkbox"
+                  id="tarefa-4"
+                  class="checkbox-expandir"
+                />
+                <label for="tarefa-4" class="cabecalho-tarefa">
+                  <span class="titulo-tarefa">Adicionar dados do app.</span>
+                  <div class="acoes-tarefa">
+                    <a
+                      href="/ASSETS/HTML/telaAlterar.html"
+                      class="btn-acao btn-editar"
+                    >
+                      <img
+                        src="/ASSETS/imgs/icone alterar.png"
+                        alt="Editar"
+                        title="Alterar"
+                      />
+                    </a>
+                    <label for="modal-4" class="btn-acao icone-lixeira">
+                      <img
+                        src="/ASSETS/imgs/Trash.png"
+                        alt="lixeira"
+                        title="Lixeira"
+                      />
+                    </label>
+                  </div>
+                  <span class="seta-expandir" title="detalhes">▼</span>
+                </label>
+
+                <input type="checkbox" class="menu-lixeira" id="modal-4" />
+                <div class="modal-overlay">
+                  <div class="menu-lixo">
+                    <div class="menu-lixo-icone">
+                      <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                    </div>
+                    <h1>Deseja excluir a tarefa?</h1>
+                    <p>
+                      Esta ação não pode ser desfeita. Todos os dados serão
+                      permanentemente removidos.
+                    </p>
+                    <div class="info-item">
+                      <strong>Responsável:</strong>
+                      <span>Ana Paula</span>
+                    </div>
+
+                    <div class="info-item">
+                      <strong>Prazo:</strong>
+                      <span>19/09/2025</span>
+                    </div>
+                    <div class="info-item">
+                      <strong>Descrição:</strong>
+                      <span
+                        >Inserir informações atualizadas no sistema do
+                        aplicativo.</span
+                      >
+                    </div>
+                    <div class="buttons">
+                      <label for="modal-4" class="btn-cancelar">Não</label>
+                      <button type="submit" class="btn-excluir">Sim</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="detalhes-tarefa">
+                  <p><strong>Responsável:</strong> Ana Paula</p>
+
+                  <p><strong>Prazo de enceramento:</strong> 19/09/2025</p>
+                  <p>
+                    <strong>Descrição:</strong> Inserir informações atualizadas
+                    no sistema do aplicativo.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUNA: CONCLUÍDA -->
+            <div class="coluna-status">
+              <div class="titulo-status">
+                <h3>Matéria Concluída</h3>
+                <label for="modal-apagar-todos-3" class="btn-apagar-todos"
+                  >Apagar Todos</label
+                >
+              </div>
+
+              <!-- CHECKBOX E MODAL APAGAR TODOS -->
+              <input
+                type="checkbox"
+                class="menu-lixeira"
+                id="modal-apagar-todos-3"
+              />
+              <div class="modal-overlay">
+                <div class="menu-lixo">
+                  <div class="menu-lixo-icone">
+                    <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                  </div>
+                  <h1>Deseja excluir TODAS as tarefas?</h1>
+                  <p>
+                    Esta ação não pode ser desfeita. Todos os dados desta coluna
+                    serão permanentemente removidos.
+                  </p>
+                  <div class="info-item">
+                    <strong>Coluna:</strong>
+                    <span>Matéria Concluída</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Total de tarefas:</strong>
+                    <span>1 tarefa</span>
+                  </div>
+                  <div class="buttons">
+                    <label for="modal-apagar-todos-3" class="btn-cancelar"
+                      >Não</label
+                    >
+                    <button type="submit" class="btn-excluir">Sim</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TAREFA 5 -->
+              <div class="tarefa concluida">
+                <input
+                  type="checkbox"
+                  id="tarefa-5"
+                  class="checkbox-expandir"
+                />
+                <label for="tarefa-5" class="cabecalho-tarefa">
+                  <span class="titulo-tarefa">Revisão de estoque.</span>
+                  <div class="acoes-tarefa">
+                    <a
+                      href="/ASSETS/HTML/telaAlterar.html"
+                      class="btn-acao btn-editar"
+                    >
+                      <img
+                        src="/ASSETS/imgs/icone alterar.png"
+                        alt="Editar"
+                        title="Alterar"
+                      />
+                    </a>
+                    <label for="modal-5" class="btn-acao icone-lixeira">
+                      <img
+                        src="/ASSETS/imgs/Trash.png"
+                        alt="lixeira"
+                        title="Lixeira"
+                      />
+                    </label>
+                  </div>
+                  <span class="seta-expandir" title="detalhes">▼</span>
+                </label>
+
+                <input type="checkbox" class="menu-lixeira" id="modal-5" />
+                <div class="modal-overlay">
+                  <div class="menu-lixo">
+                    <div class="menu-lixo-icone">
+                      <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                    </div>
+                    <h1>Deseja excluir a tarefa?</h1>
+                    <p>
+                      Esta ação não pode ser desfeita. Todos os dados serão
+                      permanentemente removidos.
+                    </p>
+                    <div class="info-item">
+                      <strong>Responsável:</strong>
+                      <span>Pedro Santos</span>
+                    </div>
+
+                    <div class="info-item">
+                      <strong>Prazo:</strong>
+                      <span>08/10/2025</span>
+                    </div>
+                    <div class="info-item">
+                      <strong>Descrição:</strong>
+                      <span
+                        >Revisão completa do estoque de materiais e atualização
+                        do sistema.</span
+                      >
+                    </div>
+                    <div class="buttons">
+                      <label for="modal-5" class="btn-cancelar">Não</label>
+                      <button type="button" class="btn-excluir">Sim</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="detalhes-tarefa">
+                  <p><strong>Responsável:</strong> Pedro Santos</p>
+
+                  <p><strong>Prazo de enceramento:</strong> 08/10/2025</p>
+                  <p>
+                    <strong>Descrição:</strong> Revisão completa do estoque de
+                    materiais e atualização do sistema.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAINEL PESSOAS ONLINE -->
+          <aside class="painel-pessoas">
+            <div class="topo-painel">
+              <h3>Pessoas Online</h3>
+            </div>
+            <div class="lista-usuarios">
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">Davi Lacerda</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">Murilo Rosa</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">Felipe Augusto</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">David Reche</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">Matheus fazan</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">Emilly Dantas</span>
+                <span class="status-online"></span>
+              </div>
+              <div class="usuario">
+                <div class="avatar-usuario">
+                  <img
+                    src="/ASSETS/imgs/icone_usuario.png"
+                    alt="icone de usuário"
+                  />
+                </div>
+                <span class="nome-usuario">Marcelo Grilo</span>
+                <span class="status-online"></span>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
     </div>
-</body>
+  </body>
 </html>
