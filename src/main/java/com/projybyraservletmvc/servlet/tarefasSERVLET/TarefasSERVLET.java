@@ -26,7 +26,6 @@ public class TarefasSERVLET extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
-        // Receber dados
         String prioridade =  request.getParameter("prioridade");
         String nome = request.getParameter("nome");
         String responsavel = request.getParameter("responsavel");
@@ -41,7 +40,6 @@ public class TarefasSERVLET extends HttpServlet {
             System.out.println("Prioridade: " + prioridade);
             System.out.println("Prazo: " + prazo_String);
 
-            // Validar campos vazios
             if (descricao.isEmpty() || nome.isEmpty() || responsavel.isEmpty() || prioridade.isEmpty() || prazo_String.isEmpty()) {
                 System.out.println("Erro: Campos vazios!");
                 response.getWriter().println("<h3> Preencha todos os campos!</h3>");
@@ -67,7 +65,7 @@ public class TarefasSERVLET extends HttpServlet {
                 TarefasDAO tarefasDAO = new TarefasDAO();
 
                 System.out.println("Inserindo dados no banco...");
-                boolean sucesso = tarefasDAO.inserirDados(tarefa);
+                boolean sucesso = tarefasDAO.inserir(tarefa);
 
                 if (sucesso) {
                     System.out.println("Tarefa inserida com sucesso!");

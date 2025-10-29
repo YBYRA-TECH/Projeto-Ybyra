@@ -15,13 +15,12 @@ import java.util.List;
 
 public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Industria>{
     
-    // VARIAVEIS
+
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
 
 
-    //INSERE UMA NOVA INDÚSTRIA NO BANCO DE DADOS
     @Override
     public boolean inserir(Industria industria){
         ConexaoBD conexao = new ConexaoBD();
@@ -49,7 +48,6 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
     }
 
-    //ATUALIZA UMA INDÚSTRIA NO BANCO DE DADOS
     @Override
     public boolean atualizar(Industria industria) {
         ConexaoBD conexao = new ConexaoBD();

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
+//CLASSE DE CONEXAO E DESCONEXAO COM O BANCO
 public class ConexaoBD {
     private Connection conn;
     static {
@@ -19,7 +20,7 @@ public class ConexaoBD {
     }
 
 
-    // CONECTANDO COM O BANCO DE DADOS
+
     public static Connection conectar() throws SQLException {
         String url = System.getenv("DB_URL");
         String user = System.getenv("DB_USER");
@@ -32,7 +33,7 @@ public class ConexaoBD {
         return DriverManager.getConnection(url, user, password);
     }
 
-    // DESCONECTANDO DO BANCO DE DADOS
+
     public void desconectar(Connection conn) {
         try {
             if (conn != null && !conn.isClosed()) {

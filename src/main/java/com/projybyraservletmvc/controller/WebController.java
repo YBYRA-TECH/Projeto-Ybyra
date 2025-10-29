@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet("/pagina")
 public class WebController extends HttpServlet {
 
-    // Páginas que NÃO precisam de login
+
     private boolean isPaginaPublica(String nome) {
         return "login".equals(nome) ||
                 "cadastro".equals(nome) ||

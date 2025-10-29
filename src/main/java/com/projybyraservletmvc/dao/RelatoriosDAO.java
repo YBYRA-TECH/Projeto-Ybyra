@@ -13,16 +13,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//METODOS CRUD PARA A TABELA RELATORIOS
 public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Relatorios> {
 
-    // VARIAVEIS
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
     Relatorios relatorios = new Relatorios();
 
-    //INSERE NOVO RELATÓRIO NO BANCO DE DADOS
     @Override
     public boolean inserir(Relatorios relatorios){
         ConexaoBD conexao = new ConexaoBD();
@@ -48,7 +46,6 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
         }
     }
 
-    //ATUALIZA UM RELATÓRIO EXISTENTE NO BANCO DE DADOS
     @Override
     public boolean atualizar(Relatorios relatorios) {
         ConexaoBD conexao = new ConexaoBD();
@@ -74,7 +71,6 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
 
     }
 
-    //BUSCA TODOS OS RELATÓRIOS CADASTRADOS NO BANCO DE DADOS
     @Override
     public List<Relatorios> buscar() {
         List<Relatorios> lista = new ArrayList<>();
@@ -107,7 +103,6 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
     }
 
 
-    // DELETA UM RELATÓRIO DO BANCO DE DADOS COM BASE NO ID
     @Override
     public int deletar(int idRelatorios) {
         ConexaoBD conexao = new ConexaoBD();
