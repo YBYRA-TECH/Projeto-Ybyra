@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
+import com.projybyraservletmvc.dao.interfaces.ILoteDAO;
 import com.projybyraservletmvc.model.Lote;
 
-public class LoteDAO{
+public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
 
     private Connection conn;
     private Statement stmt;
     private PreparedStatement pstmt;
 
-    public boolean inserirDados(Lote lote) {
+    public boolean inserir(Lote lote) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {

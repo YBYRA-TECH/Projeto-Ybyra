@@ -11,12 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.projybyraservletmvc.conexao.ConexaoBD;
+import com.projybyraservletmvc.dao.interfaces.GenericDAO;
 import com.projybyraservletmvc.model.Tarefas;
 
-public class TarefasDAO {
 
-    // INSERE NOVA TAREFA NO BANCO DE DADOS
-    public boolean inserirDados(Tarefas tarefas) {
+//METODOS CRUD PARA A TABELA TAREFAS
+public class TarefasDAO implements GenericDAO<Tarefas> {
+
+    @Override
+    public boolean inserir(Tarefas tarefas) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -40,7 +43,7 @@ public class TarefasDAO {
         }
     }
 
-    // ATUALIZA UMA TAREFA EXISTENTE NO BANCO DE DADOS
+    @Override
     public boolean atualizar(Tarefas tarefas) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -64,7 +67,7 @@ public class TarefasDAO {
         }
     }
 
-    // BUSCA TODAS AS TAREFAS CADASTRADAS NO BANCO DE DADOS
+    @Override
     public List<Tarefas> buscar() {
         List<Tarefas> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -128,7 +131,7 @@ public class TarefasDAO {
         return lista;
     }
 
-    // DELETA UMA TAREFA DO BANCO DE DADOS COM BASE NO ID
+
     public int deletar(int idTarefa) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -153,7 +156,6 @@ public class TarefasDAO {
         }
     }
 
-    // BUSCA UMA TAREFA ESPECÍFICA POR ID
     public Tarefas buscarTarefa(int idTarefa) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -185,7 +187,6 @@ public class TarefasDAO {
     }
 
 
-// BUSCA O QUE O USUARIO DIGITAR NA PESQUISA
     public List<Tarefas> buscarComParametro(String texto) {
         List<Tarefas> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();

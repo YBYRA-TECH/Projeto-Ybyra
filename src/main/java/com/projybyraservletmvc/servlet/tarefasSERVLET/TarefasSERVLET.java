@@ -68,7 +68,7 @@ public class TarefasSERVLET extends HttpServlet {
                 TarefasDAO tarefasDAO = new TarefasDAO();
 
                 System.out.println("Inserindo dados no banco...");
-                boolean sucesso = tarefasDAO.inserirDados(tarefa);
+                boolean sucesso = tarefasDAO.inserir(tarefa);
 
                 if (sucesso) {
                     System.out.println("Tarefa inserida com sucesso!");
