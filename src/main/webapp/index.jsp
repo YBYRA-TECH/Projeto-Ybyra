@@ -207,15 +207,15 @@
     <section id="sec4">
         <div class="texto">
             <h1>Seja um Parceiro</h1>
-            <form action="" method="post">
+            <form action="<%=request.getContextPath()%>/enviarParceria" method="post">
                 <div class="inputs">
-                    <input type="email" placeholder="E-mail" />
-                    <input type="tel" placeholder="Número de telefone" />
-                    <input type="text" placeholder="Nome" />
-                    <input type="text" placeholder="Tipo de industria" />
+                    <input type="email" placeholder="E-mail" name="email" required/>
+                    <input type="tel" placeholder="Número de telefone" name="telefone" required/>
+                    <input type="text" placeholder="Nome" name="nome" required/>
+                    <input type="text" placeholder="Tipo de industria" name="tipoIndustria" required />
 
                     <div id="buttons">
-                        <button>Enviar</button>
+                        <button type="submit">Enviar</button>
                     </div>
                 </div>
             </form>
