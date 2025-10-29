@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/ASSETS/imgs/Nova logo Sem tech.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css">
+  <link rel="stylesheet" href="/ASSETS/CSS/insercaoDados.css" />
+  <title>YBYRA TECH</title>
+</head>
+
+<body>
+  <div class="painel-principal">
+    <aside class="barra-lateral">
+      <input type="checkbox" id="menu">
+      <label for="menu" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <label for="menu-icon" class="logo-logo">
+        <img src="/ASSETS/imgs/Nova logo.png" alt="Logo YBYRA TECH" id="logo" />
+      </label>
+      <nav class="menu-principal">
+        <ul>
+          <li class="item-menu">
+            <a href="/ASSETS/HTML/inicioBI.html">
+              <div class="box-icone">
+                <img src="/ASSETS/imgs/House.png" alt="Ícone Início" />
+              </div>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="/ASSETS/HTML/relatorios.html">
+              <div class="box-icone">
+                <img src="/ASSETS/imgs/document.png" alt="Ícone relatorios" />
+              </div>
+              <span>Relatórios</span>
+            </a>
+          </li>
+
+          <li class="item-menu">
+            <a href="/ASSETS/HTML/tarefas.html">
+              <div class="box-icone">
+                <img src="/ASSETS/imgs/clipboard.png" alt="Ícone Tarefas" />
+              </div>
+              <span>Tarefas</span>
+            </a>
+          </li>
+
+          <li class="item-menu ativo">
+            <a href="/ASSETS/HTML/insercaoDados.html">
+              <div class="box-icone">
+                <img src="/ASSETS/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
+              </div>
+              <span>Inserir</span>
+              <span>Dados</span>
+            </a>
+          </li>
+
+          <li class="item-menu">
+            <a href="#">
+              <div class="box-icone">
+                <img src="/ASSETS/imgs/configuracoes.png" alt="Ícone Configurações" />
+              </div>
+              <span>Configurações</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="area-conteudo">
+      <div class="conteudo-principal-header">
+        <header class="header-principal">
+          <h1>Inserção de relatórios</h1>
+          <div class="area-icones">
+            <input type="checkbox" id="menu-notificacoes">
+            <label for="menu-notificacoes">
+              <img src="/ASSETS/imgs/notificacoes.png" alt="Notificações" title="Notificações">
+            </label>
+            <div id="notificacoes">
+              <h1>Notificações</h1>
+              <div>Murilo adicionou uma tarefa</div>
+              <div>Guilherme concluiu uma tarefa</div>
+              <div>Emilly concluiu uma tarefa</div>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <section class="painel">
+        <div class="area-upload-arquivo">
+          <input type="file" id="upload" accept=".pdf,.png,.jpg,.jpeg,.gif,.bmp" placeholder="Escolher arquivo" />
+          <button class="btn-escolher-arquivo" id="btnProcessar" title="Processar Arquivo">Processar</button>
+        </div>
+
+        <div id="loading" style="display: none; text-align: center; padding: 20px; color: #666;">
+          <p>Processando documento...</p>
+        </div>
+
+        <h1>Recentes</h1>
+        <div class="area-upload-recentes" id="area-resultado">
+          <img src="/ASSETS/imgs/imagem modelo arquivo .jpg" alt="imagem papel" title="imagem">
+          <p>Digitalizar novos documentos</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const uploadInput = document.getElementById('upload');
+    const btnProcessar = document.getElementById('btnProcessar');
+    const loading = document.getElementById('loading');
+    const areaResultado = document.getElementById('area-resultado');
+
+    btnProcessar.addEventListener('click', async () => {
+      console.log('🔵 Botão Processar clicado');
+
+      const arquivo = uploadInput.files[0];
+
+      if (!arquivo) {
+        alert('Por favor, selecione um arquivo');
+        return;
+      }
+
+      console.log('📄 Arquivo selecionado:', arquivo.name);
+
+      // Mostrar loading
+      loading.style.display = 'block';
+      btnProcessar.disabled = true;
+      btnProcessar.textContent = 'Processando...';
+
+      try {
+        const formData = new FormData();
+        formData.append('arquivo', arquivo);
+
+        console.log('📤 Enviando requisição para API...');
+        const response = await fetch('http://localhost:5000/processar-documento', {
+          method: 'POST',
+          body: formData
+        });
+
+        console.log('📥 Resposta recebida:', response.status);
+
+        let data;
+        try {
+          data = await response.json();
+          console.log('📊 Dados recebidos:', data);
+        } catch (jsonError) {
+          console.error('❌ Erro ao parsear JSON:', jsonError);
+          const text = await response.text();
+          console.error('📄 Texto recebido:', text);
+          throw new Error('Resposta da API não é JSON válido');
+        }
+
+        // Esconder loading e reabilitar botão
+        loading.style.display = 'none';
+        btnProcessar.disabled = false;
+        btnProcessar.textContent = 'Processar';
+
+        if (response.ok) {
+          console.log('✅ Sucesso! Exibindo resultado...');
+
+          // Extrair dados estruturados (corrigido)
+          let dadosParaExibir = data.dados_estruturados || data;
+
+          if (typeof dadosParaExibir === 'string') {
+            try {
+              dadosParaExibir = JSON.parse(dadosParaExibir);
+            } catch (e) {
+              console.warn('⚠️ Não foi possível parsear dados_estruturados como JSON');
+            }
+          }
+
+          // Converter o arquivo em Base64
+          const lerArquivoComoBase64 = (arquivo) => {
+            return new Promise((resolve, reject) => {
+              const leitor = new FileReader();
+              leitor.onload = () => resolve(leitor.result);
+              leitor.onerror = reject;
+              leitor.readAsDataURL(arquivo);
+            });
+          };
+
+          const arquivoBase64 = await lerArquivoComoBase64(arquivo);
+
+          // Salvar dados no localStorage
+          localStorage.setItem('arquivoNome', arquivo.name);
+          localStorage.setItem('arquivoBase64', arquivoBase64);
+          localStorage.setItem('dadosProcessados', JSON.stringify(dadosParaExibir));
+
+          // Exibir resultado na área de recentes
+          const statusBadge = '<span style="background: #4caf50; color: white; padding: 5px 15px; border-radius: 20px;">✅ Processado com Sucesso</span>';
+          const jsonContent = '<pre style="white-space: pre-wrap; word-wrap: break-word; background: white; padding: 15px; border-radius: 5px; max-height: 300px; overflow-y: auto;">' + JSON.stringify(dadosParaExibir, null, 2) + '</pre>';
+
+          areaResultado.innerHTML = `
+            <div style="margin-bottom: 10px;">${statusBadge}</div>
+            <p style="margin: 10px 0; font-weight: bold;">Arquivo: ${data.arquivo || 'N/A'}</p>
+            <div>${jsonContent}</div>
+          `;
+
+          console.log('✅ Resultado exibido com sucesso');
+
+          // Redirecionar depois de salvar no localStorage
+          window.location.href = '/ASSETS/HTML/TelainserirDados.html';
+        } else {
+          console.log('❌ Erro na resposta:', data);
+          const statusBadge = '<span style="background: #f44336; color: white; padding: 5px 15px; border-radius: 20px;">❌ Erro no Processamento</span>';
+          areaResultado.innerHTML = `
+            <div style="margin-bottom: 10px;">${statusBadge}</div>
+            <p style="color: #f44336;">${data.erro || 'Erro desconhecido'}</p>
+          `;
+        }
+
+      } catch (error) {
+        console.error('❌ Erro capturado:', error);
+
+        loading.style.display = 'none';
+        btnProcessar.disabled = false;
+        btnProcessar.textContent = 'Processar';
+
+        const statusBadge = '<span style="background: #f44336; color: white; padding: 5px 15px; border-radius: 20px;">❌ Erro de Conexão</span>';
+        areaResultado.innerHTML = `
+          <div style="margin-bottom: 10px;">${statusBadge}</div>
+          <p style="color: #f44336;">Não foi possível conectar à API: ${error.message}</p>
+          <p style="margin-top: 10px; font-size: 12px;">Certifique-se de que a API está rodando: python base.py</p>
+        `;
+      }
+    });
+  </script>
+</body>
+
+</html>
