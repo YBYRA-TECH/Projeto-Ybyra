@@ -27,6 +27,7 @@ public class TarefasSERVLET extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         // Receber dados
+
         String prioridade =  request.getParameter("prioridade");
         String nome = request.getParameter("nome");
         String responsavel = request.getParameter("responsavel");
