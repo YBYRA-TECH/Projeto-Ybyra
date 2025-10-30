@@ -18,7 +18,7 @@ body {
 /* ===== CONTEÚDO PRINCIPAL - ESTILOS DA PÁGINA DE SELEÇÃO ===== */
 main {
   margin-top: 4.85rem;
-  background-image: url("/ASSETS/imgs/Login.png"); 
+  background-image: url("/assets/imgs/Login.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
