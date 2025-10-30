@@ -18,6 +18,13 @@ public class LoginUsuarioSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Invalida o login anterior, para que o usuario não consiga ter acesso a pagina de funcionarios e perfil
+
+        HttpSession sessionAntiga = request.getSession(false);
+        if (sessionAntiga != null) {
+            sessionAntiga.invalidate();
+        }
+
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 

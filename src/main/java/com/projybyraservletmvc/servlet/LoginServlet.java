@@ -19,6 +19,11 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession sessionAntiga = request.getSession(false);
+        if (sessionAntiga != null) {
+            sessionAntiga.invalidate();
+        }
+
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 

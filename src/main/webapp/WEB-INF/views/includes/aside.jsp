@@ -8,6 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    boolean isIndustria = false;
+    HttpSession verificacaoLogin = request.getSession(false);
+    if (verificacaoLogin != null && verificacaoLogin.getAttribute("industriaLogada") != null) {
+        isIndustria = true;
+    }
+
+
  String paginaAtual = (String) request.getAttribute("paginaAtual");
 
  if (paginaAtual == null){
@@ -62,6 +69,7 @@
                     <span>Inserir Dados</span>
                 </a>
             </li>
+            <% if(isIndustria){%>
             <li class="item-menu <%= paginaAtual.equals("funcionarios")? "ativo" : ""%>">
                 <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
                     <div class="box-icone">
@@ -70,6 +78,8 @@
                     <span>Funcionários</span>
                 </a>
             </li>
+
+
             <li class="item-menu <%= paginaAtual.equals("perfil")? "ativo" : ""%>">
                 <a href="<%= request.getContextPath() %>/pagina?nome=perfil">
                     <div class="box-icone">
@@ -78,6 +88,7 @@
                     <span>Perfil</span>
                 </a>
             </li>
+            <%}%>
         </ul>
     </nav>
 </aside>
