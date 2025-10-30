@@ -547,6 +547,36 @@ body {
     display: block;
 }
 
+   /* Grid para usuários - 3 colunas */
+   .usuarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .usuarios-grid .tarefa {
+    margin-bottom: 0;
+  }
+
+  .quadro-tarefas {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 100%;
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .secao-board {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .coluna-status {
+    width: 100%;
+  }
 .btn-acao {
     background: none;
     border: none;
