@@ -102,9 +102,27 @@
                             <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa" title="lupa">
                         </button>
                     </div>
-                    <form action="" method="post">
-                        <button id="apagarTodos">Apagar todos</button>
-                    </form>
+                    <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos">
+                    <label for="modal-apagar-todos" id="apagarTodos">Apagar todos</label>
+
+                    <!-- MODAL APAGAR TODOS -->
+                    <div class="modal-overlay">
+                        <div class="menu-lixo">
+                            <div class="menu-lixo-icone">
+                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
+                            </div>
+                            <h1>Deseja excluir TODOS os relatórios?</h1>
+                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                            <div class="info-item">
+                                <strong>Total de relatórios:</strong>
+                                <span>4 relatórios</span>
+                            </div>
+                            <div class="buttons">
+                                <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
+                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">

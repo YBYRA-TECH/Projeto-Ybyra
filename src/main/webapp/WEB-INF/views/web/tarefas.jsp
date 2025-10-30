@@ -20,6 +20,9 @@
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     List<Tarefas> tarefas = (List<Tarefas>) request.getAttribute("tarefas");
     List<Usuario> usuarios = (List<Usuario>) request.getAttribute(("usuarios"));
+
+    // PEGANDO O ID DO USUÁRIO LOGADO DA SESSÃO
+    Integer idUsuarioLogado = (Integer) session.getAttribute("usuarioID");
 %>
 
 <div class="container-principal">
@@ -122,11 +125,11 @@
                     <div class="titulo-status">
                         <h3>Não Iniciada</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
-                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-1" />
                         <label for="modal-apagar-todos-1" class="btn-apagar-todos">Apagar Todos</label>
                     </div>
 
-                    <!-- MODAL APAGAR TODOS -->
+                    <!-- CHECKBOX E MODAL APAGAR TODOS -->
+                    <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-1" />
                     <div class="modal-overlay">
                         <div class="menu-lixo">
                             <div class="menu-lixo-icone">
@@ -152,10 +155,15 @@
                                     }
                                 %><%= countNaoIniciada %> tarefa<%= countNaoIniciada != 1 ? "s" : "" %></span>
                             </div>
-                            <div class="buttons">
-                                <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
-                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
-                            </div>
+                            <form action="<%= request.getContextPath()%>/ExcluirTarefa" method="post">
+                                <div class="buttons">
+                                    <input type="hidden" name="prioridade" value="nao_iniciada">
+                                    <input type="hidden" name="id_usuario" value="<%= idUsuarioLogado %>">
+                                    <input type="hidden" name="acao" value="excluirPrioridade">
+                                    <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
+                                    <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -182,11 +190,10 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
 
-                                <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                                 <label for="<%= modalid %>" class="btn-acao icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira">
                                 </label>
@@ -194,7 +201,8 @@
                             <span class="seta-expandir" title="detalhes">▼</span>
                         </label>
 
-                        <!-- MODAL FORA DO LABEL -->
+                        <!-- CHECKBOX E MODAL FORA DO LABEL -->
+                        <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                         <div class="modal-overlay">
                             <div class="menu-lixo">
                                 <div class="menu-lixo-icone">
@@ -208,10 +216,6 @@
                                 <div class="info-item">
                                     <strong>Responsável:</strong>
                                     <span><%= tarefa.getResponsavel() %></span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Prioridade:</strong>
-                                    <span>Alta</span>
                                 </div>
                                 <div class="info-item">
                                     <strong>Prazo de enceramento:</strong>
@@ -253,11 +257,11 @@
                     <div class="titulo-status">
                         <h3>Em Andamento</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
-                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-2" />
                         <label for="modal-apagar-todos-2" class="btn-apagar-todos">Apagar Todos</label>
                     </div>
 
-                    <!-- MODAL APAGAR TODOS -->
+                    <!-- CHECKBOX E MODAL APAGAR TODOS -->
+                    <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-2" />
                     <div class="modal-overlay">
                         <div class="menu-lixo">
                             <div class="menu-lixo-icone">
@@ -283,10 +287,15 @@
                                     }
                                 %><%= countEmAndamento %> tarefa<%= countEmAndamento != 1 ? "s" : "" %></span>
                             </div>
-                            <div class="buttons">
-                                <label for="modal-apagar-todos-2" class="btn-cancelar">Não</label>
-                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
-                            </div>
+                            <form action="<%= request.getContextPath()%>/ExcluirTarefa" method="post">
+                                <div class="buttons">
+                                    <input type="hidden" name="prioridade" value="em_andamento">
+                                    <input type="hidden" name="id_usuario" value="<%= idUsuarioLogado %>">
+                                    <input type="hidden" name="acao" value="excluirPrioridade">
+                                    <label for="modal-apagar-todos-2" class="btn-cancelar">Não</label>
+                                    <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -313,11 +322,10 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
 
-                                <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                                 <label for="<%= modalid %>" class="btn-acao icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira">
                                 </label>
@@ -325,6 +333,7 @@
                             <span class="seta-expandir" title="detalhes">▼</span>
                         </label>
 
+                        <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                         <div class="modal-overlay">
                             <div class="menu-lixo">
                                 <div class="menu-lixo-icone">
@@ -366,6 +375,7 @@
 
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
+                            <p><strong>Prioridade:</strong> Média</p>
                             <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
@@ -381,13 +391,13 @@
                 <!-- COLUNA: CONCLUÍDA -->
                 <div class="coluna-status">
                     <div class="titulo-status">
-                        <h3>Concluidas</h3>
+                        <h3>Concluídas</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
-                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-3" />
                         <label for="modal-apagar-todos-3" class="btn-apagar-todos">Apagar Todos</label>
                     </div>
 
-                    <!-- MODAL APAGAR TODOS -->
+                    <!-- CHECKBOX E MODAL APAGAR TODOS -->
+                    <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-3" />
                     <div class="modal-overlay">
                         <div class="menu-lixo">
                             <div class="menu-lixo-icone">
@@ -400,7 +410,7 @@
                             </p>
                             <div class="info-item">
                                 <strong>Coluna:</strong>
-                                <span>Concluidas</span>
+                                <span>Concluídas</span>
                             </div>
                             <div class="info-item">
                                 <strong>Total de tarefas:</strong>
@@ -413,10 +423,15 @@
                                     }
                                 %><%= countConcluida %> tarefa<%= countConcluida != 1 ? "s" : "" %></span>
                             </div>
-                            <div class="buttons">
-                                <label for="modal-apagar-todos-3" class="btn-cancelar">Não</label>
-                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
-                            </div>
+                            <form action="<%= request.getContextPath()%>/ExcluirTarefa" method="post">
+                                <div class="buttons">
+                                    <input type="hidden" name="prioridade" value="concluida">
+                                    <input type="hidden" name="id_usuario" value="<%= idUsuarioLogado %>">
+                                    <input type="hidden" name="acao" value="excluirPrioridade">
+                                    <label for="modal-apagar-todos-3" class="btn-cancelar">Não</label>
+                                    <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -447,7 +462,6 @@
                                     </button>
                                 </form>
 
-                                <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                                 <label for="<%= modalid %>" class="btn-acao icone-lixeira">
                                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira">
                                 </label>
@@ -455,6 +469,7 @@
                             <span class="seta-expandir" title="detalhes">▼</span>
                         </label>
 
+                        <input type="checkbox" class="menu-lixeira" id="<%= modalid %>">
                         <div class="modal-overlay">
                             <div class="menu-lixo">
                                 <div class="menu-lixo-icone">
@@ -491,7 +506,6 @@
 
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Prioridade:</strong> Baixa</p>
                             <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>
@@ -514,13 +528,13 @@
                     <%
                         if (usuarios != null && !usuarios.isEmpty()) {
                             for (Usuario usuario : usuarios) { %>
-                            <div class="usuario">
-                                <div class="avatar-usuario">
-                                    <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
-                                </div>
-                                <span class="nome-usuario"><%= usuario.getNome() %></span>
-                                <span class="status-online"></span>
-                            </div>
+                    <div class="usuario">
+                        <div class="avatar-usuario">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="icone de usuário">
+                        </div>
+                        <span class="nome-usuario"><%= usuario.getNome() %></span>
+                        <span class="status-online"></span>
+                    </div>
                     <%}}%>
                 </div>
             </aside>

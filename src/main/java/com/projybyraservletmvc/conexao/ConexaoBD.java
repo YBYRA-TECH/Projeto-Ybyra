@@ -9,29 +9,29 @@ import io.github.cdimascio.dotenv.Dotenv;
 //CLASSE DE CONEXAO E DESCONEXAO COM O BANCO
 public class ConexaoBD {
     private Connection conn;
-    static {
-        try {
+
+
+
+    public Connection conectar() throws SQLException {
+        Connection conn = null;
+        try{
             Class.forName("org.postgresql.Driver");
-            System.out.println("Driver PostgreSQL carregado com sucesso!");
-        } catch (ClassNotFoundException e) {
-            System.err.println("ERRO: Driver PostgreSQL NÃO encontrado!");
-            e.printStackTrace();
-        }
-    }
 
+            String url = System.getenv("DB_URL");
+            String user = System.getenv("DB_USER");
+            String password = System.getenv("DB_PASSWORD");
 
+            conn = DriverManager.getConnection(url, user, password);
 
-    public static Connection conectar() throws SQLException {
-        String url = System.getenv("DB_URL");
-        String user = System.getenv("DB_USER");
-        String password = System.getenv("DB_PASSWORD");
-
-        if (url == null || user == null || password == null) {
-            throw new SQLException("Variáveis de ambiente não configuradas!");
-        }
+            if (url == null || user == null || password == null) {
+                throw new SQLException("Variáveis de ambiente não configuradas!");}
 
         return DriverManager.getConnection(url, user, password);
-    }
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }finally {
+            return conn;
+        }}
 
 
     public void desconectar(Connection conn) {

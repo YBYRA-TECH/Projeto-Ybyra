@@ -223,18 +223,28 @@ public class TarefasDAO implements GenericDAO<Tarefas> {
         return lista;
     }
 
-    public int deletar(String prioridade) {
+    public int deletar(String prioridade, int id_usuario) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
 
         try {
             conn = conexao.conectar();
-            String sql = "DELETE FROM tarefas WHERE prioridade = ?";
+            String sql = "DELETE FROM tarefas " +
+                    "WHERE prioridade = ? " +
+                    "AND id_usuario IN (" +
+                    "    SELECT id_usuario FROM usuario " +
+                    "    WHERE id_industria = (" +
+                    "        SELECT id_industria FROM usuario WHERE id_usuario = ?" +
+                    "    )" +
+                    ")";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, prioridade);
+            pstmt.setInt(2, id_usuario);
 
-            if (pstmt.executeUpdate() > 0) {
+            int linhasAfetadas = pstmt.executeUpdate();
+
+            if (linhasAfetadas > 0) {
                 return 1;
             } else {
                 return 0;
