@@ -1,0 +1,134 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+/* "Montserrat" */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+/* "Geologica" */
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display: flex;
+    min-height: 100vh;
+}
+
+#voltar {
+    rotate: 180deg;
+}
+
+.conteudo-principal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top:0.5% ;
+}
+.conteudo-principal-header h1{
+    color: #365576;
+}
+.subtitulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #365576;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.detalhes-campos {
+    display: grid;
+    grid-template-areas:
+        "column1 column2";
+    gap: 0 2rem;
+}
+
+.detalhes-campos:last-child {
+    width: 99%;
+}
+
+#nome-tarefa {
+    margin-top: 1.5px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 1rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.area-descricao {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos dos campos de Detalhes (rótulo e input) */
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    font-family: 'Geologica', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+
+
+.campo input[type="date"] {
+    color: #555;
+}
+/* Botão Enviar Arquivo */
+.btn-enviar {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #192083;
+}
+
+.link-inserir {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+}
+.area-icones{
+    right: 4%;
+}
+#notificacoes{
+    right: 2%;
+
+}
+#notificacoes h1{
+    color: black;
+}

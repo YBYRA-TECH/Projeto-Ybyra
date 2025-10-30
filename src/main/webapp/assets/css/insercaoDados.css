@@ -14,41 +14,51 @@
 html,
 body {
     overflow-x: hidden;
-    font-size: 16px; /* Definindo a base de 1rem = 16px */
+    font-size: 16px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: linear-gradient(to right, #CCF6FF, #192083);
+    background: linear-gradient(to right, #ccf6ff, #192083);
+    overflow-y: auto;
 }
 
 .painel-principal {
-    display:flex;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
 
 /* --- Estilos da Área de Conteúdo --- */
 
 .area-conteudo {
     flex-grow: 1;
-    padding: 1.3rem 0rem 2rem 1.3rem ;
+    padding: 1.3rem 0rem 2rem 1.3rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
     box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /* Estilo do cabeçalho principal */
 .header-principal {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 0 0.5rem;
     margin-bottom: 2rem;
 }
-.header-principal h1{
-    color: #2F567D;
+
+.header-principal h1 {
+    color: #2f567d;
     margin-left: 2rem;
 }
-.header-principal img{
+
+.header-principal img {
     margin-right: 2.5rem;
 }
 
@@ -69,17 +79,192 @@ body {
     transform: translateY(-2px);
 }
 
-#upload{
+#upload {
     font-size: 0.9rem;
     margin-bottom: 1.3rem;
 }
 
-#notificacoes{
+#notificacoes {
     right: 2%;
 }
+/* Estilos adicionais para o modal de exclusão */
+.menu-lixeira {
+    display: none;
+}
 
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    padding: 8%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
 
+.menu-lixeira:checked + .modal-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
 
+.menu-lixo {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+.menu-lixo-icone {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background-color: #3474cd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.menu-lixo-icone img {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(0) invert(1);
+}
+
+.menu-lixo h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.menu-lixo p {
+    font-family: "Geologica", sans-serif;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.menu-lixo .info-item {
+    background: #f8fafc;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.menu-lixo .info-item strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.menu-lixo .info-item span {
+    color: #475569;
+    font-size: 0.95rem;
+    font-family: "Geologica", sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.buttons label,
+.buttons button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: "Montserrat", sans-serif;
+    flex: 1;
+    text-align: center;
+    display: block;
+}
+
+.btn-cancelar {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.btn-cancelar:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.btn-excluir {
+    background-color: #2067ca;
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+}
+
+.btn-excluir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 69, 221, 0.4);
+}
+
+.icone-lixeira {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone-lixeira:hover {
+    background: #f1f5f9;
+    transform: scale(1.1);
+}
+
+.icone-lixeira img {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+}
+.relatorios-recentes {
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    border: 4px solid #cbe0ff;
+    padding: 1rem;
+    align-items: center;
+    width: 93%;
+}
+.relatorio-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    width: 50%;
+}
+.relatorio-item span{
+    font-family: "Mostserrat", sans-serif;
+}
 .area-upload-arquivo {
     display: flex;
     flex-direction: column;
@@ -100,16 +285,16 @@ body {
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 0.75rem;
-
+    padding: 0.75rem 1.5rem;
     font-weight: 600;
     cursor: pointer;
     margin-bottom: 0.5rem;
-    transition: all 0.2s  ease;
+    transition: all 0.2s ease;
 }
 
 .btn-escolher-arquivo:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 116, 205, 0.3);
 }
 
 /* --- Estilos da Área de Upload Recentes --- */
@@ -123,100 +308,72 @@ body {
     width: 93.3%;
     margin-left: 2rem;
     background-color: #ffffff;
-    border: 2px solid #EEF2F9;
+    border: 2px solid #eef2f9;
     border-radius: 0.8rem;
 }
 
-.area-upload-recentes img{
+.area-upload-recentes img {
     width: 10rem;
     margin-bottom: 2rem;
 }
 
-.painel h1{
-    font-family: 'Montserra', sans-serif;
+.painel h1 {
+    font-family: "Montserrat", sans-serif;
     font-size: 2rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
-    color: #2F567D;
-
+    color: #2f567d;
 }
-@media (max-width: 1340px) and (max-height:800px){
 
-
+@media (max-width: 1340px) and (max-height: 800px) {
 }
-@media  (max-height:1340px) and (max-width: 800px) {
-    .painel-principal{
+
+@media (max-height: 1340px) and (max-width: 800px) {
+    .painel-principal {
         display: block;
     }
-    .area-conteudo{
+
+    .area-conteudo {
         padding-left: 0.5rem;
         height: 84vh;
     }
-    .busca-relatorios{
-        width:9rem;
-    }
-    .busca-relatorios input{
-        width:9rem;
-    }
-    .busca-relatorios img{
-        display: none;
-    }
-    .area-icones{
-        margin: 0;
-    }
-    .area-upload-recentes{
-        margin-left: 1.3rem;
+
+    .busca-relatorios {
+        width: 9rem;
     }
 
-}
-/* @media (max-width:1024px) {
-    .painel-principal {
-        display:block;
-    }
-}
-@media (max-width: 768px) {
-    .busca-filtros{
-        justify-content: space-around;
-        max-width: 100%;
-    }
-    .busca-filtros {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
-        max-width: 93%;
-    }
-
-
-    .busca-relatorios input[type="text"] {
-        border: none;
-        padding: 0.6rem 0.8rem;
-        outline: none;
-        font-size: 0.75rem;
-    }
-
-    #categorias{
-        font-size: 0.8rem;
-    }
-    #periodo{
-        font-size: 0.8rem;
-    }
-    #prioridade{
-        font-size: 0.8rem;
-
-    }
-
-    .busca-relatorios .icone-busca {
-        background-color: transparent;
-        border: none;
-        padding: 0 0.8rem;
-        cursor: pointer;
-        color: #888;
+    .busca-relatorios input {
+        width: 9rem;
     }
 
     .busca-relatorios img {
-        width: 20px;
-        height: 20px;
+        display: none;
     }
 
+    .area-icones {
+        margin: 0;
+    }
 
-} */
+    .area-upload-recentes {
+        margin-left: 1.3rem;
+    }
+
+    .item-recente {
+        margin: 0 1rem 1rem 1rem;
+        padding: 1rem;
+    }
+
+    .info-documento {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .modal-overlay {
+        padding: 1rem;
+    }
+
+    .menu-lixo {
+        padding: 1.5rem;
+    }
+}

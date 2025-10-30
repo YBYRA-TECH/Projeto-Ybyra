@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/insercaoDados.css" />
-
     <title>YBYRA TECH</title>
 </head>
+
 <body>
 <div class="painel-principal">
     <aside class="barra-lateral">
@@ -56,10 +56,10 @@
                         <div class="box-icone">
                             <img src="<%= request.getContextPath() %>/assets/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
                         </div>
-                        <span>Inserir Dados</span>
+                        <span>Inserir</span>
+                        <span>Dados</span>
                     </a>
                 </li>
-
 
                 <li class="item-menu">
                     <a href="#">
@@ -76,37 +76,11 @@
     <main class="area-conteudo">
         <div class="conteudo-principal-header">
             <header class="header-principal">
-                <div class="busca-filtros">
-                    <div class="busca-relatorios">
-                        <input type="text" placeholder="Buscar Relatórios" />
-                        <button class="icone-busca">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa">
-                        </button>
-                    </div>
-                    <select name="categorias" id="categorias">
-                        <option value="" disabled selected hidden>Todas as Categorias</option>
-                        <option value="">Área Fria</option>
-                        <option value="">Área Quente</option>
-                    </select>
-                    <select name="periodo" id="periodo">
-                        <option value="" disabled selected hidden>Período</option>
-                        <option value="">Manhã</option>
-                        <option value="">Tarde</option>
-                        <option value="">Noite</option>
-                    </select>
-                    <select name="prioridade" id="prioridade">
-                        <option value="" disabled selected hidden>Prioridade</option>
-                        <option value="">Baixa</option>
-                        <option value="">Média</option>
-                        <option value="">Alta</option>
-                    </select>
-                    <button class="btn-buscar">Buscar</button>
-                </div>
-
-                <div class="area-icones-usuario">
+                <h1>Inserção de relatorios</h1>
+                <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
                     <label for="menu-notificacoes">
-                        <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações">
+                        <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações" title="Notificações">
                     </label>
                     <div id="notificacoes">
                         <h1>Notificações</h1>
@@ -120,26 +94,57 @@
 
         <section class="painel">
             <div class="area-upload-arquivo">
-                <form action="<%=request.getContextPath() %>/InserirDados"
-                      method="post"
-                      enctype="multipart/form-data">
-
-                    <input type="file"
-                           id="upload"
-                           name="arquivo"
-                           accept=".pdf,.jpg,.jpeg,.png"
-                           required/>
-
-                    <button type="submit" class="btn-escolher-arquivo">
-                        Confirmar Arquivo
-                    </button>
+                <!-- MANTER O FORM DO SERVLET -->
+                <form action="<%=request.getContextPath() %>/InserirDados" method="post" enctype="multipart/form-data">
+                    <input type="file" id="upload" name="arquivo" accept=".pdf,.jpg,.jpeg,.png" placeholder="Escolher arquivo" required/>
+                    <button type="submit" class="btn-escolher-arquivo" title="Confirmar Arquivo">Confirmar</button>
                 </form>
             </div>
             <h1>Recentes</h1>
             <div class="area-upload-recentes">
-                <img src="<%= request.getContextPath() %>/assets/imgs/imagem_modelo_arquivo.jpg" alt="imagem papel">
+                <img src="<%= request.getContextPath() %>/assets/imgs/imagem_modelo_arquivo.jpg" alt="imagem papel" title="imagem">
                 <p>Digitalizar novos documentos</p>
             </div>
+
+            <!-- Parte a partir de quando o usuário inserir o relatório -->
+            <!-- COMENTADO PARA NÃO PERDER A LÓGICA FUTURA
+            <div class="relatorios-recentes">
+                <div class="relatorio-item">
+                    <h3>Controle_de_produção</h3>
+                    <span>Felipe Augusto</span>
+                </div>
+
+                <label for="modal-relatorio-1" class="icone-lixeira">
+                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Excluir" title="Excluir relatório" />
+                </label>
+            </div>
+
+            <input type="checkbox" class="menu-lixeira" id="modal-relatorio-1" />
+            <div class="modal-overlay">
+                <div class="menu-lixo">
+                    <div class="menu-lixo-icone">
+                        <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
+                    </div>
+                    <h1>Deseja excluir o relatório?</h1>
+                    <p>
+                        Esta ação não pode ser desfeita. Todos os dados serão
+                        permanentemente removidos.
+                    </p>
+                    <div class="info-item">
+                        <strong>Nome do arquivo:</strong>
+                        <span>Controle_de_produção</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Responsável:</strong>
+                        <span>Felipe Augusto</span>
+                    </div>
+                    <div class="buttons">
+                        <label for="modal-relatorio-1" class="btn-cancelar">Não</label>
+                        <button type="button" class="btn-excluir">Sim</button>
+                    </div>
+                </div>
+            </div>
+            -->
         </section>
     </main>
 </div>
