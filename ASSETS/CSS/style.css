@@ -15,7 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-
 /* ===== ÁREA PRINCIPAL ===== */
 main {
   padding-top: 6rem;
@@ -198,7 +197,7 @@ main {
 
 .slide img {
   margin-top: 15%;
-  width:40vw;
+  width: 40vw;
 }
 
 .slide-text {
@@ -547,6 +546,7 @@ h3 {
   .card {
     width: 20.5rem;
     font-size: 1.8rem;
+    box-sizing: border-box;
   }
 
   /* ===== SEÇÃO 3 ===== */
@@ -611,7 +611,6 @@ h3 {
   #cartoes_sobre {
     gap: 4.5rem;
     flex-direction: column;
-
   }
 
   .card_sobre {
@@ -623,14 +622,25 @@ h3 {
   #sec_sobre p {
     font-size: 1.2rem;
   }
-
-  /* ===== AJUSTES GERAIS ===== */
-  /* ===== RODAPÉ ===== */
 }
 
-@media (max-height:1340px) and (max-width: 800px) {
+@media (max-height:1340px) and (max-width: 600px) {
+  #item-menu{
+    margin-left: 12%;
+  }
+  header img{
+    margin-left: 4%;
+  }
+  header label{
+    margin-right: 4%;
+  }
   main {
     padding-top: 0;
+  }
+
+  #imagem_texto {
+    margin-top: 0rem;
+    padding-bottom: 2rem;
   }
 
   .sec_intro {
@@ -641,10 +651,10 @@ h3 {
     flex-direction: column;
   }
 
-
   #texto_intro {
-    margin-top: 5rem;
-    margin-bottom: 10rem;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
   .sec_intro a {
@@ -670,7 +680,197 @@ h3 {
     padding: 2rem;
     width: 30rem;
     font-size: 1.8rem;
-    box-sizing: initial;
+    box-sizing: border-box;
+  }
+
+  .texto_fim {
+    font-size: 1.2rem;
+  }
+
+  .texto_inicio {
+    font-size: 1.6rem;
+  }
+
+  /* ===== SEÇÃO 3 ===== */
+  .slide {
+    padding: 3rem 0rem 0rem 0rem;
+    /* flex-direction: column; */
+    margin-right: 3rem;
+  }
+
+  .slide img {
+    width: 1rem;
+  }
+
+  .slide-text h1 {
+    font-size: 4vw;
+    width: 20rem;
+    margin-bottom: 2rem;
+  }
+
+  .slide h2 {
+    margin-top: 0;
+    width: 20rem;
+    font-size: 3vw;
+  }
+
+  .slide p {
+    font-size: 1rem;
+  }
+
+  .sec3_controls {
+    margin-right: 3rem;
+  }
+
+  /* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
+  .inputs {
+    margin-left: 0;
+    gap: 1rem;
+    width: 80%;
+  }
+
+  .inputs input:nth-of-type(1) {
+    grid-area: email;
+    padding-right: 1.8rem;
+  }
+
+  .inputs input:nth-of-type(2) {
+    grid-area: telefone;
+  }
+
+  .inputs input:nth-of-type(3) {
+    grid-area: nome;
+  }
+
+  .inputs input:nth-of-type(4) {
+    grid-area: industria;
+  }
+
+  .texto {
+    margin-left: 0rem;
+  }
+
+  #sec4 img {
+    width: 0;
+    margin-left: 0;
+    display: none;
+  }
+
+  /* Inputs Container */
+  .inputs {
+    margin-left: 1rem;
+    width: 24rem;
+    gap: 3rem;
+  }
+
+  #inp-nome {
+    margin-right: 0;
+    left: 39rem;
+  }
+
+  #buttons {
+    grid-area: enviar;
+    width: 90%;
+
+  }
+
+  /* Estilos dos inputs */
+  .inputs input {
+    font-size: 1.3rem;
+  }
+
+  #buttons button {
+    font-size: 1.3rem;
+    margin-left: 2.5rem;
+  }
+
+  /* ===== SEÇÃO SOBRE ===== */
+  #sec_sobre {
+    height: 150vh;
+    padding: 15vh;
+  }
+
+  #cartoes_sobre {
+    gap: 2.5rem;
+    flex-direction: column;
+  }
+
+  .card_sobre {
+    height: 36vh;
+  }
+
+  #sec_sobre p {
+    font-size: 1.2rem;
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer div {
+    flex-direction: column;
+    justify-self: center;
+  }
+
+  .direitos {
+    font-size: 1.3rem;
+  }
+
+  footer p {
+    font-size: 1.5rem;
+  }
+
+  footer h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.8rem;
+  }
+}
+
+@media (max-height:1340px) and (max-width: 360px) {
+  main {
+    padding-top: 0;
+  }
+
+  #imagem_texto {
+    margin-top: 0rem;
+    padding-bottom: 2rem;
+  }
+
+  .sec_intro {
+    margin-top: 0;
+    padding-left: 10vw;
+    padding-top: 4rem;
+    background-size: 110% 140%;
+    flex-direction: column;
+  }
+
+  #texto_intro {
+    padding-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sec_intro a {
+    font-size: 1.7rem;
+  }
+
+  /* ===== TÍTULO RESULTADOS ===== */
+  #titulo_resultados {
+    font-size: 3rem;
+  }
+
+  /* ===== SEÇÃO CARTÕES ===== */
+  .sec_cartoes {
+    height: 20vh;
+    justify-self: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  /* ===== ESTILO DOS CARDS ===== */
+  .card {
+    padding: 2rem;
+    width: 30rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
   }
 
   .texto_fim {
@@ -757,9 +957,11 @@ h3 {
     margin-left: 1rem;
     gap: 3rem;
   }
-  #inp-nome{
-    margin-right:0;
+
+  #inp-nome {
+    margin-right: 0;
   }
+
   #buttons {
     grid-area: enviar;
     width: 90%;
@@ -778,7 +980,7 @@ h3 {
   /* ===== SEÇÃO SOBRE ===== */
   #sec_sobre {
     height: 150vh;
-    padding: 15vh;
+    padding: 10vh;
   }
 
   #cartoes_sobre {
@@ -787,9 +989,8 @@ h3 {
   }
 
   .card_sobre {
-    max-width: 130rem;
-    width: 60vw;
-    height: 36vh;
+    width: 65rem;
+    height: 6vh;
   }
 
   #sec_sobre p {
@@ -803,16 +1004,11 @@ h3 {
   }
 
   .direitos {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   footer p {
     font-size: 1.5rem;
-  }
-
-  footer h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 3.8rem;
   }
 }
 
@@ -840,7 +1036,6 @@ h3 {
   /* ===== TÍTULO RESULTADOS ===== */
   #titulo_resultados {
     padding-left: 3rem;
-    /* text-align: center; */
     padding-top: 5rem;
   }
 
@@ -888,7 +1083,7 @@ h3 {
 
   .sec3_controls {
     justify-content: right;
-    margin-right: 0;
+    margin-right: 5%;
     margin-top: 0;
     align-items: start;
   }
@@ -909,7 +1104,6 @@ h3 {
   /* Posicionamento dos inputs */
   .inputs input:nth-of-type(1) {
     grid-area: email;
-    /* padding-right: 15%; */
   }
 
   .inputs input:nth-of-type(2) {
@@ -1017,7 +1211,6 @@ h3 {
 /* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
 @media (max-width: 767px) {
 
-  /* ===== SEÇÃO INTRODUÇÃO (Compacto) ===== */
   .sec_intro {
     padding-left: 2vw;
     padding-right: 2vw;
@@ -1044,10 +1237,8 @@ h3 {
   .slide img {
     margin-top: 2rem;
     margin-bottom: 1rem;
-    width: clamp(15rem, 80vw, 25rem);
-    /* Aumenta a imagem no mobile */
+    /* width: clamp(15rem, 80vw, 25rem); */
     margin-right: 0;
-    /* Remove a margem extra */
   }
 
   .slide-text {
@@ -1056,26 +1247,16 @@ h3 {
 
   .slide h2 {
     margin-top: 0;
-    font-size: clamp(1.4rem, 6vw, 2rem);
-  }
-
-  .slide p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-  }
-
-  .sec3_controls {
-    margin-top: 5%;
+    /* font-size:  6vw */
   }
 
   /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
   #sec4 {
     margin-bottom: 5rem;
-    /* flex-direction: column-reverse; Já estava, mas garantindo */
   }
 
   #sec4 img {
     width: 100vw;
-    /* Ocupa a largura total para parecer um banner */
     margin-right: 0;
     margin-left: 0;
   }
@@ -1083,14 +1264,12 @@ h3 {
   /* ===== SEÇÃO DECORATIVA ===== */
   #imagem_decorativa {
     background-size: 60% 80%;
-    /* Aumenta um pouco para ser visível */
   }
 
   /* ===== SEÇÃO SOBRE (Compacto) ===== */
   #sec_sobre {
     padding: 5vh 2vw;
     background-size: 200% 200%;
-    /* Ajuste para o fundo não ser exagerado */
   }
 
   #titulo_sobre {
@@ -1099,10 +1278,9 @@ h3 {
   }
 
   .card_sobre {
-    /* Remove as imagens de fundo nos cartões */
     background-image: none !important;
     padding: 1.5rem;
-    width: 55vw;
+    width: 80vw;
   }
 
   .titulo_card {
@@ -1121,14 +1299,12 @@ h3 {
   }
 }
 
-/* Mobile muito pequeno (360px e abaixo) */
 @media (max-width: 480px) {
   #botao-login {
     margin-right: 1rem;
     margin-left: 0;
   }
 
-  /* Ajustes finais de espaçamento */
   main {
     padding-top: 3rem;
   }
