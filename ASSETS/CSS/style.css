@@ -335,6 +335,7 @@ main {
 
 .inputs input:nth-of-type(4) {
   grid-area: industria;
+
 }
 
 /* Button Container */
@@ -371,15 +372,23 @@ main {
   transform: scale(1.02);
 }
 
-
+/* Button Container */
+#buttons {
+  display: flex;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 3rem;
+}
 
 #buttons button {
   background: linear-gradient(135deg, #004cc5, #0066ff);
   color: #ffffff;
   border-radius: 0.7rem;
-  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(0.8rem, 2vw, 1.1rem);
   border: none;
-  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
