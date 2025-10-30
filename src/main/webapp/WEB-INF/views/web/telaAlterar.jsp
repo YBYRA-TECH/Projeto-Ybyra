@@ -32,7 +32,7 @@
 
 <div class="painel-principal">
 
-    <%= request.setAttribute("paginaAtual", "tarefas")%>
+    <% request.setAttribute("paginaAtual", "tarefas"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
 

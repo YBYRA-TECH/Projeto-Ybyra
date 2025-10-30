@@ -14,7 +14,7 @@
 <body>
 <div class="painel-principal">
 
-    <%= request.setAttribute("paginaAtual", "funcionarios")%>
+    <% request.setAttribute("paginaAtual", "funcionarios"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
 

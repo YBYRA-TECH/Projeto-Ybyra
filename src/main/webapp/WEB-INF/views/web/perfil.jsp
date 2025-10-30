@@ -21,7 +21,7 @@
 <body>
 <div class="painel-principal">
 
-    <%= request.setAttribute("paginaAtual", "perfil")%>
+    <% request.setAttribute("paginaAtual", "perfil"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
 

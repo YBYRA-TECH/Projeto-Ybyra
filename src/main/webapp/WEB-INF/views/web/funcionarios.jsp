@@ -20,7 +20,7 @@
 <body>
 <div class="container-principal">
 
-    <%= request.setAttribute("paginaAtual", "funcionarios")%>
+    <% request.setAttribute("paginaAtual", "funcionarios"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
 

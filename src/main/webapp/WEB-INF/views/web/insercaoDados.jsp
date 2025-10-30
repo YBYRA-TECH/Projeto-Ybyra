@@ -13,7 +13,7 @@
 <body>
 <div class="painel-principal">
 
-    <%= request.setAttribute("paginaAtual", "insercaoDados")%>
+    <% request.setAttribute("paginaAtual", "insercaoDados"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
 
