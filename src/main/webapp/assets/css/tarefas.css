@@ -326,6 +326,7 @@ body {
     padding: 0.5rem 0;
     border-bottom: 2px solid #e2e8f0;
     display: flex;
+    gap: 2rem;
     justify-content: space-between;
     align-items: center;
 }
@@ -671,11 +672,11 @@ body {
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1340px) and (max-height:800px){
-    .area-filtros {
+    .area-filtros { 
         flex-wrap: nowrap;
     }
-
-
+    
+    
     /* Container para notificações à direita */
     .area-icones {
         margin-left: auto;
@@ -687,7 +688,7 @@ body {
     .conteudo{
         padding-left: 1.5rem;
     }
-    .area-filtros {
+    .area-filtros { 
         flex-wrap: nowrap;
         justify-content: space-between;
     }
@@ -697,6 +698,6 @@ body {
     }
     #notificacoes{
         right: inherit;
-
+        
     }
 }

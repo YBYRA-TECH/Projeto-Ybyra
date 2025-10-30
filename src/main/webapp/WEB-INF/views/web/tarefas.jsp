@@ -375,7 +375,6 @@
 
                         <div class="detalhes-tarefa">
                             <p><strong>Responsável:</strong> <%= tarefa.getResponsavel() %></p>
-                            <p><strong>Prioridade:</strong> Média</p>
                             <p><strong>Prazo de enceramento:</strong> <%= tarefa.getPrazo().format(formatter) %></p>
                             <p><strong>Descrição:</strong> <%= tarefa.getDescricao() %></p>
                         </div>

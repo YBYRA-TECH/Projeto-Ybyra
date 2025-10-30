@@ -46,11 +46,11 @@ body {
 .area{
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    margin-top: 0.3rem;
+    width: 100%;  
+    margin-top: 0.3rem;  
 }
 .area a{
-    margin-left: 1.8rem;
+  margin-left: 1.8rem;  
 }
 #menu-notificacoes label{
     margin-right: 3rem;
@@ -74,8 +74,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 13rem;
-    background-color: #e6f3ff;
-    border: 2px dashed #a3c9ff;
+    background-color: #e6f3ff; 
+    border: 2px dashed #a3c9ff; 
     border-radius: 0.8rem;
     margin-bottom: 2rem;
     width: 96%;
@@ -83,13 +83,13 @@ body {
 }
 
 .preview-img {
-    width: 90%;
+    width: 90%; 
     max-width: 10rem; /* Limita o tamanho, se necessário */
     max-height: 30rem;
     height: auto;
     display: block;
     /* Adiciona uma borda levemente azul para simular o contorno da tabela */
-    border: 1px solid #d4d4d4;
+    border: 1px solid #d4d4d4; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -148,7 +148,7 @@ body {
     border-radius: 0.4rem;
     font-family: 'Geologica', sans-serif;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.4;    
     color: #192083;
     background-color: #ffffff;
     resize: none;
@@ -173,7 +173,7 @@ body {
 }
 
 .btn-enviar:hover {
-    transform: translateY(-2px);
+   transform: translateY(-2px);
 }
 .link-inserir{
     display: flex;
@@ -190,10 +190,10 @@ input{
 @media(max-width:1024px){
     .area-conteudo {
         flex-grow: 1;
-        padding: 1.3rem 1.5rem;
+        padding: 1.3rem 1.5rem; 
         margin: 1.2rem;
         height: 75vh;
-
+        
     }
     .painel-principal{
         display: block;
@@ -212,10 +212,10 @@ input{
 @media (max-width: 768px) {
     .area-conteudo {
         flex-grow: 1;
-        padding: 1.3rem 1.5rem;
+        padding: 1.3rem 1.5rem; 
         margin: 1.2rem;
         height: 75vh;
-
+        
     }
     .painel-principal{
         display: block;
@@ -229,6 +229,6 @@ input{
     .preview-img{
         width: 8rem;
     }
-
-
+    
+    
 }
