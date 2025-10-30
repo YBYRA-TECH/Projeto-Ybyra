@@ -19,7 +19,7 @@
     <label for="menu" class="menu-icon">☰</label>
     <nav class="menu-links" >
         <a href="#sec3">Conheça o App</a>
-        <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=telaSeparação">Cadastre-se</a>
+        <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=cadastro">Cadastre-se</a>
         <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=telaSeparaçãoEntrar" style="color: aliceblue; font-size: 1rem" id="botao-login">Acesse a sua conta</a>
     </nav>
 </header>

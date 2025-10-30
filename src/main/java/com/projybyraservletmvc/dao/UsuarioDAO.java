@@ -23,8 +23,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = "INSERT INTO usuario (email, cpf, nome, data_cadastro, data_nascimento, data_validade, id_industria, tempo_trabalho) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO usuario (email, cpf, nome,data_nascimento,id_industria,senha) " +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
@@ -32,11 +32,10 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
             pstmt.setString(1, usuario.getEmail());
             pstmt.setString(2, usuario.getCpf());
             pstmt.setString(3, usuario.getNome());
-            pstmt.setDate(4, Date.valueOf(usuario.getDataCadastro()));
-            pstmt.setDate(5, Date.valueOf(usuario.getDataNascimento()));
-            pstmt.setDate(6, usuario.getDataValidade());
-            pstmt.setInt(7, usuario.getIdIndustria());
-            pstmt.setInt(8, usuario.getTempoTrabalho());
+            pstmt.setDate(4, Date.valueOf(usuario.getDataNascimento()));
+            pstmt.setInt(5, usuario.getIdIndustria());
+            pstmt.setString(6, usuario.getSenha());
+
 
             return pstmt.executeUpdate() > 0;
 
