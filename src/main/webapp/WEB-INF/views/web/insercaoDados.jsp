@@ -25,7 +25,7 @@
 
         <nav class="menu-principal">
             <ul>
-                <li class="item-menu">
+                <li class="item-menu ativo">
                     <a href="<%= request.getContextPath() %>/pagina?nome=inicioBI">
                         <div class="box-icone">
                             <img src="<%= request.getContextPath() %>/assets/imgs/House.png" alt="Ícone Início" />
@@ -51,22 +51,28 @@
                     </a>
                 </li>
 
-                <li class="item-menu ativo">
+                <li class="item-menu">
                     <a href="<%= request.getContextPath() %>/pagina?nome=insercaoDados">
                         <div class="box-icone">
                             <img src="<%= request.getContextPath() %>/assets/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
                         </div>
-                        <span>Inserir</span>
-                        <span>Dados</span>
+                        <span>Inserir Dados</span>
                     </a>
                 </li>
-
                 <li class="item-menu">
-                    <a href="#">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/configuracoes.png" alt="Ícone Configurações" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_funcionario.png" alt="Ícone Funcionários" />
                         </div>
-                        <span>Configurações</span>
+                        <span>Funcionários</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=perfil">
+                        <div class="box-icone">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="Ícone Perfil" />
+                        </div>
+                        <span>Perfil</span>
                     </a>
                 </li>
             </ul>

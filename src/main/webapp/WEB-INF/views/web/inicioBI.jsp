@@ -20,7 +20,6 @@
             <span></span>
         </label>
         <label for="menu-icon" class="logo-logo">
-            <!-- ADICIONADO: id="logo" na imagem -->
             <img src="<%= request.getContextPath() %>/assets/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
         </label>
 
@@ -55,23 +54,29 @@
                 <li class="item-menu">
                     <a href="<%= request.getContextPath() %>/pagina?nome=insercaoDados">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/camera_insercao.png" alt="Ícone Inserir Dados" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
                         </div>
                         <span>Inserir Dados</span>
                     </a>
                 </li>
-
                 <li class="item-menu">
-                    <a href="#">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
                         <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/imgs/configuracoes.png" alt="Ícone Configurações" />
+                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_funcionario.png" alt="Ícone Funcionários" />
                         </div>
-                        <span>Configurações</span>
+                        <span>Funcionários</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="<%= request.getContextPath() %>/pagina?nome=perfil">
+                        <div class="box-icone">
+                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="Ícone Perfil" />
+                        </div>
+                        <span>Perfil</span>
                     </a>
                 </li>
             </ul>
         </nav>
-        <div class="overlay"></div>
     </aside>
 
     <main class="area-conteudo">

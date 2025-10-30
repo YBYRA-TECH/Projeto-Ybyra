@@ -17,7 +17,7 @@ body {
 /* ===== ÁREA DE CONTEÚDO ===== */
 .conteudo {
     flex-grow: 1;
-    padding: 0.8rem 0rem 1rem 3rem;
+    padding: 0.8rem 0 1rem 3rem;
     background-color: #f8fcff;
     border-radius: 1.25rem;
     margin: 1.2rem;
