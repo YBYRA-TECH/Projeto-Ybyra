@@ -14,20 +14,7 @@
     <title>YBYRA TECH</title>
 </head>
 <body>
-<header>
-    <img
-            src="<%= request.getContextPath() %>/assets/imgs/Nova%20logo.png"
-            alt="Logo Ybyra Tech"
-            style="width: 8.125rem; max-width: 35vw; height: auto"
-    />
-    <input type="checkbox" id="menu">
-    <label for="menu" class="menu-icon">☰</label>
-    <nav class="menu-links" >
-        <a href="<%= request.getContextPath() %>/index.jsp">Conheça o App</a>
-        <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=telaSeparação">Cadastre-se</a>
-        <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=telaSeparaçãoEntrar" style="color: aliceblue; font-size: 1rem" id="botao-login">Acesse a sua conta</a>
-    </nav>
-</header>
+<jsp:include page="../includes/header.jsp"/>
 
 <main>
     <div id="container">

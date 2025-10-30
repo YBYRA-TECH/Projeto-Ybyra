@@ -1,5 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: murilofonseca-ieg
+  Date: 30/10/2025
+  Time: 19:58
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,19 +18,11 @@
 <body>
 <jsp:include page="../includes/header.jsp"/>
 <main>
-    <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=login">
+    <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=cadastro">
         <div class="industria">
             <h2>Indústria</h2>
             <p>Cadastre-se como uma indústria parceira.</p>
-            <button type="button">Continuar como Indústria</button>
-        </div>
-    </a>
-
-    <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=loginUsuario">
-        <div class="usuario">
-            <h2>Usuário</h2>
-            <p>Cadastre-se como um usuário para acessar o app.</p>
-            <button type="button">Continuar como Usuário</button>
+            <button type="button">Cadastrar sua Indústria</button>
         </div>
     </a>
 </main>
