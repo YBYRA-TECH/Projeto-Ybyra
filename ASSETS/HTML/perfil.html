@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/ASSETS/imgs/Nova_logo_sem_tech.png" type="image/x-icon" />
     <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css">
-    <link rel="stylesheet" href="/ASSETS/CSS/add_alterarUsuario.css" />
+    <link rel="stylesheet" href="/ASSETS/CSS/perfil.css" />
     <title>YBYRA TECH</title>
 </head>
 
@@ -54,27 +54,27 @@
                     <li class="item-menu">
                         <a href="/ASSETS/HTML/insercaoDados.html">
                             <div class="box-icone">
-                                <img src="/ASSETS/imgs/camera_insercao.png" alt="Ícone Inserir Dados" ">
+                                <img src="/ASSETS/imgs/camera_insercao.png" alt="Ícone Inserir Dados" >
                             </div>
                             <span>Inserir Dados</span>
                         </a>
                     </li>
-                    <li class=" item-menu ativo">
-                        <a href="funcionarios.html">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/icone_funcionario.png" alt="Ícone Configurações" />
-                            </div>
-                            <span>Funcionários</span>
-                        </a>
-                    </li>
                     <li class=" item-menu">
-                        <a href="perfil.html">
-                            <div class="box-icone">
-                                <img src="/ASSETS/imgs/icone_usuario.png" alt="Ícone Configurações" />
-                            </div>
-                            <span>Perfil</span>
-                        </a>
-                    </li>
+                      <a href="funcionarios.html">
+                          <div class="box-icone">
+                              <img src="/ASSETS/imgs/icone_funcionario.png" alt="Ícone Configurações" />
+                          </div>
+                          <span>Funcionários</span>
+                      </a>
+                  </li>
+                  <li class=" item-menu ativo">
+                      <a href="perfil.html">
+                          <div class="box-icone">
+                              <img src="/ASSETS/imgs/icone_usuario.png" alt="Ícone Configurações" />
+                          </div>
+                          <span>Perfil</span>
+                      </a>
+                  </li>
                 </ul>
             </nav>
         </aside>
@@ -82,10 +82,9 @@
         <main class="area-conteudo">
             <div class="conteudo-principal-header">
                 <!-- adicionado o icone de voltar para a pagina de alterar tarefa da industria -->
-                <a href="/ASSETS/HTML/funcionarios.html">
-                    <img src="/ASSETS/imgs/voltar.png" alt="voltar" id="voltar">
-                </a>
-                <h1>Adicionar</h1>
+                <div class="area-titulo-pagina">
+                    <h1>Alterar</h1>
+                </div>
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
                     <label for="menu-notificacoes">
@@ -105,33 +104,27 @@
                     <div class="formulario-detalhes">
 
                         <div class="area-detalhes">
-                            <h3 class="subtitulo-secao">Dados do Usuário</h3>
+                            <h3 class="subtitulo-secao">Dados da Indústria</h3>
                             <div class="detalhes-campos">
                                 <div>
                                     <div class="campo">
-                                        <label for="nome">Nome Completo</label>
+                                        <label for="nome">Nome</label>
                                        <input type="text " id="nome" placeholder="Digite o nome completo">
                                     </div>
 
                                     <div class="campo">
-                                        <label for="cpf">Cpf</label>
-                                        <input type="text" id="cpf" value="" placeholder="Digite o cpf">
+                                        <label for="cpf">Cnpj</label>
+                                        <input type="text" id="cpf" value="" placeholder="Digite o Cnpj">
                                     </div>
-                                    <div class="campo">
-                                        <label for="Area">Área</label>
-                                        <input type="text" id="Area" value="" placeholder="Digite a sua área">
-                                    </div>
+                                   
                                 </div>
                                 <div>
                                     <div class="campo">
-                                        <label for="email">Email/Telefone</label>
-                                        <input type="email" value="" id="email" placeholder="Digite o Email ou Telefone">
+                                        <label for="email">Email</label>
+                                        <input type="email" value="" id="email" placeholder="Digite o Email">
                                            
                                     </div>
-                                    <div class="campo">
-                                        <label for="data-nas">Data de Nascimento</label>
-                                        <input type="date" id="data-nas" value="">
-                                    </div>
+                                   
                                     
                                     <div class="campo">
                                         <label for="">Senha</label>
