@@ -41,6 +41,9 @@ body {
     /* margin-top: 0.3rem; */
 }
 .painel{
+    display: flex;
+    justify-content: center;
+    width: 100%;
     margin-top: 1rem;
 }
 .painel h1{
@@ -52,8 +55,6 @@ body {
 /* ===== IFRAME ===== */
 .painel iframe {
     border-radius: 0.5rem;
-    overflow-x: auto;
-    overflow-y: auto;
     width: 73%;
     height: 35rem;
 }

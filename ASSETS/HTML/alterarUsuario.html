@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/ASSETS/imgs/Nova logo Sem tech.png" type="image/x-icon" />
     <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css">
-    <link rel="stylesheet" href="/ASSETS/CSS/telaAdd_Alterar.css" />
+    <link rel="stylesheet" href="/ASSETS/CSS/add_alterarUsuario.css" />
     <title>YBYRA TECH</title>
 </head>
 
@@ -42,7 +42,7 @@
                         </a>
                     </li>
 
-                    <li class="item-menu ativo">
+                    <li class="item-menu">
                         <a href="/ASSETS/HTML/tarefas.html">
                             <div class="box-icone">
                                 <img src="/ASSETS/imgs/clipboard.png  " alt="Ícone Tarefas" />
@@ -59,7 +59,7 @@
                             <span>Inserir Dados</span>
                         </a>
                     </li>
-                    <li class=" item-menu">
+                    <li class=" item-menu ativo">
                         <a href="configuraçoes.html">
                             <div class="box-icone">
                                 <img src="/ASSETS/imgs/configuracoes.png" alt="Ícone Configurações" />
@@ -74,10 +74,10 @@
         <main class="area-conteudo">
             <div class="conteudo-principal-header">
                 <!-- adicionado o icone de voltar para a pagina de alterar tarefa da industria -->
-                <a href="/ASSETS/HTML/tarefas.html">
+                <a href="/ASSETS/HTML/configuraçoes.html">
                     <img src="/ASSETS/imgs/voltar.png" alt="voltar" id="voltar">
                 </a>
-                <h1>Adicionar</h1>
+                <h1>Alterar</h1>
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
                     <label for="menu-notificacoes">
@@ -97,47 +97,43 @@
                     <div class="formulario-detalhes">
 
                         <div class="area-detalhes">
-                            <h3 class="subtitulo-secao">Detalhes</h3>
+                            <h3 class="subtitulo-secao">Dados do Usuário</h3>
                             <div class="detalhes-campos">
                                 <div>
                                     <div class="campo">
-                                        <label for="">Prioridade</label>
-                                        <select class="filtro-select">
-                                            <option value="" disabled selected hidden>Prioridade</option>
-                                            <option value="">Não Iniciada</option>
-                                            <option value="">Em Andamento</option>
-                                            <option value="">Concluída</option>
-                                        </select>
+                                        <label for="nome">Nome Completo</label>
+                                       <input type="text " id="nome" placeholder="Digite o nome completo">
                                     </div>
 
                                     <div class="campo">
-                                        <label for="nome-tarefa">Nome da Tarefa</label>
-                                        <input type="text" id="nome-tarefa" value="" placeholder="Digite o Nome da Tarefa">
+                                        <label for="cpf">Cpf</label>
+                                        <input type="text" id="cpf" value="" placeholder="Digite o cpf">
+                                    </div>
+                                    <div class="campo">
+                                        <label for="">Senha</label>
+                                        <input type="password" id="senha" value="" placeholder="Digite a senha">
                                     </div>
                                 </div>
                                 <div>
                                     <div class="campo">
-                                        <label for="responsavel">Responsável</label>
-                                        <input type="text" value="" id="responsavel"
-                                            placeholder="Digite o Nome do Responsável">
+                                        <label for="email">Email/Telefone</label>
+                                        <input type="email" value="" id="email" placeholder="Digite o Email ou Telefone">
+                                           
                                     </div>
                                     <div class="campo">
-                                        <label for="data-tarefa">Data de enceramento</label>
-                                        <input type="date" id="data-tarefa" value="">
+                                        <label for="data-nas">Data de Nascimento</label>
+                                        <input type="date" id="data-nas" value="">
+                                    </div>
+                                    
+                                    <div class="campo">
+                                        <label for="confirma-senha">Confirme a senha</label>
+                                        <input type="password" id="confirma-senha" value="" placeholder="Confirme a senha">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="area-descricao">
-                            <h3 class="subtitulo-secao">Descrição</h3>
-                            <h3 style="opacity: 0;">Espaço</h3>
-                            <textarea class="texto-descricao" placeholder="coloque aqui a descrição da tarefa"></textarea>
-
-                            <a href="/ASSETS/HTML/tarefas.html" class="link-inserir">
-                                <button class="btn-enviar">Confirmar</button>
-                            </a>
-                        </div>
+                     
                     </div>
                 </form>
             </section>

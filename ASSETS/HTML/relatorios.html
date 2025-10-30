@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class=" item-menu">
-                    <a href="#">
+                    <a href="configuraçoes.html">
                         <div class="box-icone">
                             <img src="/ASSETS/imgs/configuracoes.png" alt="Ícone Configurações" />
                         </div>
@@ -86,7 +86,7 @@
               <option value="">Tarde</option>
               <option value="">Noite</option>
             </select>
-            <select name="prioridade" id="prioridade" title="Prioridade">
+            <select name="prioridade" id="prioridade" title="Eficiência">
               <option value="" disabled selected hidden>Eficiência</option>
               <option value="">Baixa</option>
               <option value="">Média</option>
@@ -99,7 +99,29 @@
               </button>
             </div>
               <form action="" method="post">
-                <button id="apagarTodos">Apagar todos</button>
+                <label for="modal-apagar-todos-1" class="btn-apagar-todos">Apagar Relatório</label>
+                <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos-1" />
+                <div class="modal-overlay">
+                    <div class="menu-lixo">
+                        <div class="menu-lixo-icone">
+                            <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+                        </div>
+                        <h1>Deseja excluir TODOS as lotes?</h1>
+                        <p>
+                            Esta ação não pode ser desfeita. Todos os dados desta coluna serão
+                            permanentemente removidos.
+                        </p>
+                      
+                        <div class="info-item">
+                            <strong>Total de lotes:</strong>
+                            <span>4 lotes</span>
+                        </div>
+                        <div class="buttons">
+                            <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
+                            <button type="submit" class="btn-excluir">Sim</button>
+                        </div>
+                    </div>
+                </div>
               </form>
           </div>
           <div class="area-icones">

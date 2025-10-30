@@ -1,111 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="/ASSETS/imgs/Nova logo Sem tech.png" type="image/x-icon" />
-  <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/ASSETS/imgs/Nova logo Sem tech.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css" />
     <link rel="stylesheet" href="/ASSETS/CSS/insercaoDados.css" />
-  <title>YBYRA TECH</title>
-</head>
+    <title>YBYRA TECH</title>
+  </head>
 
-<body>
-  <div class="painel-principal">
-    <aside class="barra-lateral">
-      <input type="checkbox" id="menu">
-      <label for="menu" class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <label for="menu-icon" class="logo-logo">
-        <img src="/ASSETS/imgs/Nova logo.png" alt="Logo YBYRA TECH" id="logo" />
-      </label>
+  <body>
+    <div class="painel-principal">
+      <aside class="barra-lateral">
+        <input type="checkbox" id="menu" />
+        <label for="menu" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <label for="menu-icon" class="logo-logo">
+          <img
+            src="/ASSETS/imgs/Nova logo.png"
+            alt="Logo YBYRA TECH"
+            id="logo"
+          />
+        </label>
         <nav class="menu-principal">
-            <ul>
-                <li class="item-menu">
-                    <a href="/ASSETS/HTML/inicioBI.html">
-                        <div class="box-icone">
-                            <img src="/ASSETS/imgs/House.png" alt="Ícone Início" />
-                        </div>
-                        <span>Início</span>
-                    </a>
-                </li>
-                <li class="item-menu">
-                    <a href="/ASSETS/HTML/relatorios.html">
-                        <div class="box-icone">
-                            <img src="/ASSETS/imgs/document.png" alt="Ícone relatorios" />
-                        </div>
-                        <span>Relatórios</span>
-                    </a>
-                </li>
+          <ul>
+            <li class="item-menu">
+              <a href="/ASSETS/HTML/inicioBI.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/House.png" alt="Ícone Início" />
+                </div>
+                <span>Início</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="/ASSETS/HTML/relatorios.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/document.png" alt="Ícone relatorios" />
+                </div>
+                <span>Relatórios</span>
+              </a>
+            </li>
 
-                <li class="item-menu">
-                    <a href="/ASSETS/HTML/tarefas.html">
-                        <div class="box-icone">
-                            <img src="/ASSETS/imgs/clipboard.png  " alt="Ícone Tarefas" />
-                        </div>
-                        <span>Tarefas</span>
-                    </a>
-                </li>
+            <li class="item-menu">
+              <a href="/ASSETS/HTML/tarefas.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/clipboard.png  " alt="Ícone Tarefas" />
+                </div>
+                <span>Tarefas</span>
+              </a>
+            </li>
 
-                <li class="item-menu ativo">
-                    <a href="/ASSETS/HTML/insercaoDados.html">
-                        <div class="box-icone">
-                            <img src="/ASSETS/imgs/camera_insercao.png" alt="Ícone Inserir Dados" ">
-                        </div>
-                        <span>Inserir</span>
-                        <span>Dados</span>
-                    </a>
-                </li>
-                <li class=" item-menu">
-                    <a href="#">
-                        <div class="box-icone">
-                            <img src="/ASSETS/imgs/configuracoes.png" alt="Ícone Configurações" />
-                        </div>
-                        <span>Configurações</span>
-                    </a>
-                </li>
-            </ul>
+            <li class="item-menu ativo">
+              <a href="/ASSETS/HTML/insercaoDados.html">
+                <div class="box-icone">
+                  <img src="/ASSETS/imgs/camera_insercao.png" alt="Ícone Inserir
+                  Dados" ">
+                </div>
+                <span>Inserir</span>
+                <span>Dados</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="configuraçoes.html">
+                <div class="box-icone">
+                  <img
+                    src="/ASSETS/imgs/configuracoes.png"
+                    alt="Ícone Configurações"
+                  />
+                </div>
+                <span>Configurações</span>
+              </a>
+            </li>
+          </ul>
         </nav>
-    </aside>
+      </aside>
 
-
-    <main class="area-conteudo">
-      <div class="conteudo-principal-header">
-        <header class="header-principal">
-          <h1>Inserção de relatorios</h1>
-          <div class="area-icones">
-            <input type="checkbox" id="menu-notificacoes">
-            <label for="menu-notificacoes">
-              <img src="/ASSETS/imgs/notificacoes.png" alt="Notificações" title="Notificações">
-            </label>
-            <div id="notificacoes">
-              <h1>Notificações</h1>
-              <div>Murilo adicionou uma tarefa</div>
-              <div>Guilherme concluiu uma tarefa</div>
-              <div>Emilly concluiu uma tarefa</div>
+      <main class="area-conteudo">
+        <div class="conteudo-principal-header">
+          <header class="header-principal">
+            <h1>Inserção de relatorios</h1>
+            <div class="area-icones">
+              <input type="checkbox" id="menu-notificacoes" />
+              <label for="menu-notificacoes">
+                <img
+                  src="/ASSETS/imgs/notificacoes.png"
+                  alt="Notificações"
+                  title="Notificações"
+                />
+              </label>
+              <div id="notificacoes">
+                <h1>Notificações</h1>
+                <div>Murilo adicionou uma tarefa</div>
+                <div>Guilherme concluiu uma tarefa</div>
+                <div>Emilly concluiu uma tarefa</div>
+              </div>
             </div>
-          </div>
-        </header>
-      </div>
-
-      <section class="painel">
-
-        <div class="area-upload-arquivo">
-          <input type="file" id="upload" placeholder="Escolher arquivo" />
-          <a href="/ASSETS/HTML/TelainserirDados.html"><button class="btn-escolher-arquivo" title="Confirmar Arquivo">Confimar</button></a>
-
+          </header>
         </div>
-        <h1>Recentes</h1>
-        <div class="area-upload-recentes">
+
+        <section class="painel">
+          <div class="area-upload-arquivo">
+            <input type="file" id="upload" placeholder="Escolher arquivo" />
+            <a href="/ASSETS/HTML/TelainserirDados.html"
+              ><button class="btn-escolher-arquivo" title="Confirmar Arquivo">
+                Confimar
+              </button></a
+            >
+          </div>
+          <h1>Recentes</h1>
+          <div class="area-upload-recentes">
           <img src="/ASSETS/imgs/imagem modelo arquivo .jpg" alt="imagem papel" title="imagem">
           <p>Digitalizar novos documentos</p>
         </div>
-      </section>
-    </main>
-  </div>
-</body>
+          <!-- Parte apartir de quando o usuario inserir o relatorio -->
+        <!-- <div class="relatorios-recentes">
+          <div class="relatorio-item">
+            <h3>Controle_de_produção</h3>
+            <span>Felipe Augusto</span>
+          </div>
+          
+          <label for="modal-relatorio-1" class="icone-lixeira">
+            <img
+              src="/ASSETS/imgs/Trash.png"
+              alt="Excluir"
+              title="Excluir relatório"
+            />
+          </label>
+        </div>
 
+
+        <input type="checkbox" class="menu-lixeira" id="modal-relatorio-1" />
+        <div class="modal-overlay">
+          <div class="menu-lixo">
+            <div class="menu-lixo-icone">
+              <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
+            </div>
+            <h1>Deseja excluir o relatório?</h1>
+            <p>
+              Esta ação não pode ser desfeita. Todos os dados serão
+              permanentemente removidos.
+            </p>
+            <div class="info-item">
+              <strong>Nome do arquivo:</strong>
+              <span>Controle_de_produção</span>
+            </div>
+            <div class="info-item">
+              <strong>Responsável:</strong>
+              <span>Felipe Augusto</span>
+            </div>
+            <div class="buttons">
+              <label for="modal-relatorio-1" class="btn-cancelar">Não</label>
+              <button type="button" class="btn-excluir">Sim</button>
+            </div>
+          </div>
+        </div> -->
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
