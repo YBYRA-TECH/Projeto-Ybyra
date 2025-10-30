@@ -28,7 +28,7 @@
             <span></span>
         </label>
         <label for="menu-icon" class="logo-logo">
-            <img src="<%= request.getContextPath() %>/assets/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
+            <img src="<%= request.getContextPath() %>/assets/imgs/Nova_logo.png" alt="Logo YBYRA TECH" id="logo" />
         </label>
 
         <nav class="menu-principal">
