@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
- String paginaAtual = request.getParameter("paginaAtual");
+ String paginaAtual = (String) request.getAttribute("paginaAtual");
 
  if (paginaAtual == null){
      paginaAtual = "";

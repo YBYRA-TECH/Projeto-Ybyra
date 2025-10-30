@@ -13,72 +13,11 @@
 
 <body>
 <div class="painel-principal">
-    <aside class="barra-lateral">
-        <input type="checkbox" id="menu">
-        <label for="menu" class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        <label for="menu-icon" class="logo-logo">
-            <img src="<%= request.getContextPath() %>/assets/imgs/Nova%20logo.png" alt="Logo YBYRA TECH" id="logo" />
-        </label>
 
-        <nav class="menu-principal">
-            <ul>
-                <li class="item-menu ativo">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=inicioBI">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/House.png" alt="Ícone Início" />
-                        </div>
-                        <span>Início</span>
-                    </a>
-                </li>
-                <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=relatorios">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/document.png" alt="Ícone relatorios" />
-                        </div>
-                        <span>Relatórios</span>
-                    </a>
-                </li>
+    <%= request.setAttribute("paginaAtual", "relatorios")%>
 
-                <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=tarefas">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/clipboard.png" alt="Ícone Tarefas" />
-                        </div>
-                        <span>Tarefas</span>
-                    </a>
-                </li>
+    <jsp:include page="../includes/aside.jsp"/>
 
-                <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=insercaoDados">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/camera_insercao.png" alt="Ícone Inserir Dados">
-                        </div>
-                        <span>Inserir Dados</span>
-                    </a>
-                </li>
-                <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_funcionario.png" alt="Ícone Funcionários" />
-                        </div>
-                        <span>Funcionários</span>
-                    </a>
-                </li>
-                <li class="item-menu">
-                    <a href="<%= request.getContextPath() %>/pagina?nome=perfil">
-                        <div class="box-icone">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="Ícone Perfil" />
-                        </div>
-                        <span>Perfil</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
 
     <main class="area-conteudo">
 
