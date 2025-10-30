@@ -16,9 +16,7 @@ import java.util.List;
 //METODOS CRUD PARA A TABELA RELATORIOS
 public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Relatorios> {
 
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
+
     Relatorios relatorios = new Relatorios();
 
     @Override

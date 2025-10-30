@@ -12,12 +12,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//METODOS CRUD PARA A TABELA TELEFONE
 public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone> {
 
 
-
-    //INSERE NOVO TELEFONE NO BANCO DE DADOS
     @Override
     public boolean inserir(Telefone telefone){
         ConexaoBD conexao = new ConexaoBD(); 
@@ -45,7 +43,7 @@ public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone>
         }
     }
 
-    // BUSCA TODOS OS TELEFONES CADASTRADOS NO BANCO DE DADOS
+
     @Override
     public List<Telefone> buscar() {
         List<Telefone> lista = new ArrayList<>();
@@ -81,7 +79,6 @@ public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone>
     return lista;
 }
 
-    // ATUALIZA UM NÚMERO DE TELEFONE CADASTRADO NO BANCO DE DADOS COM BASE NO ID DO USUÁRIO
     @Override
     public boolean atualizar(Telefone telefone) {
         ConexaoBD conexao = new ConexaoBD();
@@ -107,7 +104,6 @@ public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone>
     }
 
 
-    // DELETA UM TELEFONE DO BANCO DE DADOS COM BASE NO NÚMERO 
     @Override
     public int deletar(String numero) {
         ConexaoBD conexao = new ConexaoBD(); 
