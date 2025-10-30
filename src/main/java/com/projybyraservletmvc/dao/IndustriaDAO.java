@@ -14,11 +14,6 @@ import java.util.List;
 
 
 public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Industria>{
-    
-
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
 
 
     @Override
