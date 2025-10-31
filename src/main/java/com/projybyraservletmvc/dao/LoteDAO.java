@@ -20,7 +20,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            // Removido 'eficiencia' pois é um campo GENERATED (calculado automaticamente)
             String sql = "INSERT INTO lote (descricao, responsavel, producao, planejado, " +
                     "problemas, observacao, id_industria, id_relatorio) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -160,13 +159,11 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         return lote;
     }
 
-    // ATUALIZAR - Removido eficiência (campo GENERATED) e corrigido ordem dos parâmetros
     public boolean atualizar(Lote lote) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            // Removido eficiência do UPDATE pois é calculado automaticamente
             String sql = "UPDATE lote SET descricao = ?, responsavel = ?, producao = ?, " +
                     "planejado = ?, problemas = ?, observacao = ?, id_relatorio = ? " +
                     "WHERE id_lote = ? AND id_industria = ?";
@@ -192,7 +189,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
-    // DELETAR - Adicionado validação de indústria para segurança
     public int deletar(int id, int id_industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -202,7 +198,7 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, id);
-            pstmt.setInt(2, id_industria); // Validação de segurança
+            pstmt.setInt(2, id_industria);
 
             if (pstmt.executeUpdate() > 0) {
                 return 1;
@@ -217,7 +213,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
-    // Sobrecarga para manter compatibilidade (sem validação de indústria)
     public int deletar(int id) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -241,7 +236,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
-    // BUSCAR POR RELATÓRIO
     public List<Lote> buscarPorRelatorio(int idRelatorio) {
         List<Lote> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -286,7 +280,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         return lista;
     }
 
-    // BUSCAR COM PARÂMETRO (SEARCH/FILTER)
     public List<Lote> buscarComParametro(String texto, int id_industria) {
         List<Lote> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();

@@ -14,7 +14,7 @@
 <body>
 <div class="painel-principal">
 
-    <% request.setAttribute("paginaAtual", "inicio"); %>
+    <% request.setAttribute("paginaAtual", "inicioBI"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
 

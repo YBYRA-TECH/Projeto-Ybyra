@@ -59,7 +59,7 @@ public class WebController extends HttpServlet {
             carregarUsuariosPorIndustria(request);
         }
 
-        if ("configuracoes".equals(nome)) {
+        if ("funcionarios".equals(nome)) {
 
             carregarUsuariosPorIndustria(request);
 

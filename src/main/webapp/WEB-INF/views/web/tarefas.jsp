@@ -21,7 +21,6 @@
     List<Tarefas> tarefas = (List<Tarefas>) request.getAttribute("tarefas");
     List<Usuario> usuarios = (List<Usuario>) request.getAttribute(("usuarios"));
 
-    // PEGANDO O ID DO USUÁRIO LOGADO DA SESSÃO
     Integer idUsuarioLogado = (Integer) session.getAttribute("usuarioID");
 %>
 

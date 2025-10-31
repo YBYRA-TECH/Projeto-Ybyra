@@ -28,7 +28,6 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
-            //efetuando a insercao no banco
             pstmt.setString(1, usuario.getEmail());
             pstmt.setString(2, usuario.getCpf());
             pstmt.setString(3, usuario.getNome());
