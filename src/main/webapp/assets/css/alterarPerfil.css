@@ -156,6 +156,47 @@ body {
     transform: scale(1.05);
 }
 
+
+.mensagem-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+
+.campo-ajuda {
+    color: #666;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+}
+
+.area-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.btn-cancelar {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #5a6268;
+}
+
 /* --- Responsividade --- */
 @media (max-width: 1340px) and (max-height: 800px) {
     .painel-principal {

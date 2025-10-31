@@ -18,7 +18,7 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("=== Processando alteração de indústria ===");
+        System.out.println(" Processando alteração de indústria");
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
@@ -32,22 +32,19 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
         }
 
         String nome = request.getParameter("nome");
-        String cnpj = request.getParameter("cnpj");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
         System.out.println("Dados recebidos:");
         System.out.println("Nome: " + nome);
-        System.out.println("CNPJ: " + cnpj);
         System.out.println("Email: " + email);
 
         if (nome == null || nome.isEmpty() ||
-                cnpj == null || cnpj.isEmpty() ||
                 email == null || email.isEmpty()) {
 
             System.out.println("Erro: Campos obrigatórios vazios!");
             request.setAttribute("erro", "Preencha todos os campos obrigatórios!");
-            request.getRequestDispatcher("/WEB-INF/views/perfil/telaAlterar.jsp").forward(request, response);
+            request.getRequestDispatcher("/pagina?nome=perfil").forward(request, response);
             return;
         }
 
@@ -55,7 +52,6 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
             Industria industria = new Industria();
             industria.setIdIndustria(industriaLogada.getIdIndustria());
             industria.setNome(nome);
-            industria.setCnpj(cnpj);
             industria.setEmail(email);
 
             if (senha != null && !senha.isEmpty()) {
@@ -64,26 +60,19 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
                     System.out.println("A senha está incorreta!");
                     request.setAttribute("erroSenha", "A senha precisa ter no mínimo 8 dígitos e um número!");
                     request.setAttribute("industria", industria);
-                    request.getRequestDispatcher("/WEB-INF/views/perfil/telaAlterar.jsp").forward(request, response);
+                    request.getRequestDispatcher("/pagina?nome=perfil").forward(request, response);
                     return;
                 }
             } else {
                 industria.setSenha(industriaLogada.getSenha());
             }
 
-            if (!industria.validarCnpj()) {
-                System.out.println("O CNPJ está incorreto!");
-                request.setAttribute("erroCnpj", "CNPJ inválido!");
-                request.setAttribute("industria", industria);
-                request.getRequestDispatcher("/WEB-INF/views/perfil/telaAlterar.jsp").forward(request, response);
-                return;
-            }
 
             if (!industria.validarEmail()) {
                 System.out.println("O email está incorreto!");
                 request.setAttribute("erroEmail", "Email inválido!");
                 request.setAttribute("industria", industria);
-                request.getRequestDispatcher("/WEB-INF/views/perfil/telaAlterar.jsp").forward(request, response);
+                request.getRequestDispatcher("/pagina?nome=perfil").forward(request, response);
                 return;
             }
 
@@ -104,7 +93,7 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
             } else {
                 System.out.println("Erro ao atualizar no banco!");
                 request.setAttribute("erro", "Erro ao atualizar dados. Tente novamente.");
-                request.getRequestDispatcher("/WEB-INF/views/perfil/telaAlterar.jsp").forward(request, response);
+                request.getRequestDispatcher("/pagina?nome=alterarPerfil").forward(request, response);
             }
 
         } catch (Exception e) {

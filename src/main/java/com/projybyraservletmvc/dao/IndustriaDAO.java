@@ -48,15 +48,14 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "UPDATE industria SET nome = ?, email = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
+            String sql = "UPDATE industria SET nome = ?, email = ?,senha = ? WHERE id_industria = ?";
             conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, industria.getNome());
             stmt.setString(2, industria.getEmail());
-            stmt.setString(3, industria.getCnpj());
+            stmt.setString(3, industria.getSenha());
             stmt.setInt(4, industria.getIdIndustria());
-            stmt.setString(5, industria.getSenha());
 
             if (stmt.executeUpdate() > 0) return true;
             return false;
@@ -68,7 +67,6 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
     }
 
-    //BUSCA TODAS AS INDÚSTRIAS CADASTRADAS NO BANCO DE DADOS
     @Override
     public List<Industria> buscar(){
         ConexaoBD conexao = new ConexaoBD();
@@ -106,7 +104,6 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         return lista;
     }
 
-    // DELETA UMA INDÚSTRIA DO BANCO DE DADOS COM BASE NO ID
     @Override
     public int deletar(int idIndustria){
         ConexaoBD conexao = new ConexaoBD();
@@ -156,6 +153,8 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
                         rs.getString("senha")
                 );
 
+                industria.setIdIndustria(rs.getInt("id_industria"));
+
                 return industria;
             } else {
                 System.out.println("Usuário não encontrado ou senha incorreta");
@@ -166,8 +165,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
             e.printStackTrace();
         } finally {
             conexaoBD.desconectar(conn);
-
-            }
+        }
         return null;
     }
 
@@ -198,7 +196,8 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = "SELECT id_industria FROM industria WHERE id_industria = ?";
+
+            String sql = "SELECT * FROM industria WHERE id_industria = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, id_industria);
             ResultSet rs = pstmt.executeQuery();
@@ -210,7 +209,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
                         rs.getString("email"),
                         rs.getString("senha")
                 );
-
+                industria.setIdIndustria(rs.getInt("id_industria"));
 
                 return industria;
             }
@@ -222,6 +221,4 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
         return null;
     }
-
-
 }

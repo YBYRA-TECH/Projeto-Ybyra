@@ -12,9 +12,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="<% request.getContextPath(); %>/assets/imgs/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="<% request.getContextPath(); %>/assets/css/globalApp.css">
-    <link rel="stylesheet" href="<% request.getContextPath(); %>/assets/css/alterarPerfil.css"/>
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/alterarPerfil.css"/>
     <title>YBYRA TECH</title>
 </head>
 
@@ -27,15 +27,14 @@
 
         <section class="painel">
             <div id="conteudo">
-                <img src="<%request.getContextPath(); %>/assets/imgs/icone_usuario.png" alt="imagem vazio">
+                <img src="<%= request.getContextPath() %>/assets/imgs/icone_usuario.png" alt="imagem vazio">
                 <h1>Aqui você irá alterar os dados da indústria!</h1>
-
-                <a href="<% request.getContextPath(); %>/pagina?nome=perfil">
+                <form method="post" action="<%= request.getContextPath() %>/DadosAlterarIndustria">
                     <div id="button">
-                        <form method="post" action="<% request.getContextPath(); %>/DadosAlterarIndustria"></form>
                         <button type="submit">Alterar</button>
+
                     </div>
-                </a>
+                </form>
             </div>
         </section>
 

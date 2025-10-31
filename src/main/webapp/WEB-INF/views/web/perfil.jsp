@@ -1,11 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: murilofonseca-ieg
-  Date: 30/10/2025
-  Time: 17:47
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.projybyraservletmvc.model.Industria" %>
+<%
+    // Buscar dados da indústria logada
+    Industria industria = (Industria) request.getAttribute("industria");
+    if (industria == null) {
+        industria = (Industria) session.getAttribute("industriaLogada");
+    }
+
+    // Valores para os campos
+    String nome = (industria != null) ? industria.getNome() : "";
+    String email = (industria != null) ? industria.getEmail() : "";
+    String cnpj = (industria != null) ? industria.getCnpj() : "";
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -14,31 +20,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/perfil.css" />
-    <title>YBYRA TECH</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/perfil.css?<%=System.currentTimeMillis()%>" />
+    <title>Alterar Perfil - YBYRA TECH</title>
 </head>
 
 <body>
 <div class="painel-principal">
-
-    <% request.setAttribute("paginaAtual", "perfil");
-
-        String nome = (String) session.getAttribute("nome");
-        String email = (String) session.getAttribute("email");
-        String cnpj = (String) session.getAttribute("cnpj");
-        String senha = (String) session.getAttribute("senha");
-
-
-
-    %>
+    <% request.setAttribute("paginaAtual", "perfil"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
-
 
     <main class="area-conteudo">
         <div class="conteudo-principal-header">
             <div class="area-titulo-pagina">
-                <h1>Alterar</h1>
+                <h1>Alterar Perfil</h1>
             </div>
             <div class="area-icones">
                 <input type="checkbox" id="menu-notificacoes">
@@ -55,7 +50,26 @@
         </div>
 
         <section class="detalhes-upload-painel">
-            <form action="<% request.getContextPath(); %>/AlterarIndustria" method="post">
+
+            <% if (request.getAttribute("erro") != null) { %>
+            <div class="mensagem-erro">
+                <%= request.getAttribute("erro") %>
+            </div>
+            <% } %>
+
+            <% if (request.getAttribute("erroEmail") != null) { %>
+            <div class="mensagem-erro">
+                <%= request.getAttribute("erroEmail") %>
+            </div>
+            <% } %>
+
+            <% if (request.getAttribute("erroSenha") != null) { %>
+            <div class="mensagem-erro">
+                <%= request.getAttribute("erroSenha") %>
+            </div>
+            <% } %>
+
+            <form action="<%= request.getContextPath() %>/AlterarIndustria" method="post">
                 <div class="formulario-detalhes">
 
                     <div class="area-detalhes">
@@ -64,29 +78,43 @@
                             <div>
                                 <div class="campo">
                                     <label for="nome">Nome</label>
-                                    <input type="text" id="nome" placeholder="Digite o nome completo" name="nome" value="<%= nome%>" required>
+                                    <input type="text"
+                                           id="nome"
+                                           placeholder="Digite o nome completo"
+                                           name="nome"
+                                           value="<%= nome %>"
+                                           required>
                                 </div>
 
-                                <div class="campo">
-                                    <label for="cpf">Cnpj</label>
-                                <input type="text" id="cpf" placeholder="Digite o Cnpj" name="cnpj" value="<%= cnpj%>" required>
-                                </div>
-
-                            </div>
                             <div>
                                 <div class="campo">
                                     <label for="email">Email</label>
-                                    <input type="email"  id="email" placeholder="Digite o Email" name="email" value="email" required>
+                                    <input type="email"
+                                           id="email"
+                                           placeholder="Digite o Email"
+                                           name="email"
+                                           value="<%= email %>"
+                                           required>
                                 </div>
 
                                 <div class="campo">
-                                    <label for="senha">Senha</label>
-                                    <input type="password" id="senha"  placeholder="Digite a senha" name="senha" value="senha" required>
+                                    <label for="senha">Senha (deixe em branco para manter a atual)</label>
+                                    <input type="password"
+                                           id="senha"
+                                           placeholder="Nova senha (opcional)"
+                                           name="senha">
+                                    <small class="campo-ajuda">Mínimo 8 caracteres e pelo menos 1 número</small>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn-enviar">Alterar Indústria </button>
+
+                    <div class="area-botoes">
+                        <button type="submit" class="btn-enviar">Salvar Alterações</button>
+                        <a href="<%= request.getContextPath() %>/pagina?nome=perfil" class="btn-cancelar">
+                            Cancelar
+                        </a>
+                    </div>
                 </div>
             </form>
         </section>

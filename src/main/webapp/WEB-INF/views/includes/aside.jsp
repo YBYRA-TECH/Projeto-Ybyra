@@ -43,6 +43,7 @@
                     <span>Início</span>
                 </a>
             </li>
+            <% if(!isIndustria){%>
             <li class="item-menu <%= paginaAtual.equals("relatorios")? "ativo" : ""%>">
                 <a href="<%= request.getContextPath() %>/pagina?nome=relatorios">
                     <div class="box-icone">
@@ -69,6 +70,7 @@
                     <span>Inserir Dados</span>
                 </a>
             </li>
+            <%}%>
             <% if(isIndustria){%>
             <li class="item-menu <%= paginaAtual.equals("funcionarios")? "ativo" : ""%>">
                 <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
