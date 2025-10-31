@@ -46,7 +46,7 @@
         </div>
 
         <section class="detalhes-upload-painel">
-            <form action="" method="post">
+            <form action="../industriaSERVLET/AlterarIndustria" method="post">
                 <div class="formulario-detalhes">
 
                     <div class="area-detalhes">
@@ -55,28 +55,29 @@
                             <div>
                                 <div class="campo">
                                     <label for="nome">Nome</label>
-                                    <input type="text" id="nome" placeholder="Digite o nome completo">
+                                    <input type="text" id="nome" placeholder="Digite o nome completo" name="nome" required>
                                 </div>
 
                                 <div class="campo">
                                     <label for="cpf">Cnpj</label>
-                                    <input type="text" id="cpf" value="" placeholder="Digite o Cnpj">
+                                    <input type="text" id="cpf" value="" placeholder="Digite o Cnpj" name="cnpj" required>
                                 </div>
 
                             </div>
                             <div>
                                 <div class="campo">
                                     <label for="email">Email</label>
-                                    <input type="email" value="" id="email" placeholder="Digite o Email">
+                                    <input type="email" value="" id="email" placeholder="Digite o Email" name="email" required>
                                 </div>
 
                                 <div class="campo">
                                     <label for="senha">Senha</label>
-                                    <input type="password" id="senha" value="" placeholder="Digite a senha">
+                                    <input type="password" id="senha" value="" placeholder="Digite a senha" name="senha" required>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <button type="submit" class="btn-enviar">Alterar Indústria </button>
                 </div>
             </form>
         </section>

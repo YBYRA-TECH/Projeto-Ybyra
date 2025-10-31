@@ -71,12 +71,13 @@
             </li>
             <% if(isIndustria){%>
             <li class="item-menu <%= paginaAtual.equals("funcionarios")? "ativo" : ""%>">
+                <button type="submit">
                 <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
                     <div class="box-icone">
                         <img src="<%= request.getContextPath() %>/assets/imgs/icone_funcionario.png" alt="Ícone Funcionários" />
                     </div>
                     <span>Funcionários</span>
-                </a>
+            </a></button>
             </li>
 
 

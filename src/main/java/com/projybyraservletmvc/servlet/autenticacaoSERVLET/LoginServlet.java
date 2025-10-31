@@ -1,5 +1,5 @@
 
-package com.projybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet.autenticacaoSERVLET;
 
 import java.io.IOException;
 

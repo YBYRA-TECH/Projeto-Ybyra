@@ -11,6 +11,8 @@ public class Lote {
     private int id_industria;
     private int id_relatorio;
     private double eficiencia;
+    private String turno;
+    private String area;
 
 
     //Getters e Setters
@@ -87,7 +89,21 @@ public class Lote {
         return producao;
     }
 
+    public String getArea() {
+        return area;
+    }
 
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
@@ -111,6 +127,17 @@ public class Lote {
         this.planejado = planejado;
         this.producao = producao;
         this.problemas = problemas;
+
+    }
+
+    public Lote(int id_lote,String descricao,String turno, String area,String responsavel, double eficiencia){
+        this.id_lote = id_lote;
+        this.descricao = descricao;
+        this.eficiencia = eficiencia;
+        this.turno = turno;
+        this.area = area;
+        this.responsavel = responsavel;
+
 
     }
 }

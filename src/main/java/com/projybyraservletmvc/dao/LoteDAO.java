@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +15,17 @@ import com.projybyraservletmvc.model.Lote;
 
 public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
 
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
-
     public boolean inserir(Lote lote) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = "INSERT INTO lote (descricao, responsavel, producao, planejado, problemas, observacao, id_industria, id_relatorio, eficiencia) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            // Removido 'eficiencia' pois é um campo GENERATED (calculado automaticamente)
+            String sql = "INSERT INTO lote (descricao, responsavel, producao, planejado, " +
+                    "problemas, observacao, id_industria, id_relatorio) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
-
             ps.setString(1, lote.getDescricao());
             ps.setString(2, lote.getResponsavel());
             ps.setInt(3, lote.getProducao());
@@ -37,7 +34,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             ps.setString(6, lote.getObservacao());
             ps.setInt(7, lote.getId_industria());
             ps.setInt(8, lote.getId_relatorio());
-            ps.setDouble(9, lote.getEficiencia());
 
             return ps.executeUpdate() > 0;
 
@@ -49,32 +45,76 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
-    public List<Lote> buscar() {
+    public List<Lote> buscarPorIndustria(int id_industria) {
         List<Lote> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM lote ORDER BY id_lote ASC";
+            String sql = "SELECT l.id_lote, l.descricao, r.turno, r.area, l.responsavel, " +
+                    "l.eficiencia, l.producao, l.planejado, l.problemas, l.observacao, " +
+                    "l.id_industria, l.id_relatorio " +
+                    "FROM lote l " +
+                    "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " +
+                    "WHERE l.id_industria = ? " +
+                    "ORDER BY l.id_lote";
 
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_industria);
+
+            ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id_lote");
-                String descricao = rs.getString("descricao");
+                String indice = rs.getString("descricao");
+                String turno = rs.getString("turno");
+                String area = rs.getString("area");
                 String responsavel = rs.getString("responsavel");
-                int producao = rs.getInt("producao");
-                int planejado = rs.getInt("planejado");
-                int problemas = rs.getInt("problemas");
-                String observacao = rs.getString("observacao");
-                int idIndustria = rs.getInt("id_industria");
-                int idRelatorio = rs.getInt("id_relatorio");
-                double eficiencia = rs.getDouble("eficiencia");
+                Double desempenho = rs.getDouble("eficiencia");
 
-                Lote lote = new Lote(descricao, responsavel, producao, planejado, problemas,
-                        observacao, idIndustria, idRelatorio, eficiencia);
-                lote.setId_lote(id);
+                Lote lote = new Lote(id, indice, turno, area, responsavel, desempenho);
+
+                lote.setProducao(rs.getInt("producao"));
+                lote.setPlanejado(rs.getInt("planejado"));
+                lote.setProblemas(rs.getInt("problemas"));
+                lote.setObservacao(rs.getString("observacao"));
+                lote.setId_industria(rs.getInt("id_industria"));
+                lote.setId_relatorio(rs.getInt("id_relatorio"));
+
+                lista.add(lote);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
+    public List<Lote> buscar() {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        Lote lote = null;
+        List<Lote> lista = new ArrayList<>();
+
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT l.*, r.turno, r.area " +
+                    "FROM lote l " +
+                    "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " ;
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                lote = new Lote(
+                        rs.getInt("id_lote"),
+                        rs.getString("descricao"),
+                        rs.getString("turno"),
+                        rs.getString("area"),
+                        rs.getString("responsavel"),
+                        rs.getDouble("eficiencia")
+                );
+
                 lista.add(lote);
             }
 
@@ -92,24 +132,24 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         Lote lote = null;
         try {
             conn = conexao.conectar();
-            String sql = "SELECT * FROM lote WHERE id_lote = ?";
+            String sql = "SELECT l.*, r.turno, r.area " +
+                    "FROM lote l " +
+                    "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " +
+                    "WHERE l.id_lote = ?";
+
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
                 lote = new Lote(
+                        rs.getInt("id_lote"),
                         rs.getString("descricao"),
+                        rs.getString("turno"),
+                        rs.getString("area"),
                         rs.getString("responsavel"),
-                        rs.getInt("producao"),
-                        rs.getInt("planejado"),
-                        rs.getInt("problemas"),
-                        rs.getString("observacao"),
-                        rs.getInt("id_industria"),
-                        rs.getInt("id_relatorio"),
                         rs.getDouble("eficiencia")
                 );
-                lote.setId_lote(rs.getInt("id_lote"));
             }
 
         } catch (SQLException e) {
@@ -120,14 +160,16 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         return lote;
     }
 
+    // ATUALIZAR - Removido eficiência (campo GENERATED) e corrigido ordem dos parâmetros
     public boolean atualizar(Lote lote) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = "UPDATE lote SET descricao = ?, responsavel = ?, producao = ?, planejado = ?, " +
-                    "problemas = ?, observacao = ?, id_industria = ?, id_relatorio = ?, eficiencia = ? " +
-                    "WHERE id_lote = ?";
+            // Removido eficiência do UPDATE pois é calculado automaticamente
+            String sql = "UPDATE lote SET descricao = ?, responsavel = ?, producao = ?, " +
+                    "planejado = ?, problemas = ?, observacao = ?, id_relatorio = ? " +
+                    "WHERE id_lote = ? AND id_industria = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, lote.getDescricao());
@@ -136,10 +178,9 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             pstmt.setInt(4, lote.getPlanejado());
             pstmt.setInt(5, lote.getProblemas());
             pstmt.setString(6, lote.getObservacao());
-            pstmt.setInt(7, lote.getId_industria());
-            pstmt.setInt(8, lote.getId_relatorio());
-            pstmt.setDouble(9, lote.getEficiencia());
-            pstmt.setInt(10, lote.getId_lote());
+            pstmt.setInt(7, lote.getId_relatorio());
+            pstmt.setInt(8, lote.getId_lote());
+            pstmt.setInt(9, lote.getId_industria()); // Validação de segurança
 
             return pstmt.executeUpdate() > 0;
 
@@ -151,6 +192,32 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
+    // DELETAR - Adicionado validação de indústria para segurança
+    public int deletar(int id, int id_industria) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "DELETE FROM lote WHERE id_lote = ? AND id_industria = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id);
+            pstmt.setInt(2, id_industria); // Validação de segurança
+
+            if (pstmt.executeUpdate() > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
+
+    // Sobrecarga para manter compatibilidade (sem validação de indústria)
     public int deletar(int id) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -174,65 +241,40 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
-    public List<Lote> buscarPorIndustria(int idIndustria) {
-        List<Lote> lista = new ArrayList<>();
-        ConexaoBD conexao = new ConexaoBD();
-        Connection conn = null;
-        try {
-            conn = conexao.conectar();
-            String sql = "SELECT * FROM lote WHERE id_industria = ? ORDER BY id_lote ASC";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, idIndustria);
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                Lote lote = new Lote(
-                        rs.getString("descricao"),
-                        rs.getString("responsavel"),
-                        rs.getInt("producao"),
-                        rs.getInt("planejado"),
-                        rs.getInt("problemas"),
-                        rs.getString("observacao"),
-                        rs.getInt("id_industria"),
-                        rs.getInt("id_relatorio"),
-                        rs.getDouble("eficiencia")
-                );
-                lote.setId_lote(rs.getInt("id_lote"));
-                lista.add(lote);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            conexao.desconectar(conn);
-        }
-        return lista;
-    }
-
+    // BUSCAR POR RELATÓRIO
     public List<Lote> buscarPorRelatorio(int idRelatorio) {
         List<Lote> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = "SELECT * FROM lote WHERE id_relatorio = ? ORDER BY id_lote ASC";
+            String sql = "SELECT l.*, r.turno, r.area " +
+                    "FROM lote l " +
+                    "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " +
+                    "WHERE l.id_relatorio = ? " +
+                    "ORDER BY l.id_lote ASC";
+
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, idRelatorio);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 Lote lote = new Lote(
+                        rs.getInt("id_lote"),
                         rs.getString("descricao"),
+                        rs.getString("turno"),
+                        rs.getString("area"),
                         rs.getString("responsavel"),
-                        rs.getInt("producao"),
-                        rs.getInt("planejado"),
-                        rs.getInt("problemas"),
-                        rs.getString("observacao"),
-                        rs.getInt("id_industria"),
-                        rs.getInt("id_relatorio"),
                         rs.getDouble("eficiencia")
                 );
-                lote.setId_lote(rs.getInt("id_lote"));
+
+                lote.setProducao(rs.getInt("producao"));
+                lote.setPlanejado(rs.getInt("planejado"));
+                lote.setProblemas(rs.getInt("problemas"));
+                lote.setObservacao(rs.getString("observacao"));
+                lote.setId_industria(rs.getInt("id_industria"));
+                lote.setId_relatorio(rs.getInt("id_relatorio"));
+
                 lista.add(lote);
             }
 
@@ -243,38 +285,55 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
         return lista;
     }
-//    public List<Lote> buscarComParametro(String texto) {
-//        List<Lote> lista = new ArrayList<>();
-//        ConexaoBD conexao = new ConexaoBD();
-//        Connection conn = null;
-//        try {
-//            conn = conexao.conectar();
-//            String sql = "SELECT * FROM lote WHERE where descricao LIKE ? OR responsavel LIKE ? OR id_lote LIKE ?";
-//            PreparedStatement pstmt = conn.prepareStatement(sql);
-//            pstmt.setInt(1, idRelatorio);
-//            ResultSet rs = pstmt.executeQuery();
-//
-//            while (rs.next()) {
-//                Lote lote = new Lote(
-//                        rs.getString("descricao"),
-//                        rs.getString("responsavel"),
-//                        rs.getInt("producao"),
-//                        rs.getInt("planejado"),
-//                        rs.getInt("problemas"),
-//                        rs.getString("observacao"),
-//                        rs.getInt("id_industria"),
-//                        rs.getInt("id_relatorio"),
-//                        rs.getDouble("eficiencia")
-//                );
-//                lote.setId_lote(rs.getInt("id_lote"));
-//                lista.add(lote);
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } finally {
-//            conexao.desconectar(conn);
-//        }
-//        return lista;
-//    }
+
+    // BUSCAR COM PARÂMETRO (SEARCH/FILTER)
+    public List<Lote> buscarComParametro(String texto, int id_industria) {
+        List<Lote> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT l.*, r.turno, r.area " +
+                    "FROM lote l " +
+                    "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " +
+                    "WHERE l.id_industria = ? AND " +
+                    "(l.descricao ILIKE ? OR l.responsavel ILIKE ? OR CAST(l.id_lote AS TEXT) LIKE ?) " +
+                    "ORDER BY l.id_lote";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_industria);
+            String parametro = "%" + texto + "%";
+            pstmt.setString(2, parametro);
+            pstmt.setString(3, parametro);
+            pstmt.setString(4, parametro);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Lote lote = new Lote(
+                        rs.getInt("id_lote"),
+                        rs.getString("descricao"),
+                        rs.getString("turno"),
+                        rs.getString("area"),
+                        rs.getString("responsavel"),
+                        rs.getDouble("eficiencia")
+                );
+
+                lote.setProducao(rs.getInt("producao"));
+                lote.setPlanejado(rs.getInt("planejado"));
+                lote.setProblemas(rs.getInt("problemas"));
+                lote.setObservacao(rs.getString("observacao"));
+                lote.setId_industria(rs.getInt("id_industria"));
+                lote.setId_relatorio(rs.getInt("id_relatorio"));
+
+                lista.add(lote);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
 }

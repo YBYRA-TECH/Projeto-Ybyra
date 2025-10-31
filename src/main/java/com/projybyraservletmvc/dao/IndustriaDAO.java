@@ -193,5 +193,35 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
     }
 
+    public Industria buscarPorID(int id_industria) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT id_industria FROM industria WHERE id_industria = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_industria);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                Industria industria = new Industria(
+                        rs.getString("nome"),
+                        rs.getString("cnpj"),
+                        rs.getString("email"),
+                        rs.getString("senha")
+                );
+
+
+                return industria;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return null;
+    }
+
 
 }

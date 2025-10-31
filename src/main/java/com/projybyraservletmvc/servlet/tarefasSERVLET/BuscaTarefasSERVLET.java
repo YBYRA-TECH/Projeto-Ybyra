@@ -31,7 +31,7 @@ public class BuscaTarefasSERVLET extends HttpServlet {
                 List<Tarefas> tarefasBusca = dao.buscarComParametro(busca);
 
                 session.setAttribute("tarefas", tarefasBusca);
-                session.setAttribute("buscaAtiva", true); // ← NOVO: Flag indicando que é busca
+                session.setAttribute("buscaAtiva", true);
 
                 System.out.println("Tarefas encontradas: " + tarefasBusca.size());
             }
