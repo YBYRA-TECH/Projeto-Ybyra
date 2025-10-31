@@ -14,11 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<% request.getContextPath(); %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<% request.getContextPath(); %>/assets/css/globalApp.css">
-    <link rel="stylesheet" href="<% request.getContextPath(); %>/assets/css/alterarPerfil.css" />
+    <link rel="stylesheet" href="<% request.getContextPath(); %>/assets/css/alterarPerfil.css"/>
     <title>YBYRA TECH</title>
 </head>
 
 <body>
+<% request.setAttribute("paginaAtual", "perfil"); %>
+
 <div class="painel-principal">
     <jsp:include page="../includes/aside.jsp"/>
     <main class="area-conteudo">
@@ -30,7 +32,8 @@
 
                 <a href="<% request.getContextPath(); %>/pagina?nome=perfil">
                     <div id="button">
-                        <button>Alterar</button>
+                        <form method="post" action="<% request.getContextPath(); %>/DadosAlterarIndustria"></form>
+                        <button type="submit">Alterar</button>
                     </div>
                 </a>
             </div>

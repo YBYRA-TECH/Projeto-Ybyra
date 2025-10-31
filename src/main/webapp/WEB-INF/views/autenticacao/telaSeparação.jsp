@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/global.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/telaSeparação.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/telaSeparação.css?<%=System.currentTimeMillis()%>"/>
     <title>YBYRA TECH</title>
 </head>
 <body>

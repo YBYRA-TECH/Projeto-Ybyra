@@ -10,7 +10,7 @@
             type="image/x-icon"
     />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/login.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/global.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/global.css?<%=System.currentTimeMillis()%>" />
 
     <title>YBYRA TECH</title>
 </head>

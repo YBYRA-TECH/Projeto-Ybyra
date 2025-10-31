@@ -21,7 +21,16 @@
 <body>
 <div class="painel-principal">
 
-    <% request.setAttribute("paginaAtual", "perfil"); %>
+    <% request.setAttribute("paginaAtual", "perfil");
+
+        String nome = (String) session.getAttribute("nome");
+        String email = (String) session.getAttribute("email");
+        String cnpj = (String) session.getAttribute("cnpj");
+        String senha = (String) session.getAttribute("senha");
+
+
+
+    %>
 
     <jsp:include page="../includes/aside.jsp"/>
 
@@ -46,7 +55,7 @@
         </div>
 
         <section class="detalhes-upload-painel">
-            <form action="../industriaSERVLET/AlterarIndustria" method="post">
+            <form action="<% request.getContextPath(); %>/AlterarIndustria" method="post">
                 <div class="formulario-detalhes">
 
                     <div class="area-detalhes">
@@ -55,24 +64,24 @@
                             <div>
                                 <div class="campo">
                                     <label for="nome">Nome</label>
-                                    <input type="text" id="nome" placeholder="Digite o nome completo" name="nome" required>
+                                    <input type="text" id="nome" placeholder="Digite o nome completo" name="nome" value="<%= nome%>" required>
                                 </div>
 
                                 <div class="campo">
                                     <label for="cpf">Cnpj</label>
-                                    <input type="text" id="cpf" value="" placeholder="Digite o Cnpj" name="cnpj" required>
+                                <input type="text" id="cpf" placeholder="Digite o Cnpj" name="cnpj" value="<%= cnpj%>" required>
                                 </div>
 
                             </div>
                             <div>
                                 <div class="campo">
                                     <label for="email">Email</label>
-                                    <input type="email" value="" id="email" placeholder="Digite o Email" name="email" required>
+                                    <input type="email"  id="email" placeholder="Digite o Email" name="email" value="email" required>
                                 </div>
 
                                 <div class="campo">
                                     <label for="senha">Senha</label>
-                                    <input type="password" id="senha" value="" placeholder="Digite a senha" name="senha" required>
+                                    <input type="password" id="senha"  placeholder="Digite a senha" name="senha" value="senha" required>
                                 </div>
                             </div>
                         </div>
