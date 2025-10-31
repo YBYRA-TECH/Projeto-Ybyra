@@ -135,20 +135,4 @@ public class Usuario {
                 "}\n";
     }
 
-    public boolean validarSenha(){
-        String senha = getSenha();
-        return senha.matches("^(?=.*\\d).{8,}$");
-    }
-
-    public boolean validarEmail(){
-        String email = getEmail();
-        // Formato básico de email
-        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
-    }
-
-    public boolean validarCpf(){
-        String cpf = getCpf();
-        String cnpjLimpo = cpf.replaceAll("\\D", "");
-        return cnpjLimpo.matches("^\\d{11}$");
-    }
 }
