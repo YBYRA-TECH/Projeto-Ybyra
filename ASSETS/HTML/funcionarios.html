@@ -72,7 +72,7 @@
             <li class=" item-menu ativo">
               <a href="funcionarios.html">
                   <div class="box-icone">
-                      <img src="/ASSETS/imgs/icone_funcionario.png" alt="Ícone Configurações" />
+                      <img src="/ASSETS/imgs/icone_funcionario.png" alt="Ícone Funcionários" />
                   </div>
                   <span>Funcionários</span>
               </a>
@@ -80,7 +80,7 @@
           <li class=" item-menu">
               <a href="perfil.html">
                   <div class="box-icone">
-                      <img src="/ASSETS/imgs/icone_usuario.png" alt="Ícone Configurações" />
+                      <img src="/ASSETS/imgs/icone_usuario.png" alt="Ícone Perfil" />
                   </div>
                   <span>Perfil</span>
               </a>
@@ -97,7 +97,7 @@
             <form class="campo-busca">
               <input
                 type="text"
-                placeholder="Buscar Tarefas"
+                placeholder="Buscar Funcionários"
                 id="buscar"
                 title="Busca"
               />
@@ -131,14 +131,14 @@
           </div>
         </header>
 
-        <!-- BOARD DE TAREFAS + PESSOAS ONLINE -->
+        <!-- BOARD DE FUNCIONÁRIOS -->
         <section class="secao-board">
-          <!-- QUADRO KANBAN -->
-          <div class="quadro-tarefas">
+          <!-- QUADRO DE FUNCIONÁRIOS -->
+          <div class="quadro-usuarios">
             <!-- COLUNA: USUÁRIOS -->
-            <div class="coluna-status">
-              <div class="titulo-status">
-                <h3>Usuários</h3>
+            <div class="Usuarios">
+              <div class="titulo">
+                <h3>Funcionários</h3>
                 <label for="modal-apagar-todos-1" class="btn-apagar-todos"
                   >Apagar Todos</label
                 >
@@ -155,15 +155,15 @@
                   <div class="menu-lixo-icone">
                     <img src="/ASSETS/imgs/Trash.png" alt="Ícone Lixeira" />
                   </div>
-                  <h1>Deseja excluir TODOS os Usuários?</h1>
+                  <h1>Deseja excluir TODOS os Funcionários?</h1>
                   <p>
                     Esta ação não pode ser desfeita. Todos os dados desta coluna
                     serão permanentemente removidos.
                   </p>
                   
                   <div class="info-item">
-                    <strong>Total de Usuários:</strong>
-                    <span>2 tarefas</span>
+                    <strong>Total de Funcionários:</strong>
+                    <span>4 funcionários</span>
                   </div>
                   <div class="buttons">
                     <label for="modal-apagar-todos-1" class="btn-cancelar"
@@ -177,10 +177,10 @@
               <!-- GRID DE USUÁRIOS -->
               <div class="usuarios-grid">
                 <!-- USUÁRIO 1 -->
-                <div class="tarefa nao-iniciada">
-                  <label for="tarefa-1" class="cabecalho-tarefa">
-                    <span class="titulo-tarefa">Felipe Augusto</span>
-                    <div class="acoes-tarefa">
+                <div class="card-usuario">
+                  <label for="usuario-1" class="cabecalho-usuario">
+                    <span class="titulo-usuario">Felipe Augusto</span>
+                    <div class="acoes-usuario">
                       <a
                         href="/ASSETS/HTML/alterarUsuario.html"
                         class="btn-acao btn-editar"
@@ -191,7 +191,7 @@
                           title="Alterar"
                         />
                       </a>
-                      <label for="modal-1" class="btn-acao icone-lixeira">
+                      <label for="modal-usuario-1" class="btn-acao icone-lixeira">
                         <img
                           src="/ASSETS/imgs/Trash.png"
                           alt="lixeira"
@@ -201,8 +201,8 @@
                     </div>
                   </label>
 
-                  <!-- CHECKBOX E MODAL DA TAREFA -->
-                  <input type="checkbox" class="menu-lixeira" id="modal-1" />
+                  <!-- CHECKBOX E MODAL DO USUÁRIO -->
+                  <input type="checkbox" class="menu-lixeira" id="modal-usuario-1" />
                   <div class="modal-overlay">
                     <div class="menu-lixo">
                       <div class="menu-lixo-icone">
@@ -215,7 +215,7 @@
                       </p>
                       <div class="info-item">
                         <strong>Nome:</strong>
-                        <span>Seu amor</span>
+                        <span>Felipe Augusto</span>
                       </div>
                       <div class="info-item">
                           <strong>Data de Nascimento:</strong>
@@ -223,14 +223,14 @@
                       </div>
                     <div class="info-item">
                       <strong>Área:</strong>
-                      <span>Quente</span>
+                      <span>Desenvolvimento</span>
                     </div>
                       <div class="info-item">
                         <strong>Localização:</strong>
                         <span>Carapicuiba</span>
                       </div>
                       <div class="buttons">
-                        <label for="modal-1" class="btn-cancelar">Não</label>
+                        <label for="modal-usuario-1" class="btn-cancelar">Não</label>
                         <button type="submit" class="btn-excluir">Sim</button>
                       </div>
                     </div>
@@ -238,10 +238,10 @@
                 </div>
 
                 <!-- USUÁRIO 2 -->
-                <div class="tarefa nao-iniciada">
-                  <label for="tarefa-2" class="cabecalho-tarefa">
-                    <span class="titulo-tarefa">Murilo Rosa</span>
-                    <div class="acoes-tarefa">
+                <div class="card-usuario">
+                  <label for="usuario-2" class="cabecalho-usuario">
+                    <span class="titulo-usuario">Murilo Rosa</span>
+                    <div class="acoes-usuario">
                       <a
                         href="/ASSETS/HTML/alterarUsuario.html"
                         class="btn-acao btn-editar"
@@ -252,7 +252,7 @@
                           title="Alterar"
                         />
                       </a>
-                      <label for="modal-2" class="btn-acao icone-lixeira">
+                      <label for="modal-usuario-2" class="btn-acao icone-lixeira">
                         <img
                           src="/ASSETS/imgs/Trash.png"
                           alt="lixeira"
@@ -262,8 +262,8 @@
                     </div>
                   </label>
 
-                  <!-- CHECKBOX E MODAL DA TAREFA -->
-                  <input type="checkbox" class="menu-lixeira" id="modal-2" />
+                  <!-- CHECKBOX E MODAL DO USUÁRIO -->
+                  <input type="checkbox" class="menu-lixeira" id="modal-usuario-2" />
                   <div class="modal-overlay">
                     <div class="menu-lixo">
                       <div class="menu-lixo-icone">
@@ -276,7 +276,7 @@
                       </p>
                       <div class="info-item">
                         <strong>Nome:</strong>
-                        <span>Seu pai</span>
+                        <span>Murilo Rosa</span>
                       </div>
                       <div class="info-item">
                           <strong>Data de Nascimento:</strong>
@@ -284,24 +284,25 @@
                       </div>
                     <div class="info-item">
                       <strong>Área:</strong>
-                      <span>Quente</span>
+                      <span>Design</span>
                     </div>
                       <div class="info-item">
                         <strong>Localização:</strong>
                         <span>Carapicuiba</span>
                       </div>
                       <div class="buttons">
-                        <label for="modal-2" class="btn-cancelar">Não</label>
+                        <label for="modal-usuario-2" class="btn-cancelar">Não</label>
                         <button type="submit" class="btn-excluir">Sim</button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- usuario 3 -->
-                <div class="tarefa nao-iniciada">
-                  <label for="tarefa-2" class="cabecalho-tarefa">
-                    <span class="titulo-tarefa">David Reche</span>
-                    <div class="acoes-tarefa">
+
+                <!-- USUARIO 3 -->
+                <div class="card-usuario">
+                  <label for="usuario-3" class="cabecalho-usuario">
+                    <span class="titulo-usuario">David Reche</span>
+                    <div class="acoes-usuario">
                       <a
                         href="/ASSETS/HTML/alterarUsuario.html"
                         class="btn-acao btn-editar"
@@ -312,7 +313,7 @@
                           title="Alterar"
                         />
                       </a>
-                      <label for="modal-2" class="btn-acao icone-lixeira">
+                      <label for="modal-usuario-3" class="btn-acao icone-lixeira">
                         <img
                           src="/ASSETS/imgs/Trash.png"
                           alt="lixeira"
@@ -322,8 +323,8 @@
                     </div>
                   </label>
 
-                  <!-- CHECKBOX E MODAL DA TAREFA -->
-                  <input type="checkbox" class="menu-lixeira" id="modal-2" />
+                  <!-- CHECKBOX E MODAL DO USUÁRIO -->
+                  <input type="checkbox" class="menu-lixeira" id="modal-usuario-3" />
                   <div class="modal-overlay">
                     <div class="menu-lixo">
                       <div class="menu-lixo-icone">
@@ -336,7 +337,7 @@
                       </p>
                       <div class="info-item">
                         <strong>Nome:</strong>
-                        <span>Seu pai</span>
+                        <span>David Reche</span>
                       </div>
                       <div class="info-item">
                           <strong>Data de Nascimento:</strong>
@@ -344,24 +345,25 @@
                       </div>
                     <div class="info-item">
                       <strong>Área:</strong>
-                      <span>Quente</span>
+                      <span>Gestão</span>
                     </div>
                       <div class="info-item">
                         <strong>Localização:</strong>
                         <span>Carapicuiba</span>
                       </div>
                       <div class="buttons">
-                        <label for="modal-2" class="btn-cancelar">Não</label>
+                        <label for="modal-usuario-3" class="btn-cancelar">Não</label>
                         <button type="submit" class="btn-excluir">Sim</button>
                       </div>
                     </div>
                   </div>
                 </div>
+
                 <!-- USUARIO 4 -->
-                <div class="tarefa nao-iniciada">
-                  <label for="tarefa-2" class="cabecalho-tarefa">
-                    <span class="titulo-tarefa">Davi Lacerda</span>
-                    <div class="acoes-tarefa">
+                <div class="card-usuario">
+                  <label for="usuario-4" class="cabecalho-usuario">
+                    <span class="titulo-usuario">Davi Lacerda</span>
+                    <div class="acoes-usuario">
                       <a
                         href="/ASSETS/HTML/alterarUsuario.html"
                         class="btn-acao btn-editar"
@@ -372,7 +374,7 @@
                           title="Alterar"
                         />
                       </a>
-                      <label for="modal-2" class="btn-acao icone-lixeira">
+                      <label for="modal-usuario-4" class="btn-acao icone-lixeira">
                         <img
                           src="/ASSETS/imgs/Trash.png"
                           alt="lixeira"
@@ -382,8 +384,8 @@
                     </div>
                   </label>
 
-                  <!-- CHECKBOX E MODAL DA TAREFA -->
-                  <input type="checkbox" class="menu-lixeira" id="modal-2" />
+                  <!-- CHECKBOX E MODAL DO USUÁRIO -->
+                  <input type="checkbox" class="menu-lixeira" id="modal-usuario-4" />
                   <div class="modal-overlay">
                     <div class="menu-lixo">
                       <div class="menu-lixo-icone">
@@ -396,7 +398,7 @@
                       </p>
                       <div class="info-item">
                         <strong>Nome:</strong>
-                        <span>Seu pai</span>
+                        <span>Davi Lacerda</span>
                       </div>
                       <div class="info-item">
                           <strong>Data de Nascimento:</strong>
@@ -404,14 +406,14 @@
                       </div>
                     <div class="info-item">
                       <strong>Área:</strong>
-                      <span>Quente</span>
+                      <span>Suporte</span>
                     </div>
                       <div class="info-item">
                         <strong>Localização:</strong>
                         <span>Carapicuiba</span>
                       </div>
                       <div class="buttons">
-                        <label for="modal-2" class="btn-cancelar">Não</label>
+                        <label for="modal-usuario-4" class="btn-cancelar">Não</label>
                         <button type="submit" class="btn-excluir">Sim</button>
                       </div>
                     </div>

@@ -631,7 +631,7 @@ h3 {
   }
 }
 
-@media (max-height:1340px) and (max-width: 600px) {
+@media (max-height:1340px) and (max-width: 620px) {
   #item-menu{
     margin-left: 12%;
   }
@@ -1021,11 +1021,20 @@ h3 {
 }
 
 /* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
-@media (max-width: 1024px) {
+@media (max-width: 1064px) {
   main {
     padding-top: 5rem;
   }
+  .card {
+    padding: 2rem;
+    width: 18rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
+  }
 
+  .texto_fim {
+    font-size: 1.2rem;
+  }
   /* ===== SEÇÃO INTRODUÇÃO (EMPILHAMENTO) ===== */
   .sec_intro {
     height: auto;
@@ -1215,6 +1224,27 @@ h3 {
     margin-top: 2rem;
   }
 }
+@media (max-width: 930px) {
+  header img{
+    margin-left: 2%;
+  }
+  header label{
+    margin-right: 2%;
+  }
+  .card {
+    width: 70vw;
+    box-sizing: border-box;
+  }
+  .sec_intro {
+    background-size: 110% 100%;
+    padding-bottom: 3rem;
+  }
+  .dot {
+    margin-top: -2rem;
+    width: 3vrem;
+  }
+}
+
 
 /* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
 @media (max-width: 767px) {
