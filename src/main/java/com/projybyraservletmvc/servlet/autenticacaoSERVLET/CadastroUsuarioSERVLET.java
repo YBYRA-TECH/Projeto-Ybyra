@@ -3,10 +3,12 @@ package com.projybyraservletmvc.servlet.autenticacaoSERVLET;
 import com.projybyraservletmvc.dao.IndustriaDAO;
 import com.projybyraservletmvc.dao.UsuarioDAO;
 import com.projybyraservletmvc.model.Usuario;
+import com.projybyraservletmvc.util.VerificacoesUtil;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -61,7 +63,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             Usuario usuario = new Usuario(email, cpf, nome, data_nasc,senha,idIndustria);
 
             // VALIDAR CNPJ
-            if (!usuario.validarCpf()){
+            if (!VerificacoesUtil.validarCpf(cpf)){
                 System.out.println("O cpf está incorreto!");
                 request.setAttribute("erroCpf", "Ops! O cpf está incorreto!");
                 request.setAttribute("nome", nome);
@@ -73,7 +75,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             }
 
             // VALIDAR EMAIL
-            if (!usuario.validarEmail()){
+            if (!VerificacoesUtil.validarEmail(email)){
                 System.out.println("O email está incorreto!");
                 request.setAttribute("erroEmail", "Ops! O email está incorreto!");
                 request.setAttribute("nome", nome);
@@ -85,7 +87,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             }
 
             // VALIDAR SENHA
-            if (!usuario.validarSenha()){
+            if (!VerificacoesUtil.validarSenha(senha)){
                 System.out.println("A senha está incorreta!");
                 request.setAttribute("erroSenha", "Ops! A senha está incorreta! Ela precisa ter no mínimo 8 dígitos e um número");
                 request.setAttribute("nome", nome);
