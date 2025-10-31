@@ -149,6 +149,31 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         }
     }
 
+    public int deletarPorIndsutria(int id) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "DELETE FROM Usuario WHERE id_industria = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+
+            pstmt.setInt(1, id);
+            if (pstmt.executeUpdate() > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
+
+
     public int buscarID(String nome) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;

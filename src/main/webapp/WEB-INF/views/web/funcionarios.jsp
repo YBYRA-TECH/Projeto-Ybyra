@@ -9,6 +9,7 @@
 <%@ page import="com.projybyraservletmvc.model.Usuario" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@page import="java.util.List" %>
+<%@ page import="com.projybyraservletmvc.model.Industria" %>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -23,10 +24,12 @@
 
 <body>
 <%
+    Industria industriaLogada = (Industria) session.getAttribute("industriaLogada");
+    Integer id_industria = (industriaLogada != null) ? industriaLogada.getIdIndustria() : null;
+
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
 
-    Integer idUsuarioLogado = (Integer) session.getAttribute("usuarioID");
 %>
 <div class="container-principal">
 
@@ -96,7 +99,11 @@
                             </div>
                             <div class="buttons">
                                 <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
-                                <button type="submit" class="btn-excluir">Sim</button>
+                                <form action="<%= request.getContextPath() %>/excluirUsuario" method="post" style="display:inline;">
+                                    <input type="hidden" name="acao" value="excluirTodos"/>
+                                    <input type="hidden" name="id_industria" value="<%= id_industria %>" />
+                                    <button type="submit" class="btn-excluir">Sim</button>
+                                </form>
                             </div>
                         </div>
                     </div>
