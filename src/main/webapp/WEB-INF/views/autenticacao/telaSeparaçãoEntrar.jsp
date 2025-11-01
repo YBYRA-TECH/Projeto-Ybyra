@@ -15,7 +15,7 @@
     <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=login">
         <div class="industria">
             <h2>Indústria</h2>
-            <p>Cadastre-se como uma indústria parceira.</p>
+            <p>Entre como uma indústria parceira.</p>
             <button type="button">Continuar como Indústria</button>
         </div>
     </a>
@@ -23,7 +23,7 @@
     <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=loginUsuario">
         <div class="usuario">
             <h2>Usuário</h2>
-            <p>Cadastre-se como um usuário para acessar o app.</p>
+            <p>Entre como um usuário para acessar o app.</p>
             <button type="button">Continuar como Usuário</button>
         </div>
     </a>
