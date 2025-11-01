@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.projybyraservletmvc.dao.IndustriaDAO;
 import com.projybyraservletmvc.model.Industria;
 
+import com.projybyraservletmvc.util.VerificacoesUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -50,7 +51,7 @@ public class CadastroServlet extends HttpServlet {
             Industria industria = new Industria(nome, cnpj, email, senha);
 
             // VALIDAR CNPJ
-            if (!industria.validarCnpj()){
+            if (!VerificacoesUtil.validarCnpj(cnpj)){
                 System.out.println("O cnpj está incorreto!");
                 request.setAttribute("erroCnpj", "Ops! O cnpj está incorreto!");
                 request.setAttribute("nome", nome);
@@ -62,7 +63,7 @@ public class CadastroServlet extends HttpServlet {
             }
 
             // VALIDAR EMAIL
-            if (!industria.validarEmail()){
+            if (!VerificacoesUtil.validarEmail(email)){
                 System.out.println("O email está incorreto!");
                 request.setAttribute("erroEmail", "Ops! O email está incorreto!");
                 request.setAttribute("nome", nome);
@@ -74,7 +75,7 @@ public class CadastroServlet extends HttpServlet {
             }
 
             // VALIDAR SENHA
-            if (!industria.validarSenha()){
+            if (!VerificacoesUtil.validarSenha(senha)){
                 System.out.println("A senha está incorreta!");
                 request.setAttribute("erroSenha", "Ops! A senha está incorreta! Ela precisa ter no mínimo 8 dígitos e um número");
                 request.setAttribute("nome", nome);
