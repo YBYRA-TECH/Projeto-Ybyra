@@ -116,8 +116,15 @@
                         <div class="tarefa nao-iniciada">
                             <label for="tarefa-<%= u.getIdUsuario() %>" class="cabecalho-tarefa">
                                 <span class="titulo-tarefa"><%=u.getNome()%></span>
+
                                 <form action="/DadosAlterarUsuario" method="post">
+
                                 <div class="acoes-tarefa">
+
+                                    <input type="hidden" name="id_usuario" value="<%= u.getIdUsuario()%>">
+                                    <input type="hidden" name="nome" value="<%= u.getNome()%>">
+                                    <input type="hidden" name="email" value="<%= u.getEmail()%>">
+                                    <input type="hidden" name="senha" value="<%= u.getSenha()%>">
 
                                     <button type="submit" class="btn-acao btn-editar">
                                         <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar" />
