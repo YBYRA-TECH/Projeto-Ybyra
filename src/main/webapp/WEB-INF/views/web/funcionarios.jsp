@@ -95,7 +95,7 @@
                                 <%
                                     int contador = (usuarios != null) ? usuarios.size() : 0;
                                 %>
-                                <span><%= contador %> usuário<%= contador != 1 ? "s" : "" %></span>
+                                <span><%= contador %> Usuário<%= contador != 1 ? "s" : "" %></span>
                             </div>
                             <div class="buttons">
                                 <label for="modal-apagar-todos-1" class="btn-cancelar">Não</label>
@@ -116,8 +116,9 @@
                         <div class="tarefa nao-iniciada">
                             <label for="tarefa-<%= u.getIdUsuario() %>" class="cabecalho-tarefa">
                                 <span class="titulo-tarefa"><%=u.getNome()%></span>
-
+                                <form action="/DadosAlterarUsuario" method="post">
                                 <div class="acoes-tarefa">
+
                                     <button type="submit" class="btn-acao btn-editar">
                                         <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar" />
                                     </button>
@@ -125,6 +126,7 @@
                                         <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira" title="Lixeira" />
                                     </label>
                                 </div>
+                                </form>
                             </label>
 
                             <input type="checkbox" class="menu-lixeira" id="modal-<%= u.getIdUsuario() %>" />
@@ -158,7 +160,7 @@
                                         <label for="modal-<%= u.getIdUsuario() %>" class="btn-cancelar">Não</label>
                                         <form action="<%= request.getContextPath() %>/excluirUsuario" method="post" style="display:inline;">
                                             <input type="hidden" name="acao" value="excluir"/>
-                                            <input type="hidden" name="id" value="<%= u.getIdUsuario() %>" />
+                                            <input type="hidden" name="id_usuario" value="<%= u.getIdUsuario() %>" />
                                             <button type="submit" class="btn-excluir">Sim</button>
                                         </form>
                                     </div>
