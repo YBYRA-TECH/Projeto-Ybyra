@@ -255,7 +255,7 @@ main {
 
 .dot {
   margin-right: 4rem;
-  width: 7rem;
+  width: 8vw;
   height: 1rem;
   border-radius: 0.6rem;
   background: #c8d7ee;
@@ -466,7 +466,7 @@ main {
   text-align: center;
   max-width: 130rem;
   width: 25vw;
-  height: 100vh;
+  height: auto;
   padding: 2rem;
   gap: 0.8rem;
   border-radius: 30px;
@@ -623,7 +623,6 @@ h3 {
   .card_sobre {
     max-width: 30rem;
     width: 60vw;
-    height: 56vh;
   }
 
   #sec_sobre p {
@@ -631,16 +630,19 @@ h3 {
   }
 }
 
-@media (max-height:1340px) and (max-width: 600px) {
-  #item-menu{
+@media (max-height:1340px) and (max-width: 620px) {
+  #item-menu {
     margin-left: 12%;
   }
-  header img{
-    margin-left: 4%;
+
+  header img {
+    margin-left: 8%;
   }
-  header label{
+
+  header label {
     margin-right: 4%;
   }
+
   main {
     padding-top: 0;
   }
@@ -907,19 +909,10 @@ h3 {
     margin-right: 1rem;
     width: 4rem;
   }
-  
-  /* ===== SEÇÃO DECORATIVA ===== */
-  #imagem_decorativa {
-    height: 50vh;
-    background-image: url("/ASSETS/imgs/Polygon\ 25.png");
-    background-position: left;
-    background-repeat: no-repeat;
-  }
-  
+
   /* ===== SEÇÃO SOBRE ===== */
   #sec_sobre {
-  
-    background-image: url("/ASSETS/imgs/Fundo\ \ Sobre.png");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -941,28 +934,26 @@ h3 {
     justify-content: space-around;
     gap: 1.5rem;
   }
-  
+
   #card_sobre1 {
     background-color: white;
-    background-image: url('/ASSETS/imgs/imagem\ nossa\ missao.png');
     background-repeat: no-repeat;
     background-position: 0.5rem 22rem;
     background-size: 102%;
   }
-  
+
   #card_sobre2 {
     background-color: white;
   }
-  
+
   #card_sobre3 {
     margin-right: 3.5rem;
     background-color: white;
-    background-image: url('/ASSETS/imgs/imagem\ nossos\ valores.png');
     background-repeat: no-repeat;
     background-position: 8.5rem 19rem;
     background-size: 70%;
   }
-  
+
   .card_sobre {
     display: flex;
     flex-direction: column;
@@ -976,7 +967,7 @@ h3 {
     border-radius: 30px;
     box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   .titulo_card {
     margin-top: 1rem;
     font-family: "Montserrat", sans-serif;
@@ -985,7 +976,7 @@ h3 {
     background-clip: text;
     color: transparent;
   }
-  
+
   #sec_sobre p {
     margin-top: 1rem;
     font-size: clamp(1rem, 1.5vw, 1.2em);
@@ -995,7 +986,7 @@ h3 {
     line-height: 1.6;
     max-width: 23rem;
   }
-  
+
   /* ===== AJUSTES GERAIS ===== */
   a:hover {
     text-decoration: underline;
@@ -1021,9 +1012,20 @@ h3 {
 }
 
 /* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
-@media (max-width: 1024px) {
+@media (max-width: 1064px) {
   main {
     padding-top: 5rem;
+  }
+
+  .card {
+    padding: 2rem;
+    width: 18rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
+  }
+
+  .texto_fim {
+    font-size: 1.2rem;
   }
 
   /* ===== SEÇÃO INTRODUÇÃO (EMPILHAMENTO) ===== */
@@ -1103,33 +1105,18 @@ h3 {
     top: 0rem;
   }
 
-  .inputs input {
-    width: 120%;
+  .inputs {
+    width: 150%;
     padding: 1rem;
   }
 
-
-  /* Posicionamento dos inputs */
-  .inputs input:nth-of-type(1) {
-    grid-area: email;
-  }
-
-  .inputs input:nth-of-type(2) {
-    grid-area: telefone;
-  }
-
-  .inputs input:nth-of-type(3) {
-    margin-left: 28%;
-    grid-area: nome;
-  }
-
-  .inputs input:nth-of-type(4) {
-    grid-area: industria;
+  .inputs input {
+    width: 100%;
+    padding: 1rem;
   }
 
   #buttons {
-    grid-area: enviar;
-    margin-left: 74%;
+    margin-left: 4%;
   }
 
   #sec4 {
@@ -1140,14 +1127,14 @@ h3 {
   }
 
   #sec4 img {
-    width: 90vw;
+    width: 150vw;
     max-width: 40rem;
     margin-left: 10%;
   }
 
   #sec4 h1 {
     margin-bottom: 2rem;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.8rem, 5vw, 4rem);
   }
 
   #sec4 p {
@@ -1169,7 +1156,7 @@ h3 {
   /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
   #sec_sobre {
     height: auto;
-    padding: 10vh 2vw;
+    padding: 25vh 4vw;
   }
 
   #titulo_sobre {
@@ -1194,7 +1181,6 @@ h3 {
     background-size: 80%;
   }
 
-
   /* ===== RODAPÉ (EMPILHAMENTO) ===== */
   footer {
     margin-top: 5rem;
@@ -1215,6 +1201,32 @@ h3 {
     margin-top: 2rem;
   }
 }
+
+@media (max-width: 930px) {
+  header img {
+    margin-left: 2%;
+  }
+
+  header label {
+    margin-right: 2%;
+  }
+
+  .card {
+    width: 70vw;
+    box-sizing: border-box;
+  }
+
+  .sec_intro {
+    background-size: 110% 100%;
+    padding-bottom: 3rem;
+  }
+
+  .dot {
+    margin-top: -2rem;
+    width: 3vrem;
+  }
+}
+
 
 /* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
 @media (max-width: 767px) {
@@ -1259,8 +1271,28 @@ h3 {
   }
 
   /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
+  .inputs {
+    width: 80%;
+    padding: 3rem;
+    padding-left: 0;
+    /* margin-left: 0; */
+  }
+
+  .inputs input {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  #buttons {
+    margin-left: 8%;
+  }
+
   #sec4 {
     margin-bottom: 5rem;
+  }
+
+  #sec4 h1 {
+    width: 23rem;
   }
 
   #sec4 img {
@@ -1308,13 +1340,81 @@ h3 {
 }
 
 @media (max-width: 480px) {
-  #botao-login {
-    margin-right: 1rem;
-    margin-left: 0;
-  }
 
   main {
     padding-top: 3rem;
+  }
+  .slide{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide-text h1 {
+    font-size: 9vw;
+    width: 24rem;
+  }
+
+  .slide h2 {
+    margin-top: 0;
+    margin-left: 17%;
+    font-size: 5.4vw;
+  }
+
+  .slide img{
+    width: 20rem;
+  }
+  .slide p {
+    font-size:  3.5vw;
+    /* padding: 2rem; */
+    margin-left: 20%;
+  }
+
+  .sec3_controls {
+    margin-top: 15%;
+    margin-right: 3rem;
+    align-items: center;
+  }
+
+  .dot {
+    margin-right: 1rem;
+    width: 18vw;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width:65vw;
+    padding-left: 0;
+    justify-self: left;
+    align-items: center;
+  }
+  .inputs input:nth-of-type(3) {
+    margin-left: 0;
+  }
+  .inputs input {
+    margin-top: 2rem;
+  }
+
+  #buttons {
+    margin-top: 10%;
+    display: block;
+
+  }
+
+  #sec4 {
+    margin-bottom: 5rem;
+  }
+
+  #sec4 h1 {
+    width: 23rem;
+  }
+
+  #sec4 img {
+    width: 100vw;
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 

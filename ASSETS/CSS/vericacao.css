@@ -211,7 +211,7 @@ main {
   }
   
   #inputs {
-    width: 95%;
+    width: 100%;
     padding: 2rem 1.5rem;
     gap: 1.2rem;
     margin-top: 0;
@@ -219,17 +219,17 @@ main {
   }
   
   #inputs h1 {
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    font-size: clamp(2.8rem, 5vw, 2.2rem);
   }
   
   #input_veri {
-    gap: 0.6rem;
+    gap: 1.8rem;
     margin: 1.5rem 0 2rem 0;
   }
   
   #input_veri input {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 4rem;
+    height: 4rem;
     font-size: 1.4rem;
   }
   
@@ -238,16 +238,14 @@ main {
   }
   
   #buttons {
-    display: flex;
-    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 0.8rem;
     margin-top: 1.5rem;
   }
   
   #buttons button {
-    width: 40%;
-    max-width: 40%;
+    width: 49%;
     min-width: auto;
     padding: 1rem;
     font-size: 1rem;
