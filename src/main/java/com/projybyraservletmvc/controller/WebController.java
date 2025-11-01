@@ -3,6 +3,7 @@ package com.projybyraservletmvc.controller;
 import com.projybyraservletmvc.dao.LoteDAO;
 import com.projybyraservletmvc.dao.TarefasDAO;
 import com.projybyraservletmvc.dao.UsuarioDAO;
+import com.projybyraservletmvc.model.Industria;
 import com.projybyraservletmvc.model.Lote;
 import com.projybyraservletmvc.model.Tarefas;
 import com.projybyraservletmvc.model.Usuario;
@@ -85,6 +86,22 @@ public class WebController extends HttpServlet {
                 "contato".equals(nome);
     }
 
+    // Metodo para obter o id_industria
+
+    private Integer obterIdIndustria(HttpSession session) {
+        Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+        if (usuarioLogado != null) {
+            return usuarioLogado.getIdIndustria();
+        }
+
+        Industria industriaLogada = (Industria) session.getAttribute("industriaLogada");
+        if (industriaLogada != null) {
+            return industriaLogada.getIdIndustria();
+        }
+
+        return null;
+    }
+
     //Carrega as tarefas com base no id industria dos usuarios.
 
     private void carregarTarefasPorIndustria(HttpServletRequest request, HttpServletResponse response)
@@ -117,14 +134,18 @@ public class WebController extends HttpServlet {
         request.setAttribute("tarefas", tarefas);
     }
 
-    //Carrega os usuarios  com o mesmo id_industria do que o que está logado.
+    //Carrega os usuarios  com o mesmo id_industria do que o que está logado ou da da industria que esta logada.
 
-    private void carregarUsuariosPorIndustria(HttpServletRequest request) {
+    private void carregarUsuariosPorIndustria(HttpServletRequest request)
+            throws IOException {
         HttpSession session = request.getSession();
-        Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
 
-        if (usuarioLogado == null) {
-            System.err.println("Usuário não está logado!");
+        // Buscar diretamente da sessão
+        Industria industriaLogada = (Industria) session.getAttribute("industriaLogada");
+
+        if (industriaLogada == null) {
+            System.err.println("Indústria não está logada!");
+            response.sendRedirect(request.getContextPath() + "/pagina?nome=login");
             return;
         }
 
@@ -133,8 +154,8 @@ public class WebController extends HttpServlet {
         if (usuarios == null) {
             try {
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                usuarios = usuarioDAO.buscarUsuarios(usuarioLogado.getIdIndustria());
-                System.out.println("Usuarios carregados da indústria " + usuarioLogado.getIdIndustria() + ": " + usuarios.size());
+                usuarios = usuarioDAO.buscarUsuarios(industriaLogada.getIdIndustria());
+                System.out.println("Usuarios carregados da indústria " + industriaLogada.getIdIndustria() + ": " + usuarios.size());
             } catch (Exception e) {
                 System.err.println("Erro ao carregar usuários: " + e.getMessage());
                 e.printStackTrace();
@@ -146,7 +167,6 @@ public class WebController extends HttpServlet {
 
         request.setAttribute("usuarios", usuarios);
     }
-
     //Carrega os lotes com base nos relatorios que foram inseridos.
 
     private void carregarLotes(HttpServletRequest request) {
