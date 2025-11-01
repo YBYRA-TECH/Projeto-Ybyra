@@ -41,7 +41,7 @@ public class RelatoriosSERVLET extends HttpServlet {
             System.out.println("Email do usuario que inseriu o relatorio: "+ emailUsuario);
             System.out.println("-----------------------------------------------------------------");
             UsuarioDAO dao = new UsuarioDAO();
-            int id_usuario = dao.buscarID(nomeUsuario);
+            int id_usuario = dao.buscar(nomeUsuario);
 
 
 

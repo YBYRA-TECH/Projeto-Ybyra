@@ -56,7 +56,7 @@ public class AlterarUsuarioSERVLET extends HttpServlet {
         try {
             UsuarioDAO dao = new UsuarioDAO();
 
-            Usuario usuario = dao.buscarPorID(idUsuario);
+            Usuario usuario = dao.buscar(idUsuario);
 
             if (usuario == null) {
                 System.out.println("Usuário não encontrado!");

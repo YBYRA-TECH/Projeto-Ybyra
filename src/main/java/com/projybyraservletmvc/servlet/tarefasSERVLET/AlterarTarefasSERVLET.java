@@ -53,7 +53,7 @@ public class AlterarTarefasSERVLET extends HttpServlet {
         try {
             // Buscar o ID do usuário responsável
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            int id_usuario = usuarioDAO.buscarID(responsavel);
+            int id_usuario = usuarioDAO.buscar(responsavel);
 
             if (id_usuario <= 0) {
                 System.out.println("Erro: Usuário não encontrado!");

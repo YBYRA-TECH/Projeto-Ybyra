@@ -55,7 +55,7 @@ public class TarefasSERVLET extends HttpServlet {
             System.out.println("Nome do usuario que inseriu a tarefa: "+ nomeUsuario);
             System.out.println("-----------------------------------------------------------------");
             UsuarioDAO dao = new UsuarioDAO();
-            int id_usuario = dao.buscarID(nomeUsuario);
+            int id_usuario = dao.buscar(nomeUsuario);
             System.out.println("Id do usuario que adicionou uma Tarefa: " + id_usuario);
 
             try {

@@ -154,7 +154,7 @@ public class WebController extends HttpServlet {
         if (usuarios == null) {
             try {
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                usuarios = usuarioDAO.buscarUsuarios(idIndustria);
+                usuarios = usuarioDAO.buscarUsuariosPorIndustria(idIndustria);
                 System.out.println("Usuarios carregados da indústria " + idIndustria + ": " + usuarios.size());
             } catch (Exception e) {
                 System.err.println("Erro ao carregar usuários: " + e.getMessage());

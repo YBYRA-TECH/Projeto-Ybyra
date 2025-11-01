@@ -32,7 +32,7 @@ public class ExcluirUsuarioSERVLET extends HttpServlet {
             int id_industriaINT = Integer.parseInt(id_industria);
             System.out.println("Os usuarios da industria " + id_industria + " foram deletados.");
             UsuarioDAO dao = new UsuarioDAO();
-            dao.deletarPorIndsutria(id_industriaINT);
+            dao.deletarPorIndustria(id_industriaINT);
         }
 
         response.sendRedirect(request.getContextPath() + "/pagina?nome=funcionarios");

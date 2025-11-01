@@ -53,6 +53,8 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
+    public Usuario() {}
+
     // GETTERS E SETTERS
     public int getIdUsuario() {
         return idUsuario;

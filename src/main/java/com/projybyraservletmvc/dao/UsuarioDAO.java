@@ -145,7 +145,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         }
     }
 
-    public int deletarPorIndsutria(int id) {
+    public int deletarPorIndustria(int id) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -170,7 +170,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
     }
 
 
-    public int buscarID(String nome) {
+    public int buscar(String nome) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -240,7 +240,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
             conexao.desconectar(conn);
         }
     }
-    public List<Usuario> buscarUsuarios(int id_industria) {
+    public List<Usuario> buscarUsuariosPorIndustria(int id_industria) {
         List<Usuario> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -279,7 +279,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         return lista;
     }
 
-    public Usuario buscarPorID(int id_usuario) {
+    public Usuario buscar(int id_usuario) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
@@ -308,4 +308,38 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         }
         return null;
     }
+
+    public List<Usuario> buscarComParametro(String texto) {
+        List<Usuario> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM usuario where nome LIKE ? OR email LIKE ? OR TO_CHAR(data_cadastro, 'DD/MM/YYYY') LIKE ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            String busca = "%" + texto + "%" ;
+            pstmt.setString(1, busca);
+            pstmt.setString(2, busca);
+            pstmt.setString(3, busca);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setIdUsuario(rs.getInt("id_usuario"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setNome(rs.getString("data_cadastro"));
+                usuario.setDataCadastro(rs.getDate("prazo").toLocalDate());
+                usuario.setSenha(rs.getString("senha"));
+
+                lista.add(usuario);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
+
 }
