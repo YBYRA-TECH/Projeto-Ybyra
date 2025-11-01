@@ -68,7 +68,7 @@ public class WebController extends HttpServlet {
 
         if ("relatorios".equals(nome)) {
 
-            carregarLotes(request);
+            carregarLotes(request, response);
 
         }
 
@@ -169,15 +169,26 @@ public class WebController extends HttpServlet {
     }
     //Carrega os lotes com base nos relatorios que foram inseridos.
 
-    private void carregarLotes(HttpServletRequest request) {
+    //Carrega os lotes com base na indústria do usuário logado
+    private void carregarLotes(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         HttpSession session = request.getSession();
+
+        Integer idIndustria = obterIdIndustria(session);
+
+        if (idIndustria == null) {
+            System.err.println("ID da indústria não encontrado!");
+            response.sendRedirect(request.getContextPath() + "/pagina?nome=login");
+            return;
+        }
+
         List<Lote> lote = (List<Lote>) session.getAttribute("lote");
 
         if (lote == null) {
             try {
-                LoteDAO loteDAO = new LoteDAO();
-                lote = loteDAO.buscar();
-                System.out.println("Lotes carregados do banco: " + lote.size());
+                LoteDAO dao = new LoteDAO();
+                lote = dao.buscarPorIndustria(idIndustria);
+                System.out.println("Lotes carregados da indústria " + idIndustria + ": " + lote.size());
             } catch (Exception e) {
                 System.err.println("Erro ao carregar lotes: " + e.getMessage());
                 e.printStackTrace();
