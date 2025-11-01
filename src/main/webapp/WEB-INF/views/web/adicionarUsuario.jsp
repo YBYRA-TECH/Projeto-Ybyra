@@ -27,7 +27,7 @@
 
     <main class="area-conteudo">
         <div class="conteudo-principal-header">
-            <a href="<%= request.getContextPath() %>/pagina?nome=configuracoes">
+            <a href="<%= request.getContextPath() %>/pagina?nome=funcionarios">
                 <img src="<%= request.getContextPath() %>/assets/imgs/voltar.png" alt="voltar" id="voltar">
             </a>
             <h1>Adicionar</h1>

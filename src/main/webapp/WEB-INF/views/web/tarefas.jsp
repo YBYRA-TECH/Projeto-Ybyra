@@ -134,7 +134,7 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar" title="Alterar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
 
@@ -266,7 +266,7 @@
                                     <input type="hidden" name="descricao" value="<%= tarefa.getDescricao()%>">
 
                                     <button class="btn-acao btn-editar" type="submit">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone%20alterar.png" alt="Editar" title="Alterar">
+                                        <img src="<%= request.getContextPath() %>/assets/imgs/icone_alterar.png" alt="Editar" title="Alterar">
                                     </button>
                                 </form>
 

@@ -37,7 +37,7 @@ body {
 /* ===== CONTEÚDO PRINCIPAL ===== */
 main {
   margin-top: 4.85rem;
-  background-image: url("/ASSETS/imgs/Login.png");
+  background-image: url("../imgs/Login.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
