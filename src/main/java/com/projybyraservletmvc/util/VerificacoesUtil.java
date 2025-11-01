@@ -15,7 +15,7 @@ public class VerificacoesUtil {
 
     public static boolean validarCpf(String cpf){
         if (cpf == null) return false;
-        String regex = "^(\\\\d{3}\\\\.?\\\\d{3}\\\\.?\\\\d{3}-?\\\\d{2})$";
+        String regex = "^(\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2})$";
         if(!Pattern.matches(regex, cpf)) return false;
 
         String numeros = cpf.replaceAll("\\D", "");

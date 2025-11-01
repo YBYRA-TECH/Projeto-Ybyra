@@ -31,18 +31,17 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
         String cpf = request.getParameter("cpf");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
+        String confirmarSenha = request.getParameter("confirmarSenha");
 
-        String industria = request.getParameter("industria");
+        String industria = request.getParameter("id_industria");
 
-        IndustriaDAO daoInd = new IndustriaDAO();
-        int idIndustria = daoInd.buscarID(industria);
 
         System.out.println("Dados recebidos:");
         System.out.println("Nome: " + nome);
         System.out.println("Data de nascimento: " + data_nasc_String);
         System.out.println("Cpf: " + cpf);
         System.out.println("Email: " + email);
-        System.out.println("Id Industria:" + idIndustria);
+        System.out.println("Id Industria:" + industria);
 
         // Validar campos vazios
         if (nome == null || nome.isEmpty() ||
@@ -58,9 +57,10 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
 
 
         try {
+            int id_industria = Integer.parseInt(industria);
             LocalDate data_nasc = LocalDate.parse(data_nasc_String);
             System.out.println("Criando objeto Usuario...");
-            Usuario usuario = new Usuario(email, cpf, nome, data_nasc,senha,idIndustria);
+            Usuario usuario = new Usuario(email, cpf, nome, data_nasc,senha,id_industria);
 
             // VALIDAR CNPJ
             if (!VerificacoesUtil.validarCpf(cpf)){
@@ -70,7 +70,8 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
                 request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastroUsuario.jsp").forward(request, response);
+                request.setAttribute("data_nasc", data_nasc);
+                request.getRequestDispatcher("/pagina?nome=adicionarUsuario").forward(request, response);
                 return;
             }
 
@@ -82,7 +83,8 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
                 request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastroUsuario.jsp").forward(request, response);
+                request.setAttribute("data_nasc", data_nasc);
+                request.getRequestDispatcher("/pagina?nome=adicionarUsuario").forward(request, response);
                 return;
             }
 
@@ -94,9 +96,24 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
                 request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
-                request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastroUsuario.jsp").forward(request, response);
+                request.setAttribute("data_nasc", data_nasc);
+                request.getRequestDispatcher("/pagina?nome=adicionarUsuario").forward(request, response);
                 return;
             }
+
+            //VALIDAR DATA DE NASCIMENTO
+            if (!VerificacoesUtil.validarData(data_nasc_String)){
+                System.out.println("A senha está incorreta!");
+                request.setAttribute("erroData", "Ops! A data de nascimento está incorreta!");
+                request.setAttribute("nome", nome);
+                request.setAttribute("cpf", cpf);
+                request.setAttribute("email", email);
+                request.setAttribute("senha", senha);
+                request.setAttribute("data_nasc", data_nasc);
+                request.getRequestDispatcher("/pagina?nome=adicionarUsuario").forward(request, response);
+                return;
+            }
+
 
             System.out.println("Criando UsuarioDao...");
             UsuarioDAO dao = new UsuarioDAO();
@@ -107,7 +124,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             if (sucesso) {
                 System.out.println("Cadastro realizado com sucesso!");
                 request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
-                response.sendRedirect(request.getContextPath() + "/paginaAutenticacao?nome=telaCon");
+                response.sendRedirect(request.getContextPath() + "/pagina?nome=funcionarios");
             } else {
                 System.out.println("Erro ao cadastrar no banco!");
                 response.getWriter().println("<h3> Erro ao cadastrar! Tente novamente.</h3>");
