@@ -38,12 +38,22 @@ public class VerificacoesUtil {
     public static boolean validarData(String data){
         if (data == null) return false;
 
-        String regex = "^(\\\\d{2})[/\\\\-](\\\\d{2})[/\\\\-](\\\\d{4})$";
+        String regex = "^(\\d{2})[/\\-](\\d{2})[/\\-](\\d{4})$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(data);
 
         if (!matcher.matches()) return false;
+
+        int dia = Integer.parseInt(matcher.group(1));
+        int mes = Integer.parseInt(matcher.group(2));
+        int ano = Integer.parseInt(matcher.group(3));
+
+        if (dia < 1 || dia > 31) return false;
+        if (mes < 1 || mes > 12) return false;
+        if (ano < 1900 || ano > 2100) return false;
+
         return true;
+
     }
 
     public static boolean validarTelefone(String telefone){
@@ -61,15 +71,13 @@ public class VerificacoesUtil {
     public static boolean validarSenha(String senha){
         if (senha == null) return false;
         String regex = "^(?=.*\\d).{8,}$";
-        if(!Pattern.matches(regex, senha)) return false;
-        return true;
+        return Pattern.matches(regex, senha);
     }
 
     public static boolean validarEmail(String email){
         if (email == null) return false;
         String regex = "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$";
-        if(!Pattern.matches(regex, regex)) return false;
-        return true;
+        return Pattern.matches(regex, email);
     }
 
 
