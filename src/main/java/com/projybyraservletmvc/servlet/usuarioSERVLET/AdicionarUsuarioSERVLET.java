@@ -1,6 +1,5 @@
-package com.projybyraservletmvc.servlet.autenticacaoSERVLET;
+package com.projybyraservletmvc.servlet.usuarioSERVLET;
 
-import com.projybyraservletmvc.dao.IndustriaDAO;
 import com.projybyraservletmvc.dao.UsuarioDAO;
 import com.projybyraservletmvc.model.Usuario;
 import com.projybyraservletmvc.util.VerificacoesUtil;
@@ -13,8 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 
-@WebServlet(name = "CadastroUsuario", urlPatterns = {"/cadastroUsuario"})
-public class CadastroUsuarioSERVLET extends HttpServlet {
+@WebServlet(name = "CadastroUsuario", urlPatterns = {"/adicionarUsuario"})
+public class AdicionarUsuarioSERVLET extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -89,7 +88,7 @@ public class CadastroUsuarioSERVLET extends HttpServlet {
             }
 
             // VALIDAR SENHA
-            if (!VerificacoesUtil.validarSenha(senha)){
+            if (!VerificacoesUtil.validarSenha(senha) || !senha.equals(confirmarSenha)){
                 System.out.println("A senha está incorreta!");
                 request.setAttribute("erroSenha", "Ops! A senha está incorreta! Ela precisa ter no mínimo 8 dígitos e um número");
                 request.setAttribute("nome", nome);

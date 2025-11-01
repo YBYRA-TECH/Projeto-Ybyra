@@ -54,7 +54,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         try {
             conn = conexao.conectar();
             String sql = "UPDATE usuario " +
-                    "SET email = ?, cpf = ?, nome = ?, data_cadastro = ?, data_nascimento = ?, data_validade = ?, id_industria = ?, tempo_trabalho = ? " +
+                    "SET email = ?,nome = ?, senha = ? " +
                     "WHERE id_usuario = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -62,14 +62,10 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
 
             //Atualizando os dados no banco
             pstmt.setString(1, usuario.getEmail());
-            pstmt.setString(2, usuario.getCpf());
-            pstmt.setString(3, usuario.getNome());
-            pstmt.setDate(4, Date.valueOf(usuario.getDataCadastro()));
-            pstmt.setDate(5, Date.valueOf(usuario.getDataNascimento()));
-            pstmt.setDate(6, usuario.getDataValidade());
-            pstmt.setInt(7, usuario.getIdIndustria());
-            pstmt.setInt(8, usuario.getTempoTrabalho());
-            pstmt.setInt(9, usuario.getIdUsuario());
+            pstmt.setString(2, usuario.getNome());
+            pstmt.setString(3, usuario.getSenha());
+            pstmt.setInt(4, usuario.getIdUsuario());
+
             if (pstmt.executeUpdate() > 0) {
                 return true;
             } else return false;
@@ -281,5 +277,35 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
             conexao.desconectar(conn);
         }
         return lista;
+    }
+
+    public Usuario buscarPorID(int id_usuario) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+
+            String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_usuario);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                Usuario usuario = new Usuario(
+                        rs.getString("email"),
+                        rs.getString("nome"),
+                        rs.getString("senha")
+                );
+                usuario.setIdUsuario(rs.getInt("id_usuario"));
+
+                return usuario;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return null;
     }
 }

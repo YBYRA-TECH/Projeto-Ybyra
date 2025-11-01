@@ -1,6 +1,5 @@
-package com.projybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet.usuarioSERVLET;
 
-import com.projybyraservletmvc.dao.TarefasDAO;
 import com.projybyraservletmvc.dao.UsuarioDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

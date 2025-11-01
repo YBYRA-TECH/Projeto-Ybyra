@@ -46,7 +46,7 @@
         </div>
 
         <section class="detalhes-upload-painel">
-            <form action="<%=request.getContextPath()%>/cadastroUsuario" method="post">
+            <form action="<%=request.getContextPath()%>/adicionarUsuario" method="post">
                 <div class="formulario-detalhes">
 
                     <div class="area-detalhes">

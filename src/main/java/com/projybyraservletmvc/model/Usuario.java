@@ -41,6 +41,12 @@ public class Usuario {
         this.idIndustria = idIndustria;
     }
 
+    public Usuario(String email, String nome, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
 
     public Usuario(int idUsuario, String nome) {
         this.nome = nome;

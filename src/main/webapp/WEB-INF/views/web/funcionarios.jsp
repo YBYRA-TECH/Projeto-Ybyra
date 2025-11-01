@@ -117,7 +117,7 @@
                             <label for="tarefa-<%= u.getIdUsuario() %>" class="cabecalho-tarefa">
                                 <span class="titulo-tarefa"><%=u.getNome()%></span>
 
-                                <form action="/DadosAlterarUsuario" method="post">
+                                <form action="<%=request.getContextPath()%>/DadosAlterarUsuario" method="post">
 
                                 <div class="acoes-tarefa">
 

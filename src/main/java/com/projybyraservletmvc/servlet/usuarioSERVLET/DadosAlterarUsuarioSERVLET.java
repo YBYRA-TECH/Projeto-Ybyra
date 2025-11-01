@@ -1,4 +1,4 @@
-package com.projybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet.usuarioSERVLET;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -7,9 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.time.LocalDate;
 
-@WebServlet("/DadosAlterarTarefa")
+@WebServlet("/DadosAlterarUsuario")
 public class DadosAlterarUsuarioSERVLET extends HttpServlet {
 
     @Override

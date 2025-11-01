@@ -18,10 +18,9 @@
 
     <jsp:include page="../includes/aside.jsp"/>
 
-
     <main class="area-conteudo">
         <div class="conteudo-principal-header">
-            <a href="<%= request.getContextPath() %>/pagina?nome=configuracoes">
+            <a href="<%= request.getContextPath() %>/pagina?nome=listarUsuarios">
                 <img src="<%= request.getContextPath() %>/assets/imgs/voltar.png" alt="voltar" id="voltar">
             </a>
             <h1>Alterar</h1>
@@ -40,7 +39,12 @@
         </div>
 
         <section class="detalhes-upload-painel">
-            <form action="" method="post">
+            <%
+                String nome = (String) session.getAttribute("nome");
+                String email = (String) session.getAttribute("email");
+            %>
+
+            <form action="<%=request.getContextPath()%>/AlterarUsuario" method="post">
                 <div class="formulario-detalhes">
 
                     <div class="area-detalhes">
@@ -49,33 +53,29 @@
                             <div>
                                 <div class="campo">
                                     <label for="nome">Nome Completo</label>
-                                    <input type="text" id="nome" placeholder="Digite o nome completo">
+                                    <input type="text" id="nome" name="nome" value="<%= nome %>" placeholder="Digite o nome completo">
                                 </div>
 
                                 <div class="campo">
-                                    <label for="cpf">Cpf</label>
-                                    <input type="text" id="cpf" value="" placeholder="Digite o cpf">
-                                </div>
-                                <div class="campo">
                                     <label for="senha">Senha</label>
-                                    <input type="password" id="senha" value="" placeholder="Digite a senha">
+                                    <input type="password" id="senha" name="senha" placeholder="Digite a nova senha">
                                 </div>
                             </div>
                             <div>
                                 <div class="campo">
-                                    <label for="email">Email/Telefone</label>
-                                    <input type="email" value="" id="email" placeholder="Digite o Email ou Telefone">
-                                </div>
-                                <div class="campo">
-                                    <label for="data-nas">Data de Nascimento</label>
-                                    <input type="date" id="data-nas" value="">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" value="<%= email %>" placeholder="Digite o Email">
                                 </div>
 
                                 <div class="campo">
                                     <label for="confirma-senha">Confirme a senha</label>
-                                    <input type="password" id="confirma-senha" value="" placeholder="Confirme a senha">
+                                    <input type="password" id="confirma-senha" placeholder="Confirme a senha">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="area-botoes">
+                            <button type="submit" class="btn-enviar">Salvar</button>
                         </div>
                     </div>
                 </div>
