@@ -104,7 +104,7 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
                 lote = new Lote(
                         rs.getInt("id_lote"),
                         rs.getString("descricao"),
