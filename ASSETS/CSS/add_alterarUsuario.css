@@ -35,9 +35,11 @@ body {
     width: 100%;
     padding-top:0.5% ;
 }
+
 .conteudo-principal-header h1{
     color: #365576;
 }
+
 .subtitulo-secao {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
@@ -91,44 +93,55 @@ body {
     font-weight: 600;
 }
 
-
-
 .campo input[type="date"] {
     color: #555;
 }
+
+/* Estilo do form para centralizar o botão */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario-detalhes {
+    width: 100%;
+}
+
+
 /* Botão Enviar Arquivo */
 .btn-enviar {
     background-color: #3474cd;
     color: white;
-    border: none;
     border-radius: 0.5rem;
     padding: 0.75rem 2rem;
+    font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.2s ease;
+    display: inline-block;
+    text-align: center;
+    margin-top: 6rem;
 }
 
 .btn-enviar:hover {
     background-color: #192083;
 }
 
-.link-inserir {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-}
-
 input {
     outline: none;
 }
+
 .area-icones{
     right: 4%;
 }
-#notificacoes{
- right: 2%;   
 
+#notificacoes{
+    right: 2%;   
 }
+
 #notificacoes h1{
     color: black;
 }

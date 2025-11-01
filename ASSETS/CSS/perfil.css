@@ -105,6 +105,7 @@ h1{
 }
 /* Botão Enviar Arquivo */
 .btn-enviar {
+    margin-top: 10rem;
     background-color: #3474cd;
     color: white;
     border: none;
@@ -114,17 +115,16 @@ h1{
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-enviar:hover {
     background-color: #192083;
 }
 
-.link-inserir {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-}
+
 
 input {
     outline: none;
