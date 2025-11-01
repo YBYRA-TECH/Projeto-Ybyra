@@ -57,12 +57,12 @@ public class WebController extends HttpServlet {
 
             carregarTarefasPorIndustria(request, response);
 
-            carregarUsuariosPorIndustria(request);
+            carregarUsuariosPorIndustria(request, response);
         }
 
         if ("funcionarios".equals(nome)) {
 
-            carregarUsuariosPorIndustria(request);
+            carregarUsuariosPorIndustria(request, response);
 
         }
 
@@ -136,15 +136,15 @@ public class WebController extends HttpServlet {
 
     //Carrega os usuarios  com o mesmo id_industria do que o que está logado ou da da industria que esta logada.
 
-    private void carregarUsuariosPorIndustria(HttpServletRequest request)
+    private void carregarUsuariosPorIndustria(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         HttpSession session = request.getSession();
 
-        // Buscar diretamente da sessão
-        Industria industriaLogada = (Industria) session.getAttribute("industriaLogada");
+        // Buscar ID da indústria (Usuario OU Industria)
+        Integer idIndustria = obterIdIndustria(session);
 
-        if (industriaLogada == null) {
-            System.err.println("Indústria não está logada!");
+        if (idIndustria == null) {
+            System.err.println("ID da indústria não encontrado!");
             response.sendRedirect(request.getContextPath() + "/pagina?nome=login");
             return;
         }
@@ -154,8 +154,8 @@ public class WebController extends HttpServlet {
         if (usuarios == null) {
             try {
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
-                usuarios = usuarioDAO.buscarUsuarios(industriaLogada.getIdIndustria());
-                System.out.println("Usuarios carregados da indústria " + industriaLogada.getIdIndustria() + ": " + usuarios.size());
+                usuarios = usuarioDAO.buscarUsuarios(idIndustria);
+                System.out.println("Usuarios carregados da indústria " + idIndustria + ": " + usuarios.size());
             } catch (Exception e) {
                 System.err.println("Erro ao carregar usuários: " + e.getMessage());
                 e.printStackTrace();

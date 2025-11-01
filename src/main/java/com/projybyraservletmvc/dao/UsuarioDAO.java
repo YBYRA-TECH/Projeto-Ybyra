@@ -261,11 +261,18 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
             System.out.println("Conteúdo da tabela usuário:");
 
             while (rs.next()) {
-                int id = rs.getInt("id_usuario");
-                String nome = rs.getString("nome");
-
-                Usuario user = new Usuario(id, nome);
-                lista.add(user);
+                Usuario usuario = new Usuario(
+                        rs.getInt("id_usuario"),
+                        rs.getString("email"),
+                        rs.getString("cpf"),
+                        rs.getString("nome"),
+                        rs.getDate("data_cadastro").toLocalDate(),
+                        rs.getDate("data_nascimento").toLocalDate(),
+                        rs.getDate("data_validade"),
+                        rs.getInt("id_industria"),
+                        rs.getInt("tempo_trabalho")
+                );
+                lista.add(usuario);
             }
 
         } catch (SQLException e) {
