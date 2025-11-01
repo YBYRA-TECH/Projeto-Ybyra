@@ -309,37 +309,47 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         return null;
     }
 
-    public List<Usuario> buscarComParametro(String texto) {
-        List<Usuario> lista = new ArrayList<>();
+    public List<Usuario> buscarComParametro(String busca, int idIndustria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
+        List<Usuario> usuarios = new ArrayList<>();
+
         try {
-            String sql = "SELECT * FROM usuario where nome LIKE ? OR email LIKE ? OR TO_CHAR(data_cadastro, 'DD/MM/YYYY') LIKE ?";
             conn = conexao.conectar();
+
+            String sql = "SELECT * FROM usuario WHERE (nome LIKE ? OR email LIKE ? OR TO_CHAR(data_cadastro, 'DD/MM/YYYY') LIKE ?) AND id_industria = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            String busca = "%" + texto + "%" ;
-            pstmt.setString(1, busca);
-            pstmt.setString(2, busca);
-            pstmt.setString(3, busca);
+
+            String parametroBusca = "%" + busca + "%";
+
+            pstmt.setString(1, parametroBusca);
+            pstmt.setString(2, parametroBusca);
+            pstmt.setString(3, parametroBusca);
+            pstmt.setInt(4, idIndustria);
+
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Usuario usuario = new Usuario();
+                Usuario usuario = new Usuario(
+                        rs.getString("email"),
+                        rs.getString("nome"),
+                        rs.getString("senha")
+                );
                 usuario.setIdUsuario(rs.getInt("id_usuario"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setNome(rs.getString("data_cadastro"));
-                usuario.setDataCadastro(rs.getDate("prazo").toLocalDate());
-                usuario.setSenha(rs.getString("senha"));
+                usuario.setDataNascimento(rs.getDate("data_nascimento").toLocalDate());
+                usuario.setDataCadastro(rs.getDate("data_cadastro").toLocalDate());
+                usuario.setIdIndustria(rs.getInt("id_industria"));
 
-                lista.add(usuario);
+                usuarios.add(usuario);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         } finally {
             conexao.desconectar(conn);
         }
-        return lista;
+
+        return usuarios;
     }
 
 }

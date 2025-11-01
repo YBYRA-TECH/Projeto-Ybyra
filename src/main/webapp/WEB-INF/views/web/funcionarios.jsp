@@ -43,9 +43,11 @@
         <!-- HEADER COM BUSCA E FILTROS -->
         <header class="topo">
             <div class="area-filtros">
-                <form class="campo-busca">
-                    <input type="text" placeholder="Buscar Tarefas" id="buscar" title="Busca" />
-                    <button class="btn-lupa" type="button">
+                <form class="campo-busca" method="get" action="<%= request.getContextPath() %>/BuscaUsuario">
+                    <input type="text" placeholder="Buscar Usuario(s)" id="buscar" name="busca" title="Busca" />
+                    <input type="hidden"  name="id_industria" value="<%= id_industria %>"/>
+
+                    <button class="btn-lupa" type="submit">
                         <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa" title="Lupa" />
                     </button>
                 </form>

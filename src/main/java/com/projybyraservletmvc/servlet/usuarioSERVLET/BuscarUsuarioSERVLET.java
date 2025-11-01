@@ -18,28 +18,37 @@ public class BuscarUsuarioSERVLET extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
+        System.out.println("-- Buscar Usuarios Servlet --");
+
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
         String busca = request.getParameter("busca");
+        String id_industria = request.getParameter("id_industria");
+
+        System.out.println("Dados da busca: ");
+        System.out.println("Busca: " + busca );
+        System.out.println("id_industria: " + id_industria );
+
 
         try {
             HttpSession session = request.getSession();
 
             if (busca != null && !busca.trim().isEmpty()) {
                 UsuarioDAO dao = new UsuarioDAO();
-                List<Usuario> usuariosBusca = dao.buscarComParametro(busca);
+                int id_industriaINT = Integer.parseInt(id_industria);
+                List<Usuario> usuariosBusca = dao.buscarComParametro(busca, id_industriaINT);
 
-                session.setAttribute("tarefas", tarefasBusca);
+                session.setAttribute("usuarios", usuariosBusca);
                 session.setAttribute("buscaAtiva", true);
 
-                System.out.println("Tarefas encontradas: " + tarefasBusca.size());
+                System.out.println("Usuarios encontrados: " + usuariosBusca.size());
             }
 
-            response.sendRedirect(request.getContextPath() + "/pagina?nome=tarefas&busca=true");
+            response.sendRedirect(request.getContextPath() + "/pagina?nome=funcionarios&busca=true");
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/pagina?nome=tarefas");
+            response.sendRedirect(request.getContextPath() + "/pagina?nome=funcionarios");
         }
     } }
