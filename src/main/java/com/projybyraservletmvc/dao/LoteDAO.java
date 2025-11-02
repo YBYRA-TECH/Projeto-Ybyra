@@ -75,7 +75,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
                 lote.setProducao(rs.getInt("producao"));
                 lote.setPlanejado(rs.getInt("planejado"));
                 lote.setProblemas(rs.getInt("problemas"));
-                lote.setObservacao(rs.getString("observacao"));
                 lote.setId_industria(rs.getInt("id_industria"));
                 lote.setId_relatorio(rs.getInt("id_relatorio"));
 
@@ -173,10 +172,9 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             pstmt.setInt(3, lote.getProducao());
             pstmt.setInt(4, lote.getPlanejado());
             pstmt.setInt(5, lote.getProblemas());
-            pstmt.setString(6, lote.getObservacao());
-            pstmt.setInt(7, lote.getId_relatorio());
-            pstmt.setInt(8, lote.getId_lote());
-            pstmt.setInt(9, lote.getId_industria()); // Validação de segurança
+            pstmt.setInt(6, lote.getId_relatorio());
+            pstmt.setInt(7, lote.getId_lote());
+            pstmt.setInt(8, lote.getId_industria()); // Validação de segurança
 
             return pstmt.executeUpdate() > 0;
 
@@ -263,7 +261,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
                 lote.setProducao(rs.getInt("producao"));
                 lote.setPlanejado(rs.getInt("planejado"));
                 lote.setProblemas(rs.getInt("problemas"));
-                lote.setObservacao(rs.getString("observacao"));
                 lote.setId_industria(rs.getInt("id_industria"));
                 lote.setId_relatorio(rs.getInt("id_relatorio"));
 
