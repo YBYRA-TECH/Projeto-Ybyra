@@ -137,5 +137,20 @@ public class Lote {
 
     // TO STRING
 
-    public String
+
+    @Override
+    public String toString() {
+        return "Lote:" +
+                "id_lote=" + id_lote +
+                ", descricao='" + descricao + '\'' +
+                ", responsavel='" + responsavel + '\'' +
+                ", producao=" + producao +
+                ", planejado=" + planejado +
+                ", problemas=" + problemas +
+                ", id_industria=" + id_industria +
+                ", id_relatorio=" + id_relatorio +
+                ", eficiencia=" + eficiencia +
+                ", turno='" + turno + '\'' +
+                ", area='" + area + '\'' ;
+    }
 }
