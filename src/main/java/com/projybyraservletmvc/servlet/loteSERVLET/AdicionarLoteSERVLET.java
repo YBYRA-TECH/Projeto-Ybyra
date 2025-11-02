@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+//Classe servlet para adicionar lote
 @WebServlet("/AdicionarLote")
 public class AdicionarLoteSERVLET extends HttpServlet {
 

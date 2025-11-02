@@ -127,20 +127,8 @@ public class Lote {
         this.turno = turno;
         this.area = area;
         this.responsavel = responsavel;
-
-
     }
 
-    public Lote(String descricao,String responsavel, int producao,int planejado, int problemas, int id_industria,int id_relatorio){
-        this.id_relatorio = id_relatorio;
-        this.descricao = descricao;
-        this.producao = producao;
-        this.planejado = planejado;
-        this.responsavel = responsavel;
-        this.problemas = problemas;
-        this.id_industria = id_industria;
-
-    }
 
     public Lote(){}
 }
