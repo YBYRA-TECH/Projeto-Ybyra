@@ -1202,32 +1202,6 @@ h3 {
   }
 }
 
-@media (max-width: 930px) {
-  header img {
-    margin-left: 2%;
-  }
-
-  header label {
-    margin-right: 2%;
-  }
-
-  .card {
-    width: 70vw;
-    box-sizing: border-box;
-  }
-
-  .sec_intro {
-    background-size: 110% 100%;
-    padding-bottom: 3rem;
-  }
-
-  .dot {
-    margin-top: -2rem;
-    width: 3vrem;
-  }
-}
-
-
 /* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
 @media (max-width: 767px) {
 
