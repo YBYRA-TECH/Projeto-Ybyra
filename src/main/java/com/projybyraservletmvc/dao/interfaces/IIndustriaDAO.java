@@ -21,4 +21,22 @@ public interface IIndustriaDAO<T>{
      */
     Industria login(String parametro1, String parametro2);
 
+
+    /**
+     * @param parametro Recebe o nome da industria
+     * @return Retorna o id da respectiva industria
+     */
+    int buscarID(String parametro);
+
+
+    /**
+     * @param parametro Recebe o id da industria a ser buscada
+     * @return Objeto da industria encontrada
+     *
+     */
+    Industria buscarPorID(int parametro);
+
+
+
+
 }
