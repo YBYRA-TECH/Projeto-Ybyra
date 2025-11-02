@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 
-//Classe servlet para alterar dados de uma tarefa
 @WebServlet("/DadosAlterarTarefa")
 public class DadosAlterarTarefaSERVLET extends HttpServlet {
+
+    //CLASSE SERVLET PARA GUARDAR OS DADOS DA TAREFA
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

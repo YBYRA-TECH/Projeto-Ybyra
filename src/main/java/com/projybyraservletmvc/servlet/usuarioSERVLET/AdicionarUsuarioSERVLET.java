@@ -15,6 +15,8 @@ import java.time.LocalDate;
 @WebServlet(name = "CadastroUsuario", urlPatterns = {"/adicionarUsuario"})
 public class AdicionarUsuarioSERVLET extends HttpServlet {
 
+    //CLASSE SERVLET PARA ADICIONAR USUARIOS
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws  IOException {

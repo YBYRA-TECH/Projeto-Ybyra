@@ -8,7 +8,7 @@ public class Industria {
     private String cnpj;
     private String senha;
 
-    //CONSTRUTOR
+    //CONSTRUTORES
     public Industria(String nome, String cnpj, String email, String senha) {
         this.nome = nome;
         this.cnpj = cnpj;
@@ -54,9 +54,6 @@ public class Industria {
 
     public String getCnpj() {
         return cnpj;
-    }
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
     }
 
     public String getSenha() {

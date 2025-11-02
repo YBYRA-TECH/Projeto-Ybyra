@@ -15,7 +15,7 @@ public class Usuario {
     private LocalDate dataNascimento;
     private int idIndustria;
 
-    //CONSTRUTOR
+    //CONSTRUTORES
 
     public Usuario(int idUsuario, String email, String cpf, String nome, LocalDate dataCadastro,
                    LocalDate dataNascimento, int idIndustria) {

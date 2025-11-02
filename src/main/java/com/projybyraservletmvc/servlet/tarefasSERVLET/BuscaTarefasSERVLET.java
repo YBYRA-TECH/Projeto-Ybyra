@@ -11,9 +11,10 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-//Classe servlet para buscar uma tarefa
 @WebServlet("/BuscaTarefas")
 public class BuscaTarefasSERVLET extends HttpServlet {
+
+    //CLASSE SERVLET PARA A BUSCA DE TAREFAS
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

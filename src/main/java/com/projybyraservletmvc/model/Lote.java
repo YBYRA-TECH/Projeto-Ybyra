@@ -131,4 +131,11 @@ public class Lote {
 
 
     public Lote(){}
+
+
+
+
+    // TO STRING
+
+    public String
 }

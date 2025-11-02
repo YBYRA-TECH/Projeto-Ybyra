@@ -43,6 +43,8 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
+    //BUSCA OS LOTES COM BASE NO ID INDUSTRIA
+
     public List<Lote> buscarPorIndustria(int id_industria) {
         List<Lote> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -75,7 +77,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
                 lote.setProducao(rs.getInt("producao"));
                 lote.setPlanejado(rs.getInt("planejado"));
                 lote.setProblemas(rs.getInt("problemas"));
-                lote.setObservacao(rs.getString("observacao"));
                 lote.setId_industria(rs.getInt("id_industria"));
                 lote.setId_relatorio(rs.getInt("id_relatorio"));
 
@@ -164,7 +165,7 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         try {
             conn = conexao.conectar();
             String sql = "UPDATE lote SET descricao = ?, responsavel = ?, producao = ?, " +
-                    "planejado = ?, problemas = ?, observacao = ?, id_relatorio = ? " +
+                    "planejado = ?, problemas = ?, id_relatorio = ? " +
                     "WHERE id_lote = ? AND id_industria = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -173,10 +174,9 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             pstmt.setInt(3, lote.getProducao());
             pstmt.setInt(4, lote.getPlanejado());
             pstmt.setInt(5, lote.getProblemas());
-            pstmt.setString(6, lote.getObservacao());
-            pstmt.setInt(7, lote.getId_relatorio());
-            pstmt.setInt(8, lote.getId_lote());
-            pstmt.setInt(9, lote.getId_industria()); // Validação de segurança
+            pstmt.setInt(6, lote.getId_relatorio());
+            pstmt.setInt(7, lote.getId_lote());
+            pstmt.setInt(8, lote.getId_industria());
 
             return pstmt.executeUpdate() > 0;
 
@@ -187,6 +187,8 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             conexao.desconectar(conn);
         }
     }
+
+    // DELETA OS LOTES COM BASE NO ID INDUSTRIA
 
     public int deletarPorIndustria(int id_industria) {
         ConexaoBD conexao = new ConexaoBD();
@@ -263,7 +265,6 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
                 lote.setProducao(rs.getInt("producao"));
                 lote.setPlanejado(rs.getInt("planejado"));
                 lote.setProblemas(rs.getInt("problemas"));
-                lote.setObservacao(rs.getString("observacao"));
                 lote.setId_industria(rs.getInt("id_industria"));
                 lote.setId_relatorio(rs.getInt("id_relatorio"));
 
@@ -277,6 +278,8 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
         return lista;
     }
+
+    //BUSCA OS LOTES COM BASE NOS PARAMETROS QUE O USUARIO PESQUISAR
 
     public List<Lote> buscarComFiltros(int id_industria, String area, String turno, String eficiencia, String busca) {
         List<Lote> lotes = new ArrayList<>();

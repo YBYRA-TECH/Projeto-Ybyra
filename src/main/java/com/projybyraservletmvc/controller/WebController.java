@@ -173,10 +173,9 @@ public class WebController extends HttpServlet {
 
         request.setAttribute("usuarios", usuarios);
     }
-    /**Carrega os lotes com base nos relatorios que foram inseridos.
 
-    Carrega os lotes com base na indústria do usuário logado
-    **/
+    // CARREGA OS LOTES COM BASE NO ID INDUSTRIA DO USUARIO LOGADO
+
     private void carregarLotes(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         HttpSession session = request.getSession();
