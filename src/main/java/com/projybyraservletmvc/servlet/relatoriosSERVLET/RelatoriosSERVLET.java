@@ -4,6 +4,7 @@ package com.projybyraservletmvc.servlet.relatoriosSERVLET;
 import com.projybyraservletmvc.dao.RelatoriosDAO;
 import com.projybyraservletmvc.dao.UsuarioDAO;
 import com.projybyraservletmvc.model.Relatorios;
+import com.projybyraservletmvc.model.Usuario;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,14 +37,18 @@ public class RelatoriosSERVLET extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         if (session != null) {
-            String nomeUsuario = (String) session.getAttribute("nomeUsuario");
-            String emailUsuario = (String) session.getAttribute("emailUsuario");
-            System.out.println("-----------------------------------------------------------------Nomes Usuario");
-            System.out.println("Nome do usuario que inseriu o relatorio: "+ nomeUsuario);
-            System.out.println("Email do usuario que inseriu o relatorio: "+ emailUsuario);
-            System.out.println("-----------------------------------------------------------------");
-            UsuarioDAO dao = new UsuarioDAO();
-            int id_usuario = dao.buscar(nomeUsuario);
+            // Pegar o usuário logado da sessão
+            Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+
+            if (usuarioLogado == null) {
+                System.err.println("Usuário não está logado!");
+                response.sendRedirect(request.getContextPath() + "/pagina?nome=login");
+                return;
+            }
+
+            String nomeUsuario = usuarioLogado.getNome();
+            int id_usuario = usuarioLogado.getIdUsuario();
+            int id_industria = usuarioLogado.getIdIndustria();
 
 
 
@@ -53,10 +58,13 @@ public class RelatoriosSERVLET extends HttpServlet {
         System.out.println("Area: " + area);
         System.out.println("PDF: " + pdf_documento);
         System.out.println("Turno: " + turno);
+        System.out.println("Nome de quem inseriu o relatorio: " + nomeUsuario);
         System.out.println("Id usuario: " + id_usuario);
+        System.out.println("Id indsutria: " + id_industria);
 
 
-        // Validar campos vazios
+
+            // Validar campos vazios
         if (descricao.isEmpty() || area.isEmpty() || pdf_documento.isEmpty() || id_usuario == 0) {
             System.out.println("Erro: Campos vazios!");
             response.getWriter().println("<h3> Preencha todos os campos!</h3>");
@@ -65,7 +73,7 @@ public class RelatoriosSERVLET extends HttpServlet {
 
         try {
             System.out.println("Criando objeto Realtorios...");
-            Relatorios relatorio = new Relatorios(nome, area, id_usuario, pdf_documento,descricao, turno);
+            Relatorios relatorio = new Relatorios(nome, area, id_usuario, pdf_documento,descricao, turno, nomeUsuario, id_industria);
 
 
             System.out.println("Criando RelatoriosDAO...");
