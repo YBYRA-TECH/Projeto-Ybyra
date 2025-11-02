@@ -6,407 +6,913 @@
 
 /* ===== RESET GERAL ===== */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
-
 
 /* ===== ÁREA PRINCIPAL ===== */
 main {
-    padding-top: 6rem;
+  padding-top: 6rem;
 }
 
 #botao-login {
-    margin-right: 5rem;
+  margin-right: 5rem;
 }
 
 /* ===== SEÇÃO INTRODUÇÃO ===== */
 .sec_intro {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    padding-left: 12vw;
-    padding-right: 3vw;
-    gap: 4vw;
-    background-image: url("../imgs/Primeiro_Elemento.png");
-    background-size: 92% 89%;
-    background-position: center;
-    background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding-left: 12vw;
+  padding-right: 3vw;
+  gap: 4vw;
+  background-image: url("/ASSETS/imgs/Primeiro_Elemento.png");
+  background-size: 92% 89%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .sec_intro h1 {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(3rem, 10vw, 5rem);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3rem, 10vw, 5rem);
 }
 
 #texto_intro {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-    color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  color: aliceblue;
 }
 
 .sec_intro a {
-    font-family: "Geologica", sans-serif;
-    text-decoration: none;
-    font-size: 1.4rem;
-    color: aliceblue;
+  font-family: "Geologica", sans-serif;
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: aliceblue;
 }
 
 .sec_intro a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .sec_intro img {
-    width: 31.25rem;
-    max-width: 90vw;
-    height: auto
+  width: 31.25rem;
+  max-width: 90vw;
+  height: auto
 }
 
 /* ===== TÍTULO RESULTADOS ===== */
 #titulo_resultados {
-    font-family: "Montserrat", sans-serif;
-    background: linear-gradient(to right, #13bffe, #0040a6);
-    background-color: transparent;
-    background-clip: text;
-    color: transparent;
-    font-size: clamp(2.5rem, 5vw, 4.3rem);
-    text-align: left;
-    padding-left: clamp(2rem, 8vw, 6rem);
-    padding-top: 2rem;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to right, #13bffe, #0040a6);
+  background-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(2.5rem, 5vw, 4.3rem);
+  text-align: left;
+  padding-left: clamp(2rem, 8vw, 6rem);
+  padding-top: 2rem;
 }
 
 /* ===== SEÇÃO CARTÕES ===== */
 .sec_cartoes {
-    height: 25vh;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-around;
-    gap: 1.2rem;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+  height: 25vh;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  gap: 1.2rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
 }
 
 /* ===== ESTILO DOS CARDS ===== */
 .card {
-    width: 17.5rem;
-    min-height: 6.2rem;
-    font-size: 1.2rem;
-    padding: 1.8rem;
-    border-radius: 0.9rem;
-    background: linear-gradient(to right, #0245a8, #16283d);
-    transition: all 1.4s ease;
-    color: white;
-    font-family: "Geologica", sans-serif;
+  width: 17.5rem;
+  min-height: 6.2rem;
+  font-size: 1.2rem;
+  padding: 1.8rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(to right, #0245a8, #16283d);
+  transition: all 1.4s ease;
+  color: white;
+  font-family: "Geologica", sans-serif;
 }
 
 .num_cartao {
-    color: #56d4ff;
-    transition: color 0.4s ease;
+  color: #56d4ff;
+  transition: color 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-0.8rem);
-    background: linear-gradient(to right, #2f9fff, #5cdffb);
-    color: black;
+  transform: translateY(-0.8rem);
+  background: linear-gradient(to right, #2f9fff, #5cdffb);
+  color: black;
 }
 
 .card:hover .num_cartao {
-    color: #002b5b;
+  color: #002b5b;
 }
 
 .texto_fim {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    opacity: 0;
-    max-height: 0;
-    transition: all 0.9s ease;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.9s ease;
 }
 
 .texto_inicio {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .link_cartao {
-    margin-top: 1rem;
-    color: #0a2f7a;
-    text-decoration: none;
-    opacity: 0;
+  margin-top: 1rem;
+  color: #0a2f7a;
+  text-decoration: none;
+  opacity: 0;
 }
 
 .card:hover .texto_fim {
-    color: white;
-    opacity: 1;
-    max-height: 10rem;
+  color: white;
+  opacity: 1;
+  max-height: 10rem;
 }
 
 .card:hover .link_cartao {
-    display: block;
+  display: block;
 }
 
 .link_cartao:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .card:hover .link_cartao {
-    opacity: 1;
-    transition: all 1.9s ease;
-    max-height: 1rem;
+  opacity: 1;
+  transition: all 1.9s ease;
+  max-height: 1rem;
 }
 
 /* ===== SEÇÃO 3 ===== */
 
 #sec3 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .slide-text h1 {
-    font-family: "Montserrat", sans-serif;
-    background: linear-gradient(to right, #13bffe, #004cc5);
-    background-clip: text;
-    color: transparent;
-    font-weight: 600;
-    font-size: clamp(2.7rem, 6vw, 5rem);
-    text-align: right;
-    margin-right: clamp(0rem, 15vw, 12rem);
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to right, #13bffe, #004cc5);
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  text-align: right;
+  margin-right: clamp(0rem, 15vw, 12rem);
 }
 
 .sec3_content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .sec3_slider input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 .slide {
-    display: none;
-    align-items: center;
+  display: none;
+  align-items: center;
 }
 
 .slide img {
-    margin-top: 15%;
-    width: clamp(20rem, 40vw, 40rem);
+  margin-top: 15%;
+  width: 40vw;
 }
 
 .slide-text {
-    margin-left: 3.2rem;
-    width: 60%;
+  margin-left: 3.2rem;
+  width: 60%;
 }
 
 .slide h2 {
-    margin-top: 15%;
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(1.6rem, 4.5vw, 3.5rem);
-    font-weight: lighter;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+  margin-top: 15%;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.6rem, 4.5vw, 3.5rem);
+  font-weight: lighter;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 #span1 {
-    background: linear-gradient(to right, #5cdffb, #3389ee, #164de5);
-    background-clip: text;
-    color: transparent;
+  background: linear-gradient(to right, #5cdffb, #3389ee, #164de5);
+  background-clip: text;
+  color: transparent;
 }
 
 #span2 {
-    background: linear-gradient(to right, #174ee5, #5cdffb);
-    background-clip: text;
-    color: transparent;
+  background: linear-gradient(to right, #174ee5, #5cdffb);
+  background-clip: text;
+  color: transparent;
 }
 
 #span3 {
-    background: linear-gradient(to right, #1f89ef, #0346a7);
-    background-clip: text;
-    color: transparent;
+  background: linear-gradient(to right, #1f89ef, #0346a7);
+  background-clip: text;
+  color: transparent;
 }
 
 #span4 {
-    background: linear-gradient(to right, #0246a7, #5cdffb);
-    background-clip: text;
-    color: transparent;
+  background: linear-gradient(to right, #0246a7, #5cdffb);
+  background-clip: text;
+  color: transparent;
 }
 
 .slide p {
-    font-weight: lighter;
-    color: #5980b0;
-    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-    line-height: 1.5;
-    font-family: "Geologica", sans-serif;
+  font-weight: lighter;
+  color: #5980b0;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.5;
+  font-family: "Geologica", sans-serif;
 }
 
 .sec3_controls {
-    display: flex;
-    margin-right: clamp(0rem, 7vw, 5rem);
-    justify-content: right;
-    margin-top: -7%;
+  display: flex;
+  margin-right: clamp(0rem, 7vw, 5rem);
+  justify-content: right;
+  margin-top: -7%;
 }
 
 .dot {
-    margin-right: 4rem;
-    width: 7rem;
-    height: 1rem;
-    border-radius: 0.6rem;
-    background: #c8d7ee;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-right: 4rem;
+  width: 8vw;
+  height: 1rem;
+  border-radius: 0.6rem;
+  background: #c8d7ee;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #step1:checked~.slides .slide[data-step="1"],
 #step2:checked~.slides .slide[data-step="2"],
 #step3:checked~.slides .slide[data-step="3"],
 #step4:checked~.slides .slide[data-step="4"] {
-    display: flex;
+  display: flex;
 }
 
 #step1:checked~.sec3_controls label[for="step1"],
 #step2:checked~.sec3_controls label[for="step2"],
 #step3:checked~.sec3_controls label[for="step3"],
 #step4:checked~.sec3_controls label[for="step4"] {
-    background: #0a4ec7;
+  background: #0a4ec7;
 }
 
 /* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
 #sec4 {
-    margin-top: 10rem;
-    display: flex;
-    align-items: center;
-    padding: 2rem 0rem;
-    gap: 2rem;
+  margin-top: 10rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0rem;
+  gap: 2rem;
 }
 
 .texto {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 #sec4 img {
-    width: 50rem;
-    margin-left: clamp(0rem, 4vw, 15rem);
+  width: 50rem;
+  margin-left: clamp(0rem, 4vw, 15rem);
 }
 
 #sec4 h1 {
-    align-items: flex-start;
-    font-family: "Montserrat", sans-serif;
-    background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
-    background-clip: text;
-    color: transparent;
-    font-size: clamp(3rem, 8vw, 4.6rem);
-    width: 120%;
-    margin-bottom: 5rem;
+  align-items: flex-start;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(3rem, 8vw, 4.6rem);
+  width: 120%;
+  margin-bottom: 5rem;
 }
 
 /* Inputs Container */
 .inputs {
-    margin-left: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
     "email email"
     "telefone nome"
     "industria enviar";
-    gap: 2rem;
+  gap: 2rem;
 }
 
 /* Posicionamento dos inputs */
 .inputs input:nth-of-type(1) {
-    grid-area: email;
-    padding-right: 2.1rem;
+  grid-area: email;
+  padding-right: 2.1rem;
 }
 
 .inputs input:nth-of-type(2) {
-    grid-area: telefone;
+  grid-area: telefone;
 }
 
 .inputs input:nth-of-type(3) {
-    margin-left: 1rem;
-    grid-area: nome;
+  margin-left: 1rem;
+  grid-area: nome;
 }
 
 .inputs input:nth-of-type(4) {
-    grid-area: industria;
+  grid-area: industria;
 
-}
-
-#buttons {
-    grid-area: enviar;
-}
-
-/* Estilos dos inputs */
-.inputs input {
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    outline: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-family: "Geologica", sans-serif;
-    transition: all 0.3s ease;
-}
-
-.inputs input::placeholder {
-    color: #767676;
-}
-
-.inputs input:focus {
-    box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
-    border-color: #1e88ee;
-    transform: scale(1.02);
 }
 
 /* Button Container */
 #buttons {
-    display: flex;
-    font-family: "Geologica", sans-serif;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: 3rem;
+  grid-area: enviar;
+  display: flex;
+  font-family: "Geologica", sans-serif;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Estilos dos inputs */
+.inputs input {
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  outline: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "Geologica", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.inputs input::placeholder {
+  color: #767676;
+}
+
+.inputs input:focus {
+  box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
+  border-color: #1e88ee;
+  transform: scale(1.02);
+}
+
+/* Button Container */
+#buttons {
+  display: flex;
+  font-family: "Geologica", sans-serif;
+  width: 135%;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #buttons button {
-    background: linear-gradient(135deg, #004cc5, #0066ff);
-    color: #ffffff;
-    border-radius: 0.7rem;
-    padding: clamp(0.8rem, 2vw, 1.1rem);
-    border: none;
-    font-size: clamp(0.9rem, 1.5vw, 1.5rem);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    min-width: 8rem;
+  background: linear-gradient(135deg, #004cc5, #0066ff);
+  color: #ffffff;
+  border-radius: 0.7rem;
+  padding: clamp(0.8rem, 2vw, 1.1rem);
+  border: none;
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 8rem;
 }
 
 #buttons button:hover {
-    background: linear-gradient(135deg, #003a9a, #0055dd);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #003a9a, #0055dd);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== SEÇÃO DECORATIVA ===== */
 #imagem_decorativa {
-    height: 50vh;
-    background-image: url("../imgs/Polygon_25.png");
-    background-position: left;
-    background-repeat: no-repeat;
+  height: 50vh;
+  background-image: url("/ASSETS/imgs/Polygon_25.png");
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
 /* ===== SEÇÃO SOBRE ===== */
 #sec_sobre {
 
-    background-image: url("../imgs/Fundo_Sobre.png");
+  background-image: url("/ASSETS/imgs/Fundo_Sobre.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25vh;
+}
+
+#titulo_sobre {
+  margin-top: -2%;
+  margin-right: clamp(0rem, 46vw, 50rem);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  color: white;
+  text-align: left;
+  margin-bottom: clamp(5vh, 10vw, 8vh);
+  width: 38vw;
+}
+
+#cartoes_sobre {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+}
+
+#card_sobre1 {
+  background-color: white;
+  background-image: url('/ASSETS/imgs/imagem_nossa_missao.png');
+  background-repeat: no-repeat;
+  background-position: 0.5rem 22rem;
+  background-size: 102%;
+}
+
+#card_sobre2 {
+  background-color: white;
+}
+
+#card_sobre3 {
+  margin-right: 3.5rem;
+  background-color: white;
+  background-image: url('/ASSETS/imgs/imagem_nossos_valores.png');
+  background-repeat: no-repeat;
+  background-position: 8.5rem 19rem;
+  background-size: 70%;
+}
+
+.card_sobre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 130rem;
+  width: 25vw;
+  height: auto;
+  padding: 2rem;
+  gap: 0.8rem;
+  border-radius: 30px;
+  box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titulo_card {
+  margin-top: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 3.05vw, 3.2rem);
+  background: linear-gradient(to right, #6edcfb, #3c78da);
+  background-clip: text;
+  color: transparent;
+}
+
+#sec_sobre p {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.2em);
+  color: #365576;
+  text-align: center;
+  font-family: "Geologica", sans-serif;
+  line-height: 1.6;
+  max-width: 23rem;
+}
+
+/* ===== AJUSTES GERAIS ===== */
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  font-family: "Geologica", sans-serif;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  margin-top: 23rem;
+  border-radius: 0.1rem;
+  background-color: #081f38;
+}
+
+footer section {
+  flex-wrap: wrap;
+}
+
+footer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.direitos {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  padding-bottom: 2rem;
+}
+
+footer p {
+  font-size: 1.1rem;
+}
+
+footer h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+}
+
+footer p,
+h3 {
+  margin-top: 5rem;
+  color: aliceblue;
+}
+
+/* ======================================= */
+/* ===== AJUSTES PARA TELAS MENORES ===== */
+/* ======================================= */
+
+@media (max-width: 1340px) and (max-height:800px) {
+  main {
+    padding-top: 5rem;
+  }
+
+  /* ===== ESTILO DOS CARDS ===== */
+  .card {
+    width: 20.5rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
+  }
+
+  /* ===== SEÇÃO 3 ===== */
+
+  .slide-text h1 {
+    font-size: clamp(2.7rem, 8vw, 5rem);
+  }
+
+  .slide h2 {
+    margin-top: 10%;
+  }
+
+  .slide p {
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+  }
+
+  .dot {
+    margin-right: 3rem;
+    width: 7rem;
+  }
+
+  /* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
+  #sec4 {
+    margin-top: 8rem;
+    padding: 2rem 0rem;
+    gap: 0rem;
+  }
+
+  #sec4 img {
+    padding-left: 0;
+  }
+
+  .texto {
+    margin-left: 2rem;
+  }
+
+  /* Inputs Container */
+  .inputs {
+    margin-left: 0;
+    gap: 3rem;
+  }
+
+  #buttons {
+    grid-area: enviar;
+    margin-left: 18%;
+  }
+
+  /* Estilos dos inputs */
+  .inputs input {
+    font-size: 1.3rem;
+  }
+
+  #buttons button {
+    font-size: 1.3rem;
+  }
+
+  #sec_sobre {
+    height: 260vh;
+    padding: 20vh;
+  }
+
+  #cartoes_sobre {
+    gap: 4.5rem;
+    flex-direction: column;
+  }
+
+  .card_sobre {
+    max-width: 30rem;
+    width: 60vw;
+  }
+
+  #sec_sobre p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-height:1340px) and (max-width: 620px) {
+  #item-menu {
+    margin-left: 12%;
+  }
+
+  header img {
+    margin-left: 8%;
+  }
+
+  header label {
+    margin-right: 4%;
+  }
+
+  main {
+    padding-top: 0;
+  }
+
+  #imagem_texto {
+    margin-top: 0rem;
+    padding-bottom: 2rem;
+  }
+
+  .sec_intro {
+    margin-top: 0;
+    padding-left: 10vw;
+    padding-top: 4rem;
+    background-size: 110% 140%;
+    flex-direction: column;
+  }
+
+  #texto_intro {
+    padding-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sec_intro a {
+    font-size: 1.7rem;
+  }
+
+  /* ===== TÍTULO RESULTADOS ===== */
+  #titulo_resultados {
+    font-size: 3rem;
+  }
+
+  /* ===== SEÇÃO CARTÕES ===== */
+  .sec_cartoes {
+    height: 20vh;
+    justify-self: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  /* ===== ESTILO DOS CARDS ===== */
+  .card {
+    width: 17.5rem;
+    min-height: 6.2rem;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+  }
+
+  .texto_inicio {
+    font-size: 1.6rem;
+  }
+
+  /* ===== SEÇÃO 3 ===== */
+  .slide {
+    padding: 3rem 0rem 0rem 0rem;
+    /* flex-direction: column; */
+    margin-right: 3rem;
+  }
+
+  .slide img {
+    width: 1rem;
+  }
+
+  .slide-text h1 {
+    font-size: 4vw;
+    width: 20rem;
+    margin-bottom: 2rem;
+  }
+
+  .slide h2 {
+    margin-top: 0;
+    width: 20rem;
+    font-size: 3vw;
+  }
+
+  .slide p {
+    font-size: 1rem;
+  }
+
+  .sec3_controls {
+    margin-right: 3rem;
+  }
+
+  /* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
+  .inputs {
+    margin-left: 0;
+    gap: 1rem;
+    width: 80%;
+  }
+
+  .inputs input:nth-of-type(1) {
+    grid-area: email;
+    padding-right: 1.8rem;
+  }
+
+  .inputs input:nth-of-type(2) {
+    grid-area: telefone;
+  }
+
+  .inputs input:nth-of-type(3) {
+    grid-area: nome;
+  }
+
+  .inputs input:nth-of-type(4) {
+    grid-area: industria;
+  }
+
+  .texto {
+    margin-left: 0rem;
+  }
+
+  #sec4 img {
+    width: 0;
+    margin-left: 0;
+    display: none;
+  }
+
+  /* Inputs Container */
+  .inputs {
+    margin-left: 1rem;
+    width: 24rem;
+    gap: 3rem;
+  }
+
+  #inp-nome {
+    margin-right: 0;
+    left: 39rem;
+  }
+
+  #buttons {
+    grid-area: enviar;
+    width: 90%;
+
+  }
+
+  /* Estilos dos inputs */
+  .inputs input {
+    font-size: 1.3rem;
+  }
+
+  #buttons button {
+    font-size: 1.3rem;
+    margin-left: 2.5rem;
+  }
+
+  /* ===== SEÇÃO SOBRE ===== */
+  #sec_sobre {
+    height: 150vh;
+    padding: 15vh;
+  }
+
+  #cartoes_sobre {
+    gap: 2.5rem;
+    flex-direction: column;
+  }
+
+  .card_sobre {
+    height: 36vh;
+  }
+
+  #sec_sobre p {
+    font-size: 1.2rem;
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer div {
+    flex-direction: column;
+    justify-self: center;
+  }
+
+  .direitos {
+    font-size: 1.3rem;
+  }
+
+  footer p {
+    font-size: 1.5rem;
+  }
+
+  footer h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3.8rem;
+  }
+}
+
+@media (max-height:1340px) and (max-width: 360px) {
+  main {
+    padding-top: 0;
+  }
+
+  #imagem_texto {
+    margin-top: 0rem;
+    padding-bottom: 2rem;
+  }
+
+  .sec_intro {
+    margin-top: 0;
+    padding-left: 10vw;
+    padding-top: 4rem;
+    background-size: 110% 140%;
+    flex-direction: column;
+  }
+
+  #texto_intro {
+    padding-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sec_intro a {
+    font-size: 1.7rem;
+  }
+
+  /* ===== TÍTULO RESULTADOS ===== */
+  #titulo_resultados {
+    font-size: 3rem;
+  }
+
+  /* ===== SEÇÃO CARTÕES ===== */
+  .sec_cartoes {
+    height: 20vh;
+    justify-self: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  /* ===== ESTILO DOS CARDS ===== */
+  .card {
+    padding: 2rem;
+    width: 30rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
+  }
+
+  .texto_fim {
+    font-size: 1.2rem;
+  }
+
+  .texto_inicio {
+    font-size: 1.6rem;
+  }
+
+  /* ===== SEÇÃO 3 ===== */
+
+  .slide-text h1 {
+    font-size: 6vw;
+    width: 24rem;
+  }
+
+  .slide h2 {
+    margin-top: 0;
+  }
+
+  .slide p {
+    font-size: clamp(1.3rem, 2vw, 1.5rem);
+  }
+
+  .sec3_controls {
+    margin-top: -1%;
+  }
+
+  .dot {
+    margin-right: 1rem;
+    width: 4rem;
+  }
+
+  /* ===== SEÇÃO SOBRE ===== */
+  #sec_sobre {
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -415,47 +921,40 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 25vh;
-}
+  }
 
-#titulo_sobre {
-    margin-top: -2%;
-    margin-right: clamp(0rem, 46vw, 50rem);
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(3rem, 7vw, 5.6rem);
-    color: white;
-    text-align: left;
-    margin-bottom: clamp(5vh, 10vw, 8vh);
-    width: 38vw;
-}
+  #sec4 {
+    padding: 5rem 0rem;
+    gap: 0rem;
+  }
 
-#cartoes_sobre {
+  #sec4 {
+    margin-top: 10rem;
     display: flex;
     justify-content: space-around;
     gap: 1.5rem;
-}
+  }
 
-#card_sobre1 {
+  #card_sobre1 {
     background-color: white;
-    background-image: url('../imgs/nossaMissao.png');
     background-repeat: no-repeat;
     background-position: 0.5rem 22rem;
     background-size: 102%;
-}
+  }
 
-#card_sobre2 {
+  #card_sobre2 {
     background-color: white;
-}
+  }
 
-#card_sobre3 {
+  #card_sobre3 {
     margin-right: 3.5rem;
     background-color: white;
-    background-image: url('../imgs/nossosValores.png');
     background-repeat: no-repeat;
     background-position: 8.5rem 19rem;
     background-size: 70%;
-}
+  }
 
-.card_sobre {
+  .card_sobre {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -467,18 +966,18 @@ main {
     gap: 0.8rem;
     border-radius: 30px;
     box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.titulo_card {
+  .titulo_card {
     margin-top: 1rem;
     font-family: "Montserrat", sans-serif;
     font-size: clamp(2rem, 3.05vw, 3.2rem);
     background: linear-gradient(to right, #6edcfb, #3c78da);
     background-clip: text;
     color: transparent;
-}
+  }
 
-#sec_sobre p {
+  #sec_sobre p {
     margin-top: 1rem;
     font-size: clamp(1rem, 1.5vw, 1.2em);
     color: #365576;
@@ -486,920 +985,411 @@ main {
     font-family: "Geologica", sans-serif;
     line-height: 1.6;
     max-width: 23rem;
-}
+  }
 
-/* ===== AJUSTES GERAIS ===== */
-a:hover {
+  /* ===== AJUSTES GERAIS ===== */
+  a:hover {
     text-decoration: underline;
-}
-
-p {
-    font-family: "Geologica", sans-serif;
-}
-
-/* ===== RODAPÉ ===== */
-footer {
-    margin-top: 23rem;
-    border-radius: 0.1rem;
-    background-color: #081f38;
-}
-
-footer section {
-    flex-wrap: wrap;
-}
-
-footer div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.direitos {
-    margin-top: 5rem;
-    text-align: center;
-    font-size: 1.1rem;
-    padding-bottom: 2rem;
-}
-
-footer p {
-    font-size: 1.1rem;
-}
-
-footer h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.8rem;
-}
-
-footer p,
-h3 {
-    margin-top: 5rem;
-    color: aliceblue;
-}
-
-/* ======================================= */
-/* ===== AJUSTES PARA TELAS MENORES ===== */
-/* ======================================= */
-
-@media (max-width: 1340px) and (max-height:800px){
-
-}
-@media  (max-height:1340px) and (max-width: 800px) {
-    .sec_intro {
-        display: block;
-        align-items: center;
-        justify-content:baseline;
-        height: 100vh;
-        padding-left: 12vw;
-        padding-right: 1vw;
-        gap: 8vw;
-        background-size: 110% 89%;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-
-    #texto_intro {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-        color: aliceblue;
-    }
-
-    .sec_intro a {
-        font-family: "Geologica", sans-serif;
-        text-decoration: none;
-        font-size: 1.4rem;
-        color: aliceblue;
-    }
-
-    .sec_intro a:hover {
-        text-decoration: underline;
-    }
-
-    .sec_intro img {
-        width: 31.25rem;
-        max-width: 90vw;
-        height: auto
-    }
-
-    /* ===== TÍTULO RESULTADOS ===== */
-    #titulo_resultados {
-        font-family: "Montserrat", sans-serif;
-        background: linear-gradient(to right, #13bffe, #0040a6);
-        background-color: transparent;
-        background-clip: text;
-        color: transparent;
-        font-size: clamp(2.5rem, 5vw, 4.3rem);
-        text-align: left;
-        padding-left: clamp(2rem, 8vw, 6rem);
-        padding-top: 2rem;
-    }
-
-    /* ===== SEÇÃO CARTÕES ===== */
-    .sec_cartoes {
-        height: 25vh;
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-around;
-        gap: 1.2rem;
-        padding-top: 4rem;
-        padding-bottom: 2rem;
-    }
-
-    /* ===== ESTILO DOS CARDS ===== */
-    .card {
-        width: 17.5rem;
-        min-height: 6.2rem;
-        font-size: 1.2rem;
-        padding: 1.8rem;
-        border-radius: 0.9rem;
-        background: linear-gradient(to right, #0245a8, #16283d);
-        transition: all 1.4s ease;
-        color: white;
-        font-family: "Geologica", sans-serif;
-    }
-
-    .num_cartao {
-        color: #56d4ff;
-        transition: color 0.4s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-0.8rem);
-        background: linear-gradient(to right, #2f9fff, #5cdffb);
-        color: black;
-    }
-
-    .card:hover .num_cartao {
-        color: #002b5b;
-    }
-
-    .texto_fim {
-        margin-top: 0.5rem;
-        font-size: 1rem;
-        opacity: 0;
-        max-height: 0;
-        transition: all 0.9s ease;
-    }
-
-    .texto_inicio {
-        font-size: 1.4rem;
-    }
-
-    .link_cartao {
-        margin-top: 1rem;
-        color: #0a2f7a;
-        text-decoration: none;
-        opacity: 0;
-    }
-
-    .card:hover .texto_fim {
-        color: white;
-        opacity: 1;
-        max-height: 10rem;
-    }
-
-    .card:hover .link_cartao {
-        display: block;
-    }
-
-    .link_cartao:hover {
-        text-decoration: underline;
-    }
-
-    .card:hover .link_cartao {
-        opacity: 1;
-        transition: all 1.9s ease;
-        max-height: 1rem;
-    }
-
-    /* ===== SEÇÃO 3 ===== */
-
-    #sec3 {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .slide-text h1 {
-        font-family: "Montserrat", sans-serif;
-        background: linear-gradient(to right, #13bffe, #004cc5);
-        background-clip: text;
-        color: transparent;
-        font-weight: 600;
-        font-size: clamp(2.7rem, 6vw, 5rem);
-        text-align: right;
-        margin-right: clamp(0rem, 15vw, 12rem);
-    }
-
-    .sec3_content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    .sec3_slider input[type="radio"] {
-        display: none;
-    }
-
-    .slide {
-        display: none;
-        align-items: center;
-    }
-
-    .slide img {
-        margin-top: 15%;
-        width: clamp(20rem, 40vw, 40rem);
-    }
-
-    .slide-text {
-        margin-left: 3.2rem;
-        width: 60%;
-    }
-
-    .slide h2 {
-        margin-top: 15%;
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(1.6rem, 4.5vw, 3.5rem);
-        font-weight: lighter;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-    }
-
-    #span1 {
-        background: linear-gradient(to right, #5cdffb, #3389ee, #164de5);
-        background-clip: text;
-        color: transparent;
-    }
-
-    #span2 {
-        background: linear-gradient(to right, #174ee5, #5cdffb);
-        background-clip: text;
-        color: transparent;
-    }
-
-    #span3 {
-        background: linear-gradient(to right, #1f89ef, #0346a7);
-        background-clip: text;
-        color: transparent;
-    }
-
-    #span4 {
-        background: linear-gradient(to right, #0246a7, #5cdffb);
-        background-clip: text;
-        color: transparent;
-    }
-
-    .slide p {
-        font-weight: lighter;
-        color: #5980b0;
-        font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-        line-height: 1.5;
-        font-family: "Geologica", sans-serif;
-    }
-
-    .sec3_controls {
-        display: flex;
-        margin-right: clamp(0rem, 7vw, 5rem);
-        justify-content: right;
-        margin-top: -7%;
-    }
-
-    .dot {
-        margin-right: 4rem;
-        width: 7rem;
-        height: 1rem;
-        border-radius: 0.6rem;
-        background: #c8d7ee;
-        cursor: pointer;
-        transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    #step1:checked~.slides .slide[data-step="1"],
-    #step2:checked~.slides .slide[data-step="2"],
-    #step3:checked~.slides .slide[data-step="3"],
-    #step4:checked~.slides .slide[data-step="4"] {
-        display: flex;
-    }
-
-    #step1:checked~.sec3_controls label[for="step1"],
-    #step2:checked~.sec3_controls label[for="step2"],
-    #step3:checked~.sec3_controls label[for="step3"],
-    #step4:checked~.sec3_controls label[for="step4"] {
-        background: #0a4ec7;
-    }
-
-    /* ===== SEÇÃO 4 (Estilos básicos e de layout) ===== */
-    #sec4 {
-        margin-top: 10rem;
-        display: flex;
-        align-items: center;
-        padding: 2rem 0rem;
-        gap: 2rem;
-    }
-
-    .texto {
-        margin-left: 1rem;
-    }
-
-    #sec4 img {
-        width: 50rem;
-        margin-left: clamp(0rem, 4vw, 15rem);
-    }
-
-    #sec4 h1 {
-        align-items: flex-start;
-        font-family: "Montserrat", sans-serif;
-        background: linear-gradient(to right, #0246a6, #1f89ef, #13bffe);
-        background-clip: text;
-        color: transparent;
-        font-size: clamp(3rem, 8vw, 4.6rem);
-        width: 120%;
-        margin-bottom: 5rem;
-    }
-
-    /* Inputs Container */
-    .inputs {
-        margin-left: 2rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-      "email email"
-      "telefone nome"
-      "industria enviar";
-        gap: 2rem;
-    }
-
-    /* Posicionamento dos inputs */
-    .inputs input:nth-of-type(1) {
-        grid-area: email;
-        padding-right: 2.1rem;
-    }
-
-    .inputs input:nth-of-type(2) {
-        grid-area: telefone;
-    }
-
-    .inputs input:nth-of-type(3) {
-        margin-left: 1rem;
-        grid-area: nome;
-    }
-
-    .inputs input:nth-of-type(4) {
-        grid-area: industria;
-    }
-
-    #buttons {
-        grid-area: enviar;
-    }
-
-    /* Estilos dos inputs */
-    .inputs input {
-        background-color: #f8f9fa;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        padding: 1rem;
-        border: 1px solid #ddd;
-        outline: none;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-        font-family: "Geologica", sans-serif;
-        transition: all 0.3s ease;
-    }
-
-    .inputs input::placeholder {
-        color: #767676;
-    }
-
-    .inputs input:focus {
-        box-shadow: 0 0 8px rgba(30, 136, 238, 0.5);
-        border-color: #1e88ee;
-        transform: scale(1.02);
-    }
-
-    /* Button Container */
-    #buttons {
-        display: flex;
-        font-family: "Geologica", sans-serif;
-        width: 100%;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    #buttons button {
-        background: linear-gradient(135deg, #004cc5, #0066ff);
-        color: #ffffff;
-        border-radius: 0.7rem;
-        padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
-        border: none;
-        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        min-width: 8rem;
-    }
-
-    #buttons button:hover {
-        background: linear-gradient(135deg, #003a9a, #0055dd);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    /* ===== SEÇÃO DECORATIVA ===== */
-    #imagem_decorativa {
-        height: 50vh;
-
-        background-position: left;
-        background-repeat: no-repeat;
-    }
-
-    /* ===== SEÇÃO SOBRE ===== */
-    #sec_sobre {
-
-
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 25vh;
-    }
-
-    #titulo_sobre {
-        margin-top: -2%;
-        margin-right: clamp(0rem, 46vw, 50rem);
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(3rem, 7vw, 5.6rem);
-        color: white;
-        text-align: left;
-        margin-bottom: clamp(5vh, 10vw, 8vh);
-        width: 38vw;
-    }
-
-    #cartoes_sobre {
-        display: flex;
-        justify-content: space-around;
-        gap: 1.5rem;
-    }
-
-    #card_sobre1 {
-        background-color: white;
-
-        background-repeat: no-repeat;
-        background-position: 0.5rem 22rem;
-        background-size: 102%;
-    }
-
-    #card_sobre2 {
-        background-color: white;
-    }
-
-    #card_sobre3 {
-        margin-right: 3.5rem;
-        background-color: white;
-
-        background-repeat: no-repeat;
-        background-position: 8.5rem 19rem;
-        background-size: 70%;
-    }
-
-    .card_sobre {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        max-width: 130rem;
-        width: 25vw;
-        height: 100vh;
-        padding: 2rem;
-        gap: 0.8rem;
-        border-radius: 30px;
-        box-shadow: 2px 10px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .titulo_card {
-        margin-top: 1rem;
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(2rem, 3.05vw, 3.2rem);
-        background: linear-gradient(to right, #6edcfb, #3c78da);
-        background-clip: text;
-        color: transparent;
-    }
-
-    #sec_sobre p {
-        margin-top: 1rem;
-        font-size: clamp(1rem, 1.5vw, 1.2em);
-        color: #365576;
-        text-align: center;
-        font-family: "Geologica", sans-serif;
-        line-height: 1.6;
-        max-width: 23rem;
-    }
-
-    /* ===== AJUSTES GERAIS ===== */
-    a:hover {
-        text-decoration: underline;
-    }
-
-    p {
-        font-family: "Geologica", sans-serif;
-    }
-
-    /* ===== RODAPÉ ===== */
-    footer {
-        margin-top: 23rem;
-        border-radius: 0.1rem;
-        background-color: #081f38;
-    }
-
-    footer section {
-        flex-wrap: wrap;
-    }
-
-    footer div {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .direitos {
-        margin-top: 5rem;
-        text-align: center;
-        font-size: 1.1rem;
-        padding-bottom: 2rem;
-    }
-
-    footer p {
-        font-size: 1.1rem;
-    }
-
-    footer h3 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.8rem;
-    }
-
-    footer p,
-    h3 {
-        margin-top: 5rem;
-        color: aliceblue;
-    }
+  }
+
+  #sec_sobre p {
+    font-size: 1.2rem;
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer div {
+    flex-direction: column;
+    justify-self: center;
+  }
+
+  .direitos {
+    font-size: 1.2rem;
+  }
+
+  footer p {
+    font-size: 1.5rem;
+  }
 }
 
 /* --- TELA DE TABLET (MAX-WIDTH: 1024PX) --- */
-@media (min-width: 1024px) and (max-width: 1199px) {
+@media (max-width: 1064px) {
+  main {
+    padding-top: 5rem;
+  }
 
-    /* ===== SEÇÃO INTRODUÇÃO (EMPILHAMENTO) ===== */
-    .sec_intro {
-        height: auto;
-        padding: 1rem 5vw 0;
-        text-align: center;
-        background-size: cover;
-        background-position: center top;
-    }
+  .card {
+    padding: 2rem;
+    width: 18rem;
+    font-size: 1.8rem;
+    box-sizing: border-box;
+  }
 
-    #texto_intro {
-        align-items: center;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-        /* Adicionado para dar espaço após o texto */
-    }
+  .texto_fim {
+    font-size: 1.2rem;
+  }
 
-    /* ===== TÍTULO RESULTADOS ===== */
-    #titulo_resultados {
-        padding-left: 0;
-        text-align: center;
-        padding-top: 5rem;
-    }
+  /* ===== SEÇÃO INTRODUÇÃO (EMPILHAMENTO) ===== */
+  .sec_intro {
+    height: auto;
+    padding: 1rem 5vw 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center top;
+  }
 
-    /* ===== SEÇÃO CARTÕES (EMPILHAMENTO) ===== */
-    .sec_cartoes {
-        align-items: center;
-        height: auto;
-        gap: 1.5rem;
-        padding-top: 2rem;
-    }
+  #texto_intro {
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 
-    .card {
-        width: 31vw;
-        box-sizing: border-box;
-        max-width: 30rem;
-    }
+  /* ===== TÍTULO RESULTADOS ===== */
+  #titulo_resultados {
+    padding-left: 3rem;
+    padding-top: 5rem;
+  }
 
-    /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
-    #sec3 {
-        align-items: center;
-        padding-top: 5rem;
-        margin-bottom: 5rem;
-    }
+  /* ===== SEÇÃO CARTÕES (EMPILHAMENTO) ===== */
+  .sec_cartoes {
+    align-items: center;
+    height: auto;
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
 
-    .sec3_content {
-        /* flex-direction: column;  */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  /* ===== SEÇÃO 3 - CONHEÇA O APP (SLIDER) ===== */
+  #sec3 {
+    align-items: center;
+    padding-top: 5rem;
+    margin-bottom: 5rem;
+  }
 
-    .slide {
-        align-items: center;
-        text-align: center;
-    }
+  .sec3_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .slides {
-        align-items: center;
-        text-align: center;
+  .slide img {
+    margin-top: 5%;
+    margin-bottom: 0;
+    width: clamp(20rem, 50vw, 35rem);
+  }
 
-    }
+  .slide-text {
+    margin-left: 0;
+    width: 90%;
+    text-align: center;
+  }
 
-    .slide img {
-        margin-top: 5%;
-        margin-bottom: 2rem;
-        width: clamp(20rem, 50vw, 35rem);
-        /* Ajuste de tamanho */
-    }
+  .slide-text h1 {
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .slide-text {
-        margin-left: 0;
-        width: 90%;
-        text-align: center;
-    }
+  .slide h2 {
+    margin-top: 5%;
+  }
 
-    .slide-text h1 {
-        margin-right: 0;
-        text-align: center;
-        /* Faz o h1 seguir o empilhamento e centralização */
-    }
+  .sec3_controls {
+    justify-content: right;
+    margin-right: 5%;
+    margin-top: 0;
+    align-items: start;
+  }
 
-    .slide h2 {
-        margin-top: 5%;
-    }
+  .dot {
+    margin-right: 2rem;
+    width: 4rem;
+    height: 0.8rem;
+    top: 0rem;
+  }
 
-    .sec3_controls {
-        justify-content: right;
-        margin-right: 0;
-        margin-top: 0;
-        align-items: start;
+  .inputs {
+    width: 150%;
+    padding: 1rem;
+  }
 
-    }
+  .inputs input {
+    width: 100%;
+    padding: 1rem;
+  }
 
-    .dot {
-        margin-right: 2rem;
-        width: 4rem;
-        height: 0.8rem;
-    }
+  #buttons {
+    margin-left: 4%;
+  }
 
-    /* ===== SEÇÃO 4 - PERGUNTAS (IMAGEM ACIMA DO TEXTO) ===== */
-    .inputs input {
-        width: 120%;
-        padding: 1rem;
-    }
+  #sec4 {
+    margin-top: 5rem;
+    padding: 1rem;
+    margin-bottom: 10rem;
+    margin-left: clamp(0%, 4vw, 1rem);
+  }
 
-    .inputs {
-        margin-left: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-      "email email"
-      "telefone nome"
-      "industria enviar";
-    }
+  #sec4 img {
+    width: 150vw;
+    max-width: 40rem;
+    margin-left: 10%;
+  }
 
-    /* Posicionamento dos inputs */
-    .inputs input:nth-of-type(1) {
-        grid-area: email;
-        padding-right: 15%;
-    }
+  #sec4 h1 {
+    margin-bottom: 2rem;
+    font-size: clamp(1.8rem, 5vw, 4rem);
+  }
 
-    .inputs input:nth-of-type(2) {
-        grid-area: telefone;
-    }
+  #sec4 p {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 5vw;
+  }
 
-    .inputs input:nth-of-type(3) {
-        margin-left: 28%;
-        grid-area: nome;
-    }
+  hr {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80vw;
+  }
 
-    .inputs input:nth-of-type(4) {
-        grid-area: industria;
-    }
+  #imagem_decorativa {
+    display: none;
+  }
 
-    #buttons {
-        grid-area: enviar;
-        margin-left: 74%;
-    }
+  /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
+  #sec_sobre {
+    height: auto;
+    padding: 25vh 4vw;
+  }
 
-    #sec4 {
-        margin-top: 5rem;
-        /* flex-direction: column-reverse; Imagem fica em cima */
-        padding: 1rem;
-        margin-bottom: 10rem;
-        margin-left: clamp(0%, 4vw, 1rem);
-    }
+  #titulo_sobre {
+    margin-right: 0;
+    text-align: center;
+    margin-top: 0;
+    width: auto;
+  }
 
-    #sec4 img {
-        width: 90vw;
-        /* Ocupa quase toda a largura */
-        max-width: 40rem;
-        /* Limita o tamanho em telas grandes de tablet */
-        margin-left: 10%;
-        /* margin-right: 0; */
-    }
+  #cartoes_sobre {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
 
-    #sec4 h1 {
-        margin-bottom: 2rem;
-        /* Espaçamento mais compacto */
-        font-size: clamp(2.5rem, 5vw, 4rem);
-    }
+  .card_sobre {
+    width: 45vw;
+    height: auto;
+    padding: 2rem;
+    margin-right: 0 !important;
+    background-position: center bottom;
+    background-size: 80%;
+  }
 
-    #sec4 p {
-        margin-left: 0;
-        text-align: center;
-        padding: 0 5vw;
-        /* Adiciona padding lateral no texto */
-    }
+  /* ===== RODAPÉ (EMPILHAMENTO) ===== */
+  footer {
+    margin-top: 5rem;
+    padding: 2rem 0;
+  }
 
-    hr {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80vw;
-    }
+  footer div {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    #imagem_decorativa {
-        display: none;
-    }
+  footer section {
+    text-align: center;
+  }
 
-    /* ===== SEÇÃO SOBRE (EMPILHAMENTO) ===== */
-    #sec_sobre {
-        height: auto;
-        padding: 10vh 2vw;
-        /* Menos padding vertical */
-    }
-
-    #titulo_sobre {
-        margin-right: 0;
-        text-align: center;
-        margin-top: 0;
-        width: auto;
-    }
-
-    #cartoes_sobre {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-        /* Espaçamento menor entre cards */
-    }
-
-    .card_sobre {
-        width: 45vw;
-        height: auto;
-        padding: 2rem;
-        margin-right: 0 !important;
-        background-position: center bottom;
-        background-size: 80%;
-    }
-
-
-    /* ===== RODAPÉ (EMPILHAMENTO) ===== */
-    footer {
-        margin-top: 5rem;
-        /* Rodapé mais próximo */
-        padding: 2rem 0;
-    }
-
-    footer div {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer section {
-        text-align: center;
-    }
-
-    footer p,
-    footer h3 {
-        margin-top: 2rem;
-    }
+  footer p,
+  footer h3 {
+    margin-top: 2rem;
+  }
 }
 
 /* --- TELA DE SMARTPHONE (MAX-WIDTH: 767PX) --- */
 @media (max-width: 767px) {
 
-    /* ===== SEÇÃO INTRODUÇÃO (Compacto) ===== */
-    .sec_intro {
-        padding-left: 2vw;
-        padding-right: 2vw;
-        padding-top: 2rem;
-        gap: 1rem;
-    }
+  .sec_intro {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2rem;
+    gap: 1rem;
+  }
 
-    /* ===== TÍTULO RESULTADOS (Compacto) ===== */
-    #titulo_resultados {
-        font-size: clamp(2rem, 8vw, 3rem);
-        padding-top: 3rem;
-    }
+  /* ===== TÍTULO RESULTADOS (Compacto) ===== */
+  #titulo_resultados {
+    font-size: clamp(2rem, 8vw, 3rem);
+    padding-top: 3rem;
+  }
 
-    /* ===== SEÇÃO CARTÕES (Largura total) ===== */
-    .card {
-        width: 90vw;
-    }
+  /* ===== SEÇÃO CARTÕES (Largura total) ===== */
+  .card {
+    width: 90vw;
+  }
 
-    /* ===== SEÇÃO 3 - CONHEÇA O APP (Slider Compacto) ===== */
-    #sec3 {
-        margin-bottom: 2rem;
-    }
+  /* ===== SEÇÃO 3 - CONHEÇA O APP (Slider Compacto) ===== */
+  #sec3 {
+    margin-bottom: 2rem;
+  }
 
-    .slide img {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        width: clamp(15rem, 80vw, 25rem);
-        /* Aumenta a imagem no mobile */
-        margin-right: 0;
-        /* Remove a margem extra */
-    }
+  .slide img {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    /* width: clamp(15rem, 80vw, 25rem); */
+    margin-right: 0;
+  }
 
-    .slide-text {
-        width: 90%;
-    }
+  .slide-text {
+    width: 90%;
+  }
 
-    .slide h2 {
-        margin-top: 0;
-        font-size: clamp(1.4rem, 6vw, 2rem);
-    }
+  .slide h2 {
+    margin-top: 0;
+    /* font-size:  6vw */
+  }
 
-    .slide p {
-        font-size: clamp(1rem, 4vw, 1.2rem);
-    }
+  /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
+  .inputs {
+    width: 80%;
+    padding: 3rem;
+    padding-left: 0;
+    /* margin-left: 0; */
+  }
 
-    .sec3_controls {
-        margin-top: 5%;
-    }
+  .inputs input {
+    width: 100%;
+    padding: 1rem;
+  }
 
-    /* ===== SEÇÃO 4 - PERGUNTAS (Compacto) ===== */
-    #sec4 {
-        margin-bottom: 5rem;
-        /* flex-direction: column-reverse; Já estava, mas garantindo */
-    }
+  #buttons {
+    margin-left: 8%;
+  }
 
-    #sec4 img {
-        width: 100vw;
-        /* Ocupa a largura total para parecer um banner */
-        margin-right: 0;
-        margin-left: 0;
-    }
+  #sec4 {
+    margin-bottom: 5rem;
+  }
 
-    /* ===== SEÇÃO DECORATIVA ===== */
-    #imagem_decorativa {
-        background-size: 60% 80%;
-        /* Aumenta um pouco para ser visível */
-    }
+  #sec4 h1 {
+    width: 23rem;
+  }
 
-    /* ===== SEÇÃO SOBRE (Compacto) ===== */
-    #sec_sobre {
-        padding: 5vh 2vw;
-        background-size: 200% 200%;
-        /* Ajuste para o fundo não ser exagerado */
-    }
+  #sec4 img {
+    width: 100vw;
+    margin-right: 0;
+    margin-left: 0;
+  }
 
-    #titulo_sobre {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-        margin-bottom: 3vh;
-    }
+  /* ===== SEÇÃO DECORATIVA ===== */
+  #imagem_decorativa {
+    background-size: 60% 80%;
+  }
 
-    .card_sobre {
-        /* Remove as imagens de fundo nos cartões */
-        background-image: none !important;
-        padding: 1.5rem;
-        width: 55vw;
-    }
+  /* ===== SEÇÃO SOBRE (Compacto) ===== */
+  #sec_sobre {
+    padding: 5vh 2vw;
+    background-size: 200% 200%;
+  }
 
-    .titulo_card {
-        font-size: clamp(1.8rem, 6vw, 2.5rem);
-    }
+  #titulo_sobre {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 3vh;
+  }
 
-    /* ===== RODAPÉ ===== */
-    footer p,
-    footer h3 {
-        margin-top: 1.5rem;
-        font-size: 1rem;
-    }
+  .card_sobre {
+    background-image: none !important;
+    padding: 1.5rem;
+    width: 80vw;
+  }
 
-    footer h3 {
-        font-size: 1.5rem;
-    }
+  .titulo_card {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer p,
+  footer h3 {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+
+  footer h3 {
+    font-size: 1.5rem;
+  }
 }
 
-/* Mobile muito pequeno (360px e abaixo) */
 @media (max-width: 480px) {
-    #botao-login {
-        margin-right: 1rem;
-    }
 
-    /* Ajustes finais de espaçamento */
-    main {
-        padding-top: 3rem;
-    }
+  main {
+    padding-top: 3rem;
+  }
+  .slide{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide-text h1 {
+    font-size: 9vw;
+    width: 24rem;
+  }
+
+  .slide h2 {
+    margin-top: 0;
+    margin-left: 17%;
+    font-size: 5.4vw;
+  }
+
+  .slide img{
+    width: 20rem;
+  }
+  .slide p {
+    font-size:  3.5vw;
+    /* padding: 2rem; */
+    margin-left: 20%;
+  }
+
+  .sec3_controls {
+    margin-top: 15%;
+    margin-right: 3rem;
+    align-items: center;
+  }
+
+  .dot {
+    margin-right: 1rem;
+    width: 18vw;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width:65vw;
+    padding-left: 0;
+    justify-self: left;
+    align-items: center;
+  }
+  .inputs input:nth-of-type(3) {
+    margin-left: 0;
+  }
+  .inputs input {
+    margin-top: 2rem;
+  }
+
+  #buttons {
+    margin-top: 10%;
+    display: block;
+
+  }
+
+  #sec4 {
+    margin-bottom: 5rem;
+  }
+
+  #sec4 h1 {
+    width: 23rem;
+  }
+
+  #sec4 img {
+    width: 100vw;
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {}
