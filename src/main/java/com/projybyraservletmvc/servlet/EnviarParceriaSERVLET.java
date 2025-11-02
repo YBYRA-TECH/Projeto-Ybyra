@@ -1,8 +1,7 @@
 package com.projybyraservletmvc.servlet;
 
-import com.projybyraservletmvc.dao.IndustriaDAO;
-import com.projybyraservletmvc.model.Industria;
-import com.projybyraservletmvc.util.EmailUtil; // ← E AQUI
+
+import com.projybyraservletmvc.util.EmailUtil;
 import com.projybyraservletmvc.util.VerificacoesUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

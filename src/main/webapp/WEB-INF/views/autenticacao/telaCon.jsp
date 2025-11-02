@@ -28,7 +28,7 @@
 
             <div id="buttons">
                 <button>
-                    <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=verificacaoIndustria" style="color: #767676">Cancelar</a>
+                    <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=login" style="color: #767676">Cancelar</a>
                 </button>
                 <button style="background-color: #1e88ee;">
                     <a href="<%= request.getContextPath() %>/paginaAutenticacao?nome=login">Entrar</a>
