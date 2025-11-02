@@ -1,4 +1,8 @@
+<%@ page import="com.projybyraservletmvc.model.Relatorios" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="java.util.List" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,22 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/insercaoDados.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/insercaoDados.css"<%=System.currentTimeMillis()%>/>
     <title>YBYRA TECH</title>
 </head>
 
 <body>
 <div class="painel-principal">
 
-    <% request.setAttribute("paginaAtual", "insercaoDados"); %>
+    <%
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+
+        request.setAttribute("paginaAtual", "insercaoDados");
+
+        List<Relatorios> relatorios = (List<Relatorios>) request.getAttribute("relatorios");
+    %>
 
     <jsp:include page="../includes/aside.jsp"/>
-
 
     <main class="area-conteudo">
         <div class="conteudo-principal-header">
             <header class="header-principal">
-                <h1>Inserção de relatorios</h1>
+                <h1>Inserção de relatórios</h1>
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
                     <label for="menu-notificacoes">
@@ -39,32 +49,44 @@
 
         <section class="painel">
             <div class="area-upload-arquivo">
-                <!-- MANTER O FORM DO SERVLET -->
                 <form action="<%=request.getContextPath() %>/InserirDados" method="post" enctype="multipart/form-data">
                     <input type="file" id="upload" name="arquivo" accept=".pdf,.jpg,.jpeg,.png" placeholder="Escolher arquivo" required/>
                     <button type="submit" class="btn-escolher-arquivo" title="Confirmar Arquivo">Confirmar</button>
                 </form>
             </div>
+
             <h1>Recentes</h1>
+
+            <% if (relatorios == null || relatorios.isEmpty()) { %>
             <div class="area-upload-recentes">
                 <img src="<%= request.getContextPath() %>/assets/imgs/imagem_modelo_arquivo.jpg" alt="imagem papel" title="imagem">
                 <p>Digitalizar novos documentos</p>
             </div>
-
-            <!-- Parte a partir de quando o usuário inserir o relatório -->
-            <!-- COMENTADO PARA NÃO PERDER A LÓGICA FUTURA
+            <% } else {
+                int contador = 1;
+                for (Relatorios r : relatorios) {
+                    String modalId = "modal-relatorio-" + contador;
+            %>
             <div class="relatorios-recentes">
                 <div class="relatorio-item">
-                    <h3>Controle_de_produção</h3>
-                    <span>Felipe Augusto</span>
+                    <span class="relatorio-id"><%=r.getIdRelatorios()%></span>
+                    <span class="relatorio-nome"><%= r.getNome() %></span>
+                    <span class="relatorio-responsavel"><%= r.getResponsavel() %></span>
+                    <span class="relatorio-pdf"><%= r.getPdfDocumento() %></span>
+                    <span class="relatorio-turno"><%= r.getTurno() %></span>
+                    <span class="relatorio-area"><%= r.getArea() %></span>
+
+
+
                 </div>
 
-                <label for="modal-relatorio-1" class="icone-lixeira">
+                <label for="<%= modalId %>" class="icone-lixeira">
                     <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Excluir" title="Excluir relatório" />
                 </label>
             </div>
 
-            <input type="checkbox" class="menu-lixeira" id="modal-relatorio-1" />
+            <!-- Modal de confirmação -->
+            <input type="checkbox" class="menu-lixeira" id="<%= modalId %>" />
             <div class="modal-overlay">
                 <div class="menu-lixo">
                     <div class="menu-lixo-icone">
@@ -77,19 +99,26 @@
                     </p>
                     <div class="info-item">
                         <strong>Nome do arquivo:</strong>
-                        <span>Controle_de_produção</span>
+                        <span><%= r.getNome() %></span>
                     </div>
                     <div class="info-item">
                         <strong>Responsável:</strong>
-                        <span>Felipe Augusto</span>
+                        <span><%= r.getResponsavel() %></span>
                     </div>
                     <div class="buttons">
-                        <label for="modal-relatorio-1" class="btn-cancelar">Não</label>
-                        <button type="button" class="btn-excluir">Sim</button>
+                        <label for="<%= modalId %>" class="btn-cancelar">Não</label>
+                        <form action="<%=request.getContextPath()%>/ExcluirRelatorio" method="post" style="flex: 1; margin: 0;">
+                            <input type="hidden" name="idRelatorio" value="<%= r.getIdRelatorios() %>" />
+                            <button type="submit" class="btn-excluir">Sim</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            -->
+            <%
+                        contador++;
+                    }
+                }
+            %>
         </section>
     </main>
 </div>
