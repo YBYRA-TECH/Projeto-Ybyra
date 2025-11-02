@@ -279,53 +279,89 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         return lista;
     }
 
-    public List<Lote> buscarComParametro(String texto, int id_industria) {
-        List<Lote> lista = new ArrayList<>();
+    public List<Lote> buscarComFiltros(int id_industria, String area, String turno, String eficiencia, String busca) {
+        List<Lote> lotes = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
         try {
             conn = conexao.conectar();
-            String sql = "SELECT l.*, r.turno, r.area " +
+
+            String sql = "SELECT l.*, r.turno, r.area, r.id_industria " +
                     "FROM lote l " +
                     "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " +
-                    "WHERE l.id_industria = ? AND " +
-                    "(l.descricao ILIKE ? OR l.responsavel ILIKE ? OR CAST(l.id_lote AS TEXT) LIKE ?) " +
-                    "ORDER BY l.id_lote";
+                    "WHERE r.id_industria = ? ";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id_industria);
-            String parametro = "%" + texto + "%";
-            pstmt.setString(2, parametro);
-            pstmt.setString(3, parametro);
-            pstmt.setString(4, parametro);
+            boolean temArea = (area != null && !area.isEmpty());
+            if (temArea) {
+                sql += "AND r.area = ? ";
+            }
 
-            ResultSet rs = pstmt.executeQuery();
+            boolean temTurno = (turno != null && !turno.isEmpty());
+            if (temTurno) {
+                sql += "AND r.turno = ? ";
+            }
+
+            if (eficiencia != null && !eficiencia.isEmpty()) {
+                if (eficiencia.equals("Alta")) {
+                    sql += "AND l.eficiencia >= 76 ";
+                } else if (eficiencia.equals("Média")) {
+                    sql += "AND l.eficiencia >= 37 AND l.eficiencia < 76 ";
+                } else if (eficiencia.equals("Baixa")) {
+                    sql += "AND l.eficiencia < 37 ";
+                }
+            }
+
+            boolean temBusca = (busca != null && !busca.trim().isEmpty());
+            if (temBusca) {
+                sql += "AND (CAST(l.id_lote AS TEXT) LIKE ? OR l.descricao LIKE ? OR l.responsavel LIKE ?) ";
+            }
+
+            sql += "ORDER BY l.id_lote DESC";
+
+            stmt = conn.prepareStatement(sql);
+
+            int i = 1;
+            stmt.setInt(i++, id_industria);
+
+            if (temArea) {
+                stmt.setString(i++, area);
+            }
+
+            if (temTurno) {
+                stmt.setString(i++, turno);
+            }
+
+            if (temBusca) {
+                String b = "%" + busca.trim() + "%";
+                stmt.setString(i++, b);
+                stmt.setString(i++, b);
+                stmt.setString(i++, b);
+            }
+
+            rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Lote lote = new Lote(
-                        rs.getInt("id_lote"),
-                        rs.getString("descricao"),
-                        rs.getString("turno"),
-                        rs.getString("area"),
-                        rs.getString("responsavel"),
-                        rs.getDouble("eficiencia")
-                );
-
-                lote.setProducao(rs.getInt("producao"));
-                lote.setPlanejado(rs.getInt("planejado"));
-                lote.setProblemas(rs.getInt("problemas"));
-                lote.setObservacao(rs.getString("observacao"));
+                Lote lote = new Lote();
+                lote.setId_lote(rs.getInt("id_lote"));
+                lote.setDescricao(rs.getString("descricao"));
+                lote.setTurno(rs.getString("turno"));
+                lote.setArea(rs.getString("area"));
+                lote.setResponsavel(rs.getString("responsavel"));
+                lote.setEficiencia(rs.getDouble("eficiencia"));
                 lote.setId_industria(rs.getInt("id_industria"));
-                lote.setId_relatorio(rs.getInt("id_relatorio"));
-
-                lista.add(lote);
+                lotes.add(lote);
             }
 
         } catch (SQLException e) {
+            System.err.println("Erro ao buscar lotes: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            conexao.desconectar(conn);
+           conexao.desconectar(conn);
         }
-        return lista;
+
+        return lotes;
     }
 }
