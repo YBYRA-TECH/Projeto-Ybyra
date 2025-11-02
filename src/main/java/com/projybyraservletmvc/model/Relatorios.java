@@ -11,8 +11,11 @@ public class Relatorios {
     private String area;
     private String descricao;
     private int idUsuario;
+    private int id_industria;
     private String nome;
     private String turno;
+    private String responsavel;
+
 
 
     //CONSTRUTOR
@@ -38,14 +41,15 @@ public class Relatorios {
         this.descricao = descricao;
         this.turno = turno;
     }
-    public Relatorios(String nome,String area, int idUsuario,String pdfDocumento, String descricao, String turno) {
+    public Relatorios(String nome,String area, int idUsuario,String pdfDocumento, String descricao, String turno, String responsavel, int id_indsutria) {
         this.pdfDocumento = pdfDocumento;
         this.idUsuario = idUsuario;
         this.descricao = descricao;
         this.nome = nome;
         this.area = area;
         this.turno = turno;
-
+        this.responsavel = responsavel;
+        this.id_industria = id_indsutria;
     }
 
 
@@ -108,6 +112,22 @@ public class Relatorios {
 
     public String getTurno() {
         return turno;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public int getId_industria() {
+        return id_industria;
+    }
+
+    public void setId_industria(int id_industria) {
+        this.id_industria = id_industria;
     }
 
     //TOSTRING
