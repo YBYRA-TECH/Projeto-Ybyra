@@ -174,7 +174,7 @@ public class WebController extends HttpServlet {
 
     Carrega os lotes com base na indústria do usuário logado
     **/
-     private void carregarLotes(HttpServletRequest request, HttpServletResponse response)
+    private void carregarLotes(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         HttpSession session = request.getSession();
 
@@ -199,10 +199,9 @@ public class WebController extends HttpServlet {
             }
         } else {
             System.out.println("Lotes vindos da busca: " + lote.size());
-            session.removeAttribute("lote");
         }
 
-        request.setAttribute("lote", lote);
+        session.setAttribute("lote", lote);
     }
 
     // Metodo para mostrar os relatorios na pagina insercaoDados.
