@@ -589,8 +589,6 @@ body {
         flex-wrap: nowrap;
     }
     
-    
-    /* Container para notificações à direita */
     .area-icones {
         margin-left: auto;
         left: 3%;
@@ -613,4 +611,28 @@ body {
         right: inherit;
         
     }
+}
+@media  (max-height:1340px) and (max-width: 500px) {
+    .conteudo{
+        padding-left: 1.5rem;
+    }
+    .titulo{
+        font-size: 5vw;
+        width: 50vw;
+        display: block;
+        gap: 3rem;
+    }
+    .titulo h3{
+        margin-bottom:2rem ;
+    }
+    .Usuarios{
+        padding: 5vw;
+    }
+    .topo{
+        display: block;
+    }
+    .card-usuario{
+        width: clamp(10vw,70vw,80vw);
+    }
+
 }

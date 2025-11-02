@@ -185,3 +185,8 @@ input {
 #notificacoes h1{
     color: black;
 }
+@media  (max-height:1340px) and (max-width: 840px) {
+    .painel-principal {
+        display: block;
+    }
+}

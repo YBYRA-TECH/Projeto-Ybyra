@@ -145,3 +145,39 @@ input {
 #notificacoes h1{
     color: black;
 }
+@media  (max-height:1340px) and (max-width: 840px) {
+    .painel-principal {
+        display: block;
+    }
+    
+    .subtitulo-secao {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .detalhes-campos {
+        display: grid;
+        grid-template-areas:
+            "column1 column2";
+        gap: clamp(3vw,4rem,6vw);
+    }
+    
+    .detalhes-campos:last-child {
+        width: 90%;
+    }
+    
+    #nome-tarefa {
+        margin-top: 1.5px;
+    }
+    
+    /* Botão Enviar Arquivo */
+    .btn-enviar {
+        display: inline-block;
+        margin-top: 6vh;
+    }
+}
+@media  (max-height:1340px) and (max-width: 600px) {
+    .detalhes-campos {
+        display: block;        
+    }
+}
