@@ -421,6 +421,8 @@ textarea{
     #notificacoes {
         top: 27.9%;
         width: 50%;
+        right: 5%;
+
     }
 }
 @media(max-width:440px) {

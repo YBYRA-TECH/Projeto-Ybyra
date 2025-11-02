@@ -97,7 +97,9 @@ body {
 .campo input[type="date"] {
     color: #555;
 }
-
+.campo input{
+    font-size: 1.3vw;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -173,4 +175,68 @@ input {
     .painel-principal {
         display:block;
     }
+    .conteudo-principal-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top:0.5% ;
+    }
+    
+    .subtitulo-secao {
+        font-size: 2.5vw;
+    }
+    
+    .detalhes-campos {
+        display: grid;
+        grid-template-areas:
+            "column1 column2";
+        gap: 0 2rem;
+    }
+    
+    .detalhes-campos:last-child {
+        width: 99%;
+    }
+    
+    #nome-tarefa {
+        margin-top: 1.5px;
+    }
+    
+    .campo {
+        margin-bottom: 1rem;
+    }
+    
+    .campo input {
+        font-size: 1.6vw;
+    }
+
+    .area-problemas {
+        width: 97%;
+        margin-top: 1.5rem;
+    }
+    
+}
+@media (max-width: 480px) {
+    .conteudo-principal-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top:0.5% ;
+    }
+    
+    .subtitulo-secao {
+        font-size: 2.5vw;
+    }
+    
+    .detalhes-campos {
+        display: block;
+    }
+    
+    .detalhes-campos:last-child {
+        width: 96%;
+    }
+    
+    .campo input {
+        font-size: 2vw;
+    }
+
 }

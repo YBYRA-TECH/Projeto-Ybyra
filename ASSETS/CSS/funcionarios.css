@@ -612,7 +612,17 @@ body {
         
     }
 }
-@media  (max-height:1340px) and (max-width: 500px) {
+@media  (max-height:1340px) and (max-width: 600px) {
+    .campo-busca input{
+        width: 100%;
+    }
+    .area-filtros{
+        width: 90vw;
+
+    }
+    .area-icones{
+        order: 2;
+    }
     .conteudo{
         padding-left: 1.5rem;
     }
@@ -635,4 +645,7 @@ body {
         width: clamp(10vw,70vw,80vw);
     }
 
+}
+@media  (max-height:1340px) and (max-width: 360px) {
+    
 }

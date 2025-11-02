@@ -95,7 +95,7 @@ header {
     background-color: white;
     font-size: 0.85rem;
     color: #333;
-    appearance: none; 
+    appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 0.5rem top 50%;
@@ -138,21 +138,27 @@ th {
 thead th:first-child {
     width: 15%;
 }
+
 thead th:nth-child(2) {
     width: 20%;
 }
+
 thead th:nth-child(3) {
     width: 10%;
 }
+
 thead th:nth-child(4) {
     width: 15%;
 }
+
 thead th:nth-child(5) {
     width: 20%;
 }
+
 thead th:nth-child(6) {
     width: 15%;
 }
+
 thead th:last-child {
     width: 5%;
     text-align: center;
@@ -175,7 +181,7 @@ tbody tr:hover {
     background: #f8fafc;
 }
 
-.btn-add a{
+.btn-add a {
     text-decoration: none;
     color: white;
 }
@@ -264,7 +270,7 @@ td:last-child {
 }
 
 /* Quando o checkbox estiver marcado, mostra o modal */
-.menu-lixeira:checked ~ .modal-overlay {
+.menu-lixeira:checked~.modal-overlay {
     display: flex;
 }
 
@@ -436,86 +442,100 @@ td:last-child {
 /* ===== RESPONSIVIDADE ===== */
 
 /* ===== IPAD GALAXI */
-@media (max-width: 1340px) and (max-height:800px) {    
+@media (max-width: 1340px) and (max-height:800px) {
     .busca-relatorios {
         width: 20vw;
         font-size: 1vw;
         box-sizing: border-box;
 
     }
-    .busca-relatorios input::placeholder{    
-        font-size: 1vw;    
+
+    .busca-relatorios input::placeholder {
+        font-size: 1vw;
     }
+
     .busca-filtros {
         width: 20vw;
         font-size: 1vw;
     }
-    #periodo{
+
+    #periodo {
         font-size: 1vw;
         width: 8vw;
     }
-    #categorias{
+
+    #categorias {
         width: 14vw;
         font-size: 1vw;
     }
-    #prioridade{
+
+    #prioridade {
         width: 8vw;
         font-size: 1vw;
 
     }
-    form label{
+
+    form label {
         width: 15vw;
     }
-    .btn-apagar-todos{
+
+    .btn-apagar-todos {
         font-size: 0.9vw;
 
     }
-    #icone-buscar{
+
+    #icone-buscar {
         padding-right: 80%;
     }
 }
 
-@media (max-height:1340px) and (max-width: 630px) {
-    .painel{
+@media (max-height:1340px) and (max-width: 830px) {
+    .painel {
         height: 75vh;
     }
 
     .painel-principal {
         display: block;
     }
-    
+
     header {
         padding: 1rem;
         gap: 1rem;
         display: flex;
         margin-bottom: 5vh;
     }
+
     .busca-relatorios {
         width: 1vw;
         font-size: 1vw;
         box-sizing: border-box;
 
     }
-    .busca-relatorios input::placeholder{    
+
+    .busca-relatorios input::placeholder {
         font-size: 2.5vw;
     }
 
-    #periodo{
+    #periodo {
         font-size: 2.5vw;
         width: 30vw;
     }
-    #categorias{
+
+    #categorias {
         width: 40vw;
         font-size: 2.5vw;
     }
-    #prioridade{
+
+    #prioridade {
         width: 40vw;
         font-size: 2.5vw;
     }
-    form label{
+
+    form label {
         width: 12vw;
     }
-    .btn-apagar-todos{
+
+    .btn-apagar-todos {
         font-size: 2.5vw;
     }
 
@@ -526,41 +546,67 @@ td:last-child {
         width: 1rem;
     }
 
-    
     .busca-relatorios {
         width: 83%;
     }
 
-    .busca-relatorios input{
+    .busca-relatorios input {
         width: 29vw;
-        font-size: 0.5vw;
+        font-size: 0.8vw;
     }
-    
+
     .container-tabela {
         margin: 0 1rem;
         overflow-x: auto;
     }
-    
+
     table {
         min-width: 80rem;
     }
-    
+
     .area-conteudo {
         height: auto;
     }
-    .area-icones{
+
+    .area-icones {
         padding-bottom: 8vh;
     }
 }
 
 /* Responsividade adicional para telas menores */
 @media (max-width: 480px) {
+    .busca-filtros {
+        display: block;        
+        width: 1rem;
+    }
+    .busca-relatorios {
+        width: 1vw;
+        font-size: 1vw;
+        box-sizing: border-box;
+    }
+    input{
+        margin-bottom: 2rem;
+    }
+    #periodo {
+        font-size: 2.5vw;
+        width: 50vw;
+    }
 
-}
-@media (max-width: 1040px) {
-    
+    #categorias {
+        width: 50vw;
+        font-size: 2.5vw;
+    }
 
-}
-@media  (max-width: 360px) {
-    
+    #prioridade {
+        width: 50vw;
+        font-size: 2.5vw;
+    }
+
+    form label {
+        width: 12vw;
+    }
+
+    .btn-apagar-todos {
+        font-size: 2.5vw;
+    }
 }
