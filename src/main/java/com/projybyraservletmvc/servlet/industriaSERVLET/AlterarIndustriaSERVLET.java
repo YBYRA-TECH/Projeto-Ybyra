@@ -2,6 +2,7 @@ package com.projybyraservletmvc.servlet.industriaSERVLET;
 
 import com.projybyraservletmvc.dao.IndustriaDAO;
 import com.projybyraservletmvc.model.Industria;
+import com.projybyraservletmvc.util.VerificacoesUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -56,7 +57,7 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
 
             if (senha != null && !senha.isEmpty()) {
                 industria.setSenha(senha);
-                if (!industria.validarSenha()) {
+                if (!VerificacoesUtil.validarSenha(senha)) {
                     System.out.println("A senha está incorreta!");
                     request.setAttribute("erroSenha", "A senha precisa ter no mínimo 8 dígitos e um número!");
                     request.setAttribute("industria", industria);
@@ -68,7 +69,7 @@ public class AlterarIndustriaSERVLET extends HttpServlet {
             }
 
 
-            if (!industria.validarEmail()) {
+            if (!VerificacoesUtil.validarEmail(email)) {
                 System.out.println("O email está incorreto!");
                 request.setAttribute("erroEmail", "Email inválido!");
                 request.setAttribute("industria", industria);

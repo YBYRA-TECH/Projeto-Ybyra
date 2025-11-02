@@ -1,4 +1,4 @@
-package com.projybyraservletmvc.servlet;
+package com.projybyraservletmvc.servlet.relatoriosSERVLET;
 
 
 import com.projybyraservletmvc.dao.RelatoriosDAO;

@@ -104,7 +104,7 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
                 lote = new Lote(
                         rs.getInt("id_lote"),
                         rs.getString("descricao"),
@@ -189,16 +189,15 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         }
     }
 
-    public int deletar(int id, int id_industria) {
+    public int deletarPorIndustria(int id_industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = "DELETE FROM lote WHERE id_lote = ? AND id_industria = ?";
+            String sql = "DELETE FROM lote WHERE id_industria = ?";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, id);
-            pstmt.setInt(2, id_industria);
+            pstmt.setInt(1, id_industria);
 
             if (pstmt.executeUpdate() > 0) {
                 return 1;

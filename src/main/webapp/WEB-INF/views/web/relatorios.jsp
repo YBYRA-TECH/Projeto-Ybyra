@@ -1,3 +1,6 @@
+<%@ page import="com.projybyraservletmvc.model.Lote" %>
+<%@ page import="com.projybyraservletmvc.model.Usuario" %>
+<%@page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -12,12 +15,17 @@
 </head>
 
 <body>
+<%
+    List<Lote> lote = (List<Lote>) request.getAttribute("lote");
+
+    Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+    Integer id_industria = (usuarioLogado != null) ? usuarioLogado.getIdIndustria() : null;
+%>
 <div class="painel-principal">
 
     <% request.setAttribute("paginaAtual", "relatorios"); %>
 
     <jsp:include page="../includes/aside.jsp"/>
-
 
     <main class="area-conteudo">
 
@@ -57,16 +65,23 @@
                             <div class="menu-lixo-icone">
                                 <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
                             </div>
-                            <h1>Deseja excluir TODOS os relatórios?</h1>
+                            <h1>Deseja excluir TODOS os lotes?</h1>
                             <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                             <div class="info-item">
-                                <strong>Total de relatórios:</strong>
-                                <span>4 relatórios</span>
+                                <strong>Total de lotes:</strong>
+                                <%
+                                    int contador = (lote != null) ? lote.size() : 0;
+                                %>
+                                <span><%= contador %> Lote<%= contador != 1 ? "s" : "" %></span>
                             </div>
-                            <div class="buttons">
-                                <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
-                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
-                            </div>
+                            <form method="post" action="<%=request.getContextPath()%>/ExcluirLote">
+                                <div class="buttons">
+                                    <input type="hidden" name="id_industria" value="<%=id_industria != null ? id_industria : 0%>">
+                                    <input type="hidden" name="acao" value="excluirTodos">
+                                    <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
+                                    <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -84,7 +99,6 @@
                 </div>
             </header>
 
-
             <div class="container-tabela">
                 <table>
                     <thead>
@@ -99,18 +113,39 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <%
+                        if (lote != null && !lote.isEmpty()) {
+                            int modalCounter = 1;
+                            for (Lote l : lote) {
+                                String modalId = "modal-" + modalCounter++;
+                    %>
                     <tr class="row-link">
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">23456789DGH</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Cond_Cortes</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Manhã</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Área Fria</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Juliana Antunes</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">
-                            <div class="barra-desempenho barra-verde-med">85%</div>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getId_lote() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getDescricao() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getTurno() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getArea() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getResponsavel() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link">
+                            <%
+                                String classEficiencia = "";
+                                double eficiencia = l.getEficiencia();
+                                if(eficiencia >= 97){
+                                    classEficiencia = "-verde";
+                                }else if(eficiencia >= 85){
+                                    classEficiencia = "-verde-med";
+                                }else if(eficiencia >= 76){
+                                    classEficiencia = "-verde-claro";
+                                }else if(eficiencia >= 50){
+                                    classEficiencia = "-amarela";
+                                }else{
+                                    classEficiencia = "-vermelha";
+                                }
+                            %>
+                            <div class="barra-desempenho barra<%=classEficiencia%>"><%=String.format("%.2f", eficiencia)%>%</div>
                         </a></td>
                         <td>
-                            <input type="checkbox" class="menu-lixeira" id="modal-1">
-                            <label for="modal-1" class="icone-lixeira" title="Lixeira">
+                            <input type="checkbox" class="menu-lixeira" id="<%= modalId %>">
+                            <label for="<%= modalId %>" class="icone-lixeira" title="Lixeira">
                                 <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
                             </label>
                             <div class="modal-overlay">
@@ -122,159 +157,39 @@
                                     <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                                     <div class="info-item">
                                         <strong>ID:</strong>
-                                        <span>23456789DGH</span>
+                                        <span><%= l.getId_lote()%></span>
                                     </div>
                                     <div class="info-item">
                                         <strong>Índice:</strong>
-                                        <span>Cond_Cortes</span>
+                                        <span><%= l.getDescricao()%></span>
                                     </div>
                                     <div class="info-item">
                                         <strong>Responsável:</strong>
-                                        <span>Juliana Antunes</span>
+                                        <span><%= l.getResponsavel()%></span>
                                     </div>
-                                    <div class="buttons">
-                                        <label for="modal-1" class="btn-cancelar">Não</label>
-                                        <label for="modal-1" class="btn-excluir">Sim</label>
-                                    </div>
+                                    <form method="post" action="<%=request.getContextPath()%>/ExcluirLote">
+                                        <div class="buttons">
+                                            <input type="hidden" name="id_lote" value="<%=l.getId_lote()%>">
+                                            <input type="hidden" name="id_industria" value="<%=l.getId_industria()%>">
+                                            <input type="hidden" name="acao" value="excluir">
+                                            <label for="<%= modalId %>" class="btn-cancelar">Não</label>
+                                            <button type="submit" class="btn-excluir">Sim</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    <tr class="row-link">
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">09875438ORT</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Ctrl_Embalagens</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Tarde</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Área Quente</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Tiago Araújo</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">
-                            <div class="barra-desempenho barra-vermelha">37%</div>
-                        </a></td>
-                        <td>
-                            <input type="checkbox" class="menu-lixeira" id="modal-2">
-                            <label for="modal-2" class="icone-lixeira" title="Lixeira">
-                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
-                            </label>
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone" title="Lixeira">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                    </div>
-                                    <h1>Deseja excluir o lote?</h1>
-                                    <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                                    <div class="info-item">
-                                        <strong>ID:</strong>
-                                        <span>09875438ORT</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Índice:</strong>
-                                        <span>Ctrl_Embalagens</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Tiago Araújo</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-2" class="btn-cancelar">Não</label>
-                                        <label for="modal-2" class="btn-excluir">Sim</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
+                    <%
+                        }
+                    } else {
+                    %>
+                    <tr>
+                        <td colspan="7" style="text-align: center;">Nenhum lote encontrado</td>
                     </tr>
-                    <tr class="row-link">
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">84972749ENI</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Gord_Picanha</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Noite</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Área Fria</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Roberto Ferreira</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">
-                            <div class="barra-desempenho barra-amarela">50%</div>
-                        </a></td>
-                        <td>
-                            <input type="checkbox" class="menu-lixeira" id="modal-3">
-                            <label for="modal-3" class="icone-lixeira" title="Lixeira">
-                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
-                            </label>
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone" title="Lixeira">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                    </div>
-                                    <h1>Deseja excluir o lote?</h1>
-                                    <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                                    <div class="info-item">
-                                        <strong>ID:</strong>
-                                        <span>84972749ENI</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Índice:</strong>
-                                        <span>Gord_Picanha</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Roberto Ferreira</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-3" class="btn-cancelar">Não</label>
-                                        <label for="modal-3" class="btn-excluir">Sim</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="row-link">
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">2804375COW</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Escald</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Manhã</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Área Quente</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">Liliana Mendes</a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">
-                            <div class="barra-desempenho barra-verde">97%</div>
-                        </a></td>
-                        <td>
-                            <input type="checkbox" class="menu-lixeira" id="modal-4">
-                            <label for="modal-4" class="icone-lixeira" title="Lixeira">
-                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="lixeira">
-                            </label>
-                            <div class="modal-overlay">
-                                <div class="menu-lixo">
-                                    <div class="menu-lixo-icone" title="Lixeira">
-                                        <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira">
-                                    </div>
-                                    <h1>Deseja excluir o lote?</h1>
-                                    <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                                    <div class="info-item">
-                                        <strong>ID:</strong>
-                                        <span>2804375COW</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Índice:</strong>
-                                        <span>Escald</span>
-                                    </div>
-                                    <div class="info-item">
-                                        <strong>Responsável:</strong>
-                                        <span>Liliana Mendes</span>
-                                    </div>
-                                    <div class="buttons">
-                                        <label for="modal-4" class="btn-cancelar">Não</label>
-                                        <label for="modal-4" class="btn-excluir">Sim</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    <% } %>
                     </tbody>
                 </table>
-
-                <div class="paginacao">
-                    <button>«</button>
-                    <button>‹</button>
-                    <button class="ativo">1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>›</button>
-                    <button>»</button>
-                </div>
             </div>
         </section>
     </main>

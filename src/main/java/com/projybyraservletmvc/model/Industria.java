@@ -77,26 +77,4 @@ public class Industria {
                 ",\t senha='" + senha + '\'' +
                 "}\n";
     }
-
-    // METODOS DE VALIDAÇÃO
-
-
-    public boolean validarSenha(){
-        String senha = getSenha();
-        // Senha deve ter no mínimo 8 caracteres e pelo menos 1 número
-        return senha.matches("^(?=.*\\d).{8,}$");
-    }
-
-    public boolean validarEmail(){
-        String email = getEmail();
-        // Formato básico de email
-        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
-    }
-
-    public boolean validarCnpj(){
-        String cnpj = getCnpj();
-        String cnpjLimpo = cnpj.replaceAll("\\D", "");
-        // CNPJ deve ter exatamente 14 dígitos
-        return cnpjLimpo.matches("^\\d{14}$");
-    }
 }
