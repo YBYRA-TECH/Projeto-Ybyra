@@ -575,30 +575,45 @@ td:last-child {
 
 /* Responsividade adicional para telas menores */
 @media (max-width: 480px) {
+    .area-conteudo{
+        height: 120vh;
+        padding-left: 0.2vw;
+    }
+    header{
+        display: flex;
+    }
     .busca-filtros {
-        display: block;        
+        display:block;        
         width: 1rem;
     }
+    .area-icones{
+        padding-bottom: 13rem;
+    }
     .busca-relatorios {
-        width: 1vw;
-        font-size: 1vw;
-        box-sizing: border-box;
+        width: 40vw;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
     input{
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
     }
     #periodo {
         font-size: 2.5vw;
+        margin-bottom: 1rem;
         width: 50vw;
     }
-
+    .btn-add{
+        margin-bottom: 1rem;
+    }
     #categorias {
         width: 50vw;
+        margin-bottom: 1rem;
         font-size: 2.5vw;
     }
 
     #prioridade {
         width: 50vw;
+        margin-bottom: 1rem;
         font-size: 2.5vw;
     }
 
