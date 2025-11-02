@@ -1,12 +1,10 @@
 package com.projybyraservletmvc.controller;
 
 import com.projybyraservletmvc.dao.LoteDAO;
+import com.projybyraservletmvc.dao.RelatoriosDAO;
 import com.projybyraservletmvc.dao.TarefasDAO;
 import com.projybyraservletmvc.dao.UsuarioDAO;
-import com.projybyraservletmvc.model.Industria;
-import com.projybyraservletmvc.model.Lote;
-import com.projybyraservletmvc.model.Tarefas;
-import com.projybyraservletmvc.model.Usuario;
+import com.projybyraservletmvc.model.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -69,6 +67,11 @@ public class WebController extends HttpServlet {
         if ("relatorios".equals(nome)) {
 
             carregarLotes(request, response);
+
+        }
+        if ("insercaoDados".equals(nome)) {
+
+            carregarRelatorios(request, response);
 
         }
 
@@ -199,5 +202,39 @@ public class WebController extends HttpServlet {
         }
 
         request.setAttribute("lote", lote);
+    }
+
+    // Metodo para mostrar os relatorios na pagina insercaoDados.
+
+    private void carregarRelatorios(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        HttpSession session = request.getSession();
+
+        Integer idIndustria = obterIdIndustria(session);
+
+        if (idIndustria == null) {
+            System.err.println("Id industria não encontrado!");
+            response.sendRedirect(request.getContextPath() + "/pagina?nome=login");
+            return;
+        }
+
+        List<Relatorios> relatorios = (List<Relatorios>) session.getAttribute("relatorios");
+
+
+        if (relatorios == null) {
+            try {
+                RelatoriosDAO dao = new RelatoriosDAO();
+                relatorios = dao.buscar(idIndustria);
+                System.out.println("Relatórios carregados da indústria " + idIndustria + ": " + relatorios.size());
+            } catch (Exception e) {
+                System.err.println("Erro ao carregar relatórios: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Relatórios vindos da busca: " + relatorios.size());
+            session.removeAttribute("relatorios");
+        }
+
+        request.setAttribute("relatorios", relatorios);
     }
 }
