@@ -82,56 +82,6 @@
         </section>
     </main>
 </div>
-<!--
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        const arquivoNome = localStorage.getItem('arquivoNome');
-        const arquivoBase64 = localStorage.getItem('arquivoBase64');
-        const dadosProcessados = localStorage.getItem('dadosProcessados');
-
-        // Mostra a imagem ou PDF
-        if (arquivoBase64) {
-            const previewContainer = document.querySelector('.arquivo-preview');
-            const preview = document.querySelector('.preview-img');
-
-            // Se for PDF, mostra o PDF real no lugar da imagem
-            if (arquivoNome.toLowerCase().endsWith('.pdf')) {
-                // Cria um elemento <embed> para visualizar o PDF
-                const pdfViewer = document.createElement('embed');
-                pdfViewer.src = arquivoBase64;
-                pdfViewer.type = 'application/pdf';
-                pdfViewer.style.width = '100%';
-                pdfViewer.style.height = '500px';
-                pdfViewer.style.borderRadius = '10px';
-                pdfViewer.style.border = '1px solid #ccc';
-
-                // Limpa a imagem antiga e insere o visualizador
-                previewContainer.innerHTML = '';
-                previewContainer.appendChild(pdfViewer);
-            } else {
-                // Mantém o comportamento original para imagens
-                preview.src = arquivoBase64;
-                preview.alt = arquivoNome;
-            }
-        }
-
-        // Preenche campos automáticos
-        if (dadosProcessados) {
-            try {
-                const dados = JSON.parse(dadosProcessados);
-                console.log('📄 Dados carregados:', dados);
-
-                document.getElementById('titulo').value = dados.titulo || arquivoNome || '';
-                document.getElementById('categoria').value = dados.categoria || '';
-                document.getElementById('prioridade').value = dados.prioridade || '';
-                document.querySelector('.texto-descricao').value = JSON.stringify(dados, null, 2);
-            } catch (e) {
-                console.error('Erro ao interpretar dados processados:', e);
-            }
-        }
-    });
-</script>
--->
 
 </body>
 

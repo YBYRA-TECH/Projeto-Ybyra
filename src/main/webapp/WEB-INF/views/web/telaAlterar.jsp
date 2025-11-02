@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.time.LocalDate" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 

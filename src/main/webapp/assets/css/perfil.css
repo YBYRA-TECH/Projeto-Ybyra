@@ -105,6 +105,7 @@ h1{
 }
 /* Botão Enviar Arquivo */
 .btn-enviar {
+    margin-top: 10rem;
     background-color: #3474cd;
     color: white;
     border: none;
@@ -114,17 +115,16 @@ h1{
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-enviar:hover {
     background-color: #192083;
 }
 
-.link-inserir {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-}
+
 
 input {
     outline: none;
@@ -138,4 +138,48 @@ input {
 }
 #notificacoes h1{
     color: black;
+}
+@media  (max-height:1340px) and (max-width: 840px) {
+    .painel-principal{
+        display: block;
+    }
+    .area-conteudo{
+        height: auto;
+    }
+    .conteudo-principal-header {
+        margin-bottom: 5vh;
+    }
+    .area-titulo-pagina{
+       width: 100%;
+       text-align: left;
+    }
+    
+    .subtitulo-secao {
+        margin-bottom: 3rem;
+        font-size: clamp(6vw,5rem,6vw);
+    }
+    
+    .detalhes-campos {
+        display: block;
+    }
+    
+    .campo input {
+        width: 90%;
+        padding: 0.75rem;
+        font-size: clamp(2vw,3rem,3vw);
+    }
+    
+    /* Estilos dos campos de Detalhes (rótulo e input) */
+    .campo {
+        margin-bottom: 1.5rem;
+    }
+    
+    .campo label {
+        margin-bottom: 0rem;
+    }
+
+    /* Botão Enviar Arquivo */
+    .btn-enviar {
+        margin-top: 10vh;
+    }
 }

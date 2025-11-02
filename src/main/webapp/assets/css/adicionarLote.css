@@ -42,9 +42,10 @@ body {
 
 .subtitulo-secao {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #365576;
     margin-bottom: 2rem;
+    text-align: center;
     font-weight: 700;
 }
 
@@ -96,8 +97,9 @@ body {
 .campo input[type="date"] {
     color: #555;
 }
-
-/* Estilo do form para centralizar o botão */
+.campo input{
+    font-size: 1.3vw;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -108,6 +110,30 @@ form {
     width: 100%;
 }
 
+.area-problemas {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.area-problemas label {
+    font-family: 'Geologica', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.area-problemas input{
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 1rem;
+    font-family: 'Geologica', sans-serif;
+    min-height: 100px;
+}
 
 /* Botão Enviar Arquivo */
 .btn-enviar {
@@ -147,37 +173,70 @@ input {
 }
 @media  (max-height:1340px) and (max-width: 840px) {
     .painel-principal {
-        display: block;
+        display:block;
+    }
+    .conteudo-principal-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top:0.5% ;
     }
     
     .subtitulo-secao {
-        margin-top: 2rem;
-        margin-bottom: 3rem;
+        font-size: 2.5vw;
     }
     
     .detalhes-campos {
         display: grid;
         grid-template-areas:
             "column1 column2";
-        gap: clamp(3vw,4rem,6vw);
+        gap: 0 2rem;
     }
     
     .detalhes-campos:last-child {
-        width: 90%;
+        width: 99%;
     }
     
     #nome-tarefa {
         margin-top: 1.5px;
     }
     
-    /* Botão Enviar Arquivo */
-    .btn-enviar {
-        display: inline-block;
-        margin-top: 6vh;
+    .campo {
+        margin-bottom: 1rem;
     }
+    
+    .campo input {
+        font-size: 1.6vw;
+    }
+
+    .area-problemas {
+        width: 97%;
+        margin-top: 1.5rem;
+    }
+    
 }
-@media  (max-height:1340px) and (max-width: 600px) {
-    .detalhes-campos {
-        display: block;        
+@media (max-width: 480px) {
+    .conteudo-principal-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-top:0.5% ;
     }
+    
+    .subtitulo-secao {
+        font-size: 2.5vw;
+    }
+    
+    .detalhes-campos {
+        display: block;
+    }
+    
+    .detalhes-campos:last-child {
+        width: 96%;
+    }
+    
+    .campo input {
+        font-size: 2vw;
+    }
+
 }

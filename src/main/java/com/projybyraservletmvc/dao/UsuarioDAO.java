@@ -145,6 +145,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         }
     }
 
+    // DELETA USUARIOS COM BASE NO ID INDUSTRIA
+
     public int deletarPorIndustria(int id) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -169,6 +171,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         }
     }
 
+
+    // BUSCA O ID DO USUARIO COM BASE NO NOME
 
     public int buscar(String nome) {
         ConexaoBD conexao = new ConexaoBD();
@@ -238,6 +242,9 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
             conexao.desconectar(conn);
         }
     }
+
+    //BUSCA OS USUARIOS POR INDUSTRIA
+
     public List<Usuario> buscarUsuariosPorIndustria(int id_industria) {
         List<Usuario> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();
@@ -304,6 +311,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
         }
         return null;
     }
+
+    //BUSCA OS USUARIOS COM BASE NA BUSCA E NO ID INDUSTRIA
 
     public List<Usuario> buscarComParametro(String busca, int idIndustria) {
         ConexaoBD conexao = new ConexaoBD();

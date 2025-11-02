@@ -9,7 +9,7 @@ public class Telefone {
     private String tipo;
     private int idUsuario;
 
-    //CONSTRUTOR
+    //CONSTRUTORES
 
     public Telefone(int idTel, String numero, String tipo, int idUser){
         this.idTelefone = idTel;

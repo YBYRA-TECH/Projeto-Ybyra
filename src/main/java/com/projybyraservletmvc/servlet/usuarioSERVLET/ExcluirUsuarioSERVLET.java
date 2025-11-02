@@ -10,6 +10,9 @@ import java.io.IOException;
 
 @WebServlet("/excluirUsuario")
 public class ExcluirUsuarioSERVLET extends HttpServlet {
+
+    // CLASSE SERVLET PARA EXCLUIR USUARIO
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
@@ -24,7 +27,7 @@ public class ExcluirUsuarioSERVLET extends HttpServlet {
 
         if("excluir".equals(acao) && id_usuario != null) {
             int id_usuarioINT = Integer.parseInt(id_usuario);
-            System.out.println("O id da tarefa que sera deleta é: " + id_usuarioINT);
+            System.out.println("O id do usuario que sera deletado é: " + id_usuarioINT);
             UsuarioDAO dao = new UsuarioDAO();
             dao.deletar(id_usuarioINT);
         }

@@ -214,7 +214,7 @@ input{
         flex-grow: 1;
         padding: 1.3rem 1.5rem; 
         margin: 1.2rem;
-        height: 75vh;
+        height: auto;
         
     }
     .painel-principal{

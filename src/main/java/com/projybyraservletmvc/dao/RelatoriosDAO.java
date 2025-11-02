@@ -142,6 +142,9 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
         }
         return null;
     }
+
+    // BUSCA OS RELATORIOS COM BASE NO ID INDUSTRIA
+
     public List<Relatorios> buscar(int id_industria) {
         List<Relatorios> lista = new ArrayList<>();
         ConexaoBD conexao = new ConexaoBD();

@@ -1,7 +1,6 @@
 <%@ page import="com.projybyraservletmvc.model.Relatorios" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.List" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -18,9 +17,6 @@
 <div class="painel-principal">
 
     <%
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-
         request.setAttribute("paginaAtual", "insercaoDados");
 
         List<Relatorios> relatorios = (List<Relatorios>) request.getAttribute("relatorios");

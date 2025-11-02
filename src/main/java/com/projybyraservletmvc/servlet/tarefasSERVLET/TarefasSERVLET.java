@@ -18,6 +18,7 @@ import java.time.LocalDate;
 @WebServlet(name = "TarefasSERVLET", urlPatterns = {"/AdicionarTarefa"})
 public class TarefasSERVLET extends HttpServlet {
 
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

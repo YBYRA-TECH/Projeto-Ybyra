@@ -14,6 +14,8 @@ import java.util.List;
 @WebServlet("/BuscaUsuario")
 public class BuscarUsuarioSERVLET extends HttpServlet {
 
+    //CLASSE SERVLET PARA A BUSCA DE USUARIOS
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

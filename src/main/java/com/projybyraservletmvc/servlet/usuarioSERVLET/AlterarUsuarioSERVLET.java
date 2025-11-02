@@ -15,6 +15,8 @@ import java.io.IOException;
 @WebServlet("/AlterarUsuario")
 public class AlterarUsuarioSERVLET extends HttpServlet {
 
+    //CLASSE SERVLET PARA A ALTERAÇÃO DE USUARIOS
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
