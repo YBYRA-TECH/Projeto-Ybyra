@@ -39,7 +39,7 @@
         </div>
 
         <section class="detalhesPainel">
-            <form action="<%= request.getContextPath() %>/adicionarLote" method="post">
+            <form action="<%= request.getContextPath() %>/AdicionarLote" method="post">
                 <div class="formulario-detalhes">
 
                     <div class="area-detalhes">
@@ -52,15 +52,15 @@
                                 </div>
 
                                 <div class="campo">
-                                    <label for="eficiencia">Eficiência</label>
-                                    <input type="text" id="eficiencia" name="eficiencia" placeholder="Ex: 95% " required>
-                                </div>
-
-                                <div class="campo">
                                     <label for="planejado">Planejado</label>
                                     <input type="text" id="planejado" name="planejado" placeholder="Ex:200" required>
                                 </div>
                             </div>
+                            <div class="campo">
+                                <label for="descricao">Descrição</label>
+                                <input type="text" id="planejado" name="descricao" placeholder="Ex: Lote de carnes" required>
+                            </div>
+                        </div>
                             <div>
                                 <div class="campo">
                                     <label for="responsavel">Responsável</label>
