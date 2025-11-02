@@ -21,8 +21,8 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         try {
             conn = conexao.conectar();
             String sql = "INSERT INTO lote (descricao, responsavel, producao, planejado, " +
-                    "problemas, observacao, id_industria, id_relatorio) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    "problemas,id_industria, id_relatorio) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, lote.getDescricao());
@@ -30,9 +30,8 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
             ps.setInt(3, lote.getProducao());
             ps.setInt(4, lote.getPlanejado());
             ps.setInt(5, lote.getProblemas());
-            ps.setString(6, lote.getObservacao());
-            ps.setInt(7, lote.getId_industria());
-            ps.setInt(8, lote.getId_relatorio());
+            ps.setInt(6, lote.getId_industria());
+            ps.setInt(7, lote.getId_relatorio());
 
             return ps.executeUpdate() > 0;
 

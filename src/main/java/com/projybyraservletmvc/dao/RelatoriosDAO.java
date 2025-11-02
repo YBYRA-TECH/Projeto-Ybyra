@@ -91,7 +91,7 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                int idRelatorios = rs.getInt("id_relatorios");
+                int idRelatorios = rs.getInt("id_relatorio");
                 Date dataCriacao = rs.getDate("data_criacao");
                 String pdf = rs.getString("pdf_documento");
                 int idUser = rs.getInt("id_usuario");
@@ -108,6 +108,39 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
             conexao.desconectar(conn);
         }
         return lista;
+    }
+    public Relatorios buscar(int id_relatorio, int id_industria) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM relatorios WHERE id_relatorio = ? AND id_industria = ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_relatorio);
+            pstmt.setInt(2, id_industria);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int idRelatorios = rs.getInt("id_relatorio");
+                Date dataCriacao = rs.getDate("data_criacao");
+                String pdf = rs.getString("pdf_documento");
+                int idUser = rs.getInt("id_usuario");
+                int idInd = rs.getInt("id_industria");
+
+                Relatorios rel = new Relatorios(
+                        idRelatorios, dataCriacao, pdf, idUser
+                );
+                rel.setId_industria(idInd);
+                return rel;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return null;
     }
     public List<Relatorios> buscar(int id_industria) {
         List<Relatorios> lista = new ArrayList<>();
