@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/ASSETS/imgs/Nova_logo_sem_tech.png" type="image/x-icon" />
     <link rel="stylesheet" href="/ASSETS/CSS/globalApp.css">
-    <link rel="stylesheet" href="/ASSETS/CSS/telaAdd_Alterar.css" />
+    <link rel="stylesheet" href="/ASSETS/CSS/adicionarLote.css" />
     <title>YBYRA TECH</title>
 </head>
 
@@ -33,7 +33,7 @@
                             <span>Início</span>
                         </a>
                     </li>
-                    <li class="item-menu">
+                    <li class="item-menu ativo">
                         <a href="/ASSETS/HTML/relatorios.html">
                             <div class="box-icone">
                                 <img src="/ASSETS/imgs/document.png" alt="Ícone relatorios" />
@@ -42,7 +42,7 @@
                         </a>
                     </li>
 
-                    <li class="item-menu ativo">
+                    <li class="item-menu">
                         <a href="/ASSETS/HTML/tarefas.html">
                             <div class="box-icone">
                                 <img src="/ASSETS/imgs/clipboard.png  " alt="Ícone Tarefas" />
@@ -82,7 +82,7 @@
         <main class="area-conteudo">
             <div class="conteudo-principal-header">
                 <!-- adicionado o icone de voltar para a pagina de alterar tarefa da industria -->
-                <a href="/ASSETS/HTML/tarefas.html">
+                <a href="/ASSETS/HTML/relatorios.html">
                     <img src="/ASSETS/imgs/voltar.png" alt="voltar" id="voltar">
                 </a>
                 <h1>Adicionar</h1>
@@ -105,46 +105,51 @@
                     <div class="formulario-detalhes">
 
                         <div class="area-detalhes">
-                            <h3 class="subtitulo-secao">Detalhes</h3>
+                            <h3 class="subtitulo-secao">Não recomendamos a inserção de lotes manualmente, pois o BI não conseguira dados.</h3>
                             <div class="detalhes-campos">
                                 <div>
                                     <div class="campo">
-                                        <label for="">Prioridade</label>
-                                        <select class="filtro-select">
-                                            <option value="" disabled selected hidden>Prioridade</option>
-                                            <option value="">Não Iniciada</option>
-                                            <option value="">Em Andamento</option>
-                                            <option value="">Concluída</option>
-                                        </select>
+                                        <label for="nome">Nome</label>
+                                       <input type="text" id="nome" placeholder="Digite o nome do lote">
                                     </div>
 
                                     <div class="campo">
-                                        <label for="nome-tarefa">Nome da Tarefa</label>
-                                        <input type="text" id="nome-tarefa" value="" placeholder="Digite o Nome da Tarefa">
+                                        <label for="Eficiencia">Eficiência</label>
+                                        <input type="text" id="Eficiencia" placeholder="Ex: 95% ou Alta">
+                                    </div>
+                                    <div class="campo">
+                                        <label for="planejado">Planejado</label>
+                                        <input type="text" id="planejado" placeholder="Ex: Produção, Logística, Administrativo">
                                     </div>
                                 </div>
                                 <div>
                                     <div class="campo">
                                         <label for="responsavel">Responsável</label>
-                                        <input type="text" value="" id="responsavel"
-                                            placeholder="Digite o Nome do Responsável">
+                                        <input type="text" id="responsavel" placeholder="Ex: email@exemplo.com ou (11) 98765-4321">
+                                           
                                     </div>
                                     <div class="campo">
-                                        <label for="data-tarefa">Data de enceramento</label>
-                                        <input type="date" id="data-tarefa" value="">
+                                        <label for="producao">Produção</label>
+                                        <input type="text" id="producao" placeholder="Ex: 150 unidades/dia">
+                                    </div>
+                                    
+                                    <div class="campo">
+                                        <label for="observacao">Observação</label>
+                                        <input type="text" id="observacao" placeholder="Ex: rel-123-abc ou Nome do relatório">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="area-descricao">
-                            <h3 class="subtitulo-secao">Descrição</h3>
-                            <h3 style="opacity: 0;">Espaço</h3>
-                            <textarea class="texto-descricao" placeholder="coloque aqui a descrição da tarefa"></textarea>
-
-                            <a href="funcionarios.html" class="btn-enviar">Confirmar</a>
+                        <div class="area-problemas">
+                            
+                            <label for="problemas">Problemas</label>
+                            <input type="text" id="problemas" placeholder="Descreva problemas identificados">
                         </div>
                     </div>
+                   
+                    <a href="relatorios.html" class="btn-enviar">Confirmar</a>
+                   
                 </form>
             </section>
         </main>

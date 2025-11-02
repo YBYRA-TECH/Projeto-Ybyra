@@ -174,7 +174,14 @@ tbody tr {
 tbody tr:hover {
     background: #f8fafc;
 }
-.btn-apagar-todos {
+
+.btn-add a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn-apagar-todos,
+.btn-add {
     background-color: #2067ca;
     color: white;
     border: none;
@@ -187,20 +194,9 @@ tbody tr:hover {
     transition: all 0.3s;
 }
 
-.btn-apagar-todos:hover {
+.btn-apagar-todos:hover,
+.btn-add:hover {
     transform: translateY(-2px);
-}
-
-/* --- Estilos para Linhas Clicáveis (Sem JS) --- */
-.row-link {
-    position: relative;
-    cursor: pointer;
-}
-
-.table-link {
-    color: #475569;
-    text-decoration: none;
-    display: block;
 }
 
 .barra-desempenho {
