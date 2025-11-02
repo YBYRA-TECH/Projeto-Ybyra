@@ -1,6 +1,6 @@
 <%@ page import="com.projybyraservletmvc.model.Lote" %>
+<%@ page import="com.projybyraservletmvc.model.Usuario" %>
 <%@page import="java.util.List" %>
-<%@ page import="com.projybyraservletmvc.model.Relatorios" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,8 +17,9 @@
 <body>
 <%
     List<Lote> lote = (List<Lote>) request.getAttribute("lote");
-    List<Relatorios> relatorios = (List<Relatorios>) request.getAttribute("relatorios");
-    Integer idUsuarioLogado = (Integer) session.getAttribute("usuarioID");
+
+    Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
+    Integer id_industria = (usuarioLogado != null) ? usuarioLogado.getIdIndustria() : null;
 %>
 <div class="painel-principal">
 
@@ -64,19 +65,23 @@
                             <div class="menu-lixo-icone">
                                 <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
                             </div>
-                            <h1>Deseja excluir TODOS os relatórios?</h1>
+                            <h1>Deseja excluir TODOS os lotes?</h1>
                             <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
                             <div class="info-item">
-                                <strong>Total de relatórios:</strong>
+                                <strong>Total de lotes:</strong>
                                 <%
-                                    int contador = (relatorios != null) ? relatorios.size() : 0;
+                                    int contador = (lote != null) ? lote.size() : 0;
                                 %>
-                                <span><%= contador %> Relatório<%= contador != 1 ? "s" : "" %></span>
+                                <span><%= contador %> Lote<%= contador != 1 ? "s" : "" %></span>
                             </div>
-                            <div class="buttons">
-                                <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
-                                <button type="button" class="btn-excluir">Sim, apagar tudo</button>
-                            </div>
+                            <form method="post" action="<%=request.getContextPath()%>/ExcluirLote">
+                                <div class="buttons">
+                                    <input type="hidden" name="id_industria" value="<%=id_industria != null ? id_industria : 0%>">
+                                    <input type="hidden" name="acao" value="excluirTodos">
+                                    <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
+                                    <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -115,12 +120,12 @@
                                 String modalId = "modal-" + modalCounter++;
                     %>
                     <tr class="row-link">
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link"><%= l.getId_lote() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link"><%= l.getDescricao() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link"><%= l.getTurno() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link"><%= l.getArea() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link"><%= l.getResponsavel() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI" class="table-link">
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getId_lote() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getDescricao() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getTurno() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getArea() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getResponsavel() %></a></td>
+                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link">
                             <%
                                 String classEficiencia = "";
                                 double eficiencia = l.getEficiencia();
@@ -162,10 +167,15 @@
                                         <strong>Responsável:</strong>
                                         <span><%= l.getResponsavel()%></span>
                                     </div>
-                                    <div class="buttons">
-                                        <label for="<%= modalId %>" class="btn-cancelar">Não</label>
-                                        <label for="<%= modalId %>" class="btn-excluir">Sim</label>
-                                    </div>
+                                    <form method="post" action="<%=request.getContextPath()%>/ExcluirLote">
+                                        <div class="buttons">
+                                            <input type="hidden" name="id_lote" value="<%=l.getId_lote()%>">
+                                            <input type="hidden" name="id_industria" value="<%=l.getId_industria()%>">
+                                            <input type="hidden" name="acao" value="excluir">
+                                            <label for="<%= modalId %>" class="btn-cancelar">Não</label>
+                                            <button type="submit" class="btn-excluir">Sim</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </td>
