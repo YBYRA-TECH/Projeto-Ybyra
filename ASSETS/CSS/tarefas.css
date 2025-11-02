@@ -672,6 +672,11 @@ body {
 
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1340px) and (max-height:800px){
+    #menu-logo{
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
     .area-filtros { 
         flex-wrap: nowrap;
     }
@@ -688,6 +693,9 @@ body {
     .conteudo{
         padding-left: 1.5rem;
     }
+    .secao-board{
+        display: block;
+    }
     .area-filtros { 
         flex-wrap: nowrap;
         justify-content: space-between;
@@ -699,5 +707,115 @@ body {
     #notificacoes{
         right: inherit;
         
+    }
+    .coluna-status{
+        width: 80VW;
+    }
+    .painel-pessoas{
+        margin-top: 3rem;
+        width: 86vw;
+    }
+    .lista-usuarios{
+        display: flex;
+        overflow-x: scroll;
+        text-align: center;
+        gap: 3rem;
+        white-space: nowrap;
+    }
+    .status-online{
+        width: 1.5rem;
+    }
+
+    .usuario{
+        
+    }
+
+}
+@media  (max-height:1340px) and (max-width: 800px) {
+    .conteudo{
+        padding-left: 1.5vw;
+    }
+    .secao-board{
+        display: block;
+    }
+    .area-filtros { 
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .area-icones {
+        left: 6%;
+        margin-left: 0;
+    }
+    #notificacoes{
+        right: inherit;
+        
+    }
+    .coluna-status{
+        width: 80VW;
+    }
+    .painel-pessoas{
+        margin-top: 3rem;
+        width: 86vw;
+    }
+    .lista-usuarios{
+        display: flex;
+        overflow-x: scroll;
+        gap: 3rem;
+    }
+    .status-online{
+        width: 1.5rem;
+    }
+
+}
+@media  (max-width: 460px) {
+    .conteudo{
+        padding-left: 1.5vw;
+    }
+    .titulo-status{
+        font-size: 3.3vw;
+    }
+    .coluna-status{
+        padding: 0.8rem;
+    }
+    .secao-board{
+        padding:0rem 0.5rem;
+        box-sizing: border-box;
+    }
+    .btn-apagar-todos{
+        font-size: 2.7vw;
+        width: 70vw;
+    }
+    .titulo-status h3{
+        width: 27rem;
+    }
+    .quadro-tarefas{
+        display: flex;
+    }
+    .area-filtros { 
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .area-icones {
+        left: 6%;
+        margin-left: 0;
+    }
+    #notificacoes{
+        right: inherit;
+        
+    }
+    .coluna-status{
+        width: 80VW;
+    }
+    .painel-pessoas{
+        margin-top: 3rem;
+        width: 80vw;
+    }
+    .lista-usuarios{
+        display: flex;
+        overflow-x: scroll;
+        gap: 3rem;
+    }
+    .status-online{
+        width: 1.5rem;
     }
 }

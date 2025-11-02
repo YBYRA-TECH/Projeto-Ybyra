@@ -440,35 +440,104 @@ td:last-child {
 /* ===== RESPONSIVIDADE ===== */
 
 /* ===== IPAD GALAXI */
-@media (max-width: 1340px) and (max-height:800px) {
-    .busca-filtros {
-        gap: 0.5rem;
-    }
-    
+@media (max-width: 1340px) and (max-height:800px) {    
     .busca-relatorios {
-        width: 14rem;
+        width: 20vw;
+        font-size: 1vw;
+        box-sizing: border-box;
+
+    }
+    .busca-relatorios input::placeholder{    
+        font-size: 1vw;    
+    }
+    .busca-filtros {
+        width: 20vw;
+        font-size: 1vw;
+    }
+    #periodo{
+        font-size: 1vw;
+        width: 8vw;
+    }
+    #categorias{
+        width: 14vw;
+        font-size: 1vw;
+    }
+    #prioridade{
+        width: 8vw;
+        font-size: 1vw;
+
+    }
+    form label{
+        width: 15vw;
+    }
+    .btn-apagar-todos{
+        font-size: 0.9vw;
+
+    }
+    #icone-buscar{
+        padding-right: 80%;
     }
 }
 
-@media (max-height:1340px) and (max-width: 800px) {
+@media (max-height:1340px) and (max-width: 630px) {
+    .painel{
+        height: 75vh;
+    }
+
     .painel-principal {
         display: block;
     }
     
     header {
         padding: 1rem;
-        flex-direction: column;
         gap: 1rem;
+        display: flex;
+        margin-bottom: 5vh;
     }
-    
+    .busca-relatorios {
+        width: 1vw;
+        font-size: 1vw;
+        box-sizing: border-box;
+
+    }
+    .busca-relatorios input::placeholder{    
+        font-size: 2.5vw;
+    }
+
+    #periodo{
+        font-size: 2.5vw;
+        width: 30vw;
+    }
+    #categorias{
+        width: 40vw;
+        font-size: 2.5vw;
+    }
+    #prioridade{
+        width: 40vw;
+        font-size: 2.5vw;
+    }
+    form label{
+        width: 12vw;
+    }
+    .btn-apagar-todos{
+        font-size: 2.5vw;
+    }
+
     .busca-filtros {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        order: 0;
+        width: 1rem;
     }
+
     
     .busca-relatorios {
-        width: 100%;
-        max-width: 20rem;
+        width: 83%;
+    }
+
+    .busca-relatorios input{
+        width: 29vw;
+        font-size: 0.5vw;
     }
     
     .container-tabela {
@@ -477,38 +546,25 @@ td:last-child {
     }
     
     table {
-        min-width: 800px;
+        min-width: 80rem;
     }
     
     .area-conteudo {
         height: auto;
     }
+    .area-icones{
+        padding-bottom: 8vh;
+    }
 }
 
 /* Responsividade adicional para telas menores */
 @media (max-width: 480px) {
-    .menu-lixo {
-        padding: 1.5rem 1rem;
-    }
 
-    .menu-lixo h1 {
-        font-size: 1.2rem;
-    }
+}
+@media (max-width: 1040px) {
+    
 
-    .menu-lixo p {
-        font-size: 0.85rem;
-    }
-
-    .menu-lixo .info-item {
-        padding: 0.6rem;
-        font-size: 0.85rem;
-    }
-
-    .buttons {
-        flex-direction: column;
-    }
-
-    .buttons label {
-        width: 100%;
-    }
+}
+@media  (max-width: 360px) {
+    
 }
