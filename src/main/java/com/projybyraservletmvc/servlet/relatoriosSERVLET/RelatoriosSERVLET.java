@@ -29,6 +29,8 @@ public class RelatoriosSERVLET extends HttpServlet {
         String area = request.getParameter("area");
         String descricao = request.getParameter("descricao");
         String pdf_documento = request.getParameter("pdf");
+        String turno = request.getParameter("turno");
+
 
 
 
@@ -50,6 +52,7 @@ public class RelatoriosSERVLET extends HttpServlet {
         System.out.println("Desc: " + descricao);
         System.out.println("Area: " + area);
         System.out.println("PDF: " + pdf_documento);
+        System.out.println("Turno: " + turno);
         System.out.println("Id usuario: " + id_usuario);
 
 
@@ -62,7 +65,7 @@ public class RelatoriosSERVLET extends HttpServlet {
 
         try {
             System.out.println("Criando objeto Realtorios...");
-            Relatorios relatorio = new Relatorios(nome, area, id_usuario, pdf_documento,descricao);
+            Relatorios relatorio = new Relatorios(nome, area, id_usuario, pdf_documento,descricao, turno);
 
 
             System.out.println("Criando RelatoriosDAO...");

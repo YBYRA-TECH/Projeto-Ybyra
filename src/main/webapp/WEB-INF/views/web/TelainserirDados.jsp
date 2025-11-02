@@ -65,6 +65,16 @@
                         </div>
 
                         <div class="campo">
+                            <select name="turno" id="titulo" title="Período">
+                                <option value="" disabled selected hidden>Período</option>
+                                <option value="Manha">Manhã</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noite">Noite</option>
+                            </select>
+                        </div>
+
+
+                        <div class="campo">
                             <label for="categoria">Categoria</label>
                             <input type="text" id="categoria" name="area" value="" placeholder="Digite a categoria">
                         </div>

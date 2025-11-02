@@ -12,6 +12,7 @@ public class Relatorios {
     private String descricao;
     private int idUsuario;
     private String nome;
+    private String turno;
 
 
     //CONSTRUTOR
@@ -35,13 +36,16 @@ public class Relatorios {
         this.pdfDocumento = pdfDocumento;
         this.idUsuario = idUsuario;
         this.descricao = descricao;
+        this.turno = turno;
     }
-    public Relatorios(String nome,String area, int idUsuario,String pdfDocumento, String descricao) {
+    public Relatorios(String nome,String area, int idUsuario,String pdfDocumento, String descricao, String turno) {
         this.pdfDocumento = pdfDocumento;
         this.idUsuario = idUsuario;
         this.descricao = descricao;
         this.nome = nome;
         this.area = area;
+        this.turno = turno;
+
     }
 
 
@@ -96,6 +100,14 @@ public class Relatorios {
 
     public String getNome() {
         return nome;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public String getTurno() {
+        return turno;
     }
 
     //TOSTRING

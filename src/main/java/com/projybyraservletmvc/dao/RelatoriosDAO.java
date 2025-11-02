@@ -25,11 +25,17 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = ("INSERT INTO relatorios (data_criacao, pdf_documento, id_usuario) VALUES (?, ?, ?)");
+            String sql = ("INSERT INTO relatorios (nome, area, id_usuario, pdf_documento,descricao,turno) VALUES (?, ?, ?,?,?,?)");
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setDate(1, relatorios.getDataCriacao());
-            pstmt.setString(2, relatorios.getPdfDocumento());
+            pstmt.setString(1, relatorios.getNome());
+            pstmt.setString(2, relatorios.getArea());
             pstmt.setInt(3, relatorios.getIdUsuario());
+            pstmt.setString(4, relatorios.getPdfDocumento());
+            pstmt.setString(5, relatorios.getDescricao());
+            pstmt.setString(6, relatorios.getTurno());
+
+
+
 
             if(pstmt.executeUpdate()>0) {
                 return true;

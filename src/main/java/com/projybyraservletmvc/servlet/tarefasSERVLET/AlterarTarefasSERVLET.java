@@ -55,19 +55,15 @@ public class AlterarTarefasSERVLET extends HttpServlet {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             int id_usuario = usuarioDAO.buscar(responsavel);
 
-            if (id_usuario <= 0) {
-                System.out.println("Erro: Usuário não encontrado!");
-                response.getWriter().println("<h3>Erro: Usuário responsável não encontrado!</h3>");
-                return;
-            }
+
 
             // Converter a data
             LocalDate prazo = LocalDate.parse(prazo_String);
 
-            // Criar objeto Tarefas COM O ID
+
             System.out.println("Criando objeto Tarefas com ID: " + id_tarefa);
             Tarefas tarefa = new Tarefas(descricao, nome, prazo, prioridade, responsavel, id_usuario);
-            tarefa.setId_tarefa(id_tarefa); // IMPORTANTE: definir o ID da tarefa
+            tarefa.setId_tarefa(id_tarefa);
 
             // Atualizar no banco
             System.out.println("Criando TarefasDAO...");
