@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/includes/aside.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/includes" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web/adicionarLote.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web/adicionarUsuario.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web/configuraçoes.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web/funcionarios.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/web" />

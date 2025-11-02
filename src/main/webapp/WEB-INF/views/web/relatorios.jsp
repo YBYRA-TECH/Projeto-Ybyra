@@ -58,6 +58,10 @@
                     </div>
                     <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos">
                     <label for="modal-apagar-todos" id="apagarTodos">Apagar todos</label>
+                    <button class="btn-add">
+                        <a href="<%=request.getContextPath()%>/pagina?nome=adicionarLote">Adicionar Lote
+                        </a>
+                    </button>
 
                     <!-- MODAL APAGAR TODOS -->
                     <div class="modal-overlay">

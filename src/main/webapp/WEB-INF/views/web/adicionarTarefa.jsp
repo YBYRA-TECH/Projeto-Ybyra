@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/telaAdd_Alterar.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/telaAdd_Alterar.css"/>
     <title>YBYRA TECH</title>
 </head>
 
