@@ -13,7 +13,6 @@ public class Usuario {
     private String senha;
     private LocalDate dataCadastro;
     private LocalDate dataNascimento;
-    private Date dataValidade;
     private int idIndustria;
 
     //CONSTRUTOR
@@ -94,13 +93,6 @@ public class Usuario {
     }
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public Date getDataValidade() {
-        return dataValidade;
-    }
-    public void setDataValidade(Date dataValidade) {
-        this.dataValidade = dataValidade;
     }
 
     public int getIdIndustria() {
