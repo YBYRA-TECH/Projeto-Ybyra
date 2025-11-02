@@ -1,5 +1,7 @@
 package com.projybyraservletmvc.model;
 
+
+//Usamos esta classe apenas para dataload, pseudonimizacao e anonimizacao
 public class Endereco {
 
     // ATRIBUTOS
