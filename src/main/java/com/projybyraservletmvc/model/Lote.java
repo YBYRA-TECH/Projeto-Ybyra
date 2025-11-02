@@ -140,4 +140,6 @@ public class Lote {
 
 
     }
+
+    public Lote(){}
 }
