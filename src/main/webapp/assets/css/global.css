@@ -1,6 +1,6 @@
 /* ===== CABEÇALHO ===== */
 header {
-    background-image: url("/ASSETS/imgs/Fundo_Header.png");
+    background-image: url("../imgs/Fundo_Header.png");
     position: fixed;
     width: 100%;
     top: 0;
