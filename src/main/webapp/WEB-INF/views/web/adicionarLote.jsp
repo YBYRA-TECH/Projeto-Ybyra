@@ -53,28 +53,28 @@
 
                                 <div class="campo">
                                     <label for="eficiencia">Eficiência</label>
-                                    <input type="text" id="eficiencia" name="eficiencia" placeholder="Ex: 95% ou Alta" required>
+                                    <input type="text" id="eficiencia" name="eficiencia" placeholder="Ex: 95% " required>
                                 </div>
 
                                 <div class="campo">
                                     <label for="planejado">Planejado</label>
-                                    <input type="text" id="planejado" name="planejado" placeholder="Ex: Produção, Logística, Administrativo" required>
+                                    <input type="text" id="planejado" name="planejado" placeholder="Ex:200" required>
                                 </div>
                             </div>
                             <div>
                                 <div class="campo">
                                     <label for="responsavel">Responsável</label>
-                                    <input type="text" id="responsavel" name="responsavel" placeholder="Ex: email@exemplo.com ou (11) 98765-4321" required>
+                                    <input type="text" id="responsavel" name="responsavel" placeholder="Ex:Davi" required>
                                 </div>
 
                                 <div class="campo">
                                     <label for="producao">Produção</label>
-                                    <input type="text" id="producao" name="producao" placeholder="Ex: 150 unidades/dia" required>
+                                    <input type="text" id="producao" name="producao" placeholder="Ex: 150" required>
                                 </div>
 
                                 <div class="campo">
-                                    <label for="observacao">Observação</label>
-                                    <input type="text" id="observacao" name="observacao" placeholder="Ex: rel-123-abc ou Nome do relatório">
+                                    <label for="relatorios">Id do relatorio</label>
+                                    <input type="text" id="observacao" name="id_relatorio" placeholder="Ex: 8 (O id do relatorio tem que existir)" required>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
 
                     <div class="area-problemas">
                         <label for="problemas">Problemas</label>
-                        <input type="text" id="problemas" name="problemas" placeholder="Descreva problemas identificados">
+                        <input type="text" id="problemas" name="problemas" placeholder="Ex: 4">
                     </div>
                 </div>
 

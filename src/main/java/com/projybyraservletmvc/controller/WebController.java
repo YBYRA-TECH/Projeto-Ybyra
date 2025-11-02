@@ -35,11 +35,14 @@ public class WebController extends HttpServlet {
 
         String nome = request.getParameter("nome");
 
+        HttpSession session = request.getSession(false);
+
+
         // Verificar se a página precisa de login
 
 
         if (!isPaginaPublica(nome)) {
-            HttpSession session = request.getSession(false);
+             session = request.getSession(false);
 
             if (session == null || (session.getAttribute("usuarioLogado") == null &&
                     session.getAttribute("industriaLogada") == null)) {
