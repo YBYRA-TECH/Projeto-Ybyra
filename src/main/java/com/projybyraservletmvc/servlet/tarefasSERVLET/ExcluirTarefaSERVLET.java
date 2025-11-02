@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+//Classe servlet para excluir uma tarefa
 @WebServlet("/ExcluirTarefa")
 public class ExcluirTarefaSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

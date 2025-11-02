@@ -19,19 +19,6 @@
 
 
     <main class="area-conteudo">
-        <div class="area-icones-usuario">
-            <input type="checkbox" id="menu-notificacoes">
-            <label for="menu-notificacoes">
-                <img src="<%= request.getContextPath() %>/imgs/notificacoes.png" alt="Notificações">
-            </label>
-            <div id="notificacoes">
-                <h1>Notificações</h1>
-                <div>Murilo adicionou uma tarefa</div>
-                <div>Guilherme concluiu uma tarefa</div>
-                <div>Emilly concluiu uma tarefa</div>
-            </div>
-        </div>
-
         <section class="painel">
             <iframe
                     title="YbyraDash"

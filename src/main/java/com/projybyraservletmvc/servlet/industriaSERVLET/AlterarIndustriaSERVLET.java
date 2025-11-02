@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+//Classe servlet para alterar industria
 @WebServlet("/AlterarIndustria")
 public class AlterarIndustriaSERVLET extends HttpServlet {
 

@@ -11,6 +11,7 @@ import java.io.IOException;
 import com.projybyraservletmvc.dao.IndustriaDAO;
 import com.projybyraservletmvc.model.Industria;
 
+//Classe servlet para alterar dados da industria
 @WebServlet("/DadosAlterarIndustria")
 public class DadosAlterarIndustriaSERVLET extends HttpServlet {
 

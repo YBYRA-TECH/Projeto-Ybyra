@@ -7,7 +7,6 @@ public class Lote {
     private int producao;
     private int planejado;
     private int problemas;
-    private String observacao;
     private int id_industria;
     private int id_relatorio;
     private double eficiencia;
@@ -105,23 +104,14 @@ public class Lote {
         this.turno = turno;
     }
 
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
 
     //Construtor
 
     public Lote(String descricao, String responsavel, int producao, int planejado, int problemas,
-                String observacao, int id_industria, int id_relatorio, double eficiencia){
+               int id_industria, int id_relatorio){
 
         this.descricao = descricao;
         this.responsavel = responsavel;
-        this.observacao = observacao;
-        this.eficiencia = eficiencia;
         this.id_industria = id_industria;
         this.id_relatorio = id_relatorio;
         this.planejado = planejado;

@@ -32,18 +32,6 @@
         <div class="conteudo-principal-header">
             <header class="header-principal">
                 <h1>Inserção de relatórios</h1>
-                <div class="area-icones">
-                    <input type="checkbox" id="menu-notificacoes">
-                    <label for="menu-notificacoes">
-                        <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações" title="Notificações">
-                    </label>
-                    <div id="notificacoes">
-                        <h1>Notificações</h1>
-                        <div>Murilo adicionou uma tarefa</div>
-                        <div>Guilherme concluiu uma tarefa</div>
-                        <div>Emilly concluiu uma tarefa</div>
-                    </div>
-                </div>
             </header>
         </div>
 

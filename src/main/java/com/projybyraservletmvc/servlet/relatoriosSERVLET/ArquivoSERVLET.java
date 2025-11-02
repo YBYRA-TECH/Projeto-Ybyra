@@ -8,6 +8,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+//Classe servlet para guardar o nome do arquivo inserido pelo usuario
 @WebServlet("/InserirDados")@MultipartConfig
 public class ArquivoSERVLET extends HttpServlet {
 

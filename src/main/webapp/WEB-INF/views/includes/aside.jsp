@@ -49,7 +49,7 @@
                     <div class="box-icone">
                         <img src="<%= request.getContextPath() %>/assets/imgs/document.png" alt="Ícone relatorios" />
                     </div>
-                    <span>Relatórios</span>
+                    <span>Lote</span>
                 </a>
             </li>
 

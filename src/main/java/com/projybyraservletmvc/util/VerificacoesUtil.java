@@ -28,7 +28,8 @@ public class VerificacoesUtil {
     public static boolean validarCnpj(String cnpj){
         if (cnpj == null) return false;
 
-        String regex = "^(\\\\d{2}\\\\.?\\\\d{3}\\\\.?\\\\d{3}/?\\\\d{4}-?\\\\d{2})$";
+        String regex = "^(\\d{2}\\.?\\d{3}\\.?\\d{3}/?\\d{4}-?\\d{2})$";
+
         if(!Pattern.matches(regex, cnpj)) return false;
         String numeros = cnpj.replaceAll("\\D", "");
 

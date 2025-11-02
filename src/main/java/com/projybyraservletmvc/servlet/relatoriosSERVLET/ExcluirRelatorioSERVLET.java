@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+//Classe servlet para excluir relatorio
 @WebServlet("/ExcluirRelatorio")
 public class ExcluirRelatorioSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

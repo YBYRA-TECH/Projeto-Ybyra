@@ -29,12 +29,6 @@
                 <label for="menu-notificacoes">
                     <img src="<%= request.getContextPath() %>/assets/imgs/notificacoes.png" alt="Notificações">
                 </label>
-                <div id="notificacoes">
-                    <h1>Notificações</h1>
-                    <div>Murilo adicionou uma tarefa</div>
-                    <div>Guilherme concluiu uma tarefa</div>
-                    <div>Emilly concluiu uma tarefa</div>
-                </div>
             </div>
         </div>
 

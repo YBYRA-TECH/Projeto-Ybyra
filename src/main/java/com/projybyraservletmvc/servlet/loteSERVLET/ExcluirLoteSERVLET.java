@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+//Classe servlet para excluir um lote
 @WebServlet("/ExcluirLote")
 public class ExcluirLoteSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

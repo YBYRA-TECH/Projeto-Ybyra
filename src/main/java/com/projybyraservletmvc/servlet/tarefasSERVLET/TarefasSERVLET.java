@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 
+//Classe servlet para inserir uma tarefa
 @WebServlet(name = "TarefasSERVLET", urlPatterns = {"/AdicionarTarefa"})
 public class TarefasSERVLET extends HttpServlet {
 

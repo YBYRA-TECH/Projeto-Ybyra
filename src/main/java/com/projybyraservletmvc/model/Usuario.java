@@ -15,22 +15,20 @@ public class Usuario {
     private LocalDate dataNascimento;
     private Date dataValidade;
     private int idIndustria;
-    private int tempoTrabalho;
 
     //CONSTRUTOR
 
     public Usuario(int idUsuario, String email, String cpf, String nome, LocalDate dataCadastro,
-                   LocalDate dataNascimento, Date dataValidade, int idIndustria, int tempoTrabalho) {
+                   LocalDate dataNascimento, int idIndustria) {
         this.idUsuario = idUsuario;
         this.email = email;
         this.cpf = cpf;
         this.nome = nome;
         this.dataCadastro = dataCadastro;
         this.dataNascimento = dataNascimento;
-        this.dataValidade = dataValidade;
         this.idIndustria = idIndustria;
-        this.tempoTrabalho = tempoTrabalho;
     }
+
     public Usuario(String email, String cpf, String nome,
                    LocalDate dataNascimento, String senha, int idIndustria) {
         this.email = email;
@@ -112,17 +110,9 @@ public class Usuario {
         this.idIndustria = idIndustria;
     }
 
-    public int getTempoTrabalho() {
-        return tempoTrabalho;
-    }
-    public void setTempoTrabalho(int tempoTrabalho) {
-        this.tempoTrabalho = tempoTrabalho;
-    }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
     public String getSenha() {
         return senha;
     }
@@ -137,9 +127,7 @@ public class Usuario {
                 ",\tnome='" + nome + '\'' +
                 ",\tdataCadastro=" + dataCadastro +
                 ",\tdataNascimento=" + dataNascimento +
-                ",\tdataValidade=" + dataValidade +
                 ",\tidIndustria=" + idIndustria +
-                ",\ttempoTrabalho=" + tempoTrabalho +
                 "}\n";
     }
 

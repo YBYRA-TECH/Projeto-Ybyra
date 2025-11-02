@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 
+//Classe servlet para alterar uma tarefa
 @WebServlet("/AlterarTarefas")
 public class AlterarTarefasSERVLET extends HttpServlet {
 

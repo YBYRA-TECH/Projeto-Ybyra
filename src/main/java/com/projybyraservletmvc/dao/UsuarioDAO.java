@@ -105,8 +105,8 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
 
                 Usuario user = new Usuario(
                         id, email, cpf, nome,
-                        dtCadastro.toLocalDate(), dtNascimento.toLocalDate(), dtValidade,
-                        idIndustria, tempTrabalho
+                        dtCadastro.toLocalDate(), dtNascimento.toLocalDate(),
+                        idIndustria
                 );
                 lista.add(user);
             }
@@ -223,9 +223,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
                         rs.getString("nome"),
                         rs.getDate("data_cadastro").toLocalDate(),
                         rs.getDate("data_nascimento").toLocalDate(),
-                        rs.getDate("data_validade"),
-                        rs.getInt("id_industria"),
-                        rs.getInt("tempo_trabalho")
+                        rs.getInt("id_industria")
                 );
                 return usuario;
             } else {
@@ -264,9 +262,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>, IUsuarioDAO<Usuario> {
                         rs.getString("nome"),
                         rs.getDate("data_cadastro").toLocalDate(),
                         rs.getDate("data_nascimento").toLocalDate(),
-                        rs.getDate("data_validade"),
-                        rs.getInt("id_industria"),
-                        rs.getInt("tempo_trabalho")
+                        rs.getInt("id_industria")
                 );
                 lista.add(usuario);
             }

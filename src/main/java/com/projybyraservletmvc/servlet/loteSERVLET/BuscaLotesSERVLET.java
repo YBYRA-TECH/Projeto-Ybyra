@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+//Classe servlet para buscar lotes
 @WebServlet("/BuscaLote")
 public class BuscaLotesSERVLET extends HttpServlet {
 

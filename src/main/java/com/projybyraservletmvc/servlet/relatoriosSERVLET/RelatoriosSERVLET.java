@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+//Classe servlet para inserir relatorio
 @WebServlet(name = "RelatoriosSERVLET", urlPatterns = {"/InsercaoDados"})
 public class RelatoriosSERVLET extends HttpServlet {
 
