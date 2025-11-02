@@ -10,7 +10,6 @@ public interface GenericDAO<T> {
      *
      * @param object Recebe um objeto para ser inserido no banco de dados
      * @return true se a inserção for bem-sucedida, falso caso contrário
-     * @throws  SQLException Lança esta exceção caso ocorra um erro
      *
      */
     boolean inserir(T object);
@@ -20,17 +19,17 @@ public interface GenericDAO<T> {
      * Busca todos os registro da respectiva tabela no banco
      *
      * @return Retorna uma lista de objetos da respectiva tabela
-     * @throws SQLException lança esta exceção caso ocorra um erro
      *
      */
     List<T> buscar();
 
 
     /**
+     * Atualiza o respectivo valor conforme o parâmetro dado
+     *
      *
      * @param object Recebe um objeto para ser atualizado no banco de dados
      * @return true se a atualização for bem-sucedida, false caso contrário
-     * @throws SQLException lança esta exceção caso ocorra um erro
      */
     boolean atualizar(T object);
 
