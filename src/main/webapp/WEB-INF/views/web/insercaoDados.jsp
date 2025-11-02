@@ -108,7 +108,7 @@
                     <div class="buttons">
                         <label for="<%= modalId %>" class="btn-cancelar">Não</label>
                         <form action="<%=request.getContextPath()%>/ExcluirRelatorio" method="post" style="flex: 1; margin: 0;">
-                            <input type="hidden" name="idRelatorio" value="<%= r.getIdRelatorios() %>" />
+                            <input type="hidden" name="id_relatorio" value="<%= r.getIdRelatorios() %>" />
                             <button type="submit" class="btn-excluir">Sim</button>
                         </form>
                     </div>

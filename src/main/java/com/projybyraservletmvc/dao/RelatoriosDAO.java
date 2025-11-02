@@ -145,24 +145,40 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
 
 
     @Override
-    public int deletar(int idRelatorios) {
+    public int deletar(int id_relatorio) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
+        PreparedStatement stmtLote = null;
+        PreparedStatement stmtRelatorio = null;
 
         try {
             conn = conexao.conectar();
-            String sql = "DELETE FROM relatorios WHERE id_relatorios = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, idRelatorios);
+            // Deleta da tabela Lote
+            String sqlTabelaLote = "DELETE FROM lote WHERE id_relatorio = ?";
+            stmtLote = conn.prepareStatement(sqlTabelaLote);
+            stmtLote.setInt(1, id_relatorio);
+            stmtLote.executeUpdate();
 
-            if(pstmt.executeUpdate()>0){
+            // Deleta da tabela relatorio
+            String sqlRelatorio = "DELETE FROM relatorios WHERE id_relatorio = ?";
+            stmtRelatorio = conn.prepareStatement(sqlRelatorio);
+            stmtRelatorio.setInt(1, id_relatorio);
+            int linhasAfetadas = stmtRelatorio.executeUpdate();
+
+            System.out.println("Relatório " + id_relatorio + " deletado com sucesso!");
+
+            if (linhasAfetadas > 0) {
                 return 1;
-            }else{return 0;}
+            } else {
+                return 0;
+            }
+
         } catch (SQLException e) {
+            System.err.println("Erro ao deletar relatório: " + e.getMessage());
             e.printStackTrace();
             return -1;
-        }finally {
+        } finally {
             conexao.desconectar(conn);
         }
     }

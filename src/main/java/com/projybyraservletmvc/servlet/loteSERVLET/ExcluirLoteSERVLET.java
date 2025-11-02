@@ -20,13 +20,13 @@ public class ExcluirLoteSERVLET extends HttpServlet {
 
 
 
-        System.out.println("------------------- EXCLUIR TAREFA --------------------------------");
+        System.out.println("------------------- EXCLUIR LOTE --------------------------------");
         System.out.println("Ação: "+ acao);
         System.out.println("Id_lote: " + id_lote);
 
         if("excluir".equals(acao) && id_lote != null) {
             int id_loteINT = Integer.parseInt(id_lote);
-            System.out.println("O id do lote que sera deleto é: " + id_lote);
+            System.out.println("O id do lote que sera deletado é: " + id_lote);
             LoteDAO dao = new LoteDAO();
             dao.deletar(id_loteINT);
         }
