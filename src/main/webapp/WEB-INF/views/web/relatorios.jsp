@@ -16,7 +16,7 @@
 
 <body>
 <%
-    List<Lote> lote = (List<Lote>) request.getAttribute("lote");
+    List<Lote> lote = (List<Lote>) session.getAttribute("lote");
 
     Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
     Integer id_industria = (usuarioLogado != null) ? usuarioLogado.getIdIndustria() : null;
@@ -31,28 +31,34 @@
 
         <section class="painel">
             <header>
+                <form method="get" action="<%=request.getContextPath()%>/BuscaLote">
                 <div class="busca-filtros">
 
-                    <select name="categorias" id="categorias" title="Categorias">
+
+                    <select name="area" id="categorias" title="Categorias">
                         <option value="" disabled selected hidden>Todas as Categorias</option>
-                        <option value="">Área Fria</option>
-                        <option value="">Área Quente</option>
+                        <option value="Area Fria">Área Fria</option>
+                        <option value="Area Quente">Área Quente</option>
+                        <option value="FFO">FFO</option>
+                        <option value="ETA E ETE">ETA E ETE</option>
+
+
                     </select>
-                    <select name="periodo" id="periodo" title="Período">
+                    <select name="turno" id="periodo" title="Período">
                         <option value="" disabled selected hidden>Período</option>
-                        <option value="">Manhã</option>
-                        <option value="">Tarde</option>
-                        <option value="">Noite</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
                     </select>
-                    <select name="prioridade" id="prioridade" title="Prioridade">
+                    <select name="eficiencia" id="prioridade" title="Prioridade">
                         <option value="" disabled selected hidden>Eficiência</option>
-                        <option value="">Baixa</option>
-                        <option value="">Média</option>
-                        <option value="">Alta</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
                     </select>
                     <div class="busca-relatorios">
-                        <input type="text" placeholder="Buscar Relatórios" title="Busca"/>
-                        <button class="icone-busca">
+                        <input name="busca" type="text" placeholder="Buscar Relatórios" title="Busca"/>
+                        <button type="submit" class="icone-busca">
                             <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa" title="lupa">
                         </button>
                     </div>
@@ -62,7 +68,6 @@
                         <a href="<%=request.getContextPath()%>/pagina?nome=adicionarLote">Adicionar Lote
                         </a>
                     </button>
-
                     <!-- MODAL APAGAR TODOS -->
                     <div class="modal-overlay">
                         <div class="menu-lixo">
@@ -89,6 +94,8 @@
                         </div>
                     </div>
                 </div>
+                </form>
+
                 <div class="area-icones">
                     <input type="checkbox" id="menu-notificacoes">
                     <label for="menu-notificacoes" title="Notificações">
