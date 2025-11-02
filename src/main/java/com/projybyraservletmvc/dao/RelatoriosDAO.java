@@ -25,7 +25,7 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = ("INSERT INTO relatorios (nome, area, id_usuario, pdf_documento,descricao,turno) VALUES (?, ?, ?,?,?,?)");
+            String sql = ("INSERT INTO relatorios (nome, area, id_usuario, pdf_documento,descricao,turno,responsavel,id_industria) VALUES (?, ?, ?,?,?,?,?,?)");
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, relatorios.getNome());
             pstmt.setString(2, relatorios.getArea());
@@ -33,6 +33,10 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
             pstmt.setString(4, relatorios.getPdfDocumento());
             pstmt.setString(5, relatorios.getDescricao());
             pstmt.setString(6, relatorios.getTurno());
+            pstmt.setString(7, relatorios.getResponsavel());
+            pstmt.setInt(8, relatorios.getId_industria());
+
+
 
 
 
@@ -95,6 +99,39 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
                 Relatorios rel = new Relatorios(
                         idRelatorios, dataCriacao, pdf, idUser
                 );
+                lista.add(rel);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
+    public List<Relatorios> buscar(int id_industria) {
+        List<Relatorios> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM relatorios WHERE id_industria = ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,id_industria);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Relatorios rel = new Relatorios();
+                rel.setIdRelatorios(rs.getInt("id_relatorio"));
+                rel.setNome(rs.getString("nome"));
+                rel.setArea(rs.getString("area"));
+                rel.setIdUsuario(rs.getInt("id_usuario"));
+                rel.setPdfDocumento(rs.getString("pdf_documento"));
+                rel.setDescricao(rs.getString("descricao"));
+                rel.setTurno(rs.getString("turno"));
+                rel.setResponsavel(rs.getString("responsavel"));
+                rel.setDataCriacao(rs.getDate("data_criacao"));
+
                 lista.add(rel);
             }
 
