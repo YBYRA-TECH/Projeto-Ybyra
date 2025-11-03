@@ -169,6 +169,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         return null;
     }
 
+    @Override
     public int buscarID(String nomeIndustria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
@@ -191,6 +192,7 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         }
     }
 
+    @Override
     public Industria buscarPorID(int id_industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;

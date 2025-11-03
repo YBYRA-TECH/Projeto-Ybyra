@@ -63,18 +63,19 @@ public class AdicionarUsuarioSERVLET extends HttpServlet {
             System.out.println("Criando objeto Usuario...");
             Usuario usuario = new Usuario(email, cpf, nome, data_nasc,senha,id_industria);
 
-            // VALIDAR CNPJ
-            if (!VerificacoesUtil.validarCpf(cpf)){
+            // VALIDAR CPF
+            cpf = VerificacoesUtil.validarCpf(cpf);
+            if (cpf == null){
                 System.out.println("O cpf está incorreto!");
                 request.setAttribute("erroCpf", "Ops! O cpf está incorreto!");
                 request.setAttribute("nome", nome);
-                request.setAttribute("cpf", cpf);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
                 request.setAttribute("data_nasc", data_nasc);
                 request.getRequestDispatcher("/pagina?nome=adicionarUsuario").forward(request, response);
                 return;
             }
+
 
             // VALIDAR EMAIL
             if (!VerificacoesUtil.validarEmail(email)){

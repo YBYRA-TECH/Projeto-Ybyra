@@ -11,8 +11,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/ASSETS/imgs/Nova_logo_sem_tech.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/ASSETS/CSS/paginaErro.css" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/imgs/Nova_logo_sem_tech.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/paginaErro.css" />
     <title>YBYRA TECH</title>
 </head>
 

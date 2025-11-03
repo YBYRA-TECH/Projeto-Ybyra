@@ -14,27 +14,28 @@ public class VerificacoesUtil {
         return Pattern.matches(regex, nome.trim());
     }
 
-    public static boolean validarCpf(String cpf){
-        if (cpf == null) return false;
+    public static String validarCpf(String cpf){
+        if (cpf == null) return null;
         String regex = "^(\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2})$";
-        if(!Pattern.matches(regex, cpf)) return false;
+        if(!Pattern.matches(regex, cpf)) return null;
 
-        String numeros = cpf.replaceAll("\\D", "");
-        if (numeros.length() != 11 || numeros.matches("(\\d)\\1{10}")) return false;
+        String numeros = cpf.replace(".", "").replace("-", "");
+        if (numeros.length() != 11 || numeros.matches("(\\d)\\1{10}")) return null;
 
-        return true;
+        return numeros;
     }
 
-    public static boolean validarCnpj(String cnpj){
-        if (cnpj == null) return false;
+    public static String validarCnpj(String cnpj){
+        if (cnpj == null) return null;
 
         String regex = "^(\\d{2}\\.?\\d{3}\\.?\\d{3}/?\\d{4}-?\\d{2})$";
 
-        if(!Pattern.matches(regex, cnpj)) return false;
-        String numeros = cnpj.replaceAll("\\D", "");
+        if(!Pattern.matches(regex, cnpj)) return null;
+        String numeros = cnpj.replace(".", "").replace("/", "").replace("-", "");
 
-        if (numeros.length() != 14 || numeros.matches("(\\d)\\1{13}")) return false;
-        return true;
+        if (numeros.length() != 14 || numeros.matches("(\\d)\\1{13}")) return null;
+
+        return numeros;
     }
 
     public static boolean validarData(String data){

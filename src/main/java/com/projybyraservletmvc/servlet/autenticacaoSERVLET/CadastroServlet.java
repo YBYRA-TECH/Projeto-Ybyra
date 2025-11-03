@@ -47,20 +47,21 @@ public class CadastroServlet extends HttpServlet {
         }
 
         try {
-            System.out.println("Criando objeto Industria...");
-            Industria industria = new Industria(nome, cnpj, email, senha);
-
             // VALIDAR CNPJ
-            if (!VerificacoesUtil.validarCnpj(cnpj)){
+            cnpj = VerificacoesUtil.validarCnpj(cnpj);
+            if (cnpj == null) {
                 System.out.println("O cnpj está incorreto!");
                 request.setAttribute("erroCnpj", "Ops! O cnpj está incorreto!");
                 request.setAttribute("nome", nome);
-                request.setAttribute("cnpj", cnpj);
                 request.setAttribute("email", email);
                 request.setAttribute("senha", senha);
                 request.getRequestDispatcher("/WEB-INF/views/autenticacao/cadastro.jsp").forward(request, response);
                 return;
             }
+
+            // AGORA SIM cria o objeto com o CNPJ limpo (só números)
+            System.out.println("Criando objeto Industria...");
+            Industria industria = new Industria(nome, cnpj, email, senha);
 
             // VALIDAR EMAIL
             if (!VerificacoesUtil.validarEmail(email)){

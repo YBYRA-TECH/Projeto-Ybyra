@@ -89,7 +89,6 @@
                                 <div class="campo">
                                     <label for="email">Email/Telefone</label>
                                     <input
-                                            type="email"
                                             id="email"
                                             name="email"
                                             placeholder="Digite o Email ou Telefone"
