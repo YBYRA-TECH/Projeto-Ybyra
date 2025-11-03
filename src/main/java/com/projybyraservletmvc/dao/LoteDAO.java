@@ -52,7 +52,7 @@ public class LoteDAO implements GenericDAO<Lote>, ILoteDAO<Lote> {
         try {
             conn = conexao.conectar();
             String sql = "SELECT l.id_lote, l.descricao, r.turno, r.area, l.responsavel, " +
-                    "l.eficiencia, l.producao, l.planejado, l.problemas, l.observacao, " +
+                    "l.eficiencia, l.producao, l.planejado, l.problemas, " +
                     "l.id_industria, l.id_relatorio " +
                     "FROM lote l " +
                     "INNER JOIN relatorios r ON l.id_relatorio = r.id_relatorio " +

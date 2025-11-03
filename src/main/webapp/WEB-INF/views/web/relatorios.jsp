@@ -32,68 +32,65 @@
         <section class="painel">
             <header>
                 <form method="get" action="<%=request.getContextPath()%>/BuscaLote">
-                <div class="busca-filtros">
+                    <div class="busca-filtros">
 
-
-                    <select name="area" id="categorias" title="Categorias">
-                        <option value="" disabled selected hidden>Todas as Categorias</option>
-                        <option value="Area Fria">Área Fria</option>
-                        <option value="Area Quente">Área Quente</option>
-                        <option value="FFO">FFO</option>
-                        <option value="ETA E ETE">ETA E ETE</option>
-
-
-                    </select>
-                    <select name="turno" id="periodo" title="Período">
-                        <option value="" disabled selected hidden>Período</option>
-                        <option value="Manhã">Manhã</option>
-                        <option value="Tarde">Tarde</option>
-                        <option value="Noite">Noite</option>
-                    </select>
-                    <select name="eficiencia" id="prioridade" title="Prioridade">
-                        <option value="" disabled selected hidden>Eficiência</option>
-                        <option value="Baixa">Baixa</option>
-                        <option value="Média">Média</option>
-                        <option value="Alta">Alta</option>
-                    </select>
-                    <div class="busca-relatorios">
-                        <input name="busca" type="text" placeholder="Buscar Relatórios" title="Busca"/>
-                        <button type="submit" class="icone-busca">
-                            <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa" title="lupa">
+                        <select name="area" id="categorias" title="Categorias">
+                            <option value="" disabled selected hidden>Todas as Categorias</option>
+                            <option value="Area Fria">Área Fria</option>
+                            <option value="Area Quente">Área Quente</option>
+                            <option value="FFO">FFO</option>
+                            <option value="ETA E ETE">ETA E ETE</option>
+                        </select>
+                        <select name="turno" id="periodo" title="Período">
+                            <option value="" disabled selected hidden>Período</option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                        </select>
+                        <select name="eficiencia" id="prioridade" title="Prioridade">
+                            <option value="" disabled selected hidden>Eficiência</option>
+                            <option value="Baixa">Baixa</option>
+                            <option value="Média">Média</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+                        <div class="busca-relatorios">
+                            <input name="busca" type="text" placeholder="Buscar Relatórios" title="Busca"/>
+                            <button type="submit" class="icone-busca">
+                                <img src="<%= request.getContextPath() %>/assets/imgs/Research.png" alt="Lupa" title="lupa">
+                            </button>
+                        </div>
+                        <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos">
+                        <label for="modal-apagar-todos" id="apagarTodos">Apagar todos</label>
+                        <button class="btn-add">
+                            <a href="<%=request.getContextPath()%>/pagina?nome=adicionarLote">Adicionar Lote
+                            </a>
                         </button>
-                    </div>
-                    <input type="checkbox" class="menu-lixeira" id="modal-apagar-todos">
-                    <label for="modal-apagar-todos" id="apagarTodos">Apagar todos</label>
-                    <button class="btn-add">
-                        <a href="<%=request.getContextPath()%>/pagina?nome=adicionarLote">Adicionar Lote
-                        </a>
-                    </button>
-                    <!-- MODAL APAGAR TODOS -->
-                    <div class="modal-overlay">
-                        <div class="menu-lixo">
-                            <div class="menu-lixo-icone">
-                                <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
-                            </div>
-                            <h1>Deseja excluir TODOS os lotes?</h1>
-                            <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
-                            <div class="info-item">
-                                <strong>Total de lotes:</strong>
-                                <%
-                                    int contador = (lote != null) ? lote.size() : 0;
-                                %>
-                                <span><%= contador %> Lote<%= contador != 1 ? "s" : "" %></span>
-                            </div>
-                            <form method="post" action="<%=request.getContextPath()%>/ExcluirLote">
-                                <div class="buttons">
-                                    <input type="hidden" name="id_industria" value="<%=id_industria != null ? id_industria : 0%>">
-                                    <input type="hidden" name="acao" value="excluirTodos">
-                                    <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
-                                    <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                        <!-- MODAL APAGAR TODOS -->
+                        <div class="modal-overlay">
+                            <div class="menu-lixo">
+                                <div class="menu-lixo-icone">
+                                    <img src="<%= request.getContextPath() %>/assets/imgs/Trash.png" alt="Ícone Lixeira" />
                                 </div>
-                            </form>
+                                <h1>Deseja excluir TODOS os lotes?</h1>
+                                <p>Esta ação não pode ser desfeita. Todos os dados serão permanentemente removidos.</p>
+                                <div class="info-item">
+                                    <strong>Total de lotes:</strong>
+                                    <%
+                                        int contador = (lote != null) ? lote.size() : 0;
+                                    %>
+                                    <span><%= contador %> Lote<%= contador != 1 ? "s" : "" %></span>
+                                </div>
+                                <form method="post" action="<%=request.getContextPath()%>/ExcluirLote">
+                                    <div class="buttons">
+                                        <input type="hidden" name="id_industria" value="<%=id_industria != null ? id_industria : 0%>">
+                                        <input type="hidden" name="acao" value="excluirTodos">
+                                        <label for="modal-apagar-todos" class="btn-cancelar">Não</label>
+                                        <button type="submit" class="btn-excluir">Sim, apagar tudo</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </form>
 
                 <div class="area-icones">
@@ -124,13 +121,13 @@
                             for (Lote l : lote) {
                                 String modalId = "modal-" + modalCounter++;
                     %>
-                    <tr class="row-link">
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getId_lote() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getDescricao() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getTurno() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getArea() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link"><%= l.getResponsavel() %></a></td>
-                        <td><a href="<%= request.getContextPath() %>/pagina?nome=inicioBI&id_lote=<%= l.getId_lote() %>" class="table-link">
+                    <tr>
+                        <td><%= l.getId_lote() %></td>
+                        <td><%= l.getDescricao() %></td>
+                        <td><%= l.getTurno() %></td>
+                        <td><%= l.getArea() %></td>
+                        <td><%= l.getResponsavel() %></td>
+                        <td>
                             <%
                                 String classEficiencia = "";
                                 double eficiencia = l.getEficiencia();
@@ -147,7 +144,7 @@
                                 }
                             %>
                             <div class="barra-desempenho barra<%=classEficiencia%>"><%=String.format("%.2f", eficiencia)%>%</div>
-                        </a></td>
+                        </td>
                         <td>
                             <input type="checkbox" class="menu-lixeira" id="<%= modalId %>">
                             <label for="<%= modalId %>" class="icone-lixeira" title="Lixeira">

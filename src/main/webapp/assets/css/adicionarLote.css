@@ -1,8 +1,6 @@
 /* ===== IMPORTAÇÃO DE FONTES ===== */
-/* "Montserrat" */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-/* "Geologica" */
-@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&display=swap");
 
 /* ===== RESET GERAL ===== */
 * {
@@ -14,6 +12,8 @@
 html,
 body {
     overflow-x: hidden;
+    font-size: 16px;
+    height: 100%;
 }
 
 body {
@@ -23,220 +23,347 @@ body {
 .painel-principal {
     display: flex;
     min-height: 100vh;
+    width: 100%;
 }
 
-#voltar {
-    rotate: 180deg;
+/* ===== ÁREA DE CONTEÚDO ===== */
+.area-conteudo {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f8fcff;
+    border-radius: 1.25rem;
+    margin: 1.2rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow-y: auto;
 }
 
+/* ===== HEADER ===== */
 .conteudo-principal-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding-top:0.5% ;
-}
-
-.conteudo-principal-header h1{
-    color: #365576;
-}
-
-.subtitulo-secao {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
-    color: #365576;
     margin-bottom: 2rem;
-    text-align: center;
+    padding: 0 1rem;
+}
+
+.conteudo-principal-header a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.conteudo-principal-header a:hover {
+    background-color: #e2e8f0;
+}
+
+#voltar {
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(180deg);
+    transition: transform 0.2s;
+}
+
+.conteudo-principal-header a:hover #voltar {
+    transform: rotate(180deg) translateX(-4px);
+}
+
+.conteudo-principal-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #1e293b;
     font-weight: 700;
 }
 
-.detalhes-campos {
-    display: grid;
-    grid-template-areas:
-        "column1 column2";
-    gap: 0 2rem;
-}
-
-.detalhes-campos:last-child {
-    width: 99%;
-}
-
-#nome-tarefa {
-    margin-top: 1.5px;
-}
-
-.campo input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    background-color: white;
-    font-size: 1rem;
-    font-family: 'Geologica', sans-serif;
-}
-
-.area-descricao {
-    flex: 1;
+.area-icones {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
-/* Estilos dos campos de Detalhes (rótulo e input) */
-.campo {
-    margin-bottom: 1rem;
+/* ===== SEÇÃO DO PAINEL ===== */
+.detalhesPainel {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.campo label {
-    font-family: 'Geologica', sans-serif;
-    font-size: 1.1rem;
-    color: #555;
-    display: block;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.campo input[type="date"] {
-    color: #555;
-}
-.campo input{
-    font-size: 1.3vw;
-}
+/* ===== FORMULÁRIO ===== */
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
 }
 
 .formulario-detalhes {
     width: 100%;
 }
 
+/* ===== ÁREA DE DETALHES ===== */
+.area-detalhes {
+    margin-bottom: 2rem;
+}
+
+.subtitulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.6;
+    padding: 1rem;
+    background-color: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 0.5rem;
+}
+
+/* ===== GRID DE CAMPOS ===== */
+.detalhes-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.detalhes-campos > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ===== CAMPOS ===== */
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    font-family: 'Geologica', sans-serif;
+    color: #475569;
+    transition: all 0.2s;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #94a3b8;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: #3474cd;
+    box-shadow: 0 0 0 3px rgba(52, 116, 205, 0.1);
+}
+
+.campo input:hover,
+.campo select:hover,
+.campo textarea:hover {
+    border-color: #cbd5e1;
+}
+
+.campo input[type="date"] {
+    color: #475569;
+}
+
+/* ===== ÁREA DE PROBLEMAS ===== */
 .area-problemas {
     width: 100%;
     margin-top: 1.5rem;
 }
 
 .area-problemas label {
-    font-family: 'Geologica', sans-serif;
-    font-size: 1.1rem;
-    color: #555;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #1e293b;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.area-problemas input{
+.area-problemas input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
     border-radius: 0.5rem;
-    background-color: white;
-    font-size: 1rem;
+    background-color: #ffffff;
+    font-size: 0.95rem;
     font-family: 'Geologica', sans-serif;
-    min-height: 100px;
+    color: #475569;
+    transition: all 0.2s;
 }
 
-/* Botão Enviar Arquivo */
+.area-problemas input::placeholder {
+    color: #94a3b8;
+}
+
+.area-problemas input:focus {
+    outline: none;
+    border-color: #3474cd;
+    box-shadow: 0 0 0 3px rgba(52, 116, 205, 0.1);
+}
+
+.area-problemas input:hover {
+    border-color: #cbd5e1;
+}
+
+/* ===== BOTÃO ENVIAR ===== */
 .btn-enviar {
-    background-color: #3474cd;
+    background-color: #2067ca;
     color: white;
+    border: none;
     border-radius: 0.5rem;
-    padding: 0.75rem 2rem;
+    padding: 0.875rem 2.5rem;
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
     display: inline-block;
     text-align: center;
-    margin-top: 6rem;
+    margin-top: 2rem;
+    align-self: center;
+    box-shadow: 0 2px 4px rgba(32, 103, 202, 0.2);
 }
 
 .btn-enviar:hover {
-    background-color: #192083;
+    background-color: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 103, 202, 0.4);
 }
 
-input {
-    outline: none;
+.btn-enviar:active {
+    transform: translateY(0);
 }
 
-.area-icones{
-    right: 4%;
+/* ===== NOTIFICAÇÕES ===== */
+#notificacoes {
+    position: fixed;
+    right: 2rem;
+    top: 5rem;
 }
 
-#notificacoes{
-    right: 2%;   
+#notificacoes h1 {
+    color: #1e293b;
+    font-size: 1.2rem;
 }
 
-#notificacoes h1{
-    color: black;
-}
-@media  (max-height:1340px) and (max-width: 840px) {
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
+@media (max-width: 840px) {
     .painel-principal {
-        display:block;
+        flex-direction: column;
     }
+
+    .area-conteudo {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
     .conteudo-principal-header {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding-top:0.5% ;
+        margin-bottom: 1.5rem;
     }
-    
+
+    .conteudo-principal-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .detalhesPainel {
+        padding: 1.5rem;
+    }
+
     .subtitulo-secao {
-        font-size: 2.5vw;
+        font-size: 1rem;
+        padding: 0.75rem;
     }
-    
+
     .detalhes-campos {
-        display: grid;
-        grid-template-areas:
-            "column1 column2";
-        gap: 0 2rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
-    
-    .detalhes-campos:last-child {
-        width: 99%;
+
+    .detalhes-campos > div {
+        gap: 1.5rem;
     }
-    
-    #nome-tarefa {
-        margin-top: 1.5px;
+
+    .btn-enviar {
+        width: 100%;
+        padding: 0.875rem 1rem;
     }
-    
-    .campo {
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .area-conteudo {
+        margin: 0.5rem;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .conteudo-principal-header {
+        padding: 0;
         margin-bottom: 1rem;
     }
-    
-    .campo input {
-        font-size: 1.6vw;
+
+    .conteudo-principal-header h1 {
+        font-size: 1.25rem;
     }
 
-    .area-problemas {
-        width: 97%;
+    #voltar {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .detalhesPainel {
+        padding: 1.25rem;
+    }
+
+    .subtitulo-secao {
+        font-size: 0.9rem;
+        padding: 0.625rem;
+    }
+
+    .campo label,
+    .area-problemas label {
+        font-size: 0.875rem;
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea,
+    .area-problemas input {
+        font-size: 0.875rem;
+        padding: 0.625rem 0.875rem;
+    }
+
+    .btn-enviar {
+        font-size: 0.95rem;
         margin-top: 1.5rem;
     }
-    
-}
-@media (max-width: 480px) {
-    .conteudo-principal-header {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding-top:0.5% ;
-    }
-    
-    .subtitulo-secao {
-        font-size: 2.5vw;
-    }
-    
-    .detalhes-campos {
-        display: block;
-    }
-    
-    .detalhes-campos:last-child {
-        width: 96%;
-    }
-    
-    .campo input {
-        font-size: 2vw;
-    }
 
+    #notificacoes {
+        right: 1rem;
+        top: 4rem;
+    }
 }

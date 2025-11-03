@@ -331,23 +331,26 @@ body {
     align-items: center;
 }
 
-.btn-apagar-todos {
-    background-color: #2067ca;
+#apagarTodos {
+    background-color: #ef4444;
     color: white;
     border: none;
-    border-radius: 0.375rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
 }
 
-.btn-apagar-todos:hover {
+#apagarTodos:hover {
+    background-color: #dc2626;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
 }
-
 /* ===== CARTÃO DE TAREFA ===== */
 .tarefa {
     background-color: white;

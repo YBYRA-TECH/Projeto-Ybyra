@@ -1,8 +1,6 @@
 /* ===== IMPORTAÇÃO DE FONTES ===== */
-/* "Montserrat" */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-/* "Geologica" */
-@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&display=swap");
 
 /* ===== RESET GERAL ===== */
 * {
@@ -14,6 +12,8 @@
 html,
 body {
     overflow-x: hidden;
+    font-size: 16px;
+    height: 100%;
 }
 
 body {
@@ -23,30 +23,45 @@ body {
 .painel-principal {
     display: flex;
     min-height: 100vh;
+    width: 100%;
 }
 
-/* -------------------------------------------------------------------------- */
-/* --- ESTILOS PARA FERRAMENTAS, TABELA E PAGINAÇÃO --- */
-/* -------------------------------------------------------------------------- */
+/* ===== ÁREA DE CONTEÚDO ===== */
+.area-conteudo {
+    flex-grow: 1;
+    padding: 1.3rem 0rem 2rem 1.3rem;
+    background-color: #f8fcff;
+    border-radius: 1.25rem;
+    margin: 1.2rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    overflow: hidden;
+}
 
-/* Estilo do cabeçalho principal */
+.painel {
+    height: auto;
+    min-height: calc(100vh - 4rem);
+}
+
+/* ===== HEADER E FILTROS ===== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
 }
 
-/* Container para a busca e os filtros (lado esquerdo) */
 .busca-filtros {
     display: flex;
     gap: 0.75rem;
     align-items: center;
+    flex-wrap: wrap;
     flex-grow: 1;
 }
 
-/* Estilo do campo de busca */
+/* Campo de busca */
 .busca-relatorios {
     display: flex;
     align-items: center;
@@ -57,6 +72,11 @@ header {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     width: 16rem;
     height: 2.5rem;
+    transition: border-color 0.2s;
+}
+
+.busca-relatorios:focus-within {
+    border-color: #3474cd;
 }
 
 .busca-relatorios input {
@@ -66,6 +86,7 @@ header {
     padding: 0.6rem 0.8rem;
     outline: none;
     flex: 1;
+    background: transparent;
 }
 
 .busca-relatorios input::placeholder {
@@ -79,7 +100,13 @@ header {
     border: none;
     padding: 0 0.8rem;
     cursor: pointer;
-    color: #888;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.busca-relatorios .icone-busca:hover {
+    transform: scale(1.1);
 }
 
 .busca-relatorios img {
@@ -87,27 +114,89 @@ header {
     height: 20px;
 }
 
-/* Estilo dos Dropdowns (selects) */
+/* Selects (Dropdowns) */
 .busca-filtros select {
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
+    padding: 0.6rem 2rem 0.6rem 1rem;
+    border: 1px solid #e2e8f0;
     border-radius: 0.5rem;
     background-color: white;
     font-size: 0.85rem;
-    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    color: #475569;
+    cursor: pointer;
     appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23475569%22%20d%3D%22M287%2069c-2-2-4-2-6-2H11c-2%200-4%200-6%202-4%203-4%208%200%2011l135%20141c2%202%204%203%206%203s4-1%206-3l135-141c4-3%204-8%200-11z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 0.5rem top 50%;
     background-size: 0.65rem auto;
-    padding-right: 2rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.busca-filtros select:hover {
+    border-color: #cbd5e1;
+}
+
+.busca-filtros select:focus {
+    outline: none;
+    border-color: #3474cd;
+    box-shadow: 0 0 0 3px rgba(52, 116, 205, 0.1);
+}
+
+/* Botões */
+#apagarTodos {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+#apagarTodos:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-add {
+    background-color: #2067ca;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(32, 103, 202, 0.2);
+}
+
+.btn-add:hover {
+    background-color: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 103, 202, 0.4);
+}
+
+.btn-add a {
+    text-decoration: none;
+    color: white;
+    display: block;
 }
 
 .area-icones {
+    display: flex;
     align-items: center;
 }
 
-/* --- Tabela --- */
+/* ===== TABELA ===== */
 .container-tabela {
     background: white;
     border-radius: 1rem;
@@ -127,131 +216,103 @@ thead {
 
 th {
     font-family: "Montserrat", sans-serif;
-    padding: 0.8rem 0.5rem;
+    padding: 1rem 0.75rem;
     text-align: left;
     color: white;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
 }
 
-/* Ajuste nas larguras das colunas da tabela */
-thead th:first-child {
-    width: 15%;
-}
-
-thead th:nth-child(2) {
-    width: 20%;
-}
-
-thead th:nth-child(3) {
+thead th:nth-child(1) { width: 8%; }
+thead th:nth-child(2) { width: 20%; }
+thead th:nth-child(3) { width: 12%; }
+thead th:nth-child(4) { width: 15%; }
+thead th:nth-child(5) { width: 20%; }
+thead th:nth-child(6) { width: 15%; }
+thead th:nth-child(7) {
     width: 10%;
-}
-
-thead th:nth-child(4) {
-    width: 15%;
-}
-
-thead th:nth-child(5) {
-    width: 20%;
-}
-
-thead th:nth-child(6) {
-    width: 15%;
-}
-
-thead th:last-child {
-    width: 5%;
     text-align: center;
+}
+
+tbody {
+    background: white;
 }
 
 td {
     font-family: "Geologica", sans-serif;
-    padding: 0.8rem 0.5rem;
+    padding: 1rem 0.75rem;
     border-bottom: 1px solid #f1f5f9;
     font-size: 0.9rem;
     color: #475569;
-    position: relative;
 }
 
 tbody tr {
-    transition: all 0.2s ease;
+    transition: background-color 0.2s;
 }
 
 tbody tr:hover {
     background: #f8fafc;
 }
 
-.btn-add a {
-    text-decoration: none;
-    color: white;
+tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.btn-apagar-todos,
-.btn-add {
-    background-color: #2067ca;
-    color: white;
-    border: none;
-    border-radius: 0.375rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    transition: all 0.3s;
-}
-
-.btn-apagar-todos:hover,
-.btn-add:hover {
-    transform: translateY(-2px);
-}
-
-.barra-desempenho {
-    height: 1.2rem;
-    border-radius: 0.6rem;
-    color: white;
-    font-weight: 700;
-    font-size: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    width: auto !important;
-    padding: 0.5rem !important;
-}
-
-.barra-verde {
-    background-color: #4caf50;
-    width: 97%;
-}
-
-.barra-verde-med {
-    background-color: #66bb6a;
-    width: 85%;
-}
-
-.barra-verde-claro {
-    background-color: #81c784;
-    width: 76%;
-}
-
-.barra-vermelha {
-    background-color: #f44336;
-    width: 37%;
-}
-
-.barra-amarela {
-    background-color: #ffc107;
-    width: 50%;
-    color: #333;
-}
-
-/* Botão de Ações (Lixeira) */
 td:last-child {
     text-align: center;
 }
 
-/* ===== ESTILOS DO MODAL DE EXCLUSÃO (SEM JS) ===== */
+/* Links na tabela */
+.table-link {
+    color: #475569;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.row-link:hover .table-link {
+    color: #1e293b;
+}
+
+/* Barra de desempenho */
+.barra-desempenho {
+    height: 1.8rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 4rem;
+}
+
+.barra-verde {
+    background-color: #22c55e;
+}
+
+.barra-verde-med {
+    background-color: #4ade80;
+}
+
+.barra-verde-claro {
+    background-color: #86efac;
+}
+
+.barra-amarela {
+    background-color: #fbbf24;
+    color: #92400e;
+}
+
+.barra-vermelha {
+    background-color: #ef4444;
+}
+
+/* ===== MODAL DE EXCLUSÃO ===== */
 .menu-lixeira {
     display: none;
 }
@@ -267,10 +328,11 @@ td:last-child {
     z-index: 9999;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(4px);
 }
 
-/* Quando o checkbox estiver marcado, mostra o modal */
-.menu-lixeira:checked~.modal-overlay {
+.menu-lixeira:checked + .modal-overlay,
+.menu-lixeira:checked ~ .modal-overlay {
     display: flex;
 }
 
@@ -280,9 +342,20 @@ td:last-child {
     padding: 2.5rem;
     width: 90%;
     max-width: 500px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
-    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .menu-lixo-icone {
@@ -294,7 +367,7 @@ td:last-child {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+    box-shadow: 0 4px 15px rgba(52, 116, 205, 0.3);
 }
 
 .menu-lixo-icone img {
@@ -316,7 +389,7 @@ td:last-child {
     color: #64748b;
     font-size: 0.95rem;
     margin-bottom: 2rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .menu-lixo .info-item {
@@ -356,11 +429,10 @@ td:last-child {
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
     font-family: 'Montserrat', sans-serif;
     flex: 1;
     text-align: center;
-    display: block;
 }
 
 .btn-cancelar {
@@ -376,183 +448,89 @@ td:last-child {
 .btn-excluir {
     background-color: #2067ca;
     color: white;
-    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+    box-shadow: 0 4px 15px rgba(32, 103, 202, 0.3);
 }
 
 .btn-excluir:hover {
+    background-color: #1557b0;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(72, 69, 221, 0.3);
+    box-shadow: 0 6px 20px rgba(32, 103, 202, 0.4);
 }
 
-/* Estilo do botão lixeira na tabela */
+/* Ícone lixeira */
 .icone-lixeira {
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 0.3rem;
-    transition: all 0.3s;
-    display: inline-block;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icone-lixeira:hover {
-    background: #d9d7e2;
+    background: #f1f5f9;
     transform: scale(1.1);
 }
 
 .icone-lixeira img {
     width: 1.3rem;
     height: 1.3rem;
-    display: block;
-}
-
-/* --- PAGINAÇÃO --- */
-.paginacao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    margin-top: 1rem;
-}
-
-.paginacao button {
-    padding: 0.5rem 0.8rem;
-    border: 1px solid #e2e8f0;
-    background: white;
-    border-radius: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.paginacao button:hover {
-    background: #3474cd;
-    color: white;
-    border-color: #3474cd;
-}
-
-.paginacao button.ativo {
-    background: #3474cd;
-    color: white;
-    border-color: #3474cd;
 }
 
 /* ===== RESPONSIVIDADE ===== */
 
-/* ===== IPAD GALAXI */
-@media (max-width: 1340px) and (max-height:800px) {
-    .busca-relatorios {
-        width: 20vw;
-        font-size: 1vw;
-        box-sizing: border-box;
-
+/* iPad / Tablets */
+@media (max-width: 1340px) {
+    header {
+        padding: 1rem 1.5rem;
     }
 
-    .busca-relatorios input::placeholder {
-        font-size: 1vw;
+    .container-tabela {
+        margin: 0 1.5rem;
     }
 
     .busca-filtros {
-        width: 20vw;
-        font-size: 1vw;
+        gap: 0.5rem;
     }
 
-    #periodo {
-        font-size: 1vw;
-        width: 8vw;
-    }
-
-    #categorias {
-        width: 14vw;
-        font-size: 1vw;
-    }
-
-    #prioridade {
-        width: 8vw;
-        font-size: 1vw;
-
-    }
-
-    form label {
-        width: 15vw;
-    }
-
-    .btn-apagar-todos {
-        font-size: 0.9vw;
-
-    }
-
-    #icone-buscar {
-        padding-right: 80%;
+    .busca-relatorios {
+        width: 14rem;
     }
 }
 
-@media (max-height:1340px) and (max-width: 830px) {
-    .painel {
-        height: 75vh;
-    }
-
+/* Tablets pequenos */
+@media (max-width: 830px) {
     .painel-principal {
-        display: block;
+        flex-direction: column;
     }
 
     header {
+        flex-direction: column;
+        align-items: flex-start;
         padding: 1rem;
         gap: 1rem;
-        display: flex;
-        margin-bottom: 5vh;
-    }
-
-    .busca-relatorios {
-        width: 1vw;
-        font-size: 1vw;
-        box-sizing: border-box;
-
-    }
-
-    .busca-relatorios input::placeholder {
-        font-size: 2.5vw;
-    }
-
-    #periodo {
-        font-size: 2.5vw;
-        width: 30vw;
-    }
-
-    #categorias {
-        width: 40vw;
-        font-size: 2.5vw;
-    }
-
-    #prioridade {
-        width: 40vw;
-        font-size: 2.5vw;
-    }
-
-    form label {
-        width: 12vw;
-    }
-
-    .btn-apagar-todos {
-        font-size: 2.5vw;
     }
 
     .busca-filtros {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        order: 0;
-        width: 1rem;
+        width: 100%;
+        flex-wrap: wrap;
     }
 
     .busca-relatorios {
-        width: 83%;
+        width: 100%;
     }
 
-    .busca-relatorios input {
-        width: 29vw;
-        font-size: 0.8vw;
+    .busca-filtros select {
+        flex: 1;
+        min-width: calc(50% - 0.5rem);
+    }
+
+    #apagarTodos,
+    .btn-add {
+        width: 100%;
     }
 
     .container-tabela {
@@ -561,52 +539,66 @@ td:last-child {
     }
 
     table {
-        min-width: 80rem;
-    }
-
-    .area-conteudo {
-        height: auto;
+        min-width: 800px;
     }
 
     .area-icones {
-        padding-bottom: 8vh;
+        width: 100%;
+        justify-content: flex-end;
     }
 }
 
-/* Responsividade adicional para telas menores */
+/* Mobile */
 @media (max-width: 480px) {
+    header {
+        padding: 0.75rem;
+    }
+
     .busca-filtros {
-        display: block;        
-        width: 1rem;
+        flex-direction: column;
+        width: 100%;
     }
+
+    .busca-filtros select {
+        width: 100%;
+        min-width: 100%;
+    }
+
     .busca-relatorios {
-        width: 1vw;
-        font-size: 1vw;
-        box-sizing: border-box;
-    }
-    input{
-        margin-bottom: 2rem;
-    }
-    #periodo {
-        font-size: 2.5vw;
-        width: 50vw;
+        width: 100%;
     }
 
-    #categorias {
-        width: 50vw;
-        font-size: 2.5vw;
+    #apagarTodos,
+    .btn-add {
+        padding: 0.5rem;
+        font-size: 0.8rem;
     }
 
-    #prioridade {
-        width: 50vw;
-        font-size: 2.5vw;
+    .container-tabela {
+        margin: 0 0.5rem;
     }
 
-    form label {
-        width: 12vw;
+    th,
+    td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.8rem;
     }
 
-    .btn-apagar-todos {
-        font-size: 2.5vw;
+    .menu-lixo {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .menu-lixo h1 {
+        font-size: 1.2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons label,
+    .buttons button {
+        width: 100%;
     }
 }

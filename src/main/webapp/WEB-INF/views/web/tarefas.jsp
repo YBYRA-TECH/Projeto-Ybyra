@@ -56,7 +56,7 @@
                     <div class="titulo-status">
                         <h3>Não Iniciada</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
-                        <label for="modal-apagar-todos-1" class="btn-apagar-todos">Apagar Todos</label>
+                        <label for="modal-apagar-todos-1" id="apagarTodos">Apagar Todos</label>
                     </div>
 
                     <!-- CHECKBOX E MODAL APAGAR TODOS -->
@@ -188,7 +188,7 @@
                     <div class="titulo-status">
                         <h3>Em Andamento</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
-                        <label for="modal-apagar-todos-2" class="btn-apagar-todos">Apagar Todos</label>
+                        <label for="modal-apagar-todos-2" id="apagarTodos">Apagar Todos</label>
                     </div>
 
                     <!-- CHECKBOX E MODAL APAGAR TODOS -->
@@ -323,7 +323,7 @@
                     <div class="titulo-status">
                         <h3>Concluídas</h3>
                         <!-- BOTÃO APAGAR TODOS COM MODAL -->
-                        <label for="modal-apagar-todos-3" class="btn-apagar-todos">Apagar Todos</label>
+                        <label for="modal-apagar-todos-3" id="apagarTodos">Apagar Todos</label>
                     </div>
 
                     <!-- CHECKBOX E MODAL APAGAR TODOS -->

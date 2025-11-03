@@ -99,7 +99,7 @@
 
                     <div class="area-botoes">
                         <button type="submit" class="btn-enviar">Salvar Alterações</button>
-                        <a href="<%= request.getContextPath() %>/pagina?nome=perfil" class="btn-cancelar">
+                        <a href="<%= request.getContextPath() %>/pagina?nome=alterarPerfil" class="btn-cancelar">
                             Cancelar
                         </a>
                     </div>
