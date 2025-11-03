@@ -11,27 +11,30 @@ public class ConexaoBD {
     private Connection conn;
 
 
+    private static final Dotenv dotenv = Dotenv.configure()
+            .directory("./")
+            .ignoreIfMissing()
+            .load();
 
     public Connection conectar() throws SQLException {
-        Connection conn = null;
-        try{
+        try {
             Class.forName("org.postgresql.Driver");
 
-            String url = System.getenv("DB_URL");
-            String user = System.getenv("DB_USER");
-            String password = System.getenv("DB_PASSWORD");
-
-            conn = DriverManager.getConnection(url, user, password);
+            String url = dotenv.get("DB_URL");
+            String user = dotenv.get("DB_USER");
+            String password = dotenv.get("DB_PASSWORD");
 
             if (url == null || user == null || password == null) {
-                throw new SQLException("Variáveis de ambiente não configuradas!");}
+                throw new SQLException("Variáveis de ambiente não configuradas!");
+            }
 
-        return DriverManager.getConnection(url, user, password);
-        }catch (SQLException | ClassNotFoundException e){
+            return DriverManager.getConnection(url, user, password);
+
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        }finally {
-            return conn;
-        }}
+            throw new SQLException("Erro ao conectar ao banco de dados", e);
+        }
+    }
 
 
     public void desconectar(Connection conn) {
