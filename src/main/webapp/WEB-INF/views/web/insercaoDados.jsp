@@ -69,7 +69,6 @@
                 </label>
             </div>
 
-            <!-- Modal de confirmação -->
             <input type="checkbox" class="menu-lixeira" id="<%= modalId %>" />
             <div class="modal-overlay">
                 <div class="menu-lixo">

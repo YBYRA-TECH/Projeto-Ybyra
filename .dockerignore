@@ -1,0 +1,10 @@
+target/
+out/
+.git/
+.idea/
+*.iml
+*.log
+**/SESSIONS.ser
+.env
+.env.*
+**/node_modules/

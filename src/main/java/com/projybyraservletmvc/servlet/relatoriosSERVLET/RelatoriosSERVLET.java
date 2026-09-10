@@ -2,7 +2,6 @@ package com.projybyraservletmvc.servlet.relatoriosSERVLET;
 
 
 import com.projybyraservletmvc.dao.RelatoriosDAO;
-import com.projybyraservletmvc.dao.UsuarioDAO;
 import com.projybyraservletmvc.model.Relatorios;
 import com.projybyraservletmvc.model.Usuario;
 import jakarta.servlet.annotation.WebServlet;
