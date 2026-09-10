@@ -1,5 +1,6 @@
 package com.projybyraservletmvc.model;
 
+//Usamos esta classe apenas para dataload, pseudonimizacao e anonimizacao
 public class Telefone {
 
     //ATRIBUTOS
@@ -8,7 +9,7 @@ public class Telefone {
     private String tipo;
     private int idUsuario;
 
-    //CONSTRUTOR
+    //CONSTRUTORES
 
     public Telefone(int idTel, String numero, String tipo, int idUser){
         this.idTelefone = idTel;

@@ -1,6 +1,5 @@
 package com.projybyraservletmvc.model;
 
-
 public class Industria {
     //ATRIBUTOS
     private int idIndustria;
@@ -8,11 +7,8 @@ public class Industria {
     private String email;
     private String cnpj;
     private String senha;
-    private String endereco;
 
-    //CONSTRUTOR
-
-
+    //CONSTRUTORES
     public Industria(String nome, String cnpj, String email, String senha) {
         this.nome = nome;
         this.cnpj = cnpj;
@@ -20,13 +16,19 @@ public class Industria {
         this.senha = senha;
     }
 
-    public Industria(int idIndustria,String nome, String cnpj, String email, String senha) {
+    public Industria(int idIndustria, String nome, String cnpj, String email, String senha) {
         this.nome = nome;
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
-        this.idIndustria =idIndustria;
+        this.idIndustria = idIndustria;
     }
+    public Industria() {
+
+    }
+    public Industria(String nome) {
+        this.nome = nome;}
+
 
     // GETTERS E SETTERS
     public int getIdIndustria() {
@@ -53,15 +55,13 @@ public class Industria {
     public String getCnpj() {
         return cnpj;
     }
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+
+    public String getSenha() {
+        return senha;
     }
-
-    public String getSenha() {return senha;}
-    public void setSenha(String senha) {this.senha = senha;}
-
-    public String getEndereco(){return endereco;}
-    public void setEndereco(String endereco){this.endereco = endereco;}
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     //TOSTRING
     @Override
@@ -74,6 +74,4 @@ public class Industria {
                 ",\t senha='" + senha + '\'' +
                 "}\n";
     }
-
-
 }

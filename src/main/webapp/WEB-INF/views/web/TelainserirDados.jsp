@@ -1,0 +1,88 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="<%= request.getContextPath() %>/assets/imgs/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/globalApp.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/TelaInserirDados.css" />
+    <title>YBYRA TECH</title>
+</head>
+
+<body>
+<div class="painel-principal">
+
+    <% request.setAttribute("paginaAtual", "insercaoDados");%>
+
+    <jsp:include page="../includes/aside.jsp"/>
+
+
+    <main class="area-conteudo">
+        <div class="conteudo-principal-header">
+            <div class="area">
+                <a href="<%= request.getContextPath() %>/pagina?nome=insercaoDados">
+                    <img src="<%= request.getContextPath() %>/assets/imgs/voltar.png" alt="voltar" id="voltar">
+                </a>
+            </div>
+        </div>
+
+        <section class="detalhes-upload-painel">
+
+            <h2 class="titulo-secao">Arquivo escolhido</h2>
+
+            <div class="arquivo-preview">
+                <img src="<%= request.getContextPath() %>/assets/imgs/imagem_modelo_arquivo.jpg" alt="Pré-visualização do Controle de Produção" class="preview-img">
+            </div>
+
+            <form action="<%= request.getContextPath() %>/InsercaoDados" method="post">
+                <div class="formulario-detalhes">
+
+                    <div class="area-detalhes">
+                        <h3 class="subtitulo-secao">Detalhes</h3>
+
+                        <div class="campo">
+                            <label for="nome-arquivo">Nome do arquivo</label>
+                            <input type="text" id="nome-arquivo" name="nome" value="" placeholder="Digite o nome do arquivo">
+                        </div>
+
+                        <div class="campo">
+                            <label for="titulo">Título</label>
+                            <input type="text" id="titulo" name="titulo" value="" placeholder="Digite o titulo">
+                        </div>
+
+                        <div class="campo">
+                            <select name="turno" id="titulo" title="Período">
+                                <option value="" disabled selected hidden>Período</option>
+                                <option value="Manha">Manhã</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noite">Noite</option>
+                            </select>
+                        </div>
+
+
+                        <div class="campo">
+                            <label for="categoria">Categoria</label>
+                            <input type="text" id="categoria" name="area" value="" placeholder="Digite a categoria">
+                        </div>
+                    </div>
+
+                    <div class="area-descricao">
+                        <h3 class="subtitulo-secao">Descrição</h3>
+                        <h3 style="opacity: 0;">Espaço</h3>
+                        <textarea name="descricao" class="texto-descricao" placeholder="coloque aqui a descrição do arquivo"></textarea>
+
+                        <input type="hidden" name="pdf" value="<%= session.getAttribute("arquivoNome") != null ? session.getAttribute("arquivoNome") : "" %>">
+
+                        <button type="submit" class="btn-enviar">Enviar Arquivo</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+
+</body>
+
+</html>

@@ -6,28 +6,38 @@ import java.sql.SQLException;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
+//CLASSE DE CONEXAO E DESCONEXAO COM O BANCO
 public class ConexaoBD {
     private Connection conn;
-    private static final Dotenv dotenv = Dotenv.load();
 
-    // CONECTANDO COM O BANCO DE DADOS
-    public Connection conectar() {
+
+
+    private static final Dotenv dotenv = Dotenv.configure()
+            .directory("./")
+            .ignoreIfMissing()
+            .load();
+
+    public Connection conectar() throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
-            this.conn = DriverManager.getConnection(
-                    dotenv.get("DB_URL"),
-                    dotenv.get("DB_USER"),
-                    dotenv.get("DB_PASSWORD")
-            );
-            System.out.println("Conexão com o banco foi bem-sucedida");
-        } catch (Exception e) {
-            System.err.println("Erro ao conectar com o banco de dados:");
+
+            String url = dotenv.get("DB_URL");
+            String user = dotenv.get("DB_USER");
+            String password = dotenv.get("DB_PASSWORD");
+
+            if (url == null || user == null || password == null) {
+                throw new SQLException("Variáveis de ambiente não configuradas!");
+            }
+
+            return DriverManager.getConnection(url, user, password);
+
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            throw new SQLException("Erro ao conectar ao banco de dados", e);
         }
-        return this.conn;
     }
 
-    // DESCONECTANDO DO BANCO DE DADOS
+
     public void desconectar(Connection conn) {
         try {
             if (conn != null && !conn.isClosed()) {

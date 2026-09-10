@@ -1,0 +1,257 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@400;700&display=swap");
+
+/* ===== RESET GERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(to right, #CCF6FF, #192083);
+}
+
+.painel-principal {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+#voltar {
+    rotate: 180deg;
+}
+
+.conteudo-principal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 0.5%;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: #365576;
+}
+
+.area-titulo-pagina {
+    width: 100%;
+    text-align: center;
+}
+
+/* ===== MENSAGENS ===== */
+.mensagem-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.mensagem-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+/* ===== FORMULÁRIO ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formulario-detalhes {
+    width: 100%;
+}
+
+.area-detalhes {
+    margin-bottom: 2rem;
+}
+
+.subtitulo-secao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #365576;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ===== CAMPOS ===== */
+.detalhes-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+}
+
+.campo {
+    margin-bottom: 1.5rem;
+}
+
+.campo label {
+    font-family: 'Geologica', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.campo input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 1rem;
+    font-family: 'Geologica', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: #3474cd;
+}
+
+.campo input[type="date"] {
+    color: #555;
+}
+
+.campo-ajuda {
+    display: block;
+    font-family: 'Geologica', sans-serif;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.25rem;
+}
+
+/* ===== BOTÕES ===== */
+.area-botoes {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.btn-enviar {
+    background-color: #3474cd;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-enviar:hover {
+    background-color: #192083;
+}
+
+.btn-cancelar {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-cancelar:hover {
+    background-color: #5a6268;
+}
+
+/* ===== NOTIFICAÇÕES ===== */
+.area-icones {
+    right: 4%;
+}
+
+#notificacoes {
+    right: 2%;
+}
+
+#notificacoes h1 {
+    color: black;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 840px) {
+    .painel-principal {
+        display: block;
+    }
+
+    .area-conteudo {
+        height: auto;
+    }
+
+    .conteudo-principal-header {
+        margin-bottom: 3rem;
+    }
+
+    .area-titulo-pagina {
+        text-align: left;
+    }
+
+    .subtitulo-secao {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .detalhes-campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .campo input {
+        font-size: 0.95rem;
+    }
+
+    .area-botoes {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .btn-enviar,
+    .btn-cancelar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .subtitulo-secao {
+        font-size: 1.2rem;
+    }
+
+    .campo label {
+        font-size: 0.95rem;
+    }
+
+    .campo input {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+}

@@ -12,12 +12,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//CLASSE COM METODOS CRUD PARA INDUSTRIA
+
 public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Industria>{
-    
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
 
 
     @Override
@@ -27,11 +23,11 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         try{
             conn = conexao.conectar();
 
-            String sql = "INSERT INTO industria(nome, endereco, cnpj, senha) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO industria(nome, email, cnpj, senha) VALUES (?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, industria.getNome());
-            pstmt.setString(2, industria.getEndereco());
+            pstmt.setString(2, industria.getEmail());
             pstmt.setString(3, industria.getCnpj());
             pstmt.setString(4, industria.getSenha());
 
@@ -52,15 +48,14 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
         try {
-            String sql = "UPDATE industria SET nome = ?, endereco = ?, cnpj = ?, senha = ? WHERE id_industria = ?";
+            String sql = "UPDATE industria SET nome = ?, email = ?,senha = ? WHERE id_industria = ?";
             conn = conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, industria.getNome());
-            stmt.setString(2, industria.getEndereco());
-            stmt.setString(3, industria.getCnpj());
+            stmt.setString(2, industria.getEmail());
+            stmt.setString(3, industria.getSenha());
             stmt.setInt(4, industria.getIdIndustria());
-            stmt.setString(5, industria.getSenha());
 
             if (stmt.executeUpdate() > 0) return true;
             return false;
@@ -158,6 +153,8 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
                         rs.getString("senha")
                 );
 
+                industria.setIdIndustria(rs.getInt("id_industria"));
+
                 return industria;
             } else {
                 System.out.println("Usuário não encontrado ou senha incorreta");
@@ -168,9 +165,62 @@ public class IndustriaDAO implements GenericDAO<Industria>, IIndustriaDAO<Indust
             e.printStackTrace();
         } finally {
             conexaoBD.desconectar(conn);
-
-            }
+        }
         return null;
     }
 
+    @Override
+    public int buscarID(String nomeIndustria) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+            String sql = "SELECT id_industria FROM industria WHERE nome = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, nomeIndustria);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("id_industria");
+            }
+            return 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            conexao.desconectar(conn);
+        }
+    }
+
+    @Override
+    public Industria buscarPorID(int id_industria) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            conn = conexao.conectar();
+
+            String sql = "SELECT * FROM industria WHERE id_industria = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_industria);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                Industria industria = new Industria(
+                        rs.getString("nome"),
+                        rs.getString("cnpj"),
+                        rs.getString("email"),
+                        rs.getString("senha")
+                );
+                industria.setIdIndustria(rs.getInt("id_industria"));
+
+                return industria;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return null;
+    }
 }

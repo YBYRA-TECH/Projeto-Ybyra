@@ -12,8 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//CLASSE COM METODOS CRUD PARA TELEFONE
+//METODOS CRUD PARA A TABELA TELEFONE
 public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone> {
+
 
     @Override
     public boolean inserir(Telefone telefone){
@@ -41,6 +42,7 @@ public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone>
             conexao.desconectar(conn);
         }
     }
+
 
     @Override
     public List<Telefone> buscar() {
@@ -100,6 +102,7 @@ public class TelefoneDAO implements GenericDAO<Telefone>, ITelefoneDAO<Telefone>
             conexao.desconectar(conn);
         }
     }
+
 
     @Override
     public int deletar(String numero) {

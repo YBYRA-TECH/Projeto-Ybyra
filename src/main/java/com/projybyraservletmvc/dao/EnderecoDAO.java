@@ -12,7 +12,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//CLASSE COM METODOS CRUD PARA ENDERECO
 public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>{
 
 
@@ -112,7 +111,6 @@ public class EnderecoDAO implements GenericDAO<Endereco>, IEnderecoDAO<Endereco>
             conexao.desconectar(conn);
         }
     }
-
 
     @Override
     public int deletar(int idEndereco){

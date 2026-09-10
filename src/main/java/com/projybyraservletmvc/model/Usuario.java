@@ -1,6 +1,7 @@
 package com.projybyraservletmvc.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Usuario {
 
@@ -9,26 +10,47 @@ public class Usuario {
     private String email;
     private String cpf;
     private String nome;
-    private Date dataCadastro;
-    private Date dataNascimento;
-    private Date dataValidade;
+    private String senha;
+    private LocalDate dataCadastro;
+    private LocalDate dataNascimento;
     private int idIndustria;
-    private int tempoTrabalho;
 
-    //CONSTRUTOR
+    //CONSTRUTORES
 
-    public Usuario(int idUsuario, String email, String cpf, String nome, Date dataCadastro,
-                   Date dataNascimento, Date dataValidade, int idIndustria, int tempoTrabalho) {
+    public Usuario(int idUsuario, String email, String cpf, String nome, LocalDate dataCadastro,
+                   LocalDate dataNascimento, int idIndustria) {
         this.idUsuario = idUsuario;
         this.email = email;
         this.cpf = cpf;
         this.nome = nome;
         this.dataCadastro = dataCadastro;
         this.dataNascimento = dataNascimento;
-        this.dataValidade = dataValidade;
         this.idIndustria = idIndustria;
-        this.tempoTrabalho = tempoTrabalho;
     }
+
+    public Usuario(String email, String cpf, String nome,
+                   LocalDate dataNascimento, String senha, int idIndustria) {
+        this.email = email;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+        this.idIndustria = idIndustria;
+    }
+
+    public Usuario(String email, String nome, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
+
+    public Usuario(int idUsuario, String nome) {
+        this.nome = nome;
+        this.idUsuario = idUsuario;
+    }
+
+    public Usuario() {}
 
     // GETTERS E SETTERS
     public int getIdUsuario() {
@@ -59,25 +81,18 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Date getDataCadastro() {
+    public LocalDate getDataCadastro() {
         return dataCadastro;
     }
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public Date getDataValidade() {
-        return dataValidade;
-    }
-    public void setDataValidade(Date dataValidade) {
-        this.dataValidade = dataValidade;
     }
 
     public int getIdIndustria() {
@@ -87,11 +102,11 @@ public class Usuario {
         this.idIndustria = idIndustria;
     }
 
-    public int getTempoTrabalho() {
-        return tempoTrabalho;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-    public void setTempoTrabalho(int tempoTrabalho) {
-        this.tempoTrabalho = tempoTrabalho;
+    public String getSenha() {
+        return senha;
     }
 
     //TOSTRING
@@ -104,9 +119,8 @@ public class Usuario {
                 ",\tnome='" + nome + '\'' +
                 ",\tdataCadastro=" + dataCadastro +
                 ",\tdataNascimento=" + dataNascimento +
-                ",\tdataValidade=" + dataValidade +
                 ",\tidIndustria=" + idIndustria +
-                ",\ttempoTrabalho=" + tempoTrabalho +
                 "}\n";
     }
+
 }

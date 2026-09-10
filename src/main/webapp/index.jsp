@@ -6,29 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="shortcut icon"
-            href="./imgs/Nova logo Sem tech.png"
-            type="image/x-icon"
-    />
-    <link rel="stylesheet" href="style.css" />
+            href="<%= request.getContextPath() %>/assets/imgs/icon.png"
+            type="image/x-icon"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/global.css?<%=System.currentTimeMillis()%>">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/style.css?<%=System.currentTimeMillis()%>">
     <title>YBYRA TECH</title>
 </head>
 <body>
-<header>
-    <img
-            src="./imgs/Nova logo.png"
-            alt="Logo Ybyra Tech"
-            style="width: 8.125rem;"
-    />
-    <a href="#sec3">Conheça o App</a>
-    <a href="./cadastro.html">Cadastre-se</a>
-    <button>
-        <p>
-            <a href="./login.html" style="color: aliceblue; font-size: 1rem"
-            >Acesse a sua conta</a
-            >
-        </p>
-    </button>
-</header>
+<jsp:include page="/WEB-INF/views/includes/header.jsp" />
 
 <main>
     <section class="sec_intro">
@@ -41,13 +26,12 @@
                 EVOLUA.
             </h1>
             <br />
-            <a href="#sec_sobre" style="color: aliceblue"> Conheça a YBYRA Tech! →</a>
+            <a href="#sec_sobre">Conheça a YBYRA Tech! →</a>
         </div>
         <div id="imagem_intro">
             <img
-                    src="./imgs/Dois celulare 1Pa.png"
+                    src="<%= request.getContextPath() %>/assets/imgs/Dois_celulares.png"
                     alt="Dois celulares mostrando o aplicativo"
-                    style="width: 31.25rem; max-width: 90vw; height: auto"
             />
         </div>
     </section>
@@ -64,7 +48,6 @@
                     Quando se está por dentro do que seu trabalho gera, você tende a
                     ter gosto pelo que faz.
                 </p>
-                <a class="link_cartao" href="#">Veja Mais →</a>
             </div>
         </div>
         <div>
@@ -75,7 +58,6 @@
                     Nosso App ajuda você a ter uma visão abrangente de toda a
                     produção.
                 </p>
-                <a class="link_cartao" href="#">Saiba Mais →</a>
             </div>
         </div>
         <div>
@@ -88,7 +70,6 @@
                     Adicione mais um integrante ao seu brainstorming, a MelhoraAI te
                     ajuda a encontrar soluções para seus problemas!
                 </p>
-                <a class="link_cartao" href="#">Conheça já →</a>
             </div>
         </div>
     </section>
@@ -103,25 +84,12 @@
 
                 <div class="slides">
                     <div class="slide" data-step="1">
-                        <img src="./imgs/Escaneia.png" alt="Escaneie a informação" />
+                        <img src="<%= request.getContextPath() %>/assets/imgs/Escaneia.png" alt="Escaneie a informação" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
                                 1 -
-                                <span
-                                        style="
-                        background: linear-gradient(
-                          to right,
-                          #5cdffb,
-                          #3389ee,
-                          #164de5
-                        );
-                        background-clip: text;
-                        color: transparent;
-                      "
-                                >
-                      Escaneie
-                    </span>
+                                <span id="span1">Escaneie</span>
                                 a informação desejada
                             </h2>
                             <p>
@@ -132,20 +100,12 @@
                     </div>
 
                     <div class="slide" data-step="2">
-                        <img src="./imgs/Relatorios.png" alt="Relatórios" />
+                        <img src="<%= request.getContextPath() %>/assets/imgs/Relatorios.png" alt="Relatórios" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
                                 2 - Uma lista com todos os
-                                <span
-                                        style="
-                        background: linear-gradient(to right, #174ee5, #5cdffb);
-                        background-clip: text;
-                        color: transparent;
-                      "
-                                >
-                      índices analisados
-                    </span>
+                                <span id="span2">índices analisados</span>
                             </h2>
                             <p>
                                 Deixa fácil a organização e visualização dos dados
@@ -155,20 +115,12 @@
                     </div>
 
                     <div class="slide" data-step="3">
-                        <img src="./imgs/planilhia.png" alt="Planilhas" />
+                        <img src="<%= request.getContextPath() %>/assets/imgs/planilhia.png" alt="Planilhas" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
                                 3 -
-                                <span
-                                        style="
-                        background: linear-gradient(to right, #1f89ef, #0346a7);
-                        background-clip: text;
-                        color: transparent;
-                      "
-                                >
-                      Resuma a planilha
-                    </span>
+                                <span id="span3">Resuma a planilha</span>
                                 em gráficos, e mais
                             </h2>
                             <p>
@@ -179,20 +131,12 @@
                     </div>
 
                     <div class="slide" data-step="4">
-                        <img src="./imgs/Melhora ai.png" alt="Melhora AI" />
+                        <img src="<%= request.getContextPath() %>/assets/imgs/Melhora_ai.png" alt="Melhora AI" />
                         <div class="slide-text">
                             <h1>Conheça o App</h1>
                             <h2>
                                 4 - Converse agora com
-                                <span
-                                        style="
-                        background: linear-gradient(to right, #0246a7, #5cdffb);
-                        background-clip: text;
-                        color: transparent;
-                      "
-                                >
-                      a nossa IA!
-                    </span>
+                                <span id="span4">a nossa IA!</span>
                             </h2>
                             <p>
                                 Adicione mais um integrante ao seu brainstorm com a
@@ -215,31 +159,28 @@
 
     <section id="sec4">
         <div class="texto">
-            <h1>Perguntas</h1>
-            <div class="textoP">
-                <p>Por que usar Ybyra Tech?</p>
-                <hr />
-                <p>Onde nos encontrar</p>
-                <hr />
-                <p>Funcionamento do Aplicativo</p>
-                <hr />
-                <p>Onde nos encontrar</p>
-                <hr />
-            </div>
+            <h1>Seja um Parceiro</h1>
+            <form action="<%=request.getContextPath()%>/enviarParceria" method="post">
+                <div class="inputs">
+                    <input type="email" placeholder="E-mail" name="email" required/>
+                    <input type="tel" placeholder="Número de telefone" name="telefone" required/>
+                    <input type="text" placeholder="Nome" name="nome" required/>
+                    <input type="text" placeholder="Tipo de industria" name="tipoIndustria" required />
+
+                    <div id="buttons">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <img
-                src="./imgs/dundo sec4.png"
-                alt=""
-                style="width: 50rem; max-width: 95vw; height: auto"
-                id="sec4Im"
-        />
+        <img src="<%= request.getContextPath() %>/assets/imgs/Fundo_sec4.png" alt="Imagem ilustrativa" id="sec4Im" />
     </section>
     <div id="imagem_decorativa"></div>
 
     <section id="sec_sobre">
         <h1 id="titulo_sobre">Sobre Nós</h1>
         <div id="cartoes_sobre">
-            <div class="card_sobre" style="background-color: white;background-image: url('./imgs/missao.png'); background-repeat: no-repeat; background-position: 0.5rem 22rem;background-size: 102%;">
+            <div class="card_sobre" id="card_sobre1">
                 <h1 class="titulo_card">Nossa Missão</h1>
                 <p>
                     Queremos impulsionar o processo produtivo industrial através de
@@ -251,7 +192,7 @@
                 </p>
             </div>
 
-            <div class="card_sobre" style="background-color: white;">
+            <div class="card_sobre" id="card_sobre2">
                 <h1 class="titulo_card">Quem Somos</h1>
                 <p>
                     Nossa Equipe é formada por 7 pessoas, alunos do curso de
@@ -264,7 +205,7 @@
                 </p>
             </div>
 
-            <div class="card_sobre" style="margin-right: 3.5rem;background-color: white;padding: 1.3rem;background-image: url('./imgs/valores.png'); background-repeat: no-repeat; background-position: 8.5rem 19rem;background-size: 70%;">
+            <div class="card_sobre" id="card_sobre3">
                 <h1 class="titulo_card">Nossos Valores</h1>
                 <p>
                     Prezamos pela simplicidade, um valor importantíssimo para uma

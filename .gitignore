@@ -1,7 +1,13 @@
+# Build directories
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+out/
+bin/
 
 ### IntelliJ IDEA ###
 .idea/
@@ -28,16 +34,38 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
 
 ### Mac OS ###
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 
-### .env ###
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+### Linux ###
+*~
+.directory
+.Trash-*
+
+### Arquivos de configuração sensíveis ###
 .env
+.env.local
+.env.*.local
+*.env
+
+### Tomcat ###
+.tomcat/
+tomcat/
+catalina.base_IS_UNDEFINED/
+SESSIONS.ser
 

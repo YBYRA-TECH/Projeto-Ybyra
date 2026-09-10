@@ -13,12 +13,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//CLASSE COM METODOS CRUD PARA RELATORIOS
+//METODOS CRUD PARA A TABELA RELATORIOS
 public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Relatorios> {
 
-    private Connection conn;
-    private Statement stmt;
-    private PreparedStatement pstmt;
+
     Relatorios relatorios = new Relatorios();
 
     @Override
@@ -27,11 +25,21 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
         Connection conn = null;
         try {
             conn = conexao.conectar();
-            String sql = ("INSERT INTO relatorios (data_criacao, pdf_documento, id_usuario) VALUES (?, ?, ?)");
+            String sql = ("INSERT INTO relatorios (nome, area, id_usuario, pdf_documento,descricao,turno,responsavel,id_industria) VALUES (?, ?, ?,?,?,?,?,?)");
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setDate(1, relatorios.getDataCriacao());
-            pstmt.setString(2, relatorios.getPdfDocumento());
+            pstmt.setString(1, relatorios.getNome());
+            pstmt.setString(2, relatorios.getArea());
             pstmt.setInt(3, relatorios.getIdUsuario());
+            pstmt.setString(4, relatorios.getPdfDocumento());
+            pstmt.setString(5, relatorios.getDescricao());
+            pstmt.setString(6, relatorios.getTurno());
+            pstmt.setString(7, relatorios.getResponsavel());
+            pstmt.setInt(8, relatorios.getId_industria());
+
+
+
+
+
 
             if(pstmt.executeUpdate()>0) {
                 return true;
@@ -83,7 +91,7 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                int idRelatorios = rs.getInt("id_relatorios");
+                int idRelatorios = rs.getInt("id_relatorio");
                 Date dataCriacao = rs.getDate("data_criacao");
                 String pdf = rs.getString("pdf_documento");
                 int idUser = rs.getInt("id_usuario");
@@ -101,26 +109,112 @@ public class RelatoriosDAO implements GenericDAO<Relatorios>, IRelatoriosDAO<Rel
         }
         return lista;
     }
-
-    @Override
-    public int deletar(int idRelatorios) {
+    public Relatorios buscar(int id_relatorio, int id_industria) {
         ConexaoBD conexao = new ConexaoBD();
         Connection conn = null;
+        try {
+            String sql = "SELECT * FROM relatorios WHERE id_relatorio = ? AND id_industria = ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, id_relatorio);
+            pstmt.setInt(2, id_industria);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int idRelatorios = rs.getInt("id_relatorio");
+                Date dataCriacao = rs.getDate("data_criacao");
+                String pdf = rs.getString("pdf_documento");
+                int idUser = rs.getInt("id_usuario");
+                int idInd = rs.getInt("id_industria");
+
+                Relatorios rel = new Relatorios(
+                        idRelatorios, dataCriacao, pdf, idUser
+                );
+                rel.setId_industria(idInd);
+                return rel;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+        }
+        return null;
+    }
+
+    // BUSCA OS RELATORIOS COM BASE NO ID INDUSTRIA
+
+    public List<Relatorios> buscar(int id_industria) {
+        List<Relatorios> lista = new ArrayList<>();
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        try {
+            String sql = "SELECT * FROM relatorios WHERE id_industria = ?";
+            conn = conexao.conectar();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1,id_industria);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Relatorios rel = new Relatorios();
+                rel.setIdRelatorios(rs.getInt("id_relatorio"));
+                rel.setNome(rs.getString("nome"));
+                rel.setArea(rs.getString("area"));
+                rel.setIdUsuario(rs.getInt("id_usuario"));
+                rel.setPdfDocumento(rs.getString("pdf_documento"));
+                rel.setDescricao(rs.getString("descricao"));
+                rel.setTurno(rs.getString("turno"));
+                rel.setResponsavel(rs.getString("responsavel"));
+                rel.setDataCriacao(rs.getDate("data_criacao"));
+
+                lista.add(rel);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            conexao.desconectar(conn);
+        }
+        return lista;
+    }
+
+
+    @Override
+    public int deletar(int id_relatorio) {
+        ConexaoBD conexao = new ConexaoBD();
+        Connection conn = null;
+        PreparedStatement stmtLote = null;
+        PreparedStatement stmtRelatorio = null;
 
         try {
             conn = conexao.conectar();
-            String sql = "DELETE FROM relatorios WHERE id_relatorios = ?";
 
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, idRelatorios);
+            // Deleta da tabela Lote
+            String sqlTabelaLote = "DELETE FROM lote WHERE id_relatorio = ?";
+            stmtLote = conn.prepareStatement(sqlTabelaLote);
+            stmtLote.setInt(1, id_relatorio);
+            stmtLote.executeUpdate();
 
-            if(pstmt.executeUpdate()>0){
+            // Deleta da tabela relatorio
+            String sqlRelatorio = "DELETE FROM relatorios WHERE id_relatorio = ?";
+            stmtRelatorio = conn.prepareStatement(sqlRelatorio);
+            stmtRelatorio.setInt(1, id_relatorio);
+            int linhasAfetadas = stmtRelatorio.executeUpdate();
+
+            System.out.println("Relatório " + id_relatorio + " deletado com sucesso!");
+
+            if (linhasAfetadas > 0) {
                 return 1;
-            }else{return 0;}
+            } else {
+                return 0;
+            }
+
         } catch (SQLException e) {
+            System.err.println("Erro ao deletar relatório: " + e.getMessage());
             e.printStackTrace();
             return -1;
-        }finally {
+        } finally {
             conexao.desconectar(conn);
         }
     }
